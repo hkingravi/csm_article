@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 SEP 2018 09:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 SEP 2018 09:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1226,7 +1226,7 @@ Package rerunfilecheck Info: File `gp_tutorial_main.out' has not changed.
 Here is how much of TeX's memory you used:
  24443 strings out of 493014
  476671 string characters out of 6133351
- 584383 words of memory out of 5000000
+ 584370 words of memory out of 5000000
  27489 multiletter control sequences out of 15000+600000
  32638 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1236,7 +1236,7 @@ exlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/urw/times/utmri8a.pfb>
-Output written on gp_tutorial_main.pdf (5 pages, 54091 bytes).
+Output written on gp_tutorial_main.pdf (5 pages, 54077 bytes).
 PDF statistics:
  70 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
