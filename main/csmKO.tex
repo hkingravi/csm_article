@@ -13,18 +13,12 @@
 \makeatother
 \verbatimfont{\ttfamily\small}
 \newcommand{\XX}[1]{{\bf \color{orange}{ XX #1 XX}}}
-\newcommand{\bi}{\begin{itemize}}\newcommand{\ei}{\end{itemize}}
-\newcommand{\be}{\begin{equation}}\newcommand{\ee}{\end{equation}}
-\newcommand{\bee}{\begin{enumerate}}\newcommand{\eee}{\end{enumerate}}
-\newcommand{\bea}{\begin{eqnarray}}\newcommand{\eea}{\end{eqnarray}}
-\newcommand{\beas}{\begin{eqnarray*}}\newcommand{\eeas}{\end{eqnarray*}}
-\newcommand{\bc}{\begin{center}}\newcommand{\ec}{\end{center}}
-\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+
 
 %
 \usepackage[left,pagewise]{lineno} 
 \usepackage[english]{babel} 
-\usepackage{blindtext}
+%\usepackage{blindtext}
 % added for CSMAG only
 
 \usepackage{etex}
@@ -58,7 +52,7 @@
 \renewcommand{\COMMENT}[2][.5\linewidth]{%
 	\leavevmode\hfill\makebox[#1][l]{//~#2}}
 
-\usepackage{subfigure}
+\usepackage{subfig}
 %\usepackage{subcaption}
 \usepackage{eqparbox}
 \renewcommand\algorithmiccomment[1]{%
@@ -72,7 +66,17 @@
  \usepackage{tikz}
  \usepackage{tikz-qtree}
  \usetikzlibrary{decorations.pathreplacing,calc}
- \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+ \usetikzlibrary{arrows}
+ \usetikzlibrary{positioning}
+ \usetikzlibrary{matrix}
+ 
+ % tikz macros for scaling etc. 
+ \newcommand{\yslant}{0}
+ \newcommand{\xslant}{0}
+ \newcommand{\diagscale}{0.35}
+ \newcommand{\diagtexttop}{0.51}
+ \newcommand{\diagtext}{0.45}
+
  
  \newcommand*{\AddNote}[4]{%
      \begin{tikzpicture}[overlay, remember picture]
@@ -104,23 +108,10 @@
 \crefname{equation}{}{}
 
 \usepackage{comment}
-
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 %\sethlcolor{LightGrey}
 
-\newtheorem{theorem}{Theorem}%[section]
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}{Conjecture}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{assumption}[theorem]{Assumption}
-%\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{finalremark}[theorem]{Final Remark}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{question}{Question}
 \usepackage[normalem]{ulem}
 
 \newcounter{JPH}
@@ -131,11 +122,7 @@
 \newenvironment{sidebartheorem}[1][]{\refstepcounter{sidebartheorem}\par\medskip \textit{Theorem~S\thesidebartheorem} #1:\rmfamily}{\medskip}
 \newcommand{\sidebarref}[1]{S\ref{#1}}
 
-\DeclareMathOperator*{\argmin}{arg\,min}
 
-%\hideX
-\input{macros}
-\input{inc_macros}
 \usepackage[nolists,tablesfirst,nomarkers]{endfloat}
  
 \title{Gaussian Processes for Learning and Control\\\Large Tutorial with examples}
@@ -145,8 +132,8 @@
 \ifPDF 
 %\usepackage[pdftex, plainpages = false, colorlinks=true, linkcolor=black, citecolor = green!50!blue, urlcolor = blue, filecolor=black, pagebackref=false, hypertexnames=false,  pdfpagelabels ]{hyperref}
 \fi
-
-
+\graphicspath{{figures/}}
+\input{inc_macros}
 \begin{document}
 \maketitle
 \CSMsetup
@@ -154,8 +141,9 @@
 
 %\bX{Notation suggestion: bold uppercase for matrices; non-bold uppercase for sets; bold lowercase for vectors, non-bold lowercase for scalars}
 
-\cite{Kingravi16_NIPS}
-
+\input{sec_introduction}
+\input{sec_relatedwork}
+\input{sec_formulation}
 
 
    
@@ -175,7 +163,7 @@
 %\XX{many of hte references have ``gaussian'' rather than ``Gaussian''}
 \bibliographystyle{unsrt}
 %needs gp_tuotrial
-\bibliography{BIB/daslab_all,BIB/daslab_pubs}
+\bibliography{BIB/daslab_all,BIB/daslab_pubs,BIB/ACL_all,BIB/ACL_Publications}
 %\bibliography{acl_all,daslab_all,daslab_pubs,ACL_Publications}
 %\bibliography{gp_tutorial,./BIB_all/ACL_all,./BIB_all/ACL_Publications,./BIB_all/ACL_bef2000,./bibifiles/daslab_pubs,./bibifiles/daslab_all,./bibifiles/controls}
 
