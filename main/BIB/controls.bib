@@ -1,0 +1,2055 @@
+%%% $Header: /home/cvs/cvsroot/papers/controls.bib,v 1.73 2005/04/13 05:55:59 kannan Exp $
+%%%
+%%% STOP !!!!!! READ THIS FIRST
+%%% ---------------------------
+%%% Couple of easy rules
+%%%
+%%% 1)
+%%% The convention used for the key is ALWAYS for eg.,
+%%% primaryauthor:conference:year
+%%% primaryauthor:conference:month:year
+%%% Do not abbreviate the author's last name
+%%% See below for abbreviations of standard conferences
+%%%
+%%% 2)
+%%% The separator used is ALWAYS ':' the COLON
+%%% The file name for the ps or pdf or main tex source file is
+%%% primaryauthor_conference_year.[tex|pdf|ps]
+%%% primaryauthor_conference_author_year.[tex|pdf|ps]
+%%% Use whatever you used in the key to reflect the paper name
+%%%
+%%% 3)
+%%% Always add the keywords [anncontrol|sec|fiasco|h2hinf] to reflect
+%%% which project this papers was developed under and also add
+%%% keywords [fccf|uavrf] to reflect which laboratory it was
+%%% developed in. This is the only way to list papers by
+%%% project and lab using the search script.
+%%%
+%%%
+%%%
+%%% ====================================================================
+%%%  BibTeX-file{
+%%%     original-author = "Suresh K. Kannan"
+%%%     author          = "$Author: kannan $",
+%%%     date            = "$Date: 2005/04/13 05:55:59 $",
+%%%     filename        = "$Workfile: controls.bib$",
+%%%     url             = "ftp://controls.ae.gatech.edu/papers/$Workfile: controls.bib$",
+%%%     www-home        = "http://controls.ae.gatech.edu",
+%%%     address         = "270 Ferst Drive,
+%%%                        Department of Aerospace Engineering,
+%%%                        Georgia Institute of Technology,
+%%%                        Atlanta, GA 30332, USA",
+%%%     telephone       = "+1 404 894 8909",
+%%%     FAX             = "+1 404 894 8909",
+%%%     email           = "kannan at uav.ae.gatech.edu",
+%%%     dates           = {1960--},
+%%%     keywords        = "georgia tech, controls, aerospace",
+%%%     supported       = "yes",
+%%%     supported-by    = "Suresh Kannan",
+%%%     abstract        = "Bibliography for the Controls Group,
+%%%                        Aerospace Engineering,
+%%%                        Georgia Institute of Technology"
+%%%  }
+%%% ====================================================================
+
+
+%%% Abbreviations used for standard conferences
+%%% jgcd        = AIAA Journal of Guidance, Control, and Dynamics
+%%% gnc         = AIAA Guidance, Navigation, and Control Conference
+%%% msc         = AIAA Missile Sciences Conference
+%%% dac         = AIAA Digital Avionics Conference
+%%% wac         = AIAA/SAE World Aviation Congress
+%%% cca         = IEEE International Conference on Control Applications
+%%% cdc         = IEEE Conference on Decision and Control
+%%% acc         = The American Control Conference
+%%% ahs         = American Helicopter Society Annual Forum
+%%% csm         = IEEE Controls Systems Magazine
+%%% aphc        = International Aerospace Planes and Hypersonics Technologies Conference
+%%% iarc        = International Aerial Robotics Competition
+%%% erf         = European Rotorcraft Forum
+%%% mst         = AIAA Modeling and Simulation Technologies Conference
+%%% mcm         = Mathl. Comput. Modelling
+%%% iac         = IEEE Aerospace Conference
+%%% asme        = American Society of Mechanical Engineers ?
+%%% itac        = IEEE Transactions on Automatic Control
+%%% aes         = IEEE Transactions on Aerospace and Electronic Systems
+
+@string{author_to_be_indexed = "Anthony J. Calise"}
+@string{author_to_be_indexed = "J. V. R. Prasad"}
+@string{author_to_be_indexed = "Eric N. Johnson"}
+@string{author_to_be_indexed = "J. Eric Corban"}
+@string{author_to_be_indexed = "Hesham A. El-Shirbiny"}
+@string{author_to_be_indexed = "Naira Hovakimyan"}
+@string{author_to_be_indexed = "Jeong Hur"}
+@string{author_to_be_indexed = "Moshe Idan"}
+@string{author_to_be_indexed = "Matthew D. Johnson"}
+@string{author_to_be_indexed = "Aaron D. Kahn"}
+
+@string{author_to_be_indexed = "Suresh K. Kannan"}
+@string{author_to_be_indexed = "B. S. Kim"}
+@string{author_to_be_indexed = "Nakwan Kim"}
+@string{author_to_be_indexed = "Ali T. Kutay"}
+@string{author_to_be_indexed = "Hungu Lee"}
+@string{author_to_be_indexed = "Seungjae Lee"}
+@string{author_to_be_indexed = "A. M. Lipp"}
+@string{author_to_be_indexed = "Michael B. McFarland"}
+@string{author_to_be_indexed = "Jesse Leitner"}
+@string{author_to_be_indexed = "Christian Munzinger"}
+@string{author_to_be_indexed = "Flavio Nardi"}
+@string{author_to_be_indexed = "Yubo Pei"}
+@string{author_to_be_indexed = "Rolf T. Rysdyk"}
+@string{author_to_be_indexed = "Daniel P. Schrage"}
+@string{author_to_be_indexed = "Manu Sharma"}
+@string{author_to_be_indexed = "Mark S. Whorton"}
+@string{author_to_be_indexed = "Ilkay Yavrucuk"}
+@string{author_to_be_indexed = "Venkatesh Madyastha"}
+@string{author_to_be_indexed = "Bong-Jun Yang"}
+@string{author_to_be_indexed = "Sumit Mishra"}
+@string{author_to_be_indexed = "Joerg S. Dittrich"}
+@string{author_to_be_indexed = "Yoonghyun Shin"}
+@string{author_to_be_indexed = "Alison A. Proctor"}
+@string{author_to_be_indexed = "Shannon Twigg"}
+@string{author_to_be_indexed = "Ramachandra J. Sattigeri"}
+@string{author_to_be_indexed = "Adrian A. Koller"}
+@string{author_to_be_indexed = "Jincheol Ha"}
+@string{author_to_be_indexed = "Michael A. Turbe"}
+@string{author_to_be_indexed = "Yoko Watanabe"}
+
+@STRING{ years_directory = "year" }
+@STRING{ authors_directory = "author"}
+@STRING{ categories_directory = "category"}
+@STRING{ keywords_directory = "keyword"}
+@STRING{ biblio_directory = "biblio"}
+@STRING{ index_filename = "index.html"}
+@STRING{ index_file_title = "Flight Mechanics and Controls publications" }
+@STRING{ index_page_title = "Flight Mechanics and Controls publications" }
+
+@STRING{ index_names_per_row = 2 }
+@STRING{ index_cat_per_row = 2 }
+
+
+%%%STRING{ begin_of_title = <TABLE width=100%%><TR><TD height=30 bgcolor="#669999"  align=center FACE="Courier New,Courier"><font size=+2 color="#FFFFFF"> }
+%%%STRING{ end_of_title = </font></TD></TR></TABLE> }
+%%%STRING{ begin_of_subtitle = <TABLE width=100%%><TR><TD align=center valign=center bgcolor="#f1f1f1"><font size=+1> }
+%%%STRING{ end_of_subtitle = </font></TD></TR></TABLE> }
+
+%%%STRING{ page_body_desc = BGCOLOR="#FFFFFF" LINK=blue ALINK=blue VLINK=blue }
+%%%STRING{ page_font_desc = FACE="times" }
+
+@STRING{ index_names_length = 200 }
+@string{ default_write_disclaimer = 0 }
+
+@string{jacic = "AIAA Journal of Aerospace Computing, Information and Communication"}
+@string{jgcd = "AIAA Journal of Guidance, Control, and Dynamics"}
+@string{gnc  = "AIAA Guidance, Navigation and Control Conference"}
+@string{mcm  = "Mathematical and Computer Modelling"}
+@string{acc  = "American Control Conference"}
+@string{cdc  = "IEEE Conference on Decision and Control"}
+@string{ahs  = "American Helicopter Society Annual Forum"}
+@string{csm  = "IEEE Controls Systems Magazine"}
+@string{dasc = "AIAA Digital Avionics Conference"}
+@string{auto = "Automatica"}
+@string{itac = "IEEE Transactions on Automatic Control"}
+@string{itnn = "IEEE Transactions on Neural Networks"}
+@string{afm  = "AIAA Atmospheric Flight Mechanics Conference and Exhibit"}
+@string{mst  = "AIAA Modeling and Simulation Technology Conference"}
+@string{eesd = "Earthquake Engineering and Structural Dynamics"}
+@string{aes  = "IEEE Transactions on Aerospace and Electronic Systems"}
+@string{ijc  = "International Journal of Control"}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{hovakimyan:ijc:04,
+  author =       {Naira Hovakimyan and Anthony J. Calise and Nakwan Kim},
+  title =        {Adaptive output feedback control of a class of multi-input multi-output systems using neural networks},
+  booktitle =    ijc,
+  month = oct,
+  year =         {2004},
+  pdf =          {http://controls.ae.gatech.edu/papers/hovakimyan_ijc_04.pdf},
+  volume    = {77},
+  pages     = {1318-1329},
+  number    = {15},
+  keywords = {adaptive control, neural networks, multi-input multi-output}
+}
+
+
+@InProceedings{nakwan:acc:04,
+author = {Kim, N. and Calise, A.J. and Hovakimyan, N.},
+title = {Several Extensions in Methods for Adaptive Output
+Feedback Control},
+booktitle = acc,
+volume ={},
+number={},
+year = {2004},
+pages ={},
+  pdf =            {http://controls.ae.gatech.edu/papers/nakwan_acc_04.pdf},
+}
+
+@InProceedings{  nakwan:gnc:04,
+  author =       {Nakwan Kim and Anthony J. Calise and J. Eric Corban and J.V.R. Prasad },
+  title =        {Adaptive Output Feedback for Altitude Control of an Unmanned Helicopter Using Rotor RPM},
+  booktitle =    gnc,
+  month =       aug,
+  year =          {2004},
+  pdf =            {http://controls.ae.gatech.edu/papers/nakwan_gnc_04.pdf},
+  volume    =   {},
+  pages     =   {},
+  number    =  {},
+  keywords =  {}
+}
+
+
+@InProceedings{  calise:gnc:04,
+  author =       {Anthony J. Calise and Hesham A. El-Shirbiny and Nakwan Kim and Ali T. Kutay},
+  title =           {An Adaptive Guidance Approach for Spinning Projectiles},
+  booktitle =    gnc,
+  month =       aug,
+  year =          {2004},
+  pdf =            {http://controls.ae.gatech.edu/papers/calise_gnc_04.pdf},
+  volume    =   {},
+  pages     =   {},
+  number    =  {},
+  keywords =  {}
+}
+
+@InProceedings{  kutay:gnc:05,
+  author =       {Ali T. Kutay and Jeffrey M. Fowler and Anthony J. Calise and Raffaello D'Andrea},
+  title =           {Distributed Adaptive Output Feedback Control Design and Application to a Formation Flight Experiment},
+  booktitle =    gnc,
+  month =       aug,
+  year =          {2005},
+  pdf =            {http://controls.ae.gatech.edu/papers/kutay_gnc_05.pdf},
+  volume    =   {},
+  pages     =   {},
+  number    =  {},
+  keywords =  {}
+}
+
+
+@InProceedings{buschek:gnc:93,
+  author =       {Harald Buschek and Anthony J. Calise},
+  title =        {Robust Control of Hypersonic Vehicles considering
+                 Propulsive and Aeroelastic Effects},
+  booktitle =    gnc,
+  year =         1993,
+  postscript =   {http://controls.ae.gatech.edu/papers/buschek_gnc_93.ps},
+  pdf =          {http://controls.ae.gatech.edu/papers/buschek_gnc_93.pdf},
+  keywords =     {fiasco, hypersonic, robust control, aeroelastic, propulsive},
+}
+
+@InProceedings{lipp:mcm:93,
+  author    = {A. M. Lipp and J. V. R. Prasad},
+  title     = {Synthesis of a Helicopter Nonlinear Flight Controller
+              Using Approximate Model Inversion},
+  booktitle = mcm,
+  volume    = 18,
+  pages     = {89--100},
+  year      = {1993},
+  number    = {3-4},
+  month     = {August},
+  keywords  = {helicopter, model inversion}
+}
+
+
+@InProceedings{buschek:gnc:94,
+  author =       {Harald Buschek and Anthony J. Calise},
+  title =        {Fixed Order Robust Control Design for Hypersonic
+                 Vehicles},
+  booktitle =    gnc,
+  year =         1994,
+  postscript =   {http://controls.ae.gatech.edu/papers/buschek_gnc_94.ps},
+  pdf =          {http://controls.ae.gatech.edu/papers/buschek_gnc_94.pdf},
+  keywords =     {fiasco, hypersonic, robust control},
+}
+
+@InProceedings{whorton:gnc:94,
+  author =       {Mark S. Whorton and Harald Buschek and Anthony J. Calise},
+  title =        {Homotopy Algorithms for Fixed Order ${H}_2$\ and
+                 ${H}_{\infty}$\ design},
+  booktitle =    gnc,
+  year =         1994,
+  postscript =   {http://controls.ae.gatech.edu/papers/whorton_gnc_94.ps},
+  pdf =          {http://controls.ae.gatech.edu/papers/whorton_gnc_94.pdf},
+  keywords =     {fiasco, homotopy},
+}
+
+@InProceedings{buschek:aphc:95,
+  author =       "Harald Buschek and Anthony J. Calise",
+  title =        "Hypersonic Flight Control Design Using Fixed Order
+                 Robust Controllers",
+  booktitle =    "Sixth International Aerospace Planes and Hypersonics
+                 Technologies Conference",
+  year =         1995,
+  postscript =   "http://controls.ae.gatech.edu/papers/buschek_aphc_95.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/buschek_aphc_95.pdf",
+  keywords =     "fiasco",
+}
+
+@InProceedings{buschek:gnc:95,
+  author =       "Harald Buschek and Anthony J. Calise",
+  title =        "$\mu$\ Controllers: Mixed and Fixed",
+  booktitle =    gnc,
+  year =         1995,
+  postscript =   "http://controls.ae.gatech.edu/papers/buschek_gnc_95.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/buschek_gnc_95.pdf",
+  keywords =     "mu",
+}
+
+@Unpublished{buschek:jgcd:hypersonic,
+  author =       "Harald Buschek and Anthony J. Calise",
+  title =        "Hypersonic Flight Control Design Using Fixed Order
+                 Robust Controllers",
+  note =         "Manuscript Submitted to the Journal of Guidance,
+                 Control and Dynamics",
+  year =         "1995",
+  postscript =   "http://controls.ae.gatech.edu/papers/buschek_jgcd_hypersonic.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/buschek_jgcd_hypersonic.pdf",
+  keywords =     "fiasco,fccf",
+}
+
+%%%H_2 H_infinity PROJECT
+%%%---------------------
+@Unpublished{buschek:jgcd:mucontrollers,
+  author =       "Harald Buschek and Anthony J. Calise",
+  title =        "$\mu$ Controllers: Mixed and Fixed",
+  note =         "Manuscript Submitted to the Journal of Guidance,
+                 Control and Dynamics",
+  year =         "1995",
+  postscript =   "http://controls.ae.gatech.edu/papers/buschek_jgcd_mucontrollers.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/buschek_jgcd_mucontrollers.pdf",
+  keywords =     "fiasco",
+}
+
+@PhdThesis{buschek:phdthesis,
+  author =       "Harald Buschek",
+  title =        "Synthesis of Fixed Order Controllers with Robustness
+                 to Mixed Real/Complex Uncertainties",
+  school =       "Georgia Institute of Technology, School of Aerospace
+                 Engineering",
+  year =         "1995",
+  address =      "Atlanta, GA 30332",
+  month =        "feb",
+  pdf =          "http://controls.ae.gatech.edu/papers/buschek_phdthesis.pdf",
+  keywords =     "fiasco,robust control,uncertainty",
+}
+
+@InProceedings{mcfarland:gnc:95,
+  author =       "Michael B. McFarland and Anthony J. Calise",
+  title =        "Neural Networks for Stable Adaptive Control of
+                 Air-to-Air Missiles",
+  booktitle =    gnc,
+  address =      "Baltimore, Maryland",
+  year =         "1995",
+  postscript =   "http://controls.ae.gatech.edu/papers/mcfarland_gnc_95.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/mcfarland_gnc_95.pdf",
+  keywords =     "missiles,neural networks",
+}
+
+@InProceedings{mcfarland:gnc:96,
+  author =       "Michael B. McFarland and Anthony J. Calise",
+  title =        "Neural-Adaptive Nonlinear Autopilot Design for an
+                 Agile Anti-Air Misile",
+  booktitle =    gnc,
+  address =      "San Diego, California",
+  month =        "jul",
+  year =         "1996",
+  postscript =   "http://controls.ae.gatech.edu/papers/mcfarland_gnc_96.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/mcfarland_gnc_96.pdf",
+  keywords =     "missiles,neural networks",
+}
+
+@InProceedings{mcfarland:msc:96,
+  author =       "Michael B. McFarland and Anthony J. Calise",
+  title =        "Nonlinear Adaptive Control of Agile Anti-Air Missiles
+                 Using Neural Networks",
+  booktitle =    "AIAA Missile Sciences Conference",
+  address =      "Monterey, California",
+  month =        "dec",
+  year =         "1996",
+  keywords =     "missiles,neural networks",
+}
+
+@techreport{rysdyk:nasa:96,
+  author =       "Anthony J. Calise and Rolf T. Rysdyk",
+  title =        "Research in Nonlinear Flight Control for Tiltrotor
+                 Aircraft Operating in the Terminal Area",
+  institution  =  "NASA",
+  month =        "nov",
+  year =         "1996",
+  number =         "NCC 2-922",
+  keywords =     "tiltrotor",
+}
+
+@article{kim:jgcd:97,
+  author =       "B. S. Kim and Anthony J. Calise",
+  title =        "Nonlinear Flight Control Using Neural Networks",
+  journal =      jgcd,
+  volume =       "20",
+  number =       "1",
+  pages =        "26--33",
+  year =         "1997",
+  pdf =          "http://controls.ae.gatech.edu/papers/bskim_jgcd_97.pdf",
+  keywords =     "neural networks",
+}
+
+@article{leitner:jgcd:97,
+  author =       "Jesse Leitner and Anthony J. Calise and J. V. R. Prasad",
+  title =        "Analysis of Adaptive Neural Networks for Helicopter
+                 Flight Controls",
+  journal =      jgcd,
+  volume =       "20",
+  number =       "5",
+  month =        {Sep-Oct},
+  pages =        "972--979",
+  year =         "1997",
+  pdf =          "http://controls.ae.gatech.edu/papers/leitner_jgcd_97.pdf",
+  keywords =     "helicopters, neural networks",
+}
+
+
+@InProceedings{mcfarland:acc:97,
+  author =       "Michael B. McFarland and Anthony J. Calise",
+  title =        "Robust Adaptive Control of Nonlinear Systems Using
+                 Neural Networks",
+  booktitle =    acc,
+  address =      "Albuquerque, NM",
+  month =        "jun",
+  year =         "1997",
+  postscript =   "http://controls.ae.gatech.edu/papers/mcfarland_acc_97.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/mcfarland_acc_97.pdf",
+  keywords =     "robust control, adaptive control, neural networks",
+}
+
+@InProceedings{mcfarland:gnc:97,
+  author =       "Michael B. McFarland and Anthony J. Calise",
+  title =        "Multilayer Neural Networks and Adaptive Nonlinear
+                 Control of Agile Anti-Air Missiles",
+  booktitle =    gnc,
+  number =       "97-3540",
+  month =        "aug",
+  year =         "1997",
+  postscript =   "http://controls.ae.gatech.edu/papers/mcfarland_gnc_97.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/mcfarland_gnc_97.pdf",
+  keywords =     "missiles, neural networks",
+}
+
+
+@PhdThesis{mcfarland:phdthesis,
+  author =       "Michael B. McFarland",
+  title =        "Adaptive Nonlinear Control of Missiles Using Neural
+                 Networks",
+  school =       "Georgia Institute of Technology, School of Aerospace
+                 Engineering",
+  year =         "1997",
+  address =      "Atlanta, GA 30332",
+  month =        "jul",
+  keywords =     "missiles, neural networks",
+}
+
+@mastersthesis{munzinger:msthesis,
+  author =       "Christian Munzinger",
+  title =        "Development of a Real-Time Flight Simulator for An
+                 Experimental Model Helicopter",
+  school =       "Georgia Institute of Technology, School of Aerospace
+                 Engineering",
+  year =         "1997",
+  address =      "Atlanta, GA 30332",
+  month =        "Jul",
+  pdf =          "http://controls.ae.gatech.edu/papers/munzinger_msthesis.pdf",
+  keywords =     "R-50 helicopter, simulation, helicopters",
+}
+
+@InProceedings{rysdyk:gnc:97,
+  author =       "Rolf T. Rysdyk and Anthony J. Calise",
+  title =        "Adaptive Model Inversion Flight Control for Tiltrotor
+                 Aircraft",
+  booktitle =    gnc,
+  month =        "aug",
+  year =         "1997",
+  postscript =   "http://controls.ae.gatech.edu/papers/rysdyk_gnc_97.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/rysdyk_gnc_97.pdf",
+  keywords =     "tiltrotors, model inversion",
+}
+
+@InProceedings{rysdyk:wac:97,
+  author =       "Rolf T. Rysdyk and Anthony J. Calise and R. T. N. Chen",
+  title =        "Nonlinear Adaptive Control Of Tiltrotor Aircraft Using
+                 Neural Networks",
+  booktitle =    "1997 AIAA/SAE World Aviation Congress",
+  address =      "Anaheim, CA",
+  month =        oct,
+  year =         "1997",
+  postscript =   "http://controls.ae.gatech.edu/papers/rysdyk_wac_97.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/rysdyk_wac_97.pdf",
+  keywords =     "tiltrotors, neural networks",
+}
+
+@PhdThesis{whorton:phdthesis,
+  author =       "Mark S. Whorton",
+  title =        "High Performance, Robust Control of Flexible Space
+                 Structures",
+  school =       "Georgia Institute of Technology, School of Aerospace
+                 Engineering",
+  year =         "1997",
+  address =      "Atlanta, GA 30332",
+  month =        "aug",
+  postscript =   "http://controls.ae.gatech.edu/papers/whorton_phdthesis.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/whorton_phdthesis.pdf",
+  keywords =     "robust control, flexible space structures",
+}
+
+
+@InProceedings{corban:cdc:98,
+  author =       "J. V. R. Prasad and Anthony J. Calise and J. Eric Corban",
+  title =        "Implementation of Adaptive Nonlinear Controller for
+                 Flight Test on an Unmanned Helicopter",
+  booktitle =    cdc,
+  year =         "1998",
+  keywords =     "R-50 Helicopter,Unmanned Helicopter",
+}
+
+
+
+@InProceedings{horn:ahs:98,
+  author =       "Joe Horn and Anthony J. Calise and J. V. R. Prasad and Matt
+                 O'Rourke",
+  title =        "Flight Envelope Cueing on a Tiltrotor Aircraft Using
+                 Neural Network Limit Prediction",
+  booktitle =    ahs,
+  address =      "Washington, DC",
+  month =        "may",
+  year =         "1998",
+  postscript =   "http://controls.ae.gatech.edu/papers/horn_ahs_98.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/horn_ahs_98.pdf",
+  keywords =     "cueing,tiltrotors,flight envelope, limit avoidance, carefree maneuvering",
+}
+
+@InProceedings{rysdyk:ahs:98,
+  author =       "Rolf T. Rysdyk and Anthony J. Calise",
+  title =        "Adaptive Model Inversion Flight Control for Tiltrotor
+                 Aircraft",
+  booktitle =    ahs,
+  address =      "Washington, DC",
+  month =        "may",
+  year =         "1998",
+  postscript =   "http://controls.ae.gatech.edu/papers/rysdyk_ahs_98.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/rysdyk_ahs_98.pdf",
+  keywords =     "tiltrotors,model inversion",
+}
+
+@article{rysdyk:csm:dec:98,
+  author =       "Rolf T. Rysdyk and Anthony J. Calise",
+  title =        "Nonlinear Adaptive Flight Control Using Neural
+                 Networks",
+  journal =      csm,
+  volume =       "18",
+  number =       "6",
+  month =        "Dec",
+  year =         "1998",
+  pages =        {14-25},
+  postscript =   "http://controls.ae.gatech.edu/papers/rysdyk_csm_dec_98.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/rysdyk_csm_dec_98.pdf",
+  keywords =     "tiltrotor, neural networks",
+}
+
+@article{rysdyk:jgcd:98,
+  author =       "Rolf T. Rysdyk and Anthony J. Calise",
+  title =        "Adaptive Model Inversion Flight Control for Tiltrotor
+                 Aircraft",
+  journal =      jgcd,
+  volume  =      "22",
+  number  =      "3",
+  pages   =      "402--407",
+  year =         "1999",
+  keywords =     "tiltrotor, model inversion",
+}
+
+@PhdThesis{rysdyk:phdthesis,
+  author =       "Rolf T. Rysdyk",
+  title =        "Adaptive Nonlinear Flight Control",
+  school =       "Georgia Institute of Technology, School of Aerospace
+                 Engineering",
+  year =         "1998",
+  address =      "Atlanta, GA 30332",
+  keywords =     "tiltrotor",
+}
+
+@inproceedings{sharma:gnc:98,
+  author =       "Anthony J. Calise and Seungjae Lee and Manu Sharma",
+  title =        "Direct Adaptive Reconfigurable Control of a Tailless
+                 Fighter Aircraft",
+  booktitle =    gnc,
+  address =      "Boston, MA",
+  month =        "aug",
+  year =         "1998",
+  keywords =     "reconfigurable control, tailless fighter",
+  pdf =          "http://controls.ae.gatech.edu/papers/sharma_gnc_98.pdf",
+}
+
+
+@inproceedings{sharma:gnc:98b,
+  author =       "Manu Sharma and Anthony J. Calise and J. Eric Corban",
+  title =        "An Adaptive Autopilot Design for Guided Munitions",
+  booktitle =    "AIAA Guidance, Navigation, and Control Conference",
+  address =      "Boston, MA",
+  month =        "aug",
+  year =         "1998",
+  number =       "4490",
+  keywords =     "munitions",
+  pdf =          "http://controls.ae.gatech.edu/papers/sharma_gnc_98b.pdf",
+}
+
+@inproceedings{hovakimyan:cdc:99,
+  author =       "Anthony J. Calise Naira Hovakimyan and Rolf T. Rysdyk",
+  title =        "Dynamic Neural Networks for Output Feedback Control",
+  booktitle =    cdc,
+  year =         "1999",
+  keywords =     "output feedback, dynamic neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_cdc_99.pdf",
+  postscript =   "http://controls.ae.gatech.edu/papers/hovakimyan_cdc_99.ps",
+}
+
+
+@techreport{hovakimyan:whitepaper:99,
+  author =       "Anthony J. Calise and Naira Hovakimyan and Flavio Nardi and Hungu Lee",
+  title =        "Adaptvie Output Feedback Control of a Class of
+                 Nonlinear Systems Using Neural Networks",
+  institution =  "School of Aerospace Engineering, Georgia Institute of
+                 Technology",
+  address =      "Atlanta, GA 30332",
+  month =        "jul",
+  year =         "1999",
+  keywords =     "output feedback, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_whitepaper_99.pdf",
+  postscript =   "http://controls.ae.gatech.edu/papers/hovakimyan_whitepaper_99.ps",
+  note =         "Whitepaper",
+}
+
+@techreport{hovakimyan:whitepaper:99b,
+  author =       "Anthony J. Calise and Naira Hovakimyan and Rolf T. Rysdyk",
+  title =        "Dynamic Neural Networks for Output Feedback Control",
+  institution =  "School of Aerospace Engineering, Georgia Institute of
+                 Technology",
+  address =      "Atlanta, GA 30332",
+  month =        "jul",
+  year =         "1999",
+  keywords =     "output feedback, dynamic neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_whitepaper_99b.pdf",
+  postscript =   "http://controls.ae.gatech.edu/papers/hovakimyan_whitepaper_99b.ps",
+  note =         "Whitepaper",
+}
+
+@InProceedings{kannan:dasc:99,
+  author =       "Suresh Kannan and J. V. R. Prasad and Daniel P. Schrage and Ilkay
+                 Yavrucuk and Linda Wills and Carlos Restrepo",
+  title =         "Simulation and Flight Control Integration using the
+                 Open Control Platform for Unmanned Aerial Vehicles",
+  booktitle =    dasc,
+  year =         "1999",
+  keywords =     "Open Control Platform, Unmanned Aerial Vehicles",
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_dasc_99.pdf",
+}
+
+@techreport{kannan:iarc:99,
+  author =       "Suresh K. Kannan and Jeong Hur and Gideon Saroufiem and Ilkay
+                 Yavrucuk",
+  title =        "Georgia Tech UAV Software Systems",
+  institution =  "UAV Research Facility, School of Aerospace
+                 Engineering, Georgia Institute of Technology",
+  postscript =   "http://controls.ae.gatech.edu/papers/kannan_iarc_99.ps",
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_iarc_99.pdf",
+  month =        "jun",
+  year =         "1999",
+  abstract =     "In order for Unmanned Aerial Vehicles to perform
+                 complex missions and collaborate with other Unmanned
+                 Vehicles, significant advances in software architecture
+                 must be made. A particular configuration while valid at
+                 the start of a mission may not be ideal when a new
+                 situation arises. This paper briefly describes the
+                 Virtual Resource Network (VRN) concept which allows
+                 reconfiguration to take place during the mission. The
+                 VRN provides the unique ability to maximize the use of
+                 all available resources by reconfiguring to mission
+                 demands online. The Aerial Robotics Mission
+                 configuration and the set of resources required to
+                 accomplish it is also presented.",
+  note =         "Presented as a report at the 1999 International Aerial
+                 Robotics Competition",
+}
+
+@inproceedings{mcfarland:acc:99,
+  author =       "Michael B. McFarland",
+  title =        "Robust Adaptive Control Using Single-Hidden-Layer
+                 Feedforward Neural Networks",
+  booktitle =    acc,
+  year =         "1999",
+  keywords =     "missiles, neural networks",
+}
+
+@inproceedings{pei:cca:99,
+  author =       "J. V. R. Prasad and Anthony J. Calise and J. Eric Corban and Yubo Pei",
+  title =        "Adaptive Nonlinear Controller Synthesis and Flight
+                 Test Evaluation on an Unmanned Helicopter",
+  booktitle =    "IEEE International Conference on Control
+                 Applications",
+  year =         "1999",
+  keywords =     "R-50 helicopter, unmanned helicopter",
+  pdf =          "http://controls.ae.gatech.edu/papers/pei_cca_99.pdf",
+}
+
+@InProceedings{schrage:cca:99,
+  author =       "Daniel P. Schrage and George Vachtsevanos",
+  title =        "Software Enabled Control for Intelligent {UAV}s",
+  booktitle =    "1999 IEEE International Conference on Control
+                 Applications",
+  year =         "1999",
+  pdf =          "http://controls.ae.gatech.edu/papers/schrage_cca_99.pdf",
+}
+
+@InProceedings{schrage:erf:99,
+  author =       "Daniel P. Schrage and Y. K. Yillikci and S. Liu and J. V.
+                 R. Prasad and S. V. Hanagud",
+  title =        "Instrumentation of the Yamaha {R-50}/RMAX
+                 Helicopter testbeds for Airloads
+                 Identification and follow-on research",
+  booktitle =    "25th European Rotorcraft Forum",
+  year =         "1999",
+  abstract =     "The School of Aerospace Engineering of the Georgia
+                 Institute of Technology (GIT) has been using two Yamaha
+                 R-50 remote controlled helicopters (RPHs) as testbeds
+                 for flight controls research in the Center of
+                 Excellence in Rotorcraft Technology (CERT) over the
+                 past two years. A larger and more capable version of
+                 the Yamaha R-50 RPH, the RMAX, is being purchased by
+                 Georgia Tech as a testbed to support the DARPA Software
+                 Enabled Control (SEC) project as well as to serve as a
+                 generic testbed for other research being conducted at
+                 Georgia Tech. The objective of this paper is to
+                 describe the planned instrumentation for the testbed
+                 and how we plan to identify the loads on the baseline
+                 RMAX RPH",
+  pdf =          "http://controls.ae.gatech.edu/papers/schrage_erf_99.pdf",
+  keywords =     "R-50 helicopter, R-Max helicopter, airloads, instrumentation",
+}
+
+@InProceedings{yavrucuk:erf:99,
+  author =       "Ilkay Yavrucuk and J. V. R. Prasad and S. V. Hanagud",
+  title =        "Reconfigurable Flight Control using {RPM} control
+                  for Heli-UAV's",
+  booktitle =    "25th European Rotorcraft Forum",
+  year =         "1999",
+  keywords =     "reconfigurable control",
+  abstract =     "The fact that current Helicopter Uninhabited Aerial
+                 Vehicles (Heli-UAVs) are unable to handle exceptional
+                 situations and combinations of simple failures makes it
+                 necessary to find remedies for such cases. A Heli-UAV
+                 will most likely crash under circumstances like a basic
+                 control failure, unless a remote pilot is at control or
+                 alternately, a solution is provided for its control
+                 reconfiguration. This paper investigates the use of
+                 main rotor speed variation as a fault tolerant feature
+                 for a Heli-UAV. Specifically, it is shown that the use
+                 of main rotor speed, i.e., RPM variations combined with
+                 advanced adaptive control architectures can
+                 successfully compensate for partial loss of main rotor
+                 collective control. The overall concept is illustrated
+                 using simulation results for example failure
+                 scenarios",
+}
+
+@InProceedings{yavrucuk:mst:99,
+  author =       "Ilkay Yavrucuk and J. V. R. Prasad",
+  title =        "Simulation of Reconfigurable Heli-{UAV}s using Main
+                 Rotor {RPM} control in failure modes",
+  booktitle =    "AIAA Modeling and Simulation Technologies Conference",
+  year =         "1999",
+  keywords =     "reconfigurable control",
+}
+
+@InProceedings{calise:gnc:00,
+  author =       "Anthony J. Calise and Hungu Lee and Nakwan Kim",
+  title =        "High Bandwidth Adaptive Flight Control",
+  booktitle =    gnc,
+  address =      "Denver, CO",
+  month =        "aug",
+  year =         "2000",
+  keywords =     "high bandwidth",
+  pdf =          "http://controls.ae.gatech.edu/papers/calise_gnc_00.pdf",
+}
+
+@PhdThesis{johnson:phdthesis,
+  author =       "Eric N. Johnson",
+  title =        "Limited Authority Adaptive Flight Control",
+  school =       "Georgia Institute of Technology, School of Aerospace Engineering",
+  year =         "2000",
+  address =      "Atlanta, GA 30332",
+  month =        "Dec",
+  keywords =     "limited authority, pseudo control hedging",
+}
+
+@InProceedings{johnson:gnc:00,
+  author =       "Eric N. Johnson and Anthony J. Calise and Hesham A.
+                 El-Shirbiny and Rolf T. Rysdyk",
+  title =        "Feedback Linearization with Neural Network
+                 Augmentation applied to {X}-33 Attitude Control",
+  booktitle =    gnc,
+  address =      "Denver, CO",
+  month =        "aug",
+  year =         "2000",
+  keywords =     "X-33, attitude control, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_gnc_00.pdf",
+}
+
+@InProceedings{sharma:gnc:00,
+  author =       "Manu Sharma and Anthony J. Calise and Seungjae Lee",
+  title =        "Development of a Reconfigurable Flight Control Law for
+                 the {X}-36 Tailless Fighter Aircraft",
+  booktitle =    gnc,
+  address =      "Denver, CO",
+  month =        "aug",
+  year =         "2000",
+  number =       "3940",
+  keywords =     "reconfigurable control, X-36, tailless fighter",
+  pdf =          "http://controls.ae.gatech.edu/papers/sharma_gnc_00.pdf",
+}
+
+@InProceedings{sharma:gnc:00b,
+  author =       "Manu Sharma and Anthony J. Calise and J. Eric Corban",
+  title =        "Application of an Adaptive Autopilot Design to a Family of Guided Munitions",
+  booktitle =    gnc,
+  address =      "Denver, CO",
+  month =        "aug",
+  year =         "2000",
+  number =       "3969",
+  keywords =     "munitions",
+  pdf =          "http://controls.ae.gatech.edu/papers/sharma_gnc_00b.pdf",
+}
+
+@article{calise:jgcd:00,
+   author =         "Anthony J. Calise and Manu Sharma and Seungjae Lee",
+   title  =         "Adaptive Autopilot Design for Guided Munitions",
+   journal =        jgcd,
+   year    =        "2000",
+   volume  =        "23",
+   number  =        "5",
+   pdf     =        "http://controls.ae.gatech.edu/papers/calise_jgcd_00.pdf",
+}
+
+@InProceedings{wills:acc:00,
+  author =       "Linda Wills and Suresh K. Kannan and Bonnie S. Heck and George Vachtsevanos and Carlos Restrepo and Sam Sander and Daniel P. Schrage and J.V.R Prasad",
+  title =        "An Open Software Infrastructure For Reconfigurable
+                 Control Systems",
+  booktitle =    acc,
+  address =      "Chicago, Illinois",
+  month =        "jun",
+  year =         "2000",
+  keywords =     "Open Control Platform",
+  pdf =          "http://controls.ae.gatech.edu/papers/wills_acc_00.pdf"
+}
+
+@InProceedings{kannan:dasc:00,
+  author =       "Linda Wills and Sam Sander and Suresh K. Kannan and Aaron D. Kahn and J. V. R. Prasad and Daniel P. Schrage",
+  title =        "An Open Control Platform for Reconfigurable, Distributed, Hierarchical Control Systems",
+  booktitle =    dasc,
+  year =         "2000",
+  keywords =     "Open Control Platform, Unmanned Aerial Vehicles",
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_dasc_00.pdf",
+}
+
+@article{calise:auto:01,
+  author =       "Anthony J. Calise and Naira Hovakimyan and Moshe Idan",
+  title =        "Adaptive Output Feedback Control of Nonlinear Systems Using Neural Networks",
+  journal =      auto,
+  volume =       "37",
+  number =       "8",
+  month =        "aug",
+  year =         "2001",
+  pages =        {1201-1211},
+  keywords =     "output-feedback",
+  pdf =          "http://controls.ae.gatech.edu/papers/calise_auto_01.pdf",
+  note =         " Special Issue on Neural Networks for Feedback Control",
+}
+
+@inproceedings{idan:gnc:01,
+  author =       "Moshe Idan and Matthew D. Johnson and Anthony J. Calise",
+  title =        "A Hierarchical Approach to Adaptive Control for Improved Flight Safety",
+  booktitle =    gnc,
+  year =         "2001",
+  keywords =     "output feedback, flight safety",
+  pdf =          "http://controls.ae.gatech.edu/papers/idan_gnc_01.pdf",
+}
+
+@InProceedings{johnson:iac:01,
+  author =       "Eric N. Johnson and Anthony J. Calise and J. Eric Corban",
+  title =        "Adaptive Guidance and Control for Autonomous
+                 Launch Vehicles",
+  booktitle =    "IEEE Aerospace Conference",
+  month =        "apr",
+  year =         "2001",
+  address =      "Big Sky, MT",
+  keywords =     "launch vehicle, X-33",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_iac_01.pdf",
+}
+
+@InProceedings{sharma:gnc:01,
+  author =       "Manu Sharma and Anthony J. Calise",
+  title =        "Neural Network Augmentation of Existing Linear Controllers",
+  booktitle =    gnc,
+  year =         "2001",
+  keywords =     "controller augmentation, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/sharma_gnc_01.pdf",
+}
+
+@InProceedings{johnson:acc:01,
+  author =       "Eric N. Johnson and Anthony J. Calise",
+  title =        "Neural Network Adaptive Control of Systems with
+                 Input Saturation",
+  booktitle =    acc,
+  address =      "Arlington, Virginia",
+  month =        "jun",
+  year =         "2001",
+  keywords =     "pseudo control hedging, input saturation",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_acc_01.pdf"
+}
+
+@InProceedings{idan:asme:01,
+  author =       "Moshe Idan and Anthony J. Calise and Ali T. Kutay and David E. Parekh",
+  title =        "Adaptive Neural Network based approach for Active Flow Control",
+  booktitle =    "ASME Fluids Engineering Division Summer Meeting",
+  number =       "FEDSM2001-18281",
+  address =      "New Orleans, Louisiana",
+  month =        "may",
+  year =         "2001",
+  keywords =     "active flow control, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/idan_asme_01.pdf"
+}
+
+@InProceedings{idan:acc:01,
+  author =       "Moshe Idan and Matthew D. Johnson and Anthony J. Calise and John Kaneshige",
+  title =        "Intelligent Aerodynamic/Propulsion Flight Control For Flight Safety: A Nonlinear Adaptive Approach",
+  booktitle =    acc,
+  year =         "2001",
+  month =        "jun",
+  address =      "Arlington, VA",
+  keywords =     "flight safety",
+  pdf =          "http://controls.ae.gatech.edu/papers/idan_acc_01.pdf",
+}
+
+@article{hovakimyan:itac:01,
+  author =       "Naira Hovakimyan and Flavio Nardi and Anthony J. Calise",
+  title =        "A Novel Observer based Adaptive Output Feedback Approach for Control of Uncertain Systems",
+  journal  =     itac,
+  year =         "2001",
+  keywords =     "output feedback, uncertain systems, observers, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_itac_01.pdf",
+  note =         "Accepted"
+}
+
+@article{hovakimyan:itnn:02,
+  author =       "Naira Hovakimyan and Flavio Nardi and Anthony J. Calise and Nakwan Kim",
+  title =        "Adaptive Output Feedback Control of Uncertain Systems using Single Hidden Layer Neural Networks",
+  journal =      itnn,
+  volume = {13},
+  number = {6},
+  pages = {1420-1431},
+  month = nov,
+  year = {2002},
+  keywords =     "output feedback, uncertain systems, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_itnn_01.pdf",
+}
+
+
+@article{nardi:itnn:01,
+  author =       "Flavio Nardi and Naira Hovakimyan and Anthony J. Calise",
+  title =        "Decentralized Control of Large-Scale Systems using Single Hidden Layer Neural Networks",
+  journal =      "International Journal of Robust and Nonlinear Control",
+  year =         "2001",
+  keywords =     "decentralized control, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/nardi_ijrnc_01.pdf",
+  note =         "Submitted to International Journal of Robust and Nonlinear Control"
+}
+
+@article{nardi:ijc:01,
+  author =       "Naira Hovakimyan and Flavio Nardi and Anthony J. Calise and Hungu Lee",
+  title =        "Adaptive Output Feedback Control of a Class of Nonlinear Systems Using Neural Networks",
+  journal =      "International Journal of Control",
+  year =         "2001",
+  keywords =     "output feedback control",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_ijc_01.pdf",
+  note =         "Accepted for publication"
+}
+
+@inproceedings{johnson:ngct:01,
+  author =       "Eric N. Johnson and Anthony J. Calise",
+  title =        "Pseudo-Control Hedging: A New Method for Adaptive Control",
+  booktitle =    "Workshop on Advances in Guidance and Control Technology",
+  year =         "2000",
+  address =      "Redstone Arsenal, Alabama",
+  keywords =     "pseudo control hedging",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_ngct_01.pdf",
+}
+
+@mastersthesis{kahn:msthesis,
+  author =       "Aaron D. Kahn",
+  title =        "The Design and Development of a Modular Avionics System",
+  school =       "Georgia Institute of Technology, School of Aerospace Engineering",
+  year =         "2001",
+  address =      "Atlanta, GA 30332",
+  month =        "apr",
+  pdf =          "http://controls.ae.gatech.edu/papers/kahn_msthesis.pdf",
+  keywords =     "avionics",
+}
+
+@InProceedings{johnson:gnc:01,
+ author =       "Eric N. Johnson and Anthony J. Calise and J. Eric Corban",
+  title =        "Reusable Launch Vehicle Adaptive Guidance and Control Using Neural Networks",
+  booktitle =    gnc,
+  year =         "2001",
+  number =       "4381",
+  keywords =     "reusable launch vehicle, X-33, neural networks, pseudo control hedging",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_gnc_01.pdf",
+  }
+
+@InProceedings{hovakimyan:gnc:01,
+  author =       "Naira Hovakimyan and Nakwan Kim and Anthony Calise and J.V.R. Prasad and J. Eric Corban",
+  title =        "Adaptive Output Feedback for High-Bandwidth Control of an Unmanned Helicopter",
+  booktitle =    gnc,
+  year =         "2001",
+  keywords =     "output feedback, high bandwidth",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_gnc_01.pdf",
+  }
+
+
+@InProceedings{calise:gnc:01,
+  author =       "Anthony J. Calise and Hesham A. El-Shirbiny",
+  title =       "An Analysis of Aerodynamic Control for Direct Fire Spinning Projectiles",
+  booktitle =    gnc,
+  year =         "2001",
+  keywords =     "direct fire spinning projectile ,  aerodynamic control",
+  pdf =          "http://controls.ae.gatech.edu/papers/calise_gnc_01.pdf",
+  }
+
+@article{kannan:csm:jun:01,
+  author =       "Linda Wills and Suresh K. Kannan and Sam Sander and Murat Guler and Bonnie Heck and J.V.R Prasad and Daniel P. Schrage and George Vachtsevanos",
+  title =        "An Open Platform for Reconfigurable control",
+  journal =      csm,
+  volume =       "21",
+  number =       "3",
+  month =        "jun",
+  year =         "2001",
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_csm_jun_01.pdf",
+  keywords =     "open control platform, reconfiguration, control",
+}
+
+@InProceedings{yavrucuk:afm:01,
+  author =       "Ilkay Yavrucuk and J. V. R. Prasad and Anthony J. Calise",
+  title =        "Adaptive Limit Detection and Avoidance for Carefree Maneuvering",
+  booktitle =    afm,
+  month     =    "aug",
+  year =         "2001",
+  address =      "Montr\'eal, Quebec, Canada",
+  keywords =     "limit avoidance, carefree maneuvering",
+  pdf =          "http://controls.ae.gatech.edu/papers/yavrucuk_afm_01.pdf"
+}
+
+@techreport{marsfmc,
+  author =       "Suresh K. Kannan and Aaron D. Kahn and Ilkay Yavrucuk",
+  title =        "GTMARS - Flight Controls and Computer Architecture",
+  institution =  "School of Aerospace Engineerng, Georgia Institute of Technology",
+  address =      "Atlanta, GA 30332",
+  year =         "2000",
+  note =         "Entered into the 2000 American Helicopter Society Design Competition, winning 1st place for flight control design",
+  pdf  =         "http://controls.ae.gatech.edu/papers/marsfmc.pdf",
+  keywords =     "gtmars, mars, martian rotorcraft"
+}
+
+
+@InProceedings{johnson:dasc:01,
+  author =       "Eric N. Johnson and Sebastian Fontaine and Aaron D. Kahn",
+  title =         "Minimum Complexity Uninhabited Air Vehicle Guidance And Flight Control System",
+  booktitle =    dasc,
+  year =         "2001",
+  keywords =     "avionics, minimum complexity, guidance",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_dasc_01.pdf",
+}
+
+@InProceedings{johnson:mst:01,
+  author =       "Eric N. Johnson and Sebastian Fontaine",
+  title =         "Use Of Flight Simulation To Complement Flight Testing Of Low-Cost UAVs",
+  booktitle =    mst,
+  year =         "2001",
+  number =       "4059",
+  keywords =     "avionics, low cost uavs, simulation",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_mst_01.pdf",
+}
+
+
+@InProceedings{calise:gnc:02,
+  author =       "Anthony J. Calise and Nakwan Kim and James Buffington",
+  title =        "Adaptive Compensation for Flexible Dynamics",
+  booktitle =    gnc,
+  month     =    "aug",
+  year =         "2002",
+  address =      "Monterey, CA",
+  keywords =     "flexible dynamics",
+  pdf =          "http://controls.ae.gatech.edu/papers/calise_gnc_02.pdf"
+  }
+
+@InProceedings{corban:gnc:02,
+  author =       "J. Eric Corban and Anthony J. Calise and J. V. R. Prasad and Jeong Hur and Nakwan Kim",
+  title =        "Flight Evalutation of Adaptive High-Bandwidth Control Methods for Unmanned Helicopters",
+  booktitle =    gnc,
+  month     =    "aug",
+  year =         "2002",
+  address =      "Monterey, CA",
+  keywords =     "high bandwidth, unmanned helicopter, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/corban_gnc_02.pdf"
+  }
+
+
+@article{calise:jgcd:01,
+author =         "Anthony J. Calise and Seungjae Lee and Manu Sharma",
+title  =         "Development of a Reconfigurable Flight Control Law for Tailless Aircraft",
+journal =        jgcd,
+year    =        "2001",
+volume  =        "24",
+number  =        "5",
+pages   =        "896--902",
+keywords =       "tailless fighter",
+pdf  = {http://controls.ae.gatech.edu/papers/calise_jgcd_01.pdf}
+}
+
+@phdthesis{nardi:phdthesis,
+  author =       "Flavio Nardi",
+  title =        "Neural Network based Adaptive Algorithms for Nonlinear Control",
+  school =       "Georgia Institute of Technology, School of Aerospace Engineering",
+  year =         "2000",
+  address =      "Atlanta, GA 30332",
+  month =        "nov",
+  keywords =     "neural networks, algorithms",
+}
+@phdthesis{lee:phdthesis,
+  author =       "Seungjae Lee",
+  title =        "Neural Network based Adaptive Control and its applications to Aerial Vehicles",
+  school =       "Georgia Institute of Technology, School of Aerospace Engineering",
+  year =         "2001",
+  address =      "Atlanta, GA 30332",
+  month =        "apr",
+  keywords =     "neural networks, algorithms",
+}
+
+
+@phdthesis{sharma:phdthesis,
+  author =       "Manu Sharma",
+  title =        "A Neuro-Adaptive Autopilot Design for Guided Munitions",
+  school =       "Georgia Institute of Technology, School of Aerospace Engineering",
+  year =         "2001",
+  address =      "Atlanta, GA 30332",
+  month =        "apr",
+  keywords =     "neural networks, munitions",
+}
+
+@inproceedings{hovakimyan:acc:02,
+author = {Naira Hovakimyan and  Anthony J. Calise },
+title = { Adaptive Output Feedback Control of Uncertain Multi-Input Multi-Output Systems using Single Hidden Layer Neural Networks},
+booktitle = {American Control Conference },
+volume = {},
+number = {},
+pages = {},
+year = {2002},
+pdf  = {http://controls.ae.gatech.edu/papers/hovakimyan_acc_02.pdf},
+}
+
+@article{hovakimyan:ijc:02,
+author = {Naira Hovakimyan and  Anthony J. Calise },
+title = { Adaptive Output Feedback Control of Uncertain Multi-Input Multi-Output Systems using Single Hidden Layer Neural Networks},
+journal = {International Journal of Control },
+volume = {},
+number = {},
+pages = {},
+year = {2002},
+note = {submitted},
+pdf  = {http://controls.ae.gatech.edu/papers/hovakimyan_ijc_02.pdf},
+}
+
+@inproceedings{hovakimyan:cdc:02,
+author = {Naira Hovakimyan, and Anthony J. Calise and Venkatesh Madyastha},
+title = { An Adaptive Observer Design Methodology for Bounded Nonlinear Processes},
+booktitle = {Conference on Decision and Control},
+year = {2002}
+}
+
+@inproceedings{hovakimyan:cdc:02b,
+author = {Naira Hovakimyan and Bong-Jun Yang and Anthony J. Calise},
+title = { An Adaptive Output Feedback Control Methodology for Non-Minimum Phase Systems},
+booktitle = {Conference on Decision and Control},
+address={Las Vegas, NV},
+pages={949-954},
+year = {2002},
+keywords={adaptive control augmentation, output feedback, non-minimum phase},
+pdf = {http://controls.ae.gatech.edu/papers/hovakimyan_cdc_02b.pdf},
+}
+
+
+
+@incollection{kannan:sec:01,
+author       = {Linda Wills and Suresh K. Kannan and Sam Sander and Murat Guler and Bonnie Heck and J.V.R Prasad and Daniel P. Schrage and George Vachtsevanos},
+title        = {An Open Platform for Reconfigurable Control},
+booktitle    = {Software-Enabled Control: Information Technology for Dynamical Systems},
+publisher    = {IEEE Press},
+editor       = {Tariq Samad and Gary J. Balas},
+year         = {2001},
+note         = {Submitted}
+}
+
+@InProceedings{calise:acc:02,
+author={Anthony J. Calise and Bong-Jun Yang and James I. Craig},
+title={Augmentation of an Existing Linear Controller with an Adaptive Element},
+booktitle=acc,
+address={Anchorage,AK},
+month={May},
+pages={1549-1554},
+year={2002},
+keywords={adaptive control augmentation,output feedbac,neural networks},
+pdf = {http://controls.ae.gatech.edu/papers/calise_acc_02.pdf},
+}
+
+@inproceedings{yang:gnc:02,
+author = {Anthony J. Calise and Bong-Jun Yang and James I. Craig  },
+title = { An Augmenting Adaptive Approach to Control of Flexible Systems},
+booktitle = gnc,
+month = "August",
+year = "2002",
+number = {AIAA-2002-4942},
+address = "Monterey, CA",
+keywords = "experimental,adapitve control augmentation, output feedback",
+pdf = "http://controls.ae.gatech.edu/papers/yang_gnc_02.pdf"
+}
+
+
+@InProceedings{kannan:gnc:02,
+  author =       "Eric N. Johnson and Suresh K. Kannan",
+  title =        "Adaptive Flight Control for an Autonomous Unmanned Helicopter",
+  booktitle =    gnc,
+  month     =    "August",
+  year =         "2002",
+  number =       {AIAA-2002-4439},
+  address =      "Monterey, CA",
+  keywords =     "unmanned helicopter, neural networks, outerloop",
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_gnc_02.pdf"
+}
+
+@InProceedings{johnson:mst:02,
+  author =       "Eric N. Johnson and Sumit Mishra",
+  title =        "Flight Simulation for the Development of an Experimental UAV",
+  booktitle =    mst,
+  month     =    "August",
+  year =         "2002",
+  number =       {AIAA-2002-4975},
+  address =      "Monterey, CA",
+  keywords =     "unmanned helicopter, simulation, hardware in the loop, experimental",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_mst_02.pdf"
+}
+
+
+@mastersthesis{dittrich:msthesis,
+  author =       "Joerg S. Dittrich",
+  title =        "Design and Integration of an Unmanned Aerial Vehicle Navigation System",
+  school =       "Georgia Institute of Technology, School of Aerospace
+                 Engineering",
+  year =         "2002",
+  address =      "Atlanta, GA 30332",
+  month =        "July",
+  pdf =          "http://controls.ae.gatech.edu/papers/dittrich_msthesis.pdf",
+  keywords =     "uav, avionics",
+}
+
+@article{hovakimyan:itac:02,
+  author =       "Eugene Lavretsky and Naira Hovakimyan",
+  title =        "Reconstruction of Continuous-Time Dynamics Using Delayed Outputs and Feedforward Neural Networks",
+  journal  =     itac,
+  year =         "2002",
+  keywords =     "output feedback, uncertain systems, observers, neural networks",
+  pdf =          "http://controls.ae.gatech.edu/papers/hovakimyan_itac_02.pdf",
+  note =         "Submitted"
+}
+
+@InProceedings{kannan:dasc:02,
+  author =       "Suresh K. Kannan and Eric N. Johnson",
+  title =        "Adaptive Trajectory Based Flight Control for Autonomous Helicopters",
+  booktitle =    dasc,
+  month     =    "October",
+  year =         "2002",
+  address =      "Irvine, CA",
+  number =       "358",
+  keywords =     "unmanned helicopter, neural networks, trajectory",
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_dasc_02.pdf"
+}
+
+
+@InProceedings{dittrich:dasc:02,
+  author =       "Joerg S. Dittrich and Eric N. Johnson",
+  title =        "A Multi-Sensor Navigation System for an Autonomous Helicopter",
+  booktitle =    dasc,
+  month     =    "October",
+  year =         "2002",
+  address =      "Irvine, CA",
+  number =       "377",
+  keywords =     "unmanned helicopter, neural networks, trajectory",
+  pdf =          "http://controls.ae.gatech.edu/papers/dittrich_dasc_02.pdf"
+}
+
+
+@article{johnson:jgcd:2002,
+  author =       "Moshe Idan and Matthew D. Johnson and Anthony J. Calise",
+  title =        "A Hierarchical Approach to Adaptive Control for Improved Flight Safety",
+  journal =      jgcd,
+  volume =       "25",
+  number =       "6",
+  pages =        "1012",
+  year =         "2002",
+  keywords =     "safety",
+}
+
+
+@InProceedings{kannan:acc:03,
+  author =       "Eric N. Johnson and Suresh K. Kannan",
+  title =        "Nested Saturation with Guaranteed Real Poles",
+  booktitle =    acc,
+  address =      "Boulder, Colorado",
+  month =        "June",
+  year =         "2003",
+  volume =       "1",
+  pages =        {497--502},
+  pdf =          "http://controls.ae.gatech.edu/papers/kannan_acc_03.pdf",
+  keywords =     "nested saturation",
+}
+
+@InProceedings{whorton:iac:98,
+  author =       "Mark S. Whorton and Anthony J. Calise",
+  title =        "On-Orbit Model Refinement for Controller Redesign",
+  booktitle =    iac,
+  address =      "Snowmass, Colarado",
+  month =        "March",
+  year =         "1998",
+  pdf =          "http://controls.ae.gatech.edu/papers/whorton_iac_98.pdf"
+}
+
+@InProceedings{whorton:gnc:97,
+  author =       "Mark S. Whorton and Anthony J. Calise",
+  title =        "Mixed $H_2$/H-infinity Control of a Flexible Space Structure",
+  booktitle =    gnc,
+  address =      "New Orleans, Louisiana",
+  month =        "August",
+  year =         "1997",
+  pdf =          "http://controls.ae.gatech.edu/papers/whorton_gnc_97.pdf"
+}
+
+@InProceedings{whorton:gnc:96,
+  author =       "Mark S. Whorton and Anthony J. Calise",
+  title =        "On-Orbit Tuning With Mixed $H_2$/H-infinity Control",
+  booktitle =    gnc,
+  address =      "San Diego, California",
+  month =        "July",
+  year =         "1996",
+  pdf =          "http://controls.ae.gatech.edu/papers/whorton_gnc_96.pdf"
+}
+
+@article{whorton:eesd:98,
+  author =       "Mark S. Whorton and Anthony J. Calise and Hsu, C-C",
+  title =        "A Study of Fixed Order Mixed Norm Designs for a Benchmark Problem in Structural Control",
+  journal =      eesd,
+  number =       "27",
+  pages =        "1315-1330",
+  year =         "1998",
+}
+
+
+@article{whorton:jgcd:96,
+  author =       "Mark S. Whorton and Buschek, H and Anthony J. Calise",
+  title =        "Homotopy Algorithm for Fixed Order Mixed $H_2$/H-infinity Design",
+  journal =      jgcd,
+  volume =       "19",
+  number =       "6",
+  month =        "Nov-Dec.",
+  pages =        "1262-1269",
+  year =         "1996",
+}
+
+@InProceedings{johnson:ias:03,
+  author =       "Anthony J. Calise and Eric N. Johnson and Matthew D. Johnson and J. Eric Corban",
+  title =        "Applications of Adaptive Neural-Network Control to Unmanned Aerial Vehicles",
+  booktitle =    "AIAA/ICAS International Air and Space Symposium and Exposition: The Next 100 Years",
+  year =         "2003",
+  month =        "July",
+  address =      "Dayton, OH",
+  keywords =     "uav",
+  pdf =          "http://controls.ae.gatech.edu/papers/johnson_ias_03.pdf",
+}
+
+@InProceedings{shin:mwscas:02,
+  author =       "Anthony J. Calise and Matthew D. Johnson and Yoonghyun Shin",
+  title =        "Adaptive Flight Control of Advanced Fighter Aircraft at High Angles of Attack",
+  booktitle =    "Midwest Symposium on Circuits and Systems",
+  year =         "2002",
+  month =        "aug",
+  address =      "Tulsa, OK",
+  pdf =          "http://controls.ae.gatech.edu/papers/shin_mwscas_02.pdf",
+}
+
+@inproceedings{kutay:gnc:02,
+author = "Ali T. Kutay and Anthony J. Calise and Moshe Idan and Naira Hovakimyan",
+title = " Experimental Results on Adaptive Output Feedback Control Using
+a Laboratory Model Helicopter",
+  booktitle =    gnc,
+  month     =    "August",
+  year =         "2002",
+  number =       {AIAA-2002-4921},
+  address =      "Monterey, CA",
+  keywords =     "experimental, output-feedback, laboratory model
+helicopter",
+  pdf =          http://controls.ae.gatech.edu/papers/kutay_gnc_02.pdf
+}
+
+@inproceedings{kutay:acc:03,
+author = "Ali T. Kutay and Anthony J. Calise and Naira Hovakimyan ",
+title = "Adaptive Output Feedback Control with Reduced Sensitivity to
+Sensor Noise",
+  booktitle =    acc,
+  month     =    "June",
+  year =         "2003",
+  number =       {ACC03-AIAA0031},
+  address =      "Denver, CO",
+  keywords =     "experimental, output-feedback, laboratory model
+helicopter, sensor noise",
+  pdf =          http://controls.ae.gatech.edu/papers/kutay_acc_03.pdf
+}
+
+
+@book{haddad:nonlinear,
+    author = {Wassim M. Haddad and VijaySekhar Chellaboina},
+    title = {Nonlinear Dynamical Systems and Control: A Dissipative Systems Approach},
+    publisher = {Pre-Print},
+    year = {2002}
+}
+
+@inproceedings{proctor:gnc:03,
+author = "Alison A. Proctor and Eric N. Johnson",
+title = "Latency Compensation in an Adaptive Flight Controller",
+  booktitle =    gnc,
+  month     =    "August",
+  year =         "2003",
+  number =       {AIAA-2003-5413},
+  address =      "Austin, TX",
+  keywords =     "latency, flight controller",
+  pdf =          http://controls.ae.gatech.edu/papers/proctor_gnc_03.pdf
+}
+
+@inproceedings{johnson:gnc:03,
+author = {Matthew D. Johnson and Anthony J. Calise and Eric N. Johnson},
+title = {Evaluation of an Adaptive Method for Launch Vehicle Flight Control},
+booktitle = gnc,
+month = {August},
+year = {2003},
+address =      "Austin, TX",
+keywords = {rlv},
+number = "5789",
+pdf = http://controls.ae.gatech.edu/papers/johnson_gnc_03.pdf
+}
+
+@article{nakwan:jgcd:02,
+author = {Nakwan Kim and Anthony J. Calise  and Naira Hovakimyan and J.V.R.  Prasad and J. Eric Corban},
+title = {Adaptive Output Feedback for High-Bandwidth Flight Control},
+journal = jgcd,
+volume = {25},
+number = {6},
+pages = {993-1002},
+month = {},
+year = {2002},
+keywords = {unmanned helicopter, neural networks, output feedback, high bandwidth},
+pdf = http://controls.ae.gatech.edu/papers/nakwan_jgcd_02.pdf
+}
+
+@inproceedings{kannan:gnc:03,
+   author = "Suresh K. Kannan and Eric N. Johnson",
+   title = "Adaptive Control with a Nested Saturation Reference Model",
+  booktitle =    gnc,
+  month     =    "August",
+  year =         "2003",
+  number =       {AIAA-2003-5324},
+  address =      "Austin, TX",
+  keywords =     "nested saturation, adaptive",
+  pdf =          http://controls.ae.gatech.edu/papers/kannan_gnc_03.pdf
+}
+
+@inproceedings{twigg:gnc:03,
+   author = "Shannon Twigg and Anthony J. Calise and Eric N. Johnson",
+   title = "On-line Trajectory Optimization for Autonomous Air Vehicles",
+  booktitle =    gnc,
+  month     =    "August",
+  year =         "2003",
+  number =       {AIAA-2003-5522},
+  address =      "Austin, TX",
+  keywords =     "trajectory optimization, autonomous flight, uav",
+  pdf =          http://controls.ae.gatech.edu/papers/twigg_gnc_03.pdf
+}
+
+@inproceedings{twigg:asee:03,
+   author = "Shannon Twigg  and Eric N. Johnson",
+   title = "Use of a Real Time Simulation in a Laboratory Course",
+  booktitle =    "Proceedings of the ASEE Annual Conference and Exposition",
+  month     =    "June",
+  year =         "2003",
+  address =      "Nashville, TN",
+  keywords =     "real time simulation, flight dynamics, instruction",
+  pdf =          http://controls.ae.gatech.edu/papers/twigg_asee_03.pdf
+}
+
+@inproceedings{deWagter:dasc:03,
+author = "Christophe De Wagter and Alison A. Proctor and Eric N. Johnson",
+title = "Vision-Only Aircraft Flight Control",
+  booktitle =    dasc,
+  month     =    "October",
+  year =         "2003",
+  number =       {8B2},
+  address =      "Indianapolis, IN",
+  keywords =     "vision, machine vision, visual tracking, flight control",
+  pdf =          http://controls.ae.gatech.edu/papers/deWagter_dasc_03.pdf
+}
+
+
+%%%  this belongs with entry below
+@Unpublished{johnson:jgcd,
+  author =       "Eric N. Johnson and Anthony J. Calise",
+  title =        "Limited Authority Adaptive Flight Control for Reusable Launch Vehicles",
+  booktitle =    "AIAA Journal of Guidance, Navigation, and Control",
+  note =         "Journal of Guidance, Control and Dynamics",
+  year =         "2001",
+}
+
+@article{johnson:jgcd:03,
+author = {Eric N. Johnson and Anthony J. Calise},
+title = {Limited Authority Adaptive Flight Control for Reusable Launch Vehicles},
+journal = jgcd,
+volume = {26},
+number = {6},
+month = {Nov-Dec},
+year = {2003},
+pages = {906-913},
+keywords = {launch vehicle, x-33,neural networks},
+pdf = http://controls.ae.gatech.edu/papers/johnson_jgcd_03.pdf
+}
+
+
+@inproceedings{johnson:gnc:04,
+author = {Matthew D. Johnson and Anthony J. Calise and Eric N. Johnson},
+title = {Further Evaluation of an Adaptive Method for Launch Vehicle Flight Control (submitted)},
+booktitle = gnc,
+month = {August},
+year = {2004},
+address =      "Providence, RI",
+pdf = http://controls.ae.gatech.edu/papers/johnson_gnc_04.pdf
+}
+
+@inproceedings{shin:gnc:03,
+author = {Yoonghyun Shin and Matthew D. Johnson and Anthony J. Calise },
+title = {Neural Network-Based Adaptive Control for Nonlinear Flight Regimes},
+booktitle = gnc,
+month = {August},
+year = {2003},
+address =      "Austin, TX",
+pdf = http://controls.ae.gatech.edu/papers/shin_gnc_03.pdf
+}
+
+
+
+@inproceedings{yang:acc:03,
+author = "Bong-Jun Yang and Anthony J. Calise and James I. Craig",
+title= "Adaptive Output Feedback Control with Input Saturation",
+booktitle = acc,
+month = "June",
+address = "Denver, CO",
+pages = "1572-1577",
+year = "2003",
+keywords = "adatpive control augmentation,input staturation, output feedback",
+pdf = http://controls.ae.gatech.edu/papers/yang_acc_03.pdf
+}
+
+@inproceedings{yang:gnc:03,
+author= "Bong-Jun Yang and Naira Hovakimyan and Anthony J. Calise and James I. Craig",
+title= "Experimental Validation of an Augmenting Approach to Adaptive Control of Uncertain Nonlinear Systems",
+booktitle = gnc,
+address = "Austin, TX ",
+number = "AIAA-2003-5715",
+year = "2003",
+keywords = "experimental, adaptive control augmentation,output feedback, non-minimum phase",
+pdf = http://controls.ae.gatech.edu/papers/yang_gnc_03.pdf
+}
+
+@InProceedings{yang:cdc:03,
+author={Bong-Jun Yang and Naira Hovakimyan and Anthony J. Calise},
+title={Output Feedback Control of an Uncertain System using an Adaptive Observer},
+booktitle=cdc,
+year={2003},
+month={December},
+address={Maui,HI},
+pages={1705-1710},
+keywords=" adaptive observer, non-minimum phase,output feedback",
+pdf = http://controls.ae.gatech.edu/papers/yang_cdc_03.pdf
+}
+
+
+@inproceedings{shin:gnc:04,
+author = {Yoonghyun Shin and Anthony J. Calise and Matthew D. Johnson},
+title = {Comparison Study of Conventional and Neural Network Based Adaptive Control of Wing Rock},
+booktitle = gnc,
+month = {August},
+year = {2004},
+address =      "Providence, RI",
+pdf = http://controls.ae.gatech.edu/papers/shin_gnc_04.pdf
+}
+
+@inproceedings{sattigeri:gnc:03,
+author = {Ramachandra J. Sattigeri and Anthony J. Calise and Johnny H. Evers},
+title = {An Adaptive Approach to Vision-based Formation Control},
+booktitle = gnc,
+month = {August},
+year = {2003},
+number = {AIAA-2003-5727},
+address = "Austin, TX",
+keywords = "adaptive formation control, vision-based navigation, unmanned aerial vehicles",
+pdf = http://controls.ae.gatech.edu/papers/sattigeri_gnc_03.pdf
+}
+@inproceedings{calise:gnc:03,
+author = {Greg Dukeman and Anthony J. Calise},
+title = {Enhancements to an Atmospheric Ascent Guidance Algorithm},
+booktitle = gnc,
+month = {August},
+year = {2003},
+address = {Austin, TX},
+pdf = http://controls.ae.gatech.edu/papers/calise_gnc_03.pdf
+}
+
+@inproceedings{corban:gnc:03,
+author = {J. Eric Corban and Anothony J. Calise and J. V. R. Prasad and Gerhard Heynen and B. Koenig and Jeong Hur},
+title = {Flight Evaluation of an Adaptive Velocity Command System for Unmanned Helicopters},
+booktitle = gnc,
+month = {August},
+year = {2003},
+number = {AIAA-2003-5594},
+address = "Austin, TX",
+keywords = "unmanned aerial vehicles",
+pdf = http://controls.ae.gatech.edu/papers/corban_gnc_03.pdf
+}
+
+@phdthesis{kim:phdthesis,
+  author =       "Nakwan Kim",
+  title =        "Improved Methods in Neural Network-Based Adaptive Output Feedback Control, with Applications to Flight Control",
+  school =       "Georgia Institute of Technology, School of Aerospace Engineering",
+  year =         "2003",
+  address =      "Atlanta, GA 30332",
+  month =        nov,
+  keywords =     "neural networks, adaptive control, output feedback",
+}
+
+
+@article{johnson:jacic:04,
+  author =       "Eric N. Johnson and Daniel P. Schrage",
+  title =        "System Integration and Operation of a Research Unmanned Aerial Vehicle",
+  journal =      jacic,
+  volume =       "1",
+  number =       "1",
+  month =        "Jan",
+  pages =        "5-18",
+  year =         "2004",
+  pdf  =         http://controls.ae.gatech.edu/papers/johnson_jacic_04.pdf
+}
+
+@article{kannan:jgcd:05,
+author = {Johnson, Eric N. and Kannan, Suresh},
+journal = {Journal of Guidance Control and Dynamics},
+volume = {28},
+number = {3},
+title = {Adaptive Trajectory Control for Autonomous Helicopters},
+ISSN = {0731-5090},
+pages = {524-538},
+year = {2005},
+month = {May},
+doi = {10.2514/1.6271},
+URL = {http://doi.aiaa.org/10.2514/1.6271}
+}
+
+
+@inproceedings{proctor:gnc:04,
+author    = {Alison A. Proctor and Eric N. Johnson},
+title     = {Vision-Only Aircraft Flight Control Methods and Test Results},
+booktitle = gnc,
+month     = {August},
+year      = {2004},
+number    = {AIAA-2004-5351},
+address   = {Providence, Rhode Island},
+pdf       = http://controls.ae.gatech.edu/papers/proctor_gnc_04.pdf,
+keywords = "Kalman filter, estimation, flight control, visual tracking"
+}
+
+@inproceedings{kannan:mst:04,
+author    = {Suresh K. Kannan and Adrian A. Koller and Eric N. Johnson},
+title     = {Simulation and Development Environment for Multiple Heterogeneous UAVs},
+booktitle = mst,
+month     = {August},
+year      = {2004},
+number    = {AIAA-2004-5041},
+address   = {Providence, Rhode Island},
+pdf       = http://controls.ae.gatech.edu/papers/kannan_mst_04.pdf
+}
+
+@inproceedings{wantanabe:gnc:04,
+author    = {Yoko Watanabe and Eric N. Johnson and Anthony J. Calise},
+title     = {Optimal 3-D Guidance from a 2-D Vision Sensor},
+booktitle = gnc,
+month     = {August},
+year      = {2004},
+number    = {AIAA-2004-4779},
+address   = {Providence, Rhode Island},
+pdf       = http://controls.ae.gatech.edu/papers/wantanabe_gnc_04.pdf,
+keywords = "optimal guidance, state estimation, visual tracking"
+}
+
+@article{johnson:aes:04,
+  author   = "Eric N. Johnson and Alison A. Proctor and Jincheol Ha and Allen R. Tannenbaum",
+  title    = "Visual Search Automation for Unmanned Aerial Vehicles",
+  journal  = aes,
+  note     = "Accepted for publication",
+  keywords = "helicopters, visual tracking, automated search"
+}
+
+@inproceedings{twigg:gnc:04,
+  author    = {Shannon Twigg and Anthony J. Calise and Eric N. Johnson},
+  title     = {On-line Trajectory Optimization Including Moving Threats and Targets},
+  booktitle = gnc,
+  month     = {August},
+  year      = {2004},
+  number    = {AIAA-2004-5139},
+  address   = {Providence, Rhode Island},
+  pdf       = http://controls.ae.gatech.edu/papers/twigg_gnc_04.pdf,
+  keywords = "optimal guidance, path planning, trajectory"
+}
+
+@inproceedings{christian:gnc:04,
+  author    = {John A. Christian and Michael A. Turbe and Erik M. Kabo and Laura C. Manno and Eric N. Johnson},
+  title     = {Development of a Variable Inertia Reaction Wheel System for Spacecraft Attitude Control},
+  booktitle = gnc,
+  month     = {August},
+  year      = {2004},
+  number    = {AIAA-2004-5132},
+  address   = {Providence, Rhode Island},
+  pdf       = http://controls.ae.gatech.edu/papers/christian_gnc_04.pdf,
+  keywords = "spacecraft, reaction wheel, control"
+}
+
+@inproceedings{ha:acc:04,
+  author    = {Jincheol Ha and Christopher Alvino and Gallagher Prior and Marc Niethammer and Eric N. Johnson and Allen R. Tannenbaum},
+  title     = {Active Contours and Optical Flow for Automatic Tracking of Flying Vehicles},
+  booktitle = acc,
+  month     = {July},
+  year      = {2004},
+  address   = {Boston, Massachusettes},
+  pdf       = http://controls.ae.gatech.edu/papers/ha_acc_04.pdf,
+  keywords = "tracking, active contours, optical flow, automated"
+}
+
+@inproceedings{ejohnson:gnc:03,
+  author    = {Eric N. Johnson and Daniel P. Schrage},
+  title     = {The Georgia Tech Unmanned Aerial Research Vehicle: GTMax},
+  booktitle =    gnc,
+  month     =    "August",
+  year =         "2003",
+  number =       {AIAA-2003-5741},
+  address =      "Austin, TX",
+  keywords =     "flight control, UAV ",
+  pdf =          http://controls.ae.gatech.edu/papers/ejohnson_gnc_03.pdf
+}
+
+@article{ejohnson:jacic:04,
+  author =       "Eric N. Johnson and Alison A. Proctor and Jincheol Ha and Allen R. Tannenbaum",
+  title =        "Development and Test of Highly Autonomous Unmanned Aerial Vehicles",
+  journal =      jacic,
+  volume =       "1",
+  number =       "12",
+  month =        "Dec",
+  pages =        "485-501",
+  year =         "2004",
+  pdf  =         http://controls.ae.gatech.edu/papers/johnson_jacic_gtar04.pdf
+}
+
+@InProceedings{Kutay:08GNC,
+  author = 	 {Kutay, Ali and Chowdhary, Girish V. and Calise, A. and Johnson, Eric N. },
+  title = 	 {A Comparision of Two Novel Direct Adaptive Control Methods under Actuator Failure Accommodation},
+  booktitle = 	 {Proceedings of the AIAA GNC Conference, held at Honolulu, HI},
+  year =	 {2008},
+}
+
+
+
+
+
+@CONFERENCE{Kannan:02digi,
+	AUTHOR       = {Kannan, S. K. and Johnson, E. N.},
+	TITLE        = {Adaptive Trajectory Based Control for Autonomous Helicopters},
+	BOOKTITLE    = {Proceedings of the AIAA Digital Avionics Conferenc },
+	YEAR         = {2002},
+	MONTH        = {Oct},
+
+}
+
+
+%
+@INPROCEEDINGS{Kim:94GNC,
+	AUTHOR       = "Kim, Byoung S. and Calise, Anthony J.",
+	TITLE        = " Nonlinear Flight Control Using Neural Networks",
+	BOOKTITLE    = "Proceedings of the AIAA GNC Conference",
+	YEAR         = "1994",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "August",
+	NOTE         = ""
+}
+@INPROCEEDINGS{Joh:04CDC,
+	AUTHOR       = "Johnson, Eric N. and Oh, Seung Min ",
+	TITLE        = " Adaptive Control using Combined Online and Background Learning Neural Network",
+	BOOKTITLE    = "Proceedings of CDC",
+	YEAR         = "2004",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+%
+@INPROCEEDINGS{Joh:GNC06,
+	AUTHOR       = "Johnson, E. and Turbe, M. and Wu, A. and Kannan, S.",
+	TITLE        = " Flight Results of Autonomous Fixed-Wing UAV Transitions to and from Stationary Hover",
+	BOOKTITLE    = "Proceedings of the AIAA GNC Conference",
+	YEAR         = "2006",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "August",
+	NOTE         = ""
+}
+%
+%
+%
+%
+
+%
+
+%
+@InCollection{blottner:70cp,
+  author = 	 {F. G. Blottner},
+  title = 	 {Prediction of Electron Density in the Boundary Layer
+                  of Entry Vehicles with Ablation},
+  booktitle = 	 {The Entry Plasma Sheath and Its Effects},
+  type =         {NASA SP--252},
+  volume =	 1,
+  year =	 1970,
+  month =	 oct,
+  pages =	 {219--240}
+}
+%
+@InProceedings{wirin:90cp,
+  author = 	 {W. B. Wirin},
+  title = 	 {Space Debris 1989},
+  booktitle = 	 {Proceedings of the Thrity-Second Colloquium
+                 on the Law of Outer Space},
+  year =	 1990,
+  publisher =	 {AIAA},
+  address =	 {Wahington, DC},
+  pages =	 {184--196}
+}
+
+@PHDTHESIS{Johnson:00phd,
+	AUTHOR       = "Johnson, Eric N.",
+	TITLE        = "Limited Authority Adaptive Flight Control",
+	SCHOOL       = "Georgia Institute of Technology",
+	YEAR         = "2000",
+	ADDRESS      = "Atlanta Ga",
+}
+@PHDTHESIS{Kannan:05phd,
+	AUTHOR       = "Kannan, Suresh",
+	TITLE        = "Adaptive Control of Systems in Cascade with Saturation",
+	SCHOOL       = "Georgia Institute of Technology",
+	YEAR         = "2005",
+	ADDRESS      = "Atlanta Ga",
+	MONTH        = "",
+	NOTE         = ""
+}
+
+%
+@Book{Spooner:02bk,
+  author =	 {Spooner, J.T. and Maggiore, M. and Ordonez,R. and Passino, K..M.},
+  title = 	 {Stable Adaptive Control and Estimation for Nonlinear Systems: Neural and Fuzzy Approximation Techniques},
+  publisher = 	 {John Wiley and Sons},
+  year = 	 2002
+}
+
+
+%
+
+@ARTICLE{Wu:JACIC:05,
+  AUTHOR =       {Wu, Allen and Johnson, Eric N. and Proctor, Allison A},
+  TITLE =        {Vision-Aided Inertial Navigation for Flight Control},
+  JOURNAL =      {Journal of Aerospace Computing, Information, and Communication},
+  YEAR =         {2005},
+  volume =       {2},
+  number =       {1},
+  pages =        {},
+  month =        {september},
+  note =         {},
+  abstract =     {},
+  keywords =     {},
+  source =       {},
+}
+
+@INPROCEEDINGS{Wu:GNC08,
+	AUTHOR       = {Wu, Allen and Johnson, Eric N.},
+	TITLE        = {Methods for Localization and Mapping Using Vision and Inertial Sensors},
+	BOOKTITLE    = "Proceedings of AIAA GNC",
+	YEAR         = "2008",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+@ARTICLE{Proctor:JFR:06,
+  AUTHOR =       {Proctor, Allison A. and Johnson, Eric N. and Apker, Thomas},
+  TITLE =        {Vision Only Control and Guidance of Aircraft},
+  JOURNAL =      {Journal of Field Robotics},
+  YEAR =         {2006},
+  volume =       {23},
+  number =       {10},
+  pages =        {},
+  month =        {October},
+  note =         {},
+  abstract =     {},
+  keywords =     {},
+  source =       {},
+}
+@INPROCEEDINGS{Christmann:INFOTECH07,
+	AUTHOR       = {Christmann, Clause and Johnson, Eric N.},
+	TITLE        = {Design and Implementation of a self-configuring Ad-hoc Network for Unmanned Aerial Systems},
+	BOOKTITLE    = "Proceedings of AIAA INFOTECH",
+	YEAR         = "2007",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+@ARTICLE{Joh:JACIC:07,
+  AUTHOR =       {Johnson, Eric N. and Calise, Anthony J. and Watanabe, Yoko and  Ha, Jin-Cheol and Neidhoefer, James},
+  TITLE =        {Vision Only Control and Guidance of Aircraft},
+  JOURNAL =      {Journal of Aerospace Computing, Information, and Communication},
+  YEAR =         {2006},
+  volume =       {23},
+  number =       {10},
+  pages =        {},
+  month =        {October},
+  note =         {},
+  abstract =     {},
+  keywords =     {},
+  source =       {},
+}
+@INPROCEEDINGS{Wendel:GNC05,
+	AUTHOR       = {Wendel, Jann and Metzger, J and Trommer, G. F.},
+	TITLE        = {Comparison of Extended and Sigma-Point Kalman Filters for Tightly Coupled GPS/INS Integration},
+	BOOKTITLE    = "Proceedings of AIAA GNC",
+	YEAR         = "2005",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+@INPROCEEDINGS{Jones:GNC07,
+	AUTHOR       = {Jones, Phillip and Vachtsevanos, George},
+	TITLE        = {Multi-Unmanned Aerial Vehicle Coverage Planner for Area Surveillance Missions},
+	BOOKTITLE    = "Proceedings of AIAA GNC",
+	YEAR         = "2007",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+@ARTICLE{Christophersen:JACIC:06,
+  AUTHOR =       {Christophersen, Henrik B. and Pickell, Wayne R. and Neidoefer, James C. and Koller, Adrian A. and Kannan, Suresh K. and Johnson, Eric N.},
+  TITLE =        {A compact Guidance, Navigation, and Control System for Unmanned Aerial Vehicles},
+  JOURNAL =      {Journal of Aerospace Computing, Information, and Communication},
+  YEAR =         {2006},
+  volume =       {3},
+  number =       {},
+  pages =        {},
+  month =        {May},
+  note =         {},
+  abstract =     {},
+  keywords =     {},
+  source =       {},
+}
+@INPROCEEDINGS{Chow:GNC05,
+	AUTHOR       = {Chowdhary, Girish and Lorenz, Sven},
+	TITLE        = {Control of a VTOL UAV using Onine Paramter Identification},
+	BOOKTITLE    = "Proceedings of AIAA GNC",
+	YEAR         = "2005",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+@INPROCEEDINGS{Chow:AFM06,
+	AUTHOR       = {Chowdhary, Girish and Jategaonkar, Ravindra},
+	TITLE        = {Aerodynamic Paramter Estimation from Flight Data Applying Extended and Unscented Kalman Filter },
+	BOOKTITLE    = "Proceedings of AIAA AFM",
+	YEAR         = "2006",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
+@INPROCEEDINGS{Debusk:AFM09,
+	AUTHOR       = {Debusk, Wesely and Chowdhary, Girish and Johnson, Eric N.},
+	TITLE        = {Real-Time System Identification of a Small Multi-Engine Aircraft},
+	BOOKTITLE    = "Proceedings of AIAA AFM",
+	YEAR         = "2009",
+	EDITOR       = "",
+	PAGES        = "",
+	ORGANIZATION = "",
+	PUBLISHER    = "",
+	ADDRESS      = "",
+	MONTH        = "",
+	NOTE         = ""
+}
