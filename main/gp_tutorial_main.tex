@@ -1,0 +1,294 @@
+\documentclass[letterpaper,12pt,peerreviewca,draftcls]{IEEEtran}
+\usepackage{csm16}
+\usepackage[margin=1in]{geometry}
+\usepackage[nolists,nomarkers,tablesfirst]{endfloat} % put figures at end
+\usepackage{amsmath} % for \eqref
+\usepackage{mathtools}
+% added for CSMAG only
+\usepackage{url}
+\usepackage{graphicx,xcolor}
+\usepackage{verbatim}% http://ctan.org/pkg/verbatim
+\makeatletter
+\newcommand{\verbatimfont}[1]{\def\verbatim@font{#1}}%
+\makeatother
+\verbatimfont{\ttfamily\small}
+\newcommand{\XX}[1]{{\bf \color{orange}{ XX #1 XX}}}
+\newcommand{\bi}{\begin{itemize}}\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{equation}}\newcommand{\ee}{\end{equation}}
+\newcommand{\bee}{\begin{enumerate}}\newcommand{\eee}{\end{enumerate}}
+\newcommand{\bea}{\begin{eqnarray}}\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\beas}{\begin{eqnarray*}}\newcommand{\eeas}{\end{eqnarray*}}
+\newcommand{\bc}{\begin{center}}\newcommand{\ec}{\end{center}}
+\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+
+%
+\usepackage[left,pagewise]{lineno} 
+\usepackage[english]{babel} 
+\usepackage{blindtext}
+% added for CSMAG only
+
+\usepackage{etex}
+\usepackage[authormarkuptext=name,addedmarkup=bf,authormarkupposition=left]{changes}
+
+\definecolor{DarkRed}{rgb}{0.75,0,0}
+\definecolor{DarkGreen}{rgb}{0,0.5,0}
+\definecolor{DarkBlue}{rgb}{0,0,0.5}
+\definecolor{DarkPurple}{rgb}{0.5,0,0.5}
+\definecolor{LightGrey}{rgb}{0.9,0.9,0.9}
+
+\definechangesauthor[name={M.~L.}, color={blue}]{ml}
+\definechangesauthor[name={G.~C.}, color={DarkGreen}]{gc}
+\definechangesauthor[name={S.~L.}, color={green}]{sl}
+\definechangesauthor[name={B.~C.}, color={red}]{bc}
+\definechangesauthor[name={J.~H.}, color={DarkPurple}]{jh}
+                              \newcommand{\mX}[1]{\added[id=ml,remark={}]{#1}}
+\newcommand{\gX}[1]{\added[id=gc,remark={}]{#1}}
+\newcommand{\sX}[1]{\added[id=sl,remark={}]{#1}}
+\newcommand{\bX}[1]{\added[id=bc,remark={}]{#1}}
+\newcommand{\jX}[1]{\added[id=jh,remark={}]{#1}}
+
+%
+\usepackage[left,pagewise]{lineno} 
+% added for CSMAG only
+
+\usepackage{amssymb,amsmath,bm,booktabs}
+\usepackage[sort,compress]{cite}
+\usepackage{algorithm,algcompatible}
+%for making comments in algorithm
+\renewcommand{\COMMENT}[2][.5\linewidth]{%
+	\leavevmode\hfill\makebox[#1][l]{//~#2}}
+
+\usepackage{subfigure}
+%\usepackage{subcaption}
+\usepackage{eqparbox}
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\#\ \eqparbox{COMMENT}{#1}%
+}
+
+\usepackage{etoolbox}  % patch def of algorithmic environment
+\makeatletter
+\patchcmd{\algorithmic}{\addtolength{\ALC@tlm}{\leftmargin} }{\addtolength{\ALC@tlm}{\leftmargin}}{}{}
+\makeatother
+ \usepackage{tikz}
+ \usepackage{tikz-qtree}
+ \usetikzlibrary{decorations.pathreplacing,calc}
+ \newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+ 
+ \newcommand*{\AddNote}[4]{%
+     \begin{tikzpicture}[overlay, remember picture]
+         \draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,red]
+             ($(#3)!(#1.north)!($(#3)-(0,1)$)$) --  
+             ($(#3)!(#2.south)!($(#3)-(0,1)$)$)
+                 node [align=center, text width=2.5cm, pos=0.5, anchor=west] {#4};
+     \end{tikzpicture}
+ }%
+ 
+% \usepackage{wrapfig}
+ \usetikzlibrary{automata}
+ \usetikzlibrary{arrows,snakes,backgrounds}
+ \tikzstyle{ball} = [circle,shading=ball, ball color=black!80!white,
+     minimum size=1cm]
+ \tikzstyle{ball2} = [circle,shading=ball, ball color=red!80!white,
+     minimum size=1cm]
+ \tikzstyle{ball3} = [circle,shading=ball, ball color=blue!80!white,
+     minimum size=1cm]
+ \tikzstyle{ball4} = [circle,shading=ball, ball color=green!100!white,
+     minimum size=1cm]
+ \tikzstyle{ball5} = [circle,shading=ball, ball color=purple!80!white,
+     minimum size=1cm]       
+     
+%\usepackage[hidelinks,pdftex]{hyperref}
+\usepackage[pdftex, plainpages = false, colorlinks=true, linkcolor=black, citecolor = green!50!blue, urlcolor = blue, filecolor=black, pagebackref=false, hypertexnames=false,  pdfpagelabels ]{hyperref}
+
+\usepackage[capitalise]{cleveref}
+\crefname{equation}{}{}
+
+\usepackage{comment}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%\sethlcolor{LightGrey}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{assumption}[theorem]{Assumption}
+%\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{finalremark}[theorem]{Final Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}{Question}
+\usepackage[normalem]{ulem}
+
+\newcounter{JPH}
+%\newtheorem{sidebartheorem}{\textit{Theorem}~S\!\!}[JPH]
+
+\newcounter{sidebartheorem}
+%\renewcommand{\thesidebartheorem}{\Alph{JPH}\thesidebartheore}
+\newenvironment{sidebartheorem}[1][]{\refstepcounter{sidebartheorem}\par\medskip \textit{Theorem~S\thesidebartheorem} #1:\rmfamily}{\medskip}
+\newcommand{\sidebarref}[1]{S\ref{#1}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%\hideX
+\input{macros}
+\input{inc_macros}
+\usepackage[nolists,tablesfirst,nomarkers]{endfloat}
+ 
+\title{Gaussian Processes for Learning and Control\\\Large Tutorial with examples}
+\author{Miao Liu, Girish Chowdhary, Bruno Castro da Silva, \\Shih-Yuan Liu, Jonathan P. How\\ POC email: miao.liu1@ibm.com}
+
+\newif\ifPDF \ifx\pdfoutput\undefined\PDFfalse \else\ifnum\pdfoutput > 0\PDFtrue \else\PDFfalse \fi \fi
+\ifPDF 
+%\usepackage[pdftex, plainpages = false, colorlinks=true, linkcolor=black, citecolor = green!50!blue, urlcolor = blue, filecolor=black, pagebackref=false, hypertexnames=false,  pdfpagelabels ]{hyperref}
+\fi
+
+
+\begin{document}
+\maketitle
+\CSMsetup
+\linenumbers \modulolinenumbers[5] % added for CSMAG only
+
+%\bX{Notation suggestion: bold uppercase for matrices; non-bold uppercase for sets; bold lowercase for vectors, non-bold lowercase for scalars}
+
+Many challenging real-world control problems require adaptation and learning in the presence of uncertainty. Examples of these challenging domains include aircraft adaptive control under uncertain disturbances~\cite{chowdhary2013bayesian,yang2015fault}, multiple-vehicle tracking with space-dependent uncertain dynamics~\cite{Joseph11_AR, wei2014camera}, robotic-arm control~\cite{nguyen2010using}, blimp control~\cite{ko2009gp, ko2007gaussian}, mobile robot tracking and localization~\cite{ko2011learning,GP-local:AAAI2014}, cart-pole systems and unicycle control~\cite{deisenroth2015gaussian}, gait optimization in legged robots~\cite{lizotte2007automatic} and snake robots~\cite{tesch2011using}, and in general, any other systems whose dynamics are uncertain and for which limited data is available for model learning. Classical model reference adaptive control \cite{tao:bk:03,narendra:bk:89,Ioannou:96bk} and reinforcement learning methods~\cite{Sutton_17, busoniu2010reinforcement,vrabie2013optimal,lewis2012reinforcement,bhasin2013novel,vamvoudakis2017game,liu2017adaptive,zhu2017comprehensive} %\alert{do we need references for these or are they generally known?} 
+have been developed to address these %\XX{what challenges - we didn't discuss that yet} 
+challenges and rely on parametric adaptive elements or control policies whose number of parameters or features are fixed and determined a priori. One example of such an adaptive model are radial basis function networks (RBFNs), with RBF centers preallocated based on expected operating domains~\cite{sanner1992gaussian,kim1998high}. 
+
+A potential problem with this approach is that, if the system operates outside of the expected domain, adaptive elements may not correctly model  uncertainty. The defect in uncertainty modeling may lead to system instability, thereby rendering any controller stability results only semi-global in nature. ``\nameref{sb:eg_issue}" illustrates this issue through an adaptive flight control application using parametric neural network.
+
+Because methods with fixed parametric structure lack the robustness needed to capture uncertainty outside their expected operating domains,  
+%As an alternative to methods with fixed parametric structure, nonparametric models have been designed~\cite{gelman2014bayesian} \XX{how is what follows connected to the first part?} 
+nonparametric models have been designed. 
+%to overcome the local approximation properties of universal approximators. 
+In a nonparametric model, the number of parameters and their properties are not fixed, but rather they grow and adjust with the amount of training data. Within the class of nonparametric modeling methods, \emph{Bayesian modeling} leads to data-driven, generative models optimized to fit data under explicit assumptions of measurement uncertainty. As an important class of Bayesian nonparametric models (BNPMs), \emph{Gaussian Processes} (GPs)~\cite{Rasmussen:2005} are highlighted. GPs are priors over a class of functions or models of interest---for instance, over models describing the dynamics of an unknown system. GPs can directly encode probability distributions over such functions or models, given observed data, and allow for updated posterior distributions over models or functions given additional sampled data. Importantly, they also allow for data-driven feature construction and feature selection and do not require a designer to explicitly predefine feature numbers and locations. Finally, they explicitly incorporate and provide uncertainty estimates in all of their predictions. 
+
+The basic theory underpinning GPs can be traced back to the work of Wiener~\cite{wiener1949extrapolation} and Kolmogorov~\cite{kolmogoroff1941interpolation} on time series analysis in 1940s. GP regression, also named kriging in spatial statistics~\cite{matheron1973intrinsic}\cite{journel1978mining}, is a widely used method developed in the 1970s. Because of the high computational complexity of GP-based methods, however, they did not become widely used in the machine learning and engineering communities until early 21st century. Since then, hundreds of articles on GPs have appeared in major conference proceedings and journals of machine learning and robotics. %\gXX{would it be interesting to quntify the rought order of papers on GPs that were published recently, e.g. there is some statistics about NIPS 5-6 years ago when GPs were clearly very dominant}\mX{ NIPS05-17 have 10,4,6,8,4,3,9,8,7,7,6,22,25 papers respectively about GPs}.
+GPs are also deeply connected with kernel filtering methods, made possible by the reproducing kernel Hilbert space interpretation of GP regression \cite{aronszajn:TAMS:50}. Yet, using GP regression for function approximation yields additional benefits over kernel filtering methods: no prior knowledge of the uncertainty over operating domains is required (but can be used if available); measurement noise is handled inherently; and features can be automatically inferred without manual specification. %\XX{last one seems very specific compared to the previous 2} the centers of features need \XX{awk} not be preallocated. 
+
+As previously mentioned, GPs encode uncertainty over a domain as \emph{distributions over functions}---which differs %\XX{how does it differ?} 
+from the traditional deterministic weight-space based approaches, where uncertainty is characterized by a model's error function~\cite{Kim:98bk,Kingravi:TNN:2012,narendra:procIEEE:96,volyanskyy:tnn:09}. In addition, %\XX{why furthermore? is this building on the prior thoughts? doesn't seem like it to me - not sure how it connects} 
+GP regression is heavily based on Bayesian inference, and when the likelihood is Gaussian (i.e., when Gaussian Radial Basis Functions are used), GP inference is analytic and can be solved with a least squares formulation. This avoids the necessity to utilize gradient-based update laws, which can run into issues with lack of convergence due to getting stuck in local minima. Furthermore, in the context of model reference adaptive control (MRAC), GP updates lead to guaranteed parameter convergence \cite{Chowdhary13_TNN} when the data is exciting over an interval, and are not susceptible to the  %such as the lack of convergence guarantees \bX{but do GP methods generally come with stronger convergence guarantees? I suggest just talking about how GPs, when used for optimization, often result in global methods, not local, etc; if so, cite something like \url{http://www.robots.ox.ac.uk/~parg/pubs/OsborneGarnettRobertsGPGO.pdf}}\mX{need to make it more clear} 
+possibility of parameter bursting (parameters growing without bound ~\cite{astrom:bk:95,boyd:automatica:86,Narendra:86TAC} in presence of noise), since parameter-regularization can be utilized in the learning scheme itself.
+
+%\begin{figure}[t]
+%\centering
+%\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,semithick]
+%\node[state] (C) [align=center] {Gaussian Processes};
+%\node[state] (A) [above left of = C,align=center]{System\\[-.25em]dynamics};
+%\node[state] (B) [below left of = C,align=center] {Measurement\\[-.25em]models};
+%\node[state] (D) [above right of = C,align=center] {Value\\[-.25em]functions };
+%\node[state] (E) [above of = C,align=center] {Control\\[-.25em]policies };
+%\node[state] (F) [below right of = C,align=center] {Cost/Reward\\[-.25em]functions};
+%\path (C) edge [left,thick] node {} (A)
+%(C) edge [left,thick] node {} (B)
+%(C) edge [left,thick] node {} (D)
+%(C) edge [left,thick] node {} (E)
+%(C) edge [left,thick] node {} (F);
+%\end{tikzpicture}
+%\caption{Gaussian processes are universal function approximators that can be used for %modeling various functions relevant to optimal control and decision making.}
+%\label{fig:gp_applications}
+%\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{./figures/Fig1_GP_relations}
+\caption{Gaussian processes are universal function approximators that can be used for modeling various functions relevant to optimal control and decision making.}
+\label{fig:gp_applications}
+\end{figure}
+
+Due to their representation flexibility and the advancement of tractable learning algorithms, %GPs have been widely used in \XX{didn't we say this at top of page?} statistics and machine learning for function approximations and predictions. 
+GP models have been widely used in machine learning tasks~\cite{Rasmussen:2005, lawrence2005probabilistic}, such as regression, classification and dimensionality reduction. %\mX{should we delete "such as...", since classification and dimensionality reduction are not disucssed in the rest of the paper? Or we should add discussion to them?} \bX{no, I think it's fine to leave it like this. It says to the reader that GPs have been widely used, and then we clarify explicitly in the next sentence how it has been used specifically by the control community, so it makes a link between the general uses of GPs and the stuff the reader cares about.} Moreover, they have also been applied to model system dynamics and to estimate control policies, and have been shown to be a powerful tool for the robotics community. %hence \XX{gaining increasing - awk} \XX{popularity - awk} in robotics and control community. 
+However, GP-related data-driven control methods remain, with notable exceptions \cite{Murray-Smith:02,Murray-Smith:03,ko2007IROS,deisenroth2009gaussian,deisenroth2013gaussian,deisenroth2015gaussian,nguyen2008local}, largely unexploited by the general controls community. This tutorial presents a self-contained introduction to GP regression techniques and discusses several examples of their use in solving control-related problems, such as optimal adaptive control, estimation and filtering, planning, reinforcement learning (RL), and inverse optimal control (also called inverse RL). Other important aspects of GP models, such as the efficient computation of GP posteriors based on sparse approximations, and connections to other machine learning models, are also discussed in detail.   
+
+Although many textbooks and tutorials on Gaussian Processes (GP) exist~\cite{mackay2003information, Rasmussen:2005, Bishop:2006, murphy2012machine,scholkopf2002learning,gelman2014bayesian}, most are directed to the machine learning community and focus on data mining applications. 
+%A recent monograph by Kocijan~\cite{kocijan2015modelling} summarizes %\XX{frank lewis books?} a range of approaches to GP model-based control system design.
+To spark the control community's interest in GP-related techniques, this tutorial uses \emph{control and reinforcement learning applications as motivating examples}, 
+%\XX{awk sentence - suggest rewrite} In particular, 
+and shows how GPs, when used as universal function approximators, can model key functions underpinning many control problems, including system dynamics, measurement models, value functions, control policies, and cost/reward functions. %In this paper, extensive empirical evaluation covers a wider range of domains.
+ The insights and lessons from the applications discussed here are expected to provide a guide to practitioners so that they can recognize ways in which to apply GP regression and GP modeling to their own control and RL problems of interest. 
+
+This tutorial is organized as follows. %Section 2 \XX{use names not numbers, or just use neither} 
+The next section provides an overview of the basics of GP regression, including GPs' generative models and Bayesian inference. After that, applications of GP regression are presented with examples from different control subfields, including model reference adaptive control, planning, reinforcement learning, and inverse reinforcement learning. %, and estimation and filtering. 
+In addition, this tutorial also discusses limitations of the basic GP model and introduces recent extensions to it. Finally, it presents online resources, software, in tandem with popular implementations that can help practitioners wishing to use GPs to solve particular problems.
+ 
+The remainder of this tutorial adopts the following notations: boldface upper-case letters denote matrices ($\bm{X}$) and boldface lower-case letters denote column vectors ($\bm{x}$). The symbols $\bm{I}_n$, $\bm{0}_{m\times n}$, $\bm{1}_n$ represent the identity matrix of dimension $n\times n$, the all-zero-entries matrix of dimension $m\times n$ and the all-one-entires vectors of dimension $n$, respectively (subscripts will be dropped when the dimensions are clear from the context). Non-boldface upper-case calligraphic letters ($\mathcal{X}$) denote sets, and non-boldface and non-script letters denote scalars ($x, X$).
+    
+   
+\input{modeling}
+
+\input{control}
+\input{planning}
+\input{RL}
+\input{IRL}
+%\input{estimation}
+\input{others}
+\input{conclusion}
+
+
+%\section{ACKNOWLEDGMENTS}
+%The development of GP-MARC and GPQ theory was supported by ONR MURI Grant N000141110688. The flight test program was supported by \mX{funding agency?}.
+
+%\section{AUTHOR INFORMATION}
+%\mX{Please include a short biography of each author. Please include the mailing address,
+%email, telephone number, and fax number of the corresponding author only.}
+
+\clearpage
+%\XX{many of hte references have ``gaussian'' rather than ``Gaussian''}
+\bibliographystyle{unsrt}
+%needs gp_tuotrial
+\bibliography{gp_tutorial,daslab_all,daslab_pubs,acl_all,acl_publications,controls}
+%\bibliography{acl_all,daslab_all,daslab_pubs,ACL_Publications}
+%\bibliography{gp_tutorial,./BIB_all/ACL_all,./BIB_all/ACL_Publications,./BIB_all/ACL_bef2000,./bibifiles/daslab_pubs,./bibifiles/daslab_all,./bibifiles/controls}
+
+%\begin{thebibliography}{10}
+%\bibitem{LT} Available online (last accessed 4/25/16)\\ \url{http://ieeecss.org/sites/ieeecss.org/files/documents/CSMLatex.zip}	
+%\bibitem{BIB} Available online (last accessed 4/25/16)\\ \url{https://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/bibtex}
+%\end{thebibliography}
+
+%\XX{make sure that original publication source of each figure is referenced and acknowledged correctly here}
+\processdelayedfloats
+\sidebars
+%\subsection[Use of Hyphens]{Sidebar: Use of Hyphens}
+%\label{sb:UseofHyphens}
+%    		
+%Note the spelling of these words as single words with no hyphen:  aeroelastic, aeroservoelastic, aimpoint, allpass, axisymmetric, backup, bandpass, bandlimited, bloodstream, breakpoint, buildup, colocated, coprime, countdown, counterclockwise, counterintuitive, counterproductive, crossover, cutoff, deadbeat, deadzone, drivetrain, electromechanical, feedback, feedforward, feedthrough, flyby, gearbox, geartrain, handheld, hardwired, highpass, ingoing, inline, interagent, interarrival, interrelated, liftoff, lightweight, longstanding, lookup, lowpass, multidimensional, multidisciplinary, multilayer, multilevel, multimode, multimodel, multiobjective, multipath, multirate, multiscale, multistage, multistep, multivehicle, narrowband, nonadaptive, nonadditive, noncausal, noncolocated, nonconservative, noncontact, nonconvex, nondestructive, nondeterministic, nondissipative, nonempty, nonequilibrium, nonessential, nonferrous, nonholonomic, nonideal, noninvasive, nonlinear, nonlocal, nonminimum, nonnegative, nonoverlapping, nonrepeating, nonsquare, nonstandard, nonstationary, nontrivial, nonuniform, nonzero, offboard offline, offset, offshoot, offsite, onboard, ongoing, online, onsite, outgoing, overcrowded, overparameterized, passband, piecewise, powertrain, preset, reinvent, rewritten, rolloff, rollover, rollup, roundoff, scaleup, setpoint, setup, shutdown, sideslip, speedup, spinup, startup, subdivision, suboptimal, subregion, subsection, substep, subsystem, swingby, swingup, teamwork, testbed, tradeoff, unidirectional, warmup, workpiece, worldwide.
+
+\renewcommand{\thealgorithm}{S\arabic{algorithm}} 
+\setcounter{algorithm}{0}
+
+\clearpage
+\input{sidebar1}
+\processdelayedfloats
+\clearpage
+%\input{sidebar2}
+%\processdelayedfloats
+%\clearpage
+\input{sidebar3}
+\processdelayedfloats
+\clearpage
+\input{sidebar4}
+\processdelayedfloats
+\clearpage
+\input{sidebar5}
+\processdelayedfloats
+
+\newpage
+\section{Author Biography}
+%Insert the author bios here.
+\noindent \textbf{Miao Liu} is a research staff member in the AI Science Department at IBM T. J. Watson Research Center, Yorktown Heights NY. Prior to joining IBM in 2016, he was a Postdoctoral Associate in the Laboratory of Information and Decision System (LIDS) at Massachusetts Institute of Technology (MIT), where he worked on scalable Bayesian nonparametric methods for solving multiagent learning and planning problems. He received a Ph.D. degree in Electrical and Computer Engineering from Duke University in 2014. He received both his B.S. and M.S. degrees in Electronics and Information Engineering from Huazhong University of Science and Technology, in Wuhan, China in 2005 and 2007, respectively. Dr. Liu was a co-author of the best student paper at IROS2017 and received nomination of the best multi-robot paper in ICRA2017. His research interests include statistical machine learning, AI, and robotics.
+
+\noindent \textbf{Girish Chowdhary} is an assistant professor at the University of Illinois at Urbana-Champaign and affiliated with Electrical and Computer Engineering, Agricultural and Biological Engineering, and the UIUC Coordinated Science Laboratory (CSL). He is the director of the Distributed Autonomous Systems laboratory at UIUC. He holds a PhD (2010) from Georgia Institute of Technology in Aerospace Engineering. He was a postdoc at the Laboratory for Information and Decision Systems (LIDS) of the Massachusetts Institute of Technology for about two years (2011-2013). He was an assistant professor at Oklahoma State University’s Mechanical and Aerospace Engineering department (2013-2016). Prior to joining Georgia Tech, he also worked with the German Aerospace Center's (DLR's) Institute of Flight Systems for around three years (2003-2006). His undergraduate institution was the Royal Melbourne Institute of Technology in Australia. Girish's ongoing research interest is in theoretical insights and practical algorithms for adaptive autonomy. 
+
+\noindent \textbf{Bruno Castro da Silva} is an associate professor at the Institute of Informatics of the Federal University of Rio Grande do Sul (UFRGS), in Brazil. Prior to that he was a postdoctoral associate at the Aerospace Controls Laboratory, at MIT. He received his Ph.D. in Computer Science from the University of Massachusetts, working under the supervision of Prof. Andrew Barto, in 2014. Before that he received a B.S. degree \emph{cum laude} in Computer Science from the Federal University of Rio Grande do Sul in 2004, and an MSc. degree from the same university in 2007. Bruno has worked in different occasions as a visiting researcher at the Laboratory of Computational Embodied Neuroscience, in Rome, Italy, developing novel control algorithms for the iCub robot. His research interests lie in the intersection of machine learning, reinforcement learning, optimal control theory, and robotics, and include the construction of reusable motor skills, active learning, efficient exploration of large state-spaces and Bayesian optimization applied to control.
+
+\noindent \textbf{Shih-Yuan Liu} is a Senior Research Scientist at nuTonomoy Inc. Previously, he was a postdoctoral associate at Laboratory for Information and Decision Systems (LIDS) and Aerospace Controls Laboratory (ACL) at the Massachusetts Institute of Technology (MIT). He received the Ph.D. degree in Mechanical Engineering in Controls from University of California, Berkeley in 2014. His research interests include control, path-planning, coordination, and teleoperation of autonomous ground and aerial vehicles in dynamic environments.
+
+
+\noindent \textbf{Jonathan P. How} is the Richard C. Maclaurin Professor of Aeronautics and Astronautics at the Massachusetts Institute of Technology. He received a B.A.Sc. from the University of Toronto in 1987 and his S.M. and Ph.D. in Aeronautics and Astronautics from MIT in 1990 and 1993, respectively. He then studied for two years at MIT as a postdoctoral associate for the Middeck Active Control Experiment (MACE) that flew onboard the Space Shuttle Endeavour in March 1995. Prior to joining MIT in 2000, he was an Assistant Professor in the Department of Aeronautics and Astronautics at Stanford University. He is the Editor-in-chief of the IEEE Control Systems Magazine and an Associate Editor for the AIAA Journal of Aerospace Information Systems. Professor How was the recipient of the 2002 Institute of Navigation Burka Award, a Boeing Special Invention award in 2008, the IFAC Automatica award for best applications paper in 2011, the AeroLion Technologies Outstanding Paper Award for the Journal Unmanned Systems in 2015, won the IEEE Control Systems Society Video Clip Contest in 2015, and received the AIAA Best Paper in Conference Awards in 2011, 2012, and 2013. He is a Fellow of AIAA and a senior member of IEEE.
+
+\end{document}
+\clearpage
