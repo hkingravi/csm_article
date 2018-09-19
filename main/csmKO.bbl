@@ -1,0 +1,171 @@
+\begin{thebibliography}{10}
+
+\bibitem{cressie2011statistics}
+Noel Cressie and Christopher~K Wikle.
+\newblock {\em Statistics for spatio-temporal data}.
+\newblock John Wiley \& Sons, 2011.
+
+\bibitem{RasmussenWilliams2005}
+Carl~E. Rasmussen and Christopher K.~I. Williams.
+\newblock {\em Gaussian Processes for Machine Learning}.
+\newblock The MIT Press, December 2005.
+
+\bibitem{schoelkopf01kernelbased}
+K.-R. M{\"u}ller, S.~Mika, G.~R{\"a}tsch, S.~Tsuda, and B~Sch{\"o}lkopf.
+\newblock An introduction to kernel-based learning algorithms.
+\newblock {\em IEEE Transactions on Neural Networks}, 12(2):181--202, 2001.
+
+\bibitem{scholkopf2002learning}
+Bernhard Sch{\"o}lkopf and Alexander~J Smola.
+\newblock {\em Learning with kernels: Support vector machines, regularization,
+  optimization, and beyond}.
+\newblock MIT press, 2002.
+
+\bibitem{garg2012AAAI}
+Sahil Garg, Amarjeet Singh, and Fabio Ramos.
+\newblock Learning non-stationary space-time models for environmental
+  monitoring.
+\newblock In {\em Proceedings of the Twenty-Sixth {AAAI} Conference on
+  Artificial Intelligence, July 22-26, 2012, Toronto, Ontario, Canada.}, 2012.
+
+\bibitem{ma2003nonstationary}
+Chunsheng Ma.
+\newblock Nonstationary covariance functions that model space--time
+  interactions.
+\newblock {\em Statistics \& Probability Letters}, 61(4):411--419, 2003.
+
+\bibitem{plagemann2008nonstationary}
+Christian Plagemann, Kristian Kersting, and Wolfram Burgard.
+\newblock Nonstationary gaussian process regression using point estimates of
+  local smoothness.
+\newblock In {\em Machine learning and knowledge discovery in databases}, pages
+  204--219. Springer, 2008.
+
+\bibitem{Chowdhary13_CDC1}
+G.~Chowdhary, H.~Kingravi, J.P. How, and P.~Vela.
+\newblock Nonparametric adaptive control using gaussian processes.
+\newblock In {\em IEEE Conference on Decision and Control (CDC)}. IEEE, 2013.
+
+\bibitem{Jayasumana_PAMI2015_RBFs}
+Sadeep Jayasumana, Richard Hartley, Mathieu Salzmann, Hongdong Li, and Mehrtash
+  Harandi.
+\newblock {Kernel Methods on Riemannian Manifolds with Gaussian RBF Kernels}.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence
+  (TPAMI)}, 2015.
+
+\bibitem{Gelb74}
+A.~Gelb.
+\newblock {\em Applied Optimal Estimation}.
+\newblock MIT press (QA402.A5), Cambridge, MA, 1974.
+
+\bibitem{mardia1998kriged}
+Kanti~V Mardia, Colin Goodall, Edwin~J Redfern, and Francisco~J Alonso.
+\newblock The kriged kalman filter.
+\newblock {\em Test}, 7(2):217--282, 1998.
+
+\bibitem{Kingravi16_NIPS}
+Hassan Kingravi, Harshal Maske, and Girish Chowdhary.
+\newblock Kernel observers: Systems theoretic modeling and inference of
+  spatiotemporally varying processes.
+\newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
+  Barcelona, Spain, 2016.
+
+\bibitem{Kingravi:2015a}
+Hassan~A. Kingravi, Harshal Maske, and Girish Chowdhary.
+\newblock Kernel controllers: {A} systems-theoretic approach for data-driven
+  modeling and control of spatiotemporally evolving processes.
+\newblock {\em arXiv}, abs/1508.02086, 2015.
+
+\bibitem{Maske18_ACC}
+Harshal Maske, Hassan Kingravi, and Girish Chowdhary.
+\newblock Sensor selection via observability analysis in feature space.
+\newblock In {\em American Control Conference}, 2018.
+\newblock accepted.
+
+\bibitem{wikle2002kernel}
+Christopher~K Wikle.
+\newblock A kernel-based spectral model for non-gaussian spatio-temporal
+  processes.
+\newblock {\em Statistical Modelling}, 2(4):299--314, 2002.
+
+\bibitem{perez2013gaussian}
+Fernando P{\'e}rez-Cruz, Steven Van~Vaerenbergh, Juan~Jos{\'e} Murillo-Fuentes,
+  Miguel L{\'a}zaro-Gredilla, and Ignacio Santamaria.
+\newblock Gaussian processes for nonlinear signal processing: An overview of
+  recent advances.
+\newblock {\em Signal Processing Magazine, IEEE}, 30(4):40--50, 2013.
+
+\bibitem{higdon1998process}
+David Higdon.
+\newblock A process-convolution approach to modelling temperatures in the north
+  atlantic ocean.
+\newblock {\em Environmental and Ecological Statistics}, 5(2):173--190, 1998.
+
+\bibitem{paciorek2004nonstationary}
+C~Paciorek and M~Schervish.
+\newblock Nonstationary covariance functions for gaussian process regression.
+\newblock {\em Advances in neural information processing systems}, 16:273--280,
+  2004.
+
+\bibitem{singh2010modeling}
+Amarjeet Singh, Fabio Ramos, H~Durrant-Whyte, and William~J Kaiser.
+\newblock Modeling and decision making in spatio-temporal processes for
+  environmental surveillance.
+\newblock In {\em Robotics and Automation (ICRA), 2010 IEEE International
+  Conference on}, pages 5490--5497. IEEE, 2010.
+
+\bibitem{schmidt2003bayesian}
+Alexandra~M Schmidt and Anthony O'Hagan.
+\newblock Bayesian inference for non-stationary spatial covariance structure
+  via spatial deformations.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 65(3):743--758, 2003.
+
+\bibitem{pfingsten2006nonstationary}
+Tobias Pfingsten, Malte Kuss, and Carl~Edward Rasmussen.
+\newblock Nonstationary gaussian process regression using a latent extension of
+  the input space.
+\newblock {\em URL http://www. kyb. mpg. de/\~{} tpfingst}, 2006.
+
+\bibitem{egerstedt:bk:2010}
+Mehran Mesbahi and Magnus Egerstedt.
+\newblock {\em Graph Theoretic Methods in Multiagent Networks}.
+\newblock Princeton University Press, 2010.
+
+\bibitem{Guestrin05_ICML}
+C.~Guestrin, A.~Krause, and A.~Singh.
+\newblock Near-optimal sensor placements in gaussian processes.
+\newblock In {\em International Conference on Machine Learning}, 2005.
+
+\bibitem{brezis2010functional}
+Haim Brezis.
+\newblock {\em Functional analysis, Sobolev spaces and partial differential
+  equations}.
+\newblock Springer Science \& Business Media, 2010.
+
+\bibitem{rahimi2007random}
+Ali Rahimi and Benjamin Recht.
+\newblock Random features for large-scale kernel machines.
+\newblock In {\em NIPS}, pages 1177--1184, 2007.
+
+\bibitem{williams2001using2}
+Christopher Williams and Matthias Seeger.
+\newblock Using the {N}ystr{\"o}m method to speed up kernel machines.
+\newblock In {\em NIPS}, pages 682--688, 2001.
+
+\bibitem{zhou:bk:96}
+Kemin Zhou, John~C. Doyle, and Keith Glover.
+\newblock {\em Robust and Optimal Control}.
+\newblock Prentice Hall, Upper Saddle River, NJ, 1996.
+
+\bibitem{wonham1974linear}
+W~Murray Wonham.
+\newblock {\em Linear multivariable control}.
+\newblock Springer, 1974.
+
+\bibitem{csato2002sparse}
+Lehel Csat\"{o} and Manfred Opper.
+\newblock Sparse on-line gaussian processes.
+\newblock {\em Neural computation}, 14(3):641--668, 2002.
+
+\end{thebibliography}
