@@ -168,4 +168,9 @@ Lehel Csat\"{o} and Manfred Opper.
 \newblock Sparse on-line gaussian processes.
 \newblock {\em Neural computation}, 14(3):641--668, 2002.
 
+\bibitem{Wasserman}
+L.~Wasserman.
+\newblock {\em All of Statistics}.
+\newblock Springer, 2004.
+
 \end{thebibliography}

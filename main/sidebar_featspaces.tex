@@ -10,7 +10,7 @@ the task is called \emph{regression}, and if $y_i$ are discrete, the task is kno
 
 Just as in control theory, the design of the state space $\domI$ can be critical for the task we want to perform. Let's consider a simple
 example. Suppose we have data from two \emph{classes} $\sampSetClass_A = \{(x_1^A, y_1^A), \dots, (x_N^A, y_N^A)\}$ and 
-$\sampSetClass_B = \{(x_1^B, y_1^B), \dots, (x_N^B, y_N^B)\}$, where $x_i\in\{A,B\}\in\R^D$, and $y_i\in\{A,B\}\in\{-1,+1\}$, shown
+$\sampSetClass_B = \{(x_1^B, y_1^B), \dots, (x_N^B, y_N^B)\}$, where $x_i^{\{A,B\}}\in\R^D$, and $y_i^{\{A,B\}}\in\{-1,+1\}$, shown
 in Figure \ref{fig:lisep_data}. Let $f$ be chosen from the class of linear algorithms, i.e. $f = w^Tx + b$, where $w\in\R^D, b\in\R$. 
 We pick a loss $L$ that returns a loss of zero when the prediction is the correct class, and if the prediction is the incorrect class,
 returns a higher value for misclassifications that are closer to the boundary. A classical example of such a loss is that used by
@@ -27,13 +27,14 @@ which was one of the first machine learning algorithms, and the genesis of moder
 
 Figure \ref{fig:linsep} shows a visual representation of where the perceptron algorithm can solve for the decision boundary with zero error. 
 However, if the structure of the data has some nonlinearities, no solution will be found, as seen in Figure \ref{fig:nlinsep}. In this case,
-the original space the data resides in, in some sense, not a rich enough representation. If we could construct a mapping of the data to a
+the original space the data resides in is, in some sense, not a rich enough representation. If we could construct a mapping of the data to a
 different space which gives a learning algorithm more degrees of freedom to work with, linear algorithms can still be deployed. 
 If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
-in 3 dimensions, as seen in Figure \ref{fig:fmapped}. This example shows why so much of the work in machine learning has now focused on 
-learning the right representation for the data, for the right representation makes building classifiers easy. Three major threads of 
-research in the arena of feature maps over the last 40 years include decision trees, kernel methods, and neural networks, the latter
-of which has gained remarkable notoriety in the last 10 years. 
+in 3 dimensions, as seen in Figure \ref{fig:fmapped}. This example shows why so much of the work in machine learning focuses on 
+learning the right representation for the data, for the right representation makes the classification task easy. Two major threads of 
+research in the arena of feature maps over the last 40 years are decision trees, kernel methods, and neural networks, the latter
+of which has gained remarkable notoriety in the last 10 years. Decision tree learning methods such as gradient boosting and random forests
+arose from the statistics community and enjoy significant adoption in industry \cite{Wasserman}, but will not be described in detail in this work.  
 
 \begin{figure}\label{fig:linsep}
 \centering
