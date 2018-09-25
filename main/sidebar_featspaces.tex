@@ -1,14 +1,22 @@
 \section[Feature Spaces in Machine Learning]{Sidebar: Feature Spaces in Machine Learning}\label{sb:featspace}
-Suppose we have data $\sampSetClass = \sampSetClassLong$, where $x_i\in\domI$ and $y_i\in\domO$. Here, $\domI$ is the input domain (state space), and 
+Suppose we have data $\sampSetClass = \sampSetClassLong$, where $x_i\in\domI$ and $y_i\in\domO$. Here, $\domI$ is the input domain, and 
 is generally a subset of $\R^D$, although more general sets such as discrete spaces, graphs, or text documents can be considered.
-Similarly, $\domO$, the output domain, can be just as general as $\domI$. Control theorists are most likely familiar with 
-input-output pairs where $x_i\in\R^N$ and $y_i$ is either in $\R$ or $\R^M$. In machine learning, our goal is typically to solve for a function
-$f$ that minimizes a \emph{loss function} $L(f, \sampSetClass)\mapsto\R$, which measures the error between a prediction $f(x_i)$ given a datapoint $x_i$, and $y_i$, averaged over the entire dataset $\sampSetClass$. A concrete example of this will be given shortly.
-Different loss functions result in different algorithms to solve these problems. Similarly, different choices of the spaces where $f$ arises from also 
-result in different algorithms and techniques, and sometimes form entire subfields of machine learning. Generally, if $y_i$ are continuous, 
-the task is called \emph{regression}, and if $y_i$ are discrete, the task is known as \emph{classification}. 
+Similarly, $\domO$, the output domain, can be just as general as $\domI$. We wish to solve for functions $f$ in some space 
+of functions $\functionSet$ such that $f(x_i) = y_i \ \forall i$. Generally, to restrict the complexity of the space $\functionSet$,
+a \emph{loss function} $L(f, \sampSetClass)\mapsto\R$ is chosen, which measures the error between a prediction $f(x_i)$ given a datapoint 
+$x_i$, and $y_i$, averaged over the entire dataset $\sampSetClass$, and the optimization problem becomes 
+\begin{align}
+ f^* = \argmin_{\functionSet}L(f, \sampSetClass) + \la g(f),
+\end{align}
+where $\la\in\R$, and $g(f)$ represent some constraints on the function $f$, such as smoothnes. 
+Control theorists are most likely familiar with 
+input-output pairs where $x_i\in\R^N$ and $y_i$ is either in $\R$ or $\R^M$ (\emph{regression}). 
+In machine learning, the most common task is when the $y_i$ are discrete (\emph{classification}). 
+Different combinations of task, loss functions, and spaces $\functionSet$ result in different algorithms to solve these problems,
+which can sometimes form entire subfields of machine learning. 
 
-Just as in control theory, the design of the state space $\domI$ can be critical for the task we want to perform. Let's consider a simple
+The choice of the function space $\functionSet$ can be critical for the task we want to perform,
+similar to how the choice of the state space is in control theory. Let's consider a simple
 example. Suppose we have data from two \emph{classes} $\sampSetClass_A = \{(x_1^A, y_1^A), \dots, (x_N^A, y_N^A)\}$ and 
 $\sampSetClass_B = \{(x_1^B, y_1^B), \dots, (x_N^B, y_N^B)\}$, where $x_i^{\{A,B\}}\in\R^D$, and $y_i^{\{A,B\}}\in\{-1,+1\}$, shown
 in Figure \ref{fig:lisep_data}. Let $f$ be chosen from the class of linear algorithms, i.e. $f = w^Tx + b$, where $w\in\R^D, b\in\R$. 
@@ -30,14 +38,8 @@ This loss measures how accurate the prediction of the perceptron is on average. 
               \end{enumerate}
        \end{enumerate}
 \end{enumerate}
-This outline of the algorithm will be referenced later when we examine the nonlinear version of it.
+%This outline of the algorithm will be referenced later when we examine the nonlinear version of it.
 The perceptron was one of the first machine learning models, and the genesis of modern neural networks \cite{rosenblatt1958perceptron}. 
-
-In general, the optimization problem solved in machine learning involves minimizing this loss subject to constraints. We can write this as
-\begin{align}
- f^* = \argmin_{w,b} L(f, \sampSetClass) + \la g(f),
-\end{align}
-where $g$ represents some constraints on the function $f$. 
 Figure \ref{fig:linsep} shows a visual representation of where the perceptron algorithm can solve for the decision boundary with zero error. 
 However, if the structure of the data has some nonlinearities, no solution will be found, as seen in Figure \ref{fig:nlinsep}. In this case,
 the original space the data resides in is, in some sense, not a rich enough representation. If we could construct a mapping of the data to a
@@ -71,8 +73,7 @@ The prediction of the perceptron is $\hat{y}=\sgn(w^Tx)$, where $\weight\in\R^D$
 $\weight=\sum_{i=1}\alpha_iy_ix_i$, where $\alpha_i$ is the number of times $x_i$ was misclassified. This allows us
 to derive the dual version of this algorithm, because
 \begin{align*}
- \hat{y} &= \sgn(\weight^Tx)\\
-         &= \sgn\sum_{i=1}^n\al_iy_i\l x_i, x\r_{\R^D}.
+ \hat{y} = \sgn(\weight^Tx) = \sgn\sum_{i=1}^n\al_iy_i\l x_i, x\r_{\R^D}.
 \end{align*}
 The dot product $\l x_i, x\r_{\R^D}$ can be replaced with the kernel, leading to the \emph{kernel perceptron algorithm}:
 \begin{enumerate}
@@ -95,7 +96,11 @@ by a vector $\weight\in\R^{\ncent}$. Suppose this weight vector represents a bou
 to compute which side of this boundary a point $x$ would lie on in $\fspace'$,
 we simply compute $\sgn(\sum_{i=1}^{\ncent}\weight_i\l\fmap(x), \fmap(c_i) \r_{\fspace}) = \sgn(\sum_{i=1}^{\ncent}\weight_i\kernel(x,c_i))$.
 The choice of the kernel and its parameters
-depends on the dataset and the loss function. The kernel and the data together form the feature space. 
+depends on the dataset and the loss function. The kernel and the data together form the feature space. Because kernel methods are linear
+in their parameters and are restricted to RKHSs, they are amenable to somewhat straightforward mathematical analysis, and are very well
+analyzed because of this. 
+
+
 
 
 \begin{figure}\label{fig:linsep}
