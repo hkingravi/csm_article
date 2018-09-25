@@ -14,17 +14,30 @@ $\sampSetClass_B = \{(x_1^B, y_1^B), \dots, (x_N^B, y_N^B)\}$, where $x_i^{\{A,B
 in Figure \ref{fig:lisep_data}. Let $f$ be chosen from the class of linear algorithms, i.e. $f = w^Tx + b$, where $w\in\R^D, b\in\R$. 
 We pick a loss $L$ that returns a loss of zero when the prediction is the correct class, and if the prediction is the incorrect class,
 returns a higher value for misclassifications that are closer to the boundary. A classical example of such a loss is that used by
-the perceptron algorithm, which can be written as 
+the \emph{perceptron algorithm}, which can be written as 
 \begin{align}\eqlabel{perc_loss}
  L(f, \sampSetClass) = \frac{1}{\nsamp}\sum_{i=1}^N\max(0, -y_iw^Tx). 
 \end{align}
+This loss measures how accurate the prediction of the perceptron is on average. The general algorithm is as follows:
+\begin{enumerate}
+ \item Initialize $\weight\in\R^D$ to all zeros. 
+ \item For a fixed number of iterations, or until some stopping criterion is met:
+       \begin{enumerate}
+        \item For each training example $(x_i, y_i)$,
+              \begin{enumerate}
+               \item Let $\hat{y}_i=\sgn(\weight^Tx_i)$.
+               \item If $y_i\neq\hat{y}_i$, update $\weight \leftarrow \weight + y_ix_i$.
+              \end{enumerate}
+       \end{enumerate}
+\end{enumerate}
+This outline of the algorithm will be referenced later when we examine the nonlinear version of it.
+The perceptron was one of the first machine learning models, and the genesis of modern neural networks \cite{rosenblatt1958perceptron}. 
+
 In general, the optimization problem solved in machine learning involves minimizing this loss subject to constraints. We can write this as
 \begin{align}
  f^* = \argmin_{w,b} L(f, \sampSetClass) + \la g(f),
 \end{align}
-where $g$ represents some constraints on the function $f$. Equation \eqref{perc_loss} results in the famous \emph{perceptron algorithm},
-which was one of the first machine learning algorithms, and the genesis of modern neural networks. 
-
+where $g$ represents some constraints on the function $f$. 
 Figure \ref{fig:linsep} shows a visual representation of where the perceptron algorithm can solve for the decision boundary with zero error. 
 However, if the structure of the data has some nonlinearities, no solution will be found, as seen in Figure \ref{fig:nlinsep}. In this case,
 the original space the data resides in is, in some sense, not a rich enough representation. If we could construct a mapping of the data to a
@@ -32,9 +45,58 @@ different space which gives a learning algorithm more degrees of freedom to work
 If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
 in 3 dimensions, as seen in Figure \ref{fig:fmapped}. This example shows why so much of the work in machine learning focuses on 
 learning the right representation for the data, for the right representation makes the classification task easy. Two major threads of 
-research in the arena of feature maps over the last 40 years are decision trees, kernel methods, and neural networks, the latter
-of which has gained remarkable notoriety in the last 10 years. Decision tree learning methods such as gradient boosting and random forests
-arose from the statistics community and enjoy significant adoption in industry \cite{Wasserman}, but will not be described in detail in this work.  
+research in the arena of feature maps over the last 40 years are kernel methods, and neural networks, the latter
+of which has gained remarkable notoriety in the last 10 years. 
+%Decision tree learning methods such as gradient boosting and random forests
+%arose from the statistics community and enjoy significant adoption in industry \cite{Wasserman}, but will not be described in this work.  
+These lines of research represent distinctly different strategies for generating feature maps from data. 
+
+In Figure \ref{fig:nlinsep}, the data was mapped using an explicit feature map. Kernel methods utilize an elegant strategy for generating
+feature maps from data, using a remarkably simple trick called \emph{the kernel trick}. Given a positive-definite kernel function 
+$\kernel(x,y):\dom\times\dom\to\R$, Mercer's theorem guarantees the existence of a feature map $\fmap:\dom\to\fspace$, where $\fspace$
+is a \emph{reproducing kernel Hilbert space (RKHS)}, and the map $\fmap$ obeys the property 
+\begin{align}\eqlabel{kmap}
+ \kernel(x,y) = \l\fmap(x), \fmap(y)\r_{\fspace}.
+\end{align}
+Recall that since $\fspace$ is an RKHS, given $c\in\dom$, $\kernel(x, c) = \l\fmap(x), \fmap(c)\r_{\fspace}$, 
+and $\kernel(x, c) := \fmap_c\in\fspace$. Furthermore, $\Span\{\fmap_x\}_{x\in\dom}$ is dense in $\fspace$. There exist kernels 
+that generate $\fspace$s that are extremely high dimensional: for example, the RBF kernel $\kernel(x,y) = e^{-\gamma\|x-y\|^2}$
+is infinite-dimensional. This high degree of freedom enables the design of powerful learning algorithms that are linear in $\fspace$,
+but nonlinear in the input domain $\dom$. The canonical example of this is the support vector machine (SVM) \cite{cortes1995support},
+but a more instructive example for us is the perceptron algorithm. 
+
+
+Suppose we trained a percetron using $\sampSet=\sampSetLong$, $x_i\in\R^D$ for some $D$, $y_i\in\{-1, 1\}$.
+The prediction of the perceptron is $\hat{y}=\sgn(w^Tx)$, where $\weight\in\R^D$. It can be shown that 
+$\weight=\sum_{i=1}\alpha_iy_ix_i$, where $\alpha_i$ is the number of times $x_i$ was misclassified. This allows us
+to derive the dual version of this algorithm, because
+\begin{align*}
+ \hat{y} &= \sgn(\weight^Tx)\\
+         &= \sgn\sum_{i=1}^n\al_iy_i\l x_i, x\r_{\R^D}.
+\end{align*}
+The dot product $\l x_i, x\r_{\R^D}$ can be replaced with the kernel, leading to the \emph{kernel perceptron algorithm}:
+\begin{enumerate}
+ \item Initialize $\alpha\in\R^{\nsamp}$ to all zeros. 
+ \item For a fixed number of iterations, or until some stopping criterion is met:
+       \begin{enumerate}
+        \item For each training example $(x_j, y_j)$,
+              \begin{enumerate}
+               \item Let $\hat{y}_i=\sgn\sum_{i=1}^n\al_iy_i\kernel(x_i, x_j)$.
+               \item If $y_i\neq\hat{y}_i$, update $\alpha_j \leftarrow \alpha_j + 1$.
+              \end{enumerate}
+       \end{enumerate}
+\end{enumerate}
+This algorithm is nonlinear in the input domain, but linear in the feature space $\fspace$, which led the deep learning community to,
+somewhat pejoratively, label this as an example of a \emph{shallow learning architecture}.
+Kernel methods can also be used in a more direct fashion: if we have a subspace $\fspace'\subset\fspace$ with a basis generated
+from $\shCent = \shCentLong$, i.e. $\fspace' = \Span\{\fmap_{c_1},\dots,\fmap(c_{\ncent})\}$,
+a linear model in $\fspace'$ is again given
+by a vector $\weight\in\R^{\ncent}$. Suppose this weight vector represents a boundary in $\fspace'$: 
+to compute which side of this boundary a point $x$ would lie on in $\fspace'$,
+we simply compute $\sgn(\sum_{i=1}^{\ncent}\weight_i\l\fmap(x), \fmap(c_i) \r_{\fspace}) = \sgn(\sum_{i=1}^{\ncent}\weight_i\kernel(x,c_i))$.
+The choice of the kernel and its parameters
+depends on the dataset and the loss function. The kernel and the data together form the feature space. 
+
 
 \begin{figure}\label{fig:linsep}
 \centering
