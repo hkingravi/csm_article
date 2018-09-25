@@ -87,6 +87,8 @@ The dot product $\l x_i, x\r_{\R^D}$ can be replaced with the kernel, leading to
               \end{enumerate}
        \end{enumerate}
 \end{enumerate}
+%Note that the computation time associated with these types of algorithms grows with the number of data points $\nsamp$, which
+%means they are, in dual form, nonparametric. 
 This algorithm is nonlinear in the input domain, but linear in the feature space $\fspace$, which led the deep learning community to,
 somewhat pejoratively, label this as an example of a \emph{shallow learning architecture}.
 Kernel methods can also be used in a more direct fashion: if we have a subspace $\fspace'\subset\fspace$ with a basis generated
@@ -99,6 +101,21 @@ The choice of the kernel and its parameters
 depends on the dataset and the loss function. The kernel and the data together form the feature space. Because kernel methods are linear
 in their parameters and are restricted to RKHSs, they are amenable to somewhat straightforward mathematical analysis, and are very well
 analyzed because of this. 
+
+Deep neural networks are algorithms where the function $f$ has nested nonlinearities. Fix a width $\ncent\in\mathbb{N}$. Deep nets are
+parameterized models with 
+weight matrices $W^l\in\R^{\ncent\times\ncent}$, bias vectors $b^l\in\R^{\ncent}$, and a pointwise nonlinearity $\phi:\R\to\R$, 
+with $l=1,\dots,L$. Vectors $h^l\in\R^{\ncent}$ are called preactivations, and $x^l\in\R^{\ncent}$ are called postactivations,
+each element of which is called a \emph{neuron}. 
+Let $h^0\in\R^{\ncent}$ be the input: then the canonical feedforward neural network is given by 
+\begin{align}
+ x^l = \phi(h^l), \ h^l = W^lx^{l-1} + b^l.
+\end{align}
+Therefore, we have that $f(h^0) = x^l$. The individual steps $l$ are called the \emph{layers} of the network, and the nesting property
+allows these networks to learn much more complicated functions than shallow architectures given the same number of nonlinearities 
+\cite{bengio2009learning}. Different choices of nonlinearities, connections, and layer architectures lead to different types of
+neural networks, and used for different applications \cite{goodfellow2016deep}. 
+
 
 
 

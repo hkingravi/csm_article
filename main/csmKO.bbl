@@ -168,9 +168,9 @@ Lehel Csat\"{o} and Manfred Opper.
 \newblock Sparse on-line gaussian processes.
 \newblock {\em Neural computation}, 14(3):641--668, 2002.
 
-\bibitem{Wasserman}
-L.~Wasserman.
-\newblock {\em All of Statistics}.
-\newblock Springer, 2004.
+\bibitem{bengio2009learning}
+Y.~Bengio.
+\newblock Learning deep architectures for ai.
+\newblock {\em Foundations and Trends in Machine Learning}, 2:1--127, 2009.
 
 \end{thebibliography}
