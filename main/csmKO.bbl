@@ -173,4 +173,20 @@ Y.~Bengio.
 \newblock Learning deep architectures for ai.
 \newblock {\em Foundations and Trends in Machine Learning}, 2:1--127, 2009.
 
+\bibitem{roshko1954cylinder}
+A.~Roshko.
+\newblock On the development of turbulent wakes from vortex streets.
+\newblock {\em California Institute of Technology}, Report 1191, 1954.
+
+\bibitem{braza1986cylinder}
+Chassaing~P.H.H.M. Braza, M. and H.H. Minh.
+\newblock Numerical study and physical analysis of the pressure and velocity
+  fields in the near wake of a circular cylinder.
+\newblock {\em Journal of fluid mechanics}, 165(130), 1986.
+
+\bibitem{rajani1986cylinder}
+Kandasamy~A. Rajani, B.N. and S.~Majumdar.
+\newblock Numerical simulation of laminar flow past a circular cylinder.
+\newblock {\em Applied Mathematical Modelling}, 33(3):1228--1247, 2009.
+
 \end{thebibliography}

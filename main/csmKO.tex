@@ -14,6 +14,8 @@
 \verbatimfont{\ttfamily\small}
 \newcommand{\XX}[1]{{\bf \color{orange}{ XX #1 XX}}}
 
+%\usepackage{subfigure} 
+
 
 %
 \usepackage[left,pagewise]{lineno} 
@@ -69,7 +71,7 @@
  \usetikzlibrary{arrows}
  \usetikzlibrary{positioning}
  \usetikzlibrary{matrix}
- 
+
  % tikz macros for scaling etc. 
  \newcommand{\yslant}{0}
  \newcommand{\xslant}{0}
@@ -189,6 +191,10 @@
 
 \clearpage
 \input{sidebar_featspaces}
+\processdelayedfloats
+
+\clearpage
+\input{sidebar_cfd}
 \processdelayedfloats
 
 
