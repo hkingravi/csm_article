@@ -8,7 +8,7 @@ $x_i$, and $y_i$, averaged over the entire dataset $\sampSetClass$, and the opti
 \begin{align}
  f^* = \argmin_{\functionSet}L(f, \sampSetClass) + \la g(f),
 \end{align}
-where $\la\in\R$, and $g(f)$ represent some constraints on the function $f$, such as smoothnes. 
+where $\la\in\R$, and $g(f)$ represent some constraints on the function $f$, such as smoothness. 
 Control theorists are most likely familiar with 
 input-output pairs where $x_i\in\R^N$ and $y_i$ is either in $\R$ or $\R^M$ (\emph{regression}). 
 In machine learning, the most common task is when the $y_i$ are discrete (\emph{classification}). 
@@ -100,9 +100,9 @@ we simply compute $\sgn(\sum_{i=1}^{\ncent}\weight_i\l\fmap(x), \fmap(c_i) \r_{\
 The choice of the kernel and its parameters
 depends on the dataset and the loss function. The kernel and the data together form the feature space. Because kernel methods are linear
 in their parameters and are restricted to RKHSs, they are amenable to somewhat straightforward mathematical analysis, and are very well
-analyzed because of this. 
+studied because of this. 
 
-Deep neural networks are algorithms where the function $f$ has nested nonlinearities. Fix a width $\ncent\in\mathbb{N}$. Deep nets are
+Deep neural networks (DNNs) are algorithms where the function $f$ has nested nonlinearities. Fix a width $\ncent\in\mathbb{N}$. Deep nets are
 parameterized models with 
 weight matrices $W^l\in\R^{\ncent\times\ncent}$, bias vectors $b^l\in\R^{\ncent}$, and a pointwise nonlinearity $\phi:\R\to\R$, 
 with $l=1,\dots,L$. Vectors $h^l\in\R^{\ncent}$ are called preactivations, and $x^l\in\R^{\ncent}$ are called postactivations,
@@ -114,11 +114,15 @@ Let $h^0\in\R^{\ncent}$ be the input: then the canonical feedforward neural netw
 Therefore, we have that $f(h^0) = x^l$. The individual steps $l$ are called the \emph{layers} of the network, and the nesting property
 allows these networks to learn much more complicated functions than shallow architectures given the same number of nonlinearities 
 \cite{bengio2009learning}. Different choices of nonlinearities, connections, and layer architectures lead to different types of
-neural networks, and used for different applications \cite{goodfellow2016deep}. 
+neural networks, which are used for different applications \cite{goodfellow2016deep}. Deep learning has had an enormous impact on
+both the machine learning literature and industrial applications, and that impact has bled over rapidly to other fields. Due to
+the nested structure of nonlinearities in DNNs, they are more difficult to analyze using simple mathematical tools, and therefore
+most of the literature in the field has focused on the empirical performance of these methods, where they significantly outperform 
+competing methods. 
 
-
-
-
+The signal acheivement of machine learning in general and deep learning in particular has been its ability to weaponize computation
+to obliterate the obstacles nexessary for industrial progress. Control needs to provide insight into the structure of the spaces
+these models generate, to restrict certain forms of output, and to shape decision-making. 
 
 \begin{figure}\label{fig:linsep}
 \centering
