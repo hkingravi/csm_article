@@ -89,7 +89,7 @@ $\fmapApprox(x) := \left[\begin{smallmatrix}
 \centering
 \subfloat[Relationship between $\sysop$ and $A$]{
 \label{fig:commute_sysop_dyn}
-\resizebox{0.3\columnwidth}{0.06\paperheight}{%
+%\resizebox{0.3\columnwidth}{0.06\paperheight}{%
 \begin{tikzpicture}
   \matrix (m) [ampersand replacement=\&, matrix of math nodes, 
                  row sep=0.75in,column sep=1in,minimum width=0.5in] {
@@ -101,12 +101,12 @@ $\fmapApprox(x) := \left[\begin{smallmatrix}
     (m-2-1.east|-m-2-2) edge node [below] {$\boldsymbol A$} node [above] {} (m-2-2)
     (m-2-2) edge node [right] {$\boldsymbol\weightmapI$} (m-1-2);            
 \end{tikzpicture}  
-}% end resize box
+%}% end resize box
 }% end subfloat
 \
 \subfloat[Relationship between $\measop$ and $\empK$]{
 \label{fig:commute_sysop_meas}
-\resizebox{0.3\columnwidth}{0.06\paperheight}{%
+%\resizebox{0.3\columnwidth}{0.06\paperheight}{%
 \begin{tikzpicture}
   \matrix (m) [ampersand replacement=\&, matrix of math nodes, 
                row sep=0.75in,column sep=1in,minimum width=0.5in] {
@@ -118,12 +118,12 @@ $\fmapApprox(x) := \left[\begin{smallmatrix}
     (m-2-1) edge node [right] {$\ \boldsymbol\empK$} (m-1-2)
     (m-2-1) edge node [right] {$\boldsymbol\weightmapI$} (m-1-1);            
 \end{tikzpicture}
-}% end resize box
+%}% end resize box
 }% end subfloat
 \
 \subfloat[Relationship between $\controlop$ and $B$]{
 \label{fig:commute_sysop_control}
-\resizebox{0.3\columnwidth}{0.06\paperheight}{%
+%\resizebox{0.3\columnwidth}{0.06\paperheight}{%
 \begin{tikzpicture}
   \matrix (m) [ampersand replacement=\&, matrix of math nodes, 
                  row sep=0.75in,column sep=1in,minimum width=0.5in] {
@@ -135,7 +135,7 @@ $\fmapApprox(x) := \left[\begin{smallmatrix}
     (m-2-1.east|-m-2-2) edge node [below] {$\boldsymbol B$} node [above] {} (m-2-2)
     (m-2-2) edge node [right] {$\boldsymbol\weightmapI$} (m-1-2);            
 \end{tikzpicture}
-}% end resize box
+%}% end resize box
 }% end subfloat
 \caption{Commutative diagrams between primal and dual spaces}
 \vspace{-0.2in}
