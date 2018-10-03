@@ -101,23 +101,21 @@ An invariant subspace of a linear operator is a subspace of the Hilbert space su
 
 Before doing the Jordan decomposition of $\dualopApprox$, we zero any elements smaller than some small $\varepsilon$ in order to stabilize the algorithm for matrices with many elements close to zero. Afterwards we visualize the eigenvector matrix using a \emph{logarithmic} color chart, as seen in Figures \ref{fig:eigen100},\ref{fig:eigen1000},\ref{fig:eigenall}. These plots are for models trained individually on Re=100 and Re=1000 with 300 kernels, and on all five with 600 kernels, for comparison. We see three categories of eigenvector in the rows: (1) Rows at the bottom that have exactly one non-zero elements, (2) In the middle, a couple rows with a dozen significant elements, and (3) at the top a number of rows that affect the majority of the kernel centers in the space.
 
-Each eigenvector of (1) spans its own invariant subspace, and is depicted in magenta circles in Figures \ref{fig:subspace100},\ref{fig:subspace1000},\ref{fig:subspaceall}. Category (3) is one invariant subspace, depicted with black crosses. Category (2) is subsumed in Category (3). The figures show that the dynamics near/around the cylinder and in its wake are so entangled that a single sensor measurement in that area may be sufficient to estimate over that entire subspace. On the other hand, areas far from the core of dynamic excitement are their own independent, invariant subspaces, and thus must be monitored locally.
+Each eigenvector of (1) spans its own invariant subspace, and is depicted in magenta circles in Figure \ref{fig:subspaces}. Category (3) is one invariant subspace, depicted with black crosses. Category (2) is subsumed in Category (3). The figures show that the dynamics near/around the cylinder and in its wake are so entangled that a single sensor measurement in that area may be sufficient to estimate over that entire subspace. On the other hand, areas far from the core of dynamic excitement are their own independent, invariant subspaces, and thus must be monitored locally.
 
 Another way to visualize the operation of the linear transition matrix is to plot lines between kernel centers that are influencing each other strongly. That is, if we draw a line center $c_j$ to $c_i$ for each of the (relatively) largest elements $a_{ij}$ of $\dualopApprox$, one can see how the system dynamics are coupled spatially (Figures \ref{fig:haystack100},\ref{fig:haystack1000},\ref{fig:haystackall}). We can also plot the magnitude of $a_ij$ in a third axis for further insight into the most dominant dynamic connection in the system.
 
-\begin{figure*}[h] %{r}{0.5\textwidth}
+\begin{figure}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re = 100, $\varepsilon$ = 0.005}]{
-		\includegraphics[width=0.30\textwidth]{subspaces100}
-		\label{fig:subspace100}	}
+		\includegraphics[width=0.30\textwidth] }
 	\subfloat[\small{Re = 1000, $\varepsilon$ = 0.05}]{
-		\includegraphics[width=0.30\textwidth]{subspaces1000}
-		\label{fig:subspace1000}		}
+		\includegraphics[width=0.30\textwidth] }
 	\subfloat[\small{All Reynolds numbers, $\varepsilon$ = 0.069}]{
-		\includegraphics[width=0.34\textwidth]{subspacesall}
-		\label{fig:subspaceall}	}
+		\includegraphics[width=0.34\textwidth] }
 	\caption{Invariant Subspaces}
-\end{figure*}
+	\label{fig:subspaces}
+\end{figure}
 
 
 \begin{figure}[h] %{r}{0.5\textwidth}

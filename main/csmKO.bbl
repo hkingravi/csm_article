@@ -76,11 +76,25 @@ Hassan Kingravi, Harshal Maske, and Girish Chowdhary.
 \newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
   Barcelona, Spain, 2016.
 
+\bibitem{whitman2016NIPSworkshop}
+Joshua Whitman, Harshal Maske, Girish Chowdhary, Hassan Kingravi, Chen Lu, and
+  Balaji Jayaraman.
+\newblock Modeling nonlinear dynamical fluid flows with evolving gaussian
+  process models.
+\newblock In {\em NIPS workshop on Machine Learning in the Wild}, Barcelona,
+  Spain, 2016. NIPS.
+
 \bibitem{Kingravi:2015a}
 Hassan~A. Kingravi, Harshal Maske, and Girish Chowdhary.
 \newblock Kernel controllers: {A} systems-theoretic approach for data-driven
   modeling and control of spatiotemporally evolving processes.
 \newblock {\em arXiv}, abs/1508.02086, 2015.
+
+\bibitem{whitman2017learning}
+Joshua Whitman and Girish Chowdhary.
+\newblock Learning dynamics across similar spatiotemporally-evolving physical
+  systems.
+\newblock In {\em Conference on Robot Learning}, pages 472--481, 2017.
 
 \bibitem{Maske18_ACC}
 Harshal Maske, Hassan Kingravi, and Girish Chowdhary.
@@ -194,6 +208,11 @@ Y.~Bengio.
 Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio.
 \newblock {\em Deep learning}, volume~1.
 \newblock MIT press Cambridge, 2016.
+
+\bibitem{panton2006incompressible}
+Ronald~L Panton.
+\newblock {\em Incompressible flow}.
+\newblock John Wiley \& Sons, 2006.
 
 \bibitem{roshko1954cylinder}
 A.~Roshko.
