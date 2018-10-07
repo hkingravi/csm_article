@@ -171,8 +171,10 @@ where the control functions $\control_{\tindex}$ evolve in $\fspaceD$, and $\con
 \end{bmatrix}$ be the basis for $\fspaceC$. Then the projection of $\delta$ onto $\fspaceApprox$ can be derived as 
 %\begin{align*}
 %\vspace{0.1in}
-\resizebox{1.0\columnwidth}{!}{ 
- $\begin{bmatrix}
+%\resizebox{1.0\columnwidth}{!}{ 
+% $
+\begin{align}
+ \begin{bmatrix}
   \l \delta, \fmap(c_1) \r_{\fspace}\\
    \vdots\\
   \l \delta, \fmap(c_{\ncent}) \r_{\fspace} 
@@ -188,8 +190,10 @@ where the control functions $\control_{\tindex}$ evolve in $\fspaceD$, and $\con
    \weightc_1\\
    \vdots\\
    \weightc_{\ncontrol}
-  \end{bmatrix}.$
-}
+  \end{bmatrix}.
+\end{align}
+%  $
+%}
 %\end{align*}
 Note that in the dictionary of atoms case, the entries of $\empKCD$ can be computed in closed form as ${\empKCD}_{ij}:= \kernel(d_i, c_j)$,
 using the reproducing property. 

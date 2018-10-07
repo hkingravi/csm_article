@@ -8,7 +8,7 @@ This section outlines our modeling framework and presents theoretical results as
 
 \subsection{Main Results}\label{sec:theory_results}
 %\vspace{-0.1in}
-In this section, we prove results concerning the observability of spatiotemporally varying functions modeled by the functional evolution and measurement equations \eqref{k_measure} formulated in Section \ref{sec:formulation}. In particular,  observability of the system states implies that we can recover the current state of the spatiotemporally varying function using a small number of sampling locations $\nsamp$, which allows us to 1) track the function, and 2) predict its evolution forward in time. We work with the approximation $\fspaceApprox\approx\fspace$: given $\ncent$ basis functions, this implies that the dual space of $\fspaceApprox$ is $\R^{\ncent}$.
+In this section, we prove results concerning the observability of spatiotemporally varying functions modeled by the functional evolution and measurement equations \eqref{k_measure}. In particular,  observability of the system states implies that we can recover the current state of the spatiotemporally varying function using a small number of sampling locations $\nsamp$, which allows us to 1) track the function, and 2) predict its evolution forward in time. We work with the approximation $\fspaceApprox\approx\fspace$: given $\ncent$ basis functions, this implies that the dual space of $\fspaceApprox$ is $\R^{\ncent}$.
 Proposition \ref{prop:1} shows that if $\dualopApprox$ has a full-rank Jordan decomposition, the observation matrix $\obsMat$ meeting a condition called \emph{shadedness} (Definition \ref{def:shaded}) is sufficient for the system to be observable. Proposition \ref{prop:2} provides a lower bound on the number of sampling locations required for observability which holds for any $\dualopApprox$.  Proposition \ref{prop:3} constructively shows the existence of an abstract measurement map $\measmap$ achieving this lower bound. Since the measurement map does not have the structure of a kernel matrix, a slightly weaker sufficient condition for the observability of any $\dualopApprox$ is in Theorem \ref{thm:1}. Finally, since both $\empK$ and $\empKCD$ are kernel matrices generated from a shared kernel, these observability results translate directly into controllability results. Proofs of all claims are in the appendix. 
 
 \begin{definition}\label{def:shaded}
@@ -50,7 +50,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 % \end{remark}
 When the eigenvalues of the system matrix are repeated, it is not enough for $\empK$ to be shaded. 
 % Intuitively, repeated eigenvalues correspond to coupled evolution\footnote{We use the term coupled evolution to denote dynamic evolution in which some eigen-modes evolve together \gXX{check rewrite}}, which requires an increased number of sensors to discern \gXX{what's the best way to explain this better? Without invariant subspaces it may not be clear to some why this matters, should we merge this with the discussion after the below prop?}. 
-In the next proposition, we take a geometric approach and utilize the rational canonical form  of $\dualopApprox$ to obtain a lower bound on the number of sampling locations required. Let $\nevals$ be the number of unique eigenvalues of $\dualopApprox$, and let $\geomMult{\eval_i}$ denote the geometric multiplicity of eigenvalue $\eval_i$. Then the \emph{cyclic index} of $\dualopApprox$ is defined as $\minmeas = \max_{1\leq i\leq\nevals}{\geomMult{\eval_i}}$\cite{wonham1974linear} (see preliminary section \ref{sec_prelim} for details).
+In the next proposition, we take a geometric approach and utilize the rational canonical form  of $\dualopApprox$ to obtain a lower bound on the number of sampling locations required. Let $\nevals$ be the number of unique eigenvalues of $\dualopApprox$, and let $\geomMult{\eval_i}$ denote the geometric multiplicity of eigenvalue $\eval_i$. Then the \emph{cyclic index} of $\dualopApprox$ is defined as $\minmeas = \max_{1\leq i\leq\nevals}{\geomMult{\eval_i}}$\cite{wonham1974linear}.
 
 \begin{proposition}\label{prop:2}
  Suppose that the conditions in Proposition \ref{prop:1} hold, with the relaxation that
@@ -62,42 +62,33 @@ In the next proposition, we take a geometric approach and utilize the rational c
  the lower bound $\minmeas$ on the number of sampling locations $\nsamp$ is given by the cyclic index of $\dualopApprox$. In other words, the system in \eqref{k_measure} is observable if $ \nsamp \geq \ell$.
 \end{proposition}
 
-Section \ref{sec:discussion} gives a concrete example to build intuition regarding this lower bound. We now show how to construct a matrix $\measmap$ corresponding to the lower bound $\minmeas$.
-
-% \begin{figure}[t!]
-% 	\begin{algorithm}[H]
-% 		\caption{Measurement Map $\measmap$}
-% 		\label{alg:measmap}
-% 		\begin{algorithmic}
-% 			\begin{footnotesize} 
-% 				\STATE {\bfseries Input:} $\dualopApprox\in\R^{\ncent\times\ncent}$
-% 				\STATE Compute Rational canonical form, such that $ \FrobC  = \FrobP^{-1} \dualopApprox^T\FrobP$. Set $\FrobC_0:=\FrobC$, and
-% 				$\ncent_0:=\ncent$. 
-% 				%           Obtain subspaces 
-% 				%           $\linspace_i\subset\R^{\ncent}$ s.t. $\R^{\ncent} = \linspace_1\oplus\cdots\oplus\linspace_{\minmeas}$.
-% 				\FOR{$i=1$ {\bfseries to} $\minmeas$}
-% 				\STATE Obtain MP $\minpoly_i(\eval)$ of $\FrobC_{i-1}$. 
-% 				This returns associated indices $\mmapInd{i}\subset\{1,2,\dots,\ncent_{i-1}\}$. 
-% 				%             \STATE Use $\mmapInd{i}$ to select submatrix $\widetilde{\FrobP}_i$, where an index $j\in\mmapInd{i}$ 
-% 				%                    indicates selection of the row and column associated to $j$.
-% 				\STATE Construct vector $\linvec_i \in \R^{\ncent}$ such that 
-% 				$\minpolyv_{\linvec_i}(\eval)=\minpoly_{i}(\eval)$ .
-% 				\STATE Use indices $\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}$ to select matrix $\FrobC_i$. Set 
-% 				$\ncent_i:= |\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}|$
-% 				\ENDFOR
-% 				\STATE Compute $ \premeasmap = [\linvec_1^T, \linvec_2^T,...,\linvec_{\minmeas}^T]^T$
-% 				\STATE {\bfseries Output:} $ \measmap =\premeasmap\FrobP^{-1}  $
-% 			\end{footnotesize}
-% 		\end{algorithmic}
-% 	\end{algorithm} 
-% 	\vspace{-0.2in}
-% \end{figure}
-
+We will give a concrete example to build intuition regarding this lower bound below. For now, we note the following:
+\begin{figure}[t!]
+	\begin{algorithm}[H]
+		\caption{Measurement Map $\measmap$}
+		\label{alg:measmap}
+		\begin{algorithmic}
+				\STATE {\bfseries Input:} $\dualopApprox\in\R^{\ncent\times\ncent}$
+				\STATE Compute Rational Canonical Form, s.t. $\FrobC = \FrobP^{-1}\dualopApprox^T\FrobP$. Set $\FrobC_0:=\FrobC$, and
+				$\ncent_0:=\ncent$. 
+				\FOR{$i=1$ {\bfseries to} $\minmeas$}
+				\STATE Obtain MP $\minpoly_i(\eval)$ of $\FrobC_{i-1}$. 
+				This returns associated indices $\mmapInd{i}\subset\{1,2,\dots,\ncent_{i-1}\}$. 
+				\STATE Construct vector $\linvec_i \in \R^{\ncent}$ such that 
+				$\minpolyv_{\linvec_i}(\eval)=\minpoly_{i}(\eval)$ .
+				\STATE Use indices $\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}$ to select matrix $\FrobC_i$. Set 
+				$\ncent_i:= |\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}|$
+				\ENDFOR
+				\STATE Compute $ \premeasmap = [\linvec_1^T, \linvec_2^T,...,\linvec_{\minmeas}^T]^T$
+				\STATE {\bfseries Output:} $\measmap =\premeasmap\FrobP^{-1}$
+		\end{algorithmic}
+	\end{algorithm}
+\end{figure}
 \begin{proposition}\label{prop:3}
 Given the conditions stated in Proposition \ref{prop:2}, it is possible to construct a measurement map $\measmap \in \R^{\minmeas\times\ncent}$ for the system given by \eqref{k_measure}, such that the pair $(\measmap, \dualopApprox)$ is observable.
 \end{proposition}
 
-The construction provided in the proof of Proposition \ref{prop:3} is utilized in Algorithm 1 in \cite{Kingravi16_NIPS}, which uses the rational canonical structure of $\dualopApprox$ to generate a series of vectors $\linvec_i\in\R^{\ncent}$, whose iterations $\{\linvec_1,\dots,\dualopApprox^{\acycdeg_1-1}\linvec_1,\dots,\linvec_{\minmeas},\dots,\dualopApprox^{\acycdeg_{\minmeas}-1}\linvec_{\minmeas}\}$ generate a basis for $\R^{\ncent}$.
+The construction provided in the proof of Proposition \ref{prop:3} is utilized in Algorithm 1, which uses the rational canonical structure of $\dualopApprox$ to generate a series of vectors $\linvec_i\in\R^{\ncent}$, whose iterations $\{\linvec_1,\dots,\dualopApprox^{\acycdeg_1-1}\linvec_1,\dots,\linvec_{\minmeas},\dots,\dualopApprox^{\acycdeg_{\minmeas}-1}\linvec_{\minmeas}\}$ generate a basis for $\R^{\ncent}$.
 Unfortunately, the measurement map $\measmap$, being an abstract construction unrelated to the kernel, does not directly select $\sampSet$. We will show how to use the measurement map to guide a search for $\sampSet$ in Remark \ref{rem:1} (in Appendix). For now, we state a sufficient condition for observability of a general system. 
 
 \begin{theorem}\label{thm:1}
@@ -370,7 +361,7 @@ Another point to note is that since the collection of bases $\{\fmapApprox_i(x)\
 Figure \ref{fig:overall_system} gives an overall picture on the process of generating a kernel observer, while Figure \ref{fig:sensplace} gives two approaches to sensor selection in our framework. The measurement map approach can generate a smaller set of sensors than the random placement approach, but comes at an additional computational cost. 
 
 \subsection{Random Sensor Placement}\label{sec:random_results}
-We now elaborate on how the challenging problem of sensor placement can be tackled through random selection. This process of random selection is a product of the kernel observer model described in Section \ref{sec:observers}. We present the theoretical background required to prove Theorem \ref{thm:r1}, which states the expected number of randomly placed sensors required to monitor a given spatiotemporal process, and Theorem \ref{thm:r2}, which determines the probability with which optimal sensor placement is ensured given that, $\nsamp$ number of sensors have been placed. 
+We now elaborate on how the challenging problem of sensor placement can be tackled through random selection. This process of random selection is a product of the kernel observer model described above. We present the theoretical background required to prove Theorem \ref{thm:r1}, which states the expected number of randomly placed sensors required to monitor a given spatiotemporal process, and Theorem \ref{thm:r2}, which determines the probability with which optimal sensor placement is ensured given that, $\nsamp$ number of sensors have been placed. 
 %Otherwise to the best of our knowledge there does not exist any sensor placement design based on random selection.%Thus, the kernel observer is a modeling solution for spatiotemporal processes that also guides deterministic as well as random placement of sensors.
 
 As discussed earlier, we work with an approximate feature space $ \fspaceApprox $, with the corresponding transition operator $ \dualopApprox: \fspaceApprox \rightarrow \fspaceApprox $, representing finite-dimensional functional evolution. To achieve observability for the pair ($ \dualopApprox , \empK $), row vectors of the corresponding observability matrix, $ \Obs $, should form the basis for the $ \R^\ncent $-dimensional space $ \fspaceApprox $. According to the rational canonical structure Theorem \cite{wonham1974linear}, $\dualopApprox$ can successively decompose the dual space $ \R^\ncent $ into subspaces, $\linspace_i \subset \linspace$, $i\in \{1,\dots,\minmeas\}$, with properties, i) $\linspace = \linspace_1 \oplus ... \oplus \linspace_{\minmeas}$, ii) $\dualopApprox\linspace_i \subset \linspace_i$, and iii) $\dualopApprox|\linspace_i, i \in \{1,\dots,\minmeas\}$, are cyclic. The integer $\minmeas$ is unique and is called the \emph{cyclic index of $\dualopApprox$}.  Each of these properties contribute towards the theorem on the number of random samples required to achieve observability. The first property shows that the space $ \R^\ncent $ can be decomposed into $ \ell $ independent subspaces. The second property shows that the vector $ \linvec_i \in \linspace_i $ stays in $ \linspace_i $ even when operated upon by $ \dualopApprox $. Thus, to generate bases for $ \R^\ncent $, one needs at least $ \ell $ vectors, say, $ \linvec_1, \dots,\linvec_\ell $, with respect to each subspace $ \linspace_1,\dots,\linspace_\ell $. This holds due to the third property, but requires that the vectors  $ \linvec_1, \dots,\linvec_\ell, $ are the cyclic generators of their corresponding subspaces. Our analysis is based on whether a randomly selected sensor can generate a cyclic generator. To examine this, recall that a row vector $ \empK_{(i)} $ generated by a randomly selected sensor location $ x_i $ takes the form,

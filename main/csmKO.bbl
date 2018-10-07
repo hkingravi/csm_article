@@ -52,6 +52,12 @@ G.~Chowdhary, H.~Kingravi, J.P. How, and P.~Vela.
 \newblock Nonparametric adaptive control using gaussian processes.
 \newblock In {\em IEEE Conference on Decision and Control (CDC)}. IEEE, 2013.
 
+\bibitem{tran2015learning}
+Du~Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, and Manohar Paluri.
+\newblock Learning spatiotemporal features with 3d convolutional networks.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision}, pages 4489--4497, 2015.
+
 \bibitem{Jayasumana_PAMI2015_RBFs}
 Sadeep Jayasumana, Richard Hartley, Mathieu Salzmann, Hongdong Li, and Mehrtash
   Harandi.
