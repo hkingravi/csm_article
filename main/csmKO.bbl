@@ -52,6 +52,11 @@ G.~Chowdhary, H.~Kingravi, J.P. How, and P.~Vela.
 \newblock Nonparametric adaptive control using gaussian processes.
 \newblock In {\em IEEE Conference on Decision and Control (CDC)}. IEEE, 2013.
 
+\bibitem{sra2012optimization}
+Suvrit Sra, Sebastian Nowozin, and Stephen~J Wright.
+\newblock {\em Optimization for machine learning}.
+\newblock Mit Press, 2012.
+
 \bibitem{tran2015learning}
 Du~Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, and Manohar Paluri.
 \newblock Learning spatiotemporal features with 3d convolutional networks.
@@ -74,6 +79,18 @@ A.~Gelb.
 Kanti~V Mardia, Colin Goodall, Edwin~J Redfern, and Francisco~J Alonso.
 \newblock The kriged kalman filter.
 \newblock {\em Test}, 7(2):217--282, 1998.
+
+\bibitem{ams:cucker}
+F.~Cucker and S.~Smale.
+\newblock On the mathematical foundations of learning.
+\newblock {\em Bulletin of the American Mathematical Society}, 39(1), 2002.
+
+\bibitem{kingravi2012reproducing}
+Hassan~A Kingravi, Girish Chowdhary, Patricio~A Vela, and Eric~N. Johnson.
+\newblock Reproducing kernel hilbert space approach for the online update of
+  radial bases in neuro-adaptive control.
+\newblock {\em Neural Networks and Learning Systems, IEEE Transactions on},
+  23(7):1130--1141, 2012.
 
 \bibitem{Kingravi16_NIPS}
 Hassan Kingravi, Harshal Maske, and Girish Chowdhary.
