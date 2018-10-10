@@ -38,6 +38,7 @@ Out of 60 sensor locations, we uniformly selected 30 for training and the remain
 
 %For both datasets, $ \nsamp =2 $ was chosen based on the inferred $ \dualopApprox $ using proposition \ref{prop:2}. In both cases the cyclic index of $ \dualopApprox $ was one. We also investigated prediction errors for chosing sampling locations randomly from the training set. For this we performed 100 runs of experiment, and the results are shown in Table 1. This empirical evidence shows that it suffices to randomly select sampling/sensing locations for Kernel Observer. 
 \begin{table}[h]
+	\centering
 	\caption{Total training and prediction times for Figs. \ref{intel} and \ref{irish} } \label{tab:timing}
 		\begin{tabular}{c|ccc}
 		\toprule
@@ -109,29 +110,29 @@ This figure shows the trend of the observer getting better and better state esti
 \begin{figure}
 	\centering
 	\subfloat[Raw Satellite Data]{
-	\includegraphics[width=0.45\columnwidth]{pathfinder_raw_data_example}
+	\includegraphics[width=0.4\columnwidth]{pathfinder_raw_data_example}
 	\label{fig:Rawpathfinder} }
 	\subfloat[AKO estimate]{
-	\includegraphics[width=0.45\columnwidth]{pathfinder_inference_example}
+	\includegraphics[width=0.4\columnwidth]{pathfinder_inference_example}
 	\label{fig:pathfinder} }
 	
 	\subfloat[Error-day (time-series)]{
-		\includegraphics[width=0.45\columnwidth]{time_series_day} \label{fig:time_series_day} }
+		\includegraphics[width=0.4\columnwidth]{time_series_day} \label{fig:time_series_day} }
 	\subfloat[Error-night (time-series)]{
-		\includegraphics[width=0.45\columnwidth]{time_series_night} \label{fig:time_series_night} }
+		\includegraphics[width=0.4\columnwidth]{time_series_night} \label{fig:time_series_night} }
 	 %pathfinder_errors_boxplot_2012_all_models_night.pdf
 	 
 	\subfloat[Error-day (box-plot)]{
-		\includegraphics[width=0.45\columnwidth]{box_plot_path_day} \label{fig:pathfinder_errors_boxplots_day} }
+		\includegraphics[width=0.4\columnwidth]{box_plot_path_day} \label{fig:pathfinder_errors_boxplots_day} }
 	\subfloat[Error-night (box-plot)]{
-		\includegraphics[width=0.45\columnwidth]{box_plot_path} \label{fig:pathfinder_errors_boxplots} }
+		\includegraphics[width=0.4\columnwidth]{box_plot_path} \label{fig:pathfinder_errors_boxplots} }
 		
 	\subfloat[Estimation time (day)]
 	{
-		\includegraphics[width=0.45\columnwidth]{box_plot_path_day_time} \label{fig:pathfinder_tr_times_boxplots_day}}
+		\includegraphics[width=0.4\columnwidth]{box_plot_path_day_time} \label{fig:pathfinder_tr_times_boxplots_day}}
 	\subfloat[Estimation time (night)]
 	{
-		\includegraphics[width=0.45\columnwidth]{box_plot_path_time} \label{fig:pathfinder_tr_times_boxplots_night}}
+		\includegraphics[width=0.4\columnwidth]{box_plot_path_time} \label{fig:pathfinder_tr_times_boxplots_night}}
 		
 %	\subfloat[Estimation time (night)]
 %	{
@@ -144,18 +145,18 @@ This figure shows the trend of the observer getting better and better state esti
 \begin{figure*}
     \centering
     \hspace{-0.3in}\subfloat[6th May]{
-	\includegraphics[scale=0.24]{May6}
+	\includegraphics[scale=0.22]{May6}
 	\label{fig:May6 } }
-	\hspace{-0.4in}
+	\hspace{-0.5in}
 	\subfloat[7th May]{
-	\includegraphics[scale=0.24]{May7}
+	\includegraphics[scale=0.22]{May7}
 	\label{fig:May7 } }
-	\hspace{-0.4in}
+	\hspace{-0.5in}
 	\subfloat[28th May]{
-	\includegraphics[scale=0.24]{May28}
+	\includegraphics[scale=0.22]{May28}
 	\label{fig:May28 } }
-	\hspace{-0.4in}\subfloat[29th May]{
-	\includegraphics[scale=0.24]{May29}
+	\hspace{-0.5in}\subfloat[29th May]{
+	\includegraphics[scale=0.22]{May29}
 	\label{fig:May29 } }
 	\caption{Locations of weather anomaly obtained based on the error between the acutual temperature and the prediction of autonomous kernel observer. Landmass is shown in white and the ocean is in green. Locations marked have error greater than two standard deviations above the mean error. }
 	\label{fig:anomaly}
