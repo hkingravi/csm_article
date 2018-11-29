@@ -11,7 +11,49 @@ We demonstrate the Evolving Gaussian Processes method on CFD data of flow over a
 In our CFD simulation, we used a 4th-order polynomial expansion with spectral element method on the incompressible Navier-Stokes equation to generate the cylinder flow data for Re = 100, 300, 600, 800, and 1000. The spatial domain is $\left[-2,10\right]\times\left[-3,3\right]$, excluding the diameter-1 cylinder at the origin.  Neumann boundary conditions are applied to the far-field of the cylinder in the y-direction and the outlet of the flow field; and a Dirichlet boundary condition is applied to the inlet. Each data set contains at least 200 snapshots with a uniform time step of \~0.03 sec. Each snapshot contains 24,000 velocity data points for Re=100 or 95,000 velocity data points for Re=300,600,800,1000. Each data set took at least 10 hours in a high performance computer cluster to generate. Figures \ref{fig:cfd_100},\ref{fig:cfd_1000}(a-d) visualize the horizontal velocity for Re=100 and Re=1000, with red being the greatest negative velocity and blue the greatest positive velocity. The flow is unstable, periodic, and clearly nonlinear.
 %The meshes are more concentrated around the cylinder and its wake in order to accurately capture the phenomenon of the flow field. The no-slip boundary condition is applied to the cylinder wall;
 %In the case of Re=100, the simulated degrees of freedom (DOFs) are approximately 24,000, whereas the Re300, Re600, and Re1000 cases have 96,000 check this number, I remember is 96000, not sure!
-
+\begin{figure*}[h]
+	\centering
+	\subfloat[Data from classes $A$ and $B$.]
+	{
+		\includegraphics[width=0.45\columnwidth]{linsep_data.pdf}
+		\label{fig:lisep_data}}
+	\subfloat[Linear boundary separating data.]
+	{\includegraphics[width=0.45\columnwidth]{linsep_data_perceptron.pdf}
+		\label{fig:lin_sep_bound}}  
+	\caption{Example of linearly separable data. Any simple linear learning algorithm e.g. perceptron, finds a solution.}
+	\label{fig:linsep}
+	%\end{figure*}
+	%\begin{figure}[tbh] %{r}{0.5\textwidth}
+\end{figure*} 
+\begin{figure*}[h]
+	\centering
+	\subfloat[Data from classes $A$ and $B$.]
+	{
+		\includegraphics[width=0.45\columnwidth]{figures/pres_original_data.pdf}
+		\label{fig:nlisep_data}}
+	\subfloat[Linear boundary fails to separate data.]
+	{\includegraphics[width=0.45\columnwidth]{figures/pres_perc_original_data.pdf}
+		\label{fig:nlin_sep_bound}}  
+	\caption{Example of nonlinearly separable data. Perceptron fails to find a solution, and diverges.}
+	\label{fig:nlinsep}
+	%\end{figure*}
+	%\begin{figure}[tbh] %{r}{0.5\textwidth}
+\end{figure*} 
+\begin{figure*}[h]
+	\centering
+	\subfloat[Nonlinear mapping of data.]
+	{
+		\includegraphics[width=0.45\columnwidth]{figures/fmapped_data.pdf}
+		\label{fig:fmapped_data}}
+	\subfloat[Linear boundary in new space.]
+	{\includegraphics[width=0.45\columnwidth]{figures/pres_perc_fmapped_data_after.jpg}
+		\label{fig:fmapped_bound}}  
+	\caption{If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
+		in 3 dimensions.}
+	\label{fig:fmapped}
+	%\end{figure}
+	%\begin{figure*}[tbh] %{r}{0.5\textwidth}
+\end{figure*} 
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[Snapshot 0]{
@@ -83,6 +125,8 @@ Having seen that it is possible to find a single transition in the weight space 
 \subsection{Linear Dynamical Layer Analysis \& Insights}\label{sec:analysis}
 Due to the spatial encoding of the weights which the linear transition model operates on, we are able to analyze the dynamics and find physical insights into the process. We demonstrate two techniques: (1) using eigendecomosition of the transition matrix to discover the eigenfunctions and invariant subspaces of system, and (2) visualizing the most significant spatial interactions in the system.
 
+
+An invariant subspace of a linear operator is a subspace of the Hilbert space such that any vector in the subspace remains in the subspace under transformation by the operator. By marking which kernel centers are associated with different subspaces, we can spatially separate the space into multiple dynamic modules. The physical insight is some areas of the space are dynamically entangled with each other, and other are independent of each other. For those interested in monitoring spatiotemporally evolving systems, the number and location of the invariant subspaces determines how many and where feedback sensors ought to be for robust prediction of the weights.
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re = 100, $\varepsilon$ = 0.005}]{
@@ -96,16 +140,7 @@ Due to the spatial encoding of the weights which the linear transition model ope
 		\label{fig:eigenall}	}
 	\caption{Eigenvector Heat Maps}
 \end{figure*}
-
-An invariant subspace of a linear operator is a subspace of the Hilbert space such that any vector in the subspace remains in the subspace under transformation by the operator. By marking which kernel centers are associated with different subspaces, we can spatially separate the space into multiple dynamic modules. The physical insight is some areas of the space are dynamically entangled with each other, and other are independent of each other. For those interested in monitoring spatiotemporally evolving systems, the number and location of the invariant subspaces determines how many and where feedback sensors ought to be for robust prediction of the weights.
-
-Before doing the Jordan decomposition of $\dualopApprox$, we zero any elements smaller than some small $\varepsilon$ in order to stabilize the algorithm for matrices with many elements close to zero. Afterwards we visualize the eigenvector matrix using a \emph{logarithmic} color chart, as seen in Figures \ref{fig:eigen100},\ref{fig:eigen1000},\ref{fig:eigenall}. These plots are for models trained individually on Re=100 and Re=1000 with 300 kernels, and on all five with 600 kernels, for comparison. We see three categories of eigenvector in the rows: (1) Rows at the bottom that have exactly one non-zero elements, (2) In the middle, a couple rows with a dozen significant elements, and (3) at the top a number of rows that affect the majority of the kernel centers in the space.
-
-Each eigenvector of (1) spans its own invariant subspace, and is depicted in magenta circles in Figure \ref{fig:subspaces}. Category (3) is one invariant subspace, depicted with black crosses. Category (2) is subsumed in Category (3). The figures show that the dynamics near/around the cylinder and in its wake are so entangled that a single sensor measurement in that area may be sufficient to estimate over that entire subspace. On the other hand, areas far from the core of dynamic excitement are their own independent, invariant subspaces, and thus must be monitored locally.
-
-Another way to visualize the operation of the linear transition matrix is to plot lines between kernel centers that are influencing each other strongly. That is, if we draw a line center $c_j$ to $c_i$ for each of the (relatively) largest elements $a_{ij}$ of $\dualopApprox$, one can see how the system dynamics are coupled spatially (Figures \ref{fig:haystack100},\ref{fig:haystack1000},\ref{fig:haystackall}). We can also plot the magnitude of $a_ij$ in a third axis for further insight into the most dominant dynamic connection in the system.
-
-\begin{figure}[h] %{r}{0.5\textwidth}
+\begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re = 100, $\varepsilon$ = 0.005}]{
 		\includegraphics[width=0.30\textwidth]{subspaces100}}
@@ -115,10 +150,8 @@ Another way to visualize the operation of the linear transition matrix is to plo
 		\includegraphics[width=0.34\textwidth]{subspacesall}}
 	\caption{Invariant Subspaces}
 	\label{fig:subspaces}
-\end{figure}
-
-
-\begin{figure}[h] %{r}{0.5\textwidth}
+\end{figure*}
+\begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re=100}]{
 		\includegraphics[width=0.31\textwidth]{Amatrix3d100}
@@ -130,7 +163,17 @@ Another way to visualize the operation of the linear transition matrix is to plo
 		\includegraphics[width=0.31\textwidth]{Amatrix3dall}
 		\label{fig:haystackall}	}
 	\caption{Visualization of Co-Relations in Transition Matrix}
-\end{figure}
+\end{figure*}
+Before doing the Jordan decomposition of $\dualopApprox$, we zero any elements smaller than some small $\varepsilon$ in order to stabilize the algorithm for matrices with many elements close to zero. Afterwards we visualize the eigenvector matrix using a \emph{logarithmic} color chart, as seen in Figures \ref{fig:eigen100},\ref{fig:eigen1000},\ref{fig:eigenall}. These plots are for models trained individually on Re=100 and Re=1000 with 300 kernels, and on all five with 600 kernels, for comparison. We see three categories of eigenvector in the rows: (1) Rows at the bottom that have exactly one non-zero elements, (2) In the middle, a couple rows with a dozen significant elements, and (3) at the top a number of rows that affect the majority of the kernel centers in the space.
+
+Each eigenvector of (1) spans its own invariant subspace, and is depicted in magenta circles in Figure \ref{fig:subspaces}. Category (3) is one invariant subspace, depicted with black crosses. Category (2) is subsumed in Category (3). The figures show that the dynamics near/around the cylinder and in its wake are so entangled that a single sensor measurement in that area may be sufficient to estimate over that entire subspace. On the other hand, areas far from the core of dynamic excitement are their own independent, invariant subspaces, and thus must be monitored locally.
+
+Another way to visualize the operation of the linear transition matrix is to plot lines between kernel centers that are influencing each other strongly. That is, if we draw a line center $c_j$ to $c_i$ for each of the (relatively) largest elements $a_{ij}$ of $\dualopApprox$, one can see how the system dynamics are coupled spatially (Figures \ref{fig:haystack100},\ref{fig:haystack1000},\ref{fig:haystackall}). We can also plot the magnitude of $a_ij$ in a third axis for further insight into the most dominant dynamic connection in the system.
+
+
+
+
+
 
 
 

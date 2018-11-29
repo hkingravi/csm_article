@@ -120,53 +120,6 @@ the nested structure of nonlinearities in DNNs, they are more difficult to analy
 most of the literature in the field has focused on the empirical performance of these methods, where they significantly outperform 
 competing methods. 
 
-The signal acheivement of machine learning in general and deep learning in particular has been its ability to weaponize computation
-to obliterate the obstacles nexessary for industrial progress. Control needs to provide insight into the structure of the spaces
+The signal achievement of machine learning in general and deep learning in particular has been its ability to weaponize computation
+to obliterate the obstacles necessary for industrial progress. Control needs to provide insight into the structure of the spaces
 these models generate, to restrict certain forms of output, and to shape decision-making. 
-
-\begin{figure}
-\centering
-    \subfloat[Data from classes $A$ and $B$.]
-    {
-    \includegraphics[width=0.45\columnwidth]{figures/linsep_data.pdf}
-    \label{fig:lisep_data}}
-     \subfloat[Linear boundary separating data.]
-     {\includegraphics[width=0.45\columnwidth]{figures/linsep_data_perceptron.pdf}
-     \label{fig:lin_sep_bound}}  
-    \caption{Example of linearly separable data. Any simple linear learning algorithm e.g. perceptron, finds a solution.}
-    \label{fig:linsep}
-    %\end{figure}
-%\begin{figure}[tbh] %{r}{0.5\textwidth}
-\end{figure} 
-
-\begin{figure}
-\centering
-    \subfloat[Data from classes $A$ and $B$.]
-    {
-    \includegraphics[width=0.45\columnwidth]{figures/pres_original_data.pdf}
-    \label{fig:nlisep_data}}
-     \subfloat[Linear boundary fails to separate data.]
-     {\includegraphics[width=0.45\columnwidth]{figures/pres_perc_original_data.pdf}
-     \label{fig:nlin_sep_bound}}  
-    \caption{Example of nonlinearly separable data. Perceptron fails to find a solution, and diverges.}
-    \label{fig:nlinsep}
-    %\end{figure}
-%\begin{figure}[tbh] %{r}{0.5\textwidth}
-\end{figure} 
-
-
-\begin{figure}
-\centering
-    \subfloat[Nonlinear mapping of data.]
-    {
-    \includegraphics[width=0.45\columnwidth]{figures/fmapped_data.pdf}
-    \label{fig:fmapped_data}}
-     \subfloat[Linear boundary in new space.]
-     {\includegraphics[width=0.45\columnwidth]{figures/pres_perc_fmapped_data_after.jpg}
-     \label{fig:fmapped_bound}}  
-    \caption{If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
-             in 3 dimensions.}
-    \label{fig:fmapped}
-    %\end{figure}
-%\begin{figure}[tbh] %{r}{0.5\textwidth}
-\end{figure} 
