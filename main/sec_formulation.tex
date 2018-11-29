@@ -140,8 +140,98 @@ One scenario where this condition can be met with minimal measurements is in the
 %\end{algorithm}
 %\vspace{-0.2in} 
 %\end{figure}
-This heuristic is formalized in Algorithm 2 in the supplementary. Note that in practice, the matrix $\dualopApprox$ needs to be inferred from measurements of the process $f_{\tindex}$. If no assumptions are placed on $\dualopApprox$, it's clear that at least $\ncent$ sensors are required for the system identification phase. Future work will study the precise conditions under which system identification is possible with less than $\ncent$ sensors. 
-
+This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $\dualopApprox$ needs to be inferred from measurements of the process $f_{\tindex}$. If no assumptions are placed on $\dualopApprox$, it's clear that at least $\ncent$ sensors are required for the system identification phase. Future work will study the precise conditions under which system identification is possible with less than $\ncent$ sensors. 
+\begin{figure}[t!]
+	\begin{algorithm}[H]
+		\caption{Sampling locations set $ \sampSet $}
+		\label{alg:samples}
+		\begin{algorithmic}
+			\begin{footnotesize}	
+				\STATE {\bfseries Input:} $ \dualopApprox =\FrobC $, lower bound $\minmeas$
+				%		\STATE Check $k=\max_i \nu(\lambda_i)$
+				\STATE Decompose $ \FrobC $ to generate invariant subspaces $ \fsubspaceC{j} $, $ j\in \{1,2,\dots,\minmeas\} $ (see section \ref{sec_prelim})
+				\FOR{$j=1$ {\bfseries to} $\minmeas$}
+				\STATE Obtain centers $\shCent^{(j)}$ w.r.t subspace $ \fsubspaceC{j} $,
+				\STATE Generate samples $x_i^{(j)}$ to create a kernel matrix $\empK^{(j)}$ that is shaded only with respect to centers $\shCent^{(j)}$
+				\ENDFOR
+				\STATE {\bfseries Output:} Sampling locations set  $\sampSet =\{x^{(1)}, x^{(2)}\cdots,x^{(l)}\} $.
+			\end{footnotesize}		
+		\end{algorithmic}
+	\end{algorithm}
+\end{figure}
+\begin{figure}[t!]
+	\centering
+	\begin{algorithm}[H]
+		\caption{Kernel Observer (Transition Learning)}
+		\label{alg:egp_trans}
+		\begin{algorithmic}
+			\begin{footnotesize}
+				\STATE {\bfseries Input:} Kernel $\kernel$, basis centers $\shCent$, final time 
+				step $\ftime$. 
+				\WHILE{$\tindex \leq \ftime$}
+				\STATE $1)$ Sample data $\{y^i_{\tindex}\}_{i=1}^{\ncent}$ from $f_{\tindex}$. 
+				\STATE $2)$ Estimate $\estweight_\tindex$ via standard kernel inference procedure. 
+				\STATE $3)$ Store weights $\estweight_\tindex$ in matrix $\W\in\R^{\ncent\times \ftime}$.
+				\ENDWHILE
+				\STATE To infer $\dualopApprox$, define matrix $\Phi = \W^T\W$. Then:
+				\FOR{$i=1$ {\bfseries to} $\ncent$}
+				\STATE At step $i$, solve system
+				\begin{align}
+				\dualopApprox^{(i)} = \left(\left(\Phi + \la I\right)^{-1}(\W^T\W^{(i)})\right)^T,
+				\end{align}
+				where $\dualopApprox^{(i)}$, and $\W^{(i)}$ are the $i$th columns of $\dualopApprox$ and $\W^{(i)}$ respectively. 
+				\ENDFOR
+				\STATE Compute the covariance matrix  $\estcontrolop$ of the observed 
+				weights $\W$. 
+				\STATE {\bfseries Output:} estimated transition matrix $\dualopApprox$, predictive covariance    
+				matrix $\estcontrolop$. 
+			\end{footnotesize}
+		\end{algorithmic}
+	\end{algorithm}
+	\vspace{-0.3in}
+\end{figure}
+\begin{figure}[t!]
+	\begin{algorithm}[H]
+		\caption{Kernel Observer (Monitoring and Prediction)}
+		\label{alg:egp_inf}
+		\begin{algorithmic}
+			\begin{footnotesize}
+				\STATE {\bfseries Input:} Kernel $\kernel$, basis centers $\shCent$, 
+				estimated system matrix $\dualopApprox$, estimated covariance matrix $\estcontrolop$.
+				\STATE {\bfseries Compute Observation Matrix:} Compute the cyclic index $\minmeas$ of $\dualopApprox$, and compute $\empK$.
+				\STATE {\bfseries Initialize Observer:} Use $\dualopApprox$, $\estcontrolop$, and $\empK$ to initialize a state-observer (e.g. Kalman filter (KF)) on $\fspaceApprox$.
+				\WHILE{ measurements available }   
+				\STATE 1) Sample data $\{y^i_{\tindex}\}_{i=1}^{\nsamp}$ from $f_{\tindex}$.
+				\STATE 2) Propagate KF estimate $\estweight_{\tindex}$ 
+				forward to time $\tindex+1$, correct using measurement feedback with $\{y^i_{\tindex+1}\}_{i=1}^{\nsamp}$. 
+				\STATE 3) Output predicted function $\widehat{f}_{\tindex+1}$ of KF.
+				\ENDWHILE   
+			\end{footnotesize}
+		\end{algorithmic}
+	\end{algorithm}
+	\vspace{-0.2in}
+\end{figure}
+\begin{figure}[tbh]
+	\begin{algorithm}[H]
+		\caption{Kernel Controller}
+		\label{alg:egp_control}
+		\begin{algorithmic}
+			\begin{footnotesize}
+				\STATE {\bfseries Input:} Kernel $\kernel$, basis points $\shCent$,
+				estimated system matrix $\estsysop$, estimated covariance matrix $\estcontrolop$, and function $f_{\text{ref}}$ 
+				to drive initial function to.    
+				\STATE {\bfseries Initialize Observer:} (see Algorithm \ref{alg:egp_inf}). 
+				\STATE {\bfseries Initialize Controller:} Use Jordan decomposition of $\estsysop$ to obtain  no. of control locations $\controlCent$, compute kernel matrix $\empKCD\in\R^{\ncontrol\times\ncent}$ between $\controlCent$ and $\shCent$, and initialize controller (e.g. LQR) utilizing $(\estsysop, \estcontrolop)$.
+				\WHILE{ measurements available }   
+				\STATE 1) Sample data $\{y^i_k\}_{i=1}^{\nsamp}$ from $f(x,\tindex)$.    
+				\STATE 2) Utilize observer to estimate $\estweight_{\tindex+1}$.
+				\STATE 3) Use $\estweight_{\tindex+1}$ and $f_{\text{ref}}$ as input to controller to get feedback. 
+				\ENDWHILE   
+			\end{footnotesize}
+		\end{algorithmic}
+	\end{algorithm}
+	\vspace{-0.2in}
+\end{figure}
 
 \begin{figure*}[ht!]
 \centering
