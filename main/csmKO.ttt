@@ -1,0 +1,18 @@
+\begin{table}[h]
+\centering
+\caption{Total training and prediction times for Figs. \ref{intel} and \ref{irish} } \label{tab:timing}
+\begin{tabular}{c|ccc}
+\toprule
+{\bf }  & {\bf Intel } & {\bf Irish } &  {\bf Ozone}  \\
+& Berkeley & Wind & \\
+\midrule
+\emph{Data Size}        & 25-72 & 12-36  & {30-68} \\
+    (\emph{bases}-\emph{timesteps})                 &       & & \\ \hline
+Kernel Observer         & 2.1 sec & 0.1 sec & 1.61 sec \\
+PCLSK             & 121.4 sec & 7.0 sec & 91.90 sec \\
+LEIS             & 43.8 sec & 2.8 sec & 37.41 sec\\
+\bottomrule
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
