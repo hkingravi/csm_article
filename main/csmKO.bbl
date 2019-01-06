@@ -86,6 +86,18 @@ Hassan~A Kingravi, Girish Chowdhary, Patricio~A Vela, and Eric~N. Johnson.
 \newblock {\em Neural Networks and Learning Systems, IEEE Transactions on},
   23(7):1130--1141, 2012.
 
+\bibitem{Liu2018csmtutorial}
+M.~Liu, G.~Chowdhary, B.~Castra da~Silva, S.~Liu, and J.~P. How.
+\newblock Gaussian processes for learning and control: A tutorial with
+  examples.
+\newblock {\em IEEE Control Systems Magazine}, 38(5):53--86, Oct 2018.
+
+\bibitem{rasmussen2006gaussian}
+Carl~Edward Rasmussen.
+\newblock Gaussian processes for machine learning.
+\newblock Technical report, Max Planck Institute for Biological Cybernetics,
+  2006.
+
 \bibitem{Kingravi16_NIPS}
 Hassan Kingravi, Harshal Maske, and Girish Chowdhary.
 \newblock Kernel observers: Systems theoretic modeling and inference of
