@@ -1,4 +1,6 @@
-\section{Experimental Results}
+\section{Empirical Results}
+
+
 \subsection{Sensing Locations for Synthetic Data Sets}\label{sec:exp}
  The goal of this experiment is to investigate the dependency of the observability of system \eqref{k_measure} on the shaded observation matrix and the lower bound presented in Proposition \ref{prop:2}. The domain is fixed on the interval $\dom = [0,2\pi]$. First, we pick sets of points $\shCent^{(\setind)} = \{c_1,\dots,c_{\ncent_{\setind}}\}, \ c_{\centind}\in\dom$, $\ncent=50$, and construct a dynamics matrix $\dualop = \JorLa \in {\R^{\ncent \times \ncent}}$, with cyclic index $5$.  We pick the RBF kernel $\kernel(x,y) = e^{-\|x-y\|^2/2\s^2}$, $\s=0.02$. Generating samples $\sampSet=\sampSetLong$, $x_{\sampind}\in\dom$ randomly, we compute the $\minmeas$-shaded property and observability for this system. Figure \ref{fig:kobs_small} shows how shadedness is a necessary condition for observability, validating Proposition \ref{prop:1}: the slight gap between shadedness and observability here can be explained due to numerical issues in computing the rank of $\Obs_{\Tset}$. 
  
@@ -161,6 +163,9 @@ This figure shows the trend of the observer getting better and better state esti
 	\caption{Locations of weather anomaly obtained based on the error between the acutual temperature and the prediction of autonomous kernel observer. Landmass is shown in white and the ocean is in green. Locations marked have error greater than two standard deviations above the mean error. }
 	\label{fig:anomaly}
 \end{figure*}
+
+\subsection{Predicting evolution of weed density in agricultural fields}\label{sec:weed}
+
 \subsection{Control of a linear PDE} %with AVHRR Satellite data}
 We then employed kernel controllers for controlling an approximation to the scalar diffusion equation $u_t = bu_{xx}$ on the domain $\dom=[0,1]$, with $b=0.25$. The solution to this equation is infinite-dimensional, so we chose a kernel $\kernel(x,y) = e^{-(\|x-y\|^2/2\s^2)}$, and a set of atoms  $\Atoms=\shCentLong$, $c_i\in\dom$, with $\ncent = 25$ generating $\fspaceC$, the space approximating $\fspace$, and another set of atoms $\AtomsControl=\{\fmap(d_1),\dots,\fmap(d_{\ncontrol})\}$, $d_j\in\dom$,
 $\ncontrol=13$, generating the control space $\fspaceD$. The number of, and the location of the observations was chosen to be the same as that of the actuation locations $d_j$. First, tests (not reported here) were conducted to ensure that the solution to the diffusion equation is well approximated in $\fspaceC$. Matrix least-squares was used to infer $\estsysop$. Figure \ref{fig:uncontrolled_pde} shows an example of an initial function $f_{\text{init}}$ evolving according to the PDE.  A reference function $f_{\text{ref}}\in\fspaceC$ was chosen to drive $f_{\text{init}}$ to $f_{\text{ref}}$ under the action of the PDE. Finally, Algorithm \ref{alg:egp_control} was used to control the PDE, driving $f_{\text{init}}$ to $f_{\text{ref}}$; Figure \ref{fig:controlled_pde_error} shows the absolute value of the error between $f_k $ and $f_{\text{ref}}$ as a function of time. 
