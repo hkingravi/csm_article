@@ -223,6 +223,60 @@ Lixin Li, Xingyou Zhang, and Reinhard Piltner.
 \newblock In {\em Thirteenth International Symposium on Temporal Representation
   and Reasoning (TIME'06)}, pages 168--176. IEEE, 2006.
 
+\bibitem{Nordby2018}
+D.~Nordby, R.~Hartzler, and K.~Bradley.
+\newblock Biology and management of waterhemp.
+\newblock {\em Glyphosate, Weeds, and Crop Sciences, Purdue University
+  Extension, publication GWC-13.12}, 2007.
+
+\bibitem{schutte2014common}
+Brian~J Schutte and Adam~S Davis.
+\newblock Do common waterhemp (amaranthus rudis) seedling emergence patterns
+  meet criteria for herbicide resistance simulation modeling?
+\newblock {\em Weed Technology}, 28(2):408--417, 2014.
+
+\bibitem{sellers2003comparative}
+Brent~A Sellers, Reid~J Smeda, William~G Johnson, J~Andrew Kendig, and Mark~R
+  Ellersieck.
+\newblock Comparative growth of six amaranthus species in {Missouri}.
+\newblock {\em Weed Science}, 51(3):329--333, 2003.
+
+\bibitem{horak2000growth}
+Michael~J Horak and Thomas~M Loughin.
+\newblock Growth analysis of four amaranthus species.
+\newblock {\em Weed Science}, 48(3):347--355, 2000.
+
+\bibitem{mulugeta1997seed}
+Dawit Mulugeta and David~E Stoltenberg.
+\newblock Seed bank characterization and emergence of a weed community in a
+  moldboard plow system.
+\newblock {\em Weed Science}, pages 54--60, 1997.
+
+\bibitem{mulugeta1999seasonal}
+Dawit Mulugeta and Chris~M Boerboom.
+\newblock Seasonal abundance and spatial pattern of setaria faberi, chenopodium
+  album, and abutilon theophrasti in reduced-tillage soybeans.
+\newblock {\em Weed science}, pages 95--106, 1999.
+
+\bibitem{davis2013seed}
+Adam~S Davis, Sharon Clay, John Cardina, Anita Dille, Frank Forcella, John
+  Lindquist, and Christy Sprague.
+\newblock Seed burial physical environment explains departures from regional
+  hydrothermal model of giant ragweed (ambrosia trifida) seedling emergence in
+  us midwest.
+\newblock {\em Weed science}, 61(3):415--421, 2013.
+
+\bibitem{werle2014predicting}
+Rodrigo Werle, Lowell~D Sandell, Douglas~D Buhler, Robert~G Hartzler, and
+  John~L Lindquist.
+\newblock Predicting emergence of 23 summer annual weed species.
+\newblock {\em Weed Science}, 2014.
+
+\bibitem{chopard1998cellular}
+B~Chopard and M~Droz.
+\newblock {\em Cellular automata}.
+\newblock Springer, 1998.
+
 \bibitem{tran2015learning}
 Du~Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, and Manohar Paluri.
 \newblock Learning spatiotemporal features with 3d convolutional networks.
