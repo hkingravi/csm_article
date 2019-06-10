@@ -277,6 +277,12 @@ B~Chopard and M~Droz.
 \newblock {\em Cellular automata}.
 \newblock Springer, 1998.
 
+\bibitem{csato2001sparse}
+Lehel Csato and Manfred Opper.
+\newblock Sparse representation for gaussian process models.
+\newblock {\em Advances in neural information processing systems}, pages
+  444--450, 2001.
+
 \bibitem{tran2015learning}
 Du~Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, and Manohar Paluri.
 \newblock Learning spatiotemporal features with 3d convolutional networks.
@@ -338,11 +344,6 @@ H.~Charles~J. Godfray, John~R. Beddington, Ian~R. Crute, Lawrence Haddad, David
 \newblock Food security: The challenge of feeding 9 billion people.
 \newblock {\em Science}, 327(5967):812--818, 2010.
 
-\bibitem{heap2016web}
-I~Heap.
-\newblock International survey of herbicide resistant weeds.
-\newblock \url{http://www.weedscience.org}, 2017.
-
 \bibitem{livingston2016economic}
 Michael Livingston, Jorge Fernandez-Cornejo, and George~B Frisvold.
 \newblock Economic returns to herbicide resistance management in the short and
@@ -353,6 +354,16 @@ Michael Livingston, Jorge Fernandez-Cornejo, and George~B Frisvold.
 L.~P. Gianessi and N.~P. Reigner.
 \newblock The value of herbicides in us crop production.
 \newblock {\em Weed Technology}, 21(2):559--566, 2007.
+
+\bibitem{heap2014global}
+I.~Heap.
+\newblock Global perspective of herbicide-resistant weeds.
+\newblock {\em Pest Management Science}, 70(9):1306--1315, 2014.
+
+\bibitem{heap2014herbicide}
+Ian Heap.
+\newblock Herbicide resistant weeds.
+\newblock In {\em Integrated pest management}, pages 281--301. Springer, 2014.
 
 \bibitem{lovell2017temperate}
 Sarah~Taylor Lovell, Christian Dupraz, Michael Gold, Shibu Jose, Ronald Revord,
