@@ -104,6 +104,81 @@ clearly readable.
 
 {\bf Comments by Referee 1. reviewer ID 4665}
 
+{\color{red}(R1:P1)} This paper describes an approach, developed by the authors over the
+previous few years, to build data-driven models that may be used for
+estimation and prediction within spatiotemporal monitoring. The model
+is based on predicting a process that evolves in an RKHS, where finite
+dimensional measurements are available. Given these measurements and a
+choice of kernel, approximation methods for the feature space may be
+developed (via e.g. a dictionary of atoms, random fourier features,
+etc). Then, given the measurements, a linear dynamical system may be
+constructed in the feature space. This finite dimensional feature
+evolution may be analyzed from the point of view of linaer systems
+theory, and theoretical results on observability and estimation are
+stated. 
+
+{\color{red} Response:}
+
+
+{\color{red}(R1:P2)} While I believe this paper is coherent and reasonably strong, there are
+a few ways in which it could be improved. 
+
+First, the technique of finding an alternate space in which the state
+evolves linearly is not novel (nor is it claimed to be). The paper
+would benefit from an extended discussion and comparison to alternative
+methods. In particular there has recently been considerable interest in
+methods inspired by Koopman analysis, which the authors mention only
+extrememly briefly, in passing. Since the authors present experiments
+on fluid flow problems, they should present comparisons to dynamic mode
+decomposition, which has been a popular technique and has many
+similarities to the method presented in this work. See, e.g.,
+Schmid, Peter J. "Dynamic mode decomposition of numerical and
+experimental data." Journal of fluid mechanics 656 (2010): 5-28.
+and the many articles that cite the above. Moreover, there is a broad
+literature extending dynamic mode decomposition and other
+Koopman-inspired techniques. In particular, one may refer to the work
+of Steve Brunton and Nathan Kutz, such as 
+Brunton, Steven L., Joshua L. Proctor, and J. Nathan Kutz. "Discovering
+governing equations from data by sparse identification of nonlinear
+dynamical systems." Proceedings of the National Academy of Sciences
+113.15 (2016): 3932-3937.
+
+While these works do not explicitly discuss the estimation problem,
+comparisons between the chosen model and those discussed above would
+greatly improve the paper and allow readers to better appreciate and
+situate the proposed methods within the literature. 
+
+{\color{red}(Response)}
+
+{\color{red}(R1:P3)} In addition the above, I was confused by the presentation of the
+theoretical results. I could not find the appendix in which proof of
+the theoretical results was presented, and so have not been able to
+review them. 
+
+{\color{red}(Response)}
+
+{\color{red}(R1:P4)} The evolving GP formulation, in which dynamics are shared across
+dynamical systems should not behave similarly, was confusing. In
+particular, the definition of similar fluid systems seems ad hoc, and
+this section must be better motivated and explained in general. 
+
+{\color{red}(Response)}
+
+
+{\color{red}(R1:P5)} Minor comments
+\gXX{when you have addressed the comment, remove the red lining}
+---------------
+\begin{enumerate}
+\item page 1 line 10, "spatiotemporally" misspelled \gXX{Josh}
+\item page 4 line 24 "interpretability" misspelled \gXX{Josh}
+\item text very small in figure 8, figure 10, figure S8. Generally, the
+text size of the figures needs to be fixed throughout. \gXX{Josh, Harshals}
+\end{enumerate}
+
+{\color{red}(Response)}
+
+
+
 {\bf Comments by Referee 6. reviewer ID 4667}
 
 {\bf Comments by Referee 7. reviewer ID 4669}
