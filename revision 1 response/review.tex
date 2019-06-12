@@ -1,0 +1,200 @@
+\documentclass{letter}
+
+\usepackage{times,fullpage}
+
+\usepackage{amsmath, amsfonts, amssymb, amscd}
+\usepackage{color}
+%\usepackage{srcltx}
+\usepackage{latexsym,amssymb,amsmath,amsfonts}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage{letterbib} 
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+
+%\newcommand{\gXX}[1]{\color{red} XX #1 XX \color{black}}
+%\newcommand{\gsout}[2]{{\sout{#1}}{{\gXX{#2}}}} 
+\newcommand{\rr}[1]{{\bf \color{blue}{#1}}}
+
+
+\input{../main/inc_macros.tex}
+
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\begin{document}
+
+\centerline{{\bf \large Statement of Revision}}
+
+In the following, we provide an account of the changes that have been made
+in order to address the concerns of the reviewers.  The nature of
+the review for this paper is such that the comments were provided both
+in paragraph form and in bulleted form.  When addressing the paragraph
+form, we have identify the comment using the notation {\bf {\color{red}(Rx:Py)}} where 
+{\bf x} is the Reviewer number and {\bf y} is paragraph referred to.
+When addressing the bullet form, we utilize the form {\bf (Rx:z)} where
+{\bf x} identifies the Reviewer and {\bf z} identifies the bulleted comment.
+Each bulleted comment included in the listing is followed by a description
+of modifications to the paper addressing the comment. Furthermore, changes in the paper have been marked with a color coding.  We hope that this
+method is sufficiently clear.
+We would like to thank the reviewers for their time and effort at providing
+feedback in order to improve the exposition of the paper.
+
+{\bf Comments by Associate Editor.}
+
+In this paper the authors provide an overview of methods and algorithms
+to build data-driven models that may be used for estimation and
+prediction of spatio-temporal processes. 
+
+Four reviews were obtained for this paper. In general, the reviewers
+agree that the topic of this paper is of interest to the control
+community, and that the proposed approach appears sound. However, the
+reviewers point out a number of serious concerns, in particular:
+
+Comparison with the state of the art: the comparison with the state
+of the art appears insufficient (see Reviewers 5, 6, and 7). This makes
+the contribution of this paper unclear (see Reviewer 6).
+
+Presentation style and rigor: the presentation style is quite poor
+(see Reviewers 5, 6, 7, and 9). In particular, the paper contains
+several typos and the presentation of the results is rather dense. Most
+importantly, the authors refer to an Appendix for the presentation of
+the proofs of the theoretical results; however, such an Appendix is
+missing. Collectively, these shortcomings make this paper very
+difficult to read and evaluate -- see, in particular, Reviewer 7.
+Furthermore, note that CSM papers do not have appendices, 
+so the location of these proofs will have to be changed.
+
+Tutorial contribution: the insufficient comparison with the state of
+the art, the poor presentation style, and the lack of proofs for the
+theoretical results make the tutorial value of this paper quite weak.
+In other words, it would be very difficult for a practitioner to use
+this paper as a guide for developing estimation and prediction
+algorithms for spatio-temporal processes (when should one use the
+methods presented in this paper? are there implementation guidelines?
+etc.). The authors do reference a software library - in my opinion,
+this paper should more explicitly reference such a library in order to
+better explain the practical and implementation aspects of the proposed
+methodology.
+
+ I concur with the reviewers’ comments and I recommend that the authors
+prepare a significantly revised version addressing all the
+concerns and suggestions, with a key focus on strengthening the
+tutorial value of the paper. In addition, the authors should address
+the following comments:
+
+{\color{red}(AE:1)} We thank the associate editor for the opportunity to submit a revision.  We have prepared a significant revision that includes the complete proofs of all of the results presented in this paper. 
+
+
+The sidebar "Key control problems in agriculture," while
+interesting, appears excessively long. The authors should shorten it,
+and make its relevance to the topic of this paper clearer.
+
+{\color{red}(AE:2)} We have reduced the key control problems sidebar. We have significantly reduced the length of the sidebar by reducing the general discussion about agriculture. We have focused instead the sidebar on the challenges in spatiotemporal estimation for advancing agricultural robotics.
+
+
+The quality of many of the figures is quite low (see, for example,
+Figure 1, Figure 8, and Figure S8). The authors should make all figures
+clearly readable.
+
+\textbf{(AE:3)} \gXX{Josh, Harshal can you handle this?}
+
+
+{\bf Comments by Referee 1. reviewer ID 4665}
+
+{\color{red}(R1:P1)} This paper describes an approach, developed by the authors over the
+previous few years, to build data-driven models that may be used for
+estimation and prediction within spatiotemporal monitoring. The model
+is based on predicting a process that evolves in an RKHS, where finite
+dimensional measurements are available. Given these measurements and a
+choice of kernel, approximation methods for the feature space may be
+developed (via e.g. a dictionary of atoms, random fourier features,
+etc). Then, given the measurements, a linear dynamical system may be
+constructed in the feature space. This finite dimensional feature
+evolution may be analyzed from the point of view of linaer systems
+theory, and theoretical results on observability and estimation are
+stated. 
+
+{\color{red} Response:}
+
+
+{\color{red}(R1:P2)} While I believe this paper is coherent and reasonably strong, there are
+a few ways in which it could be improved. 
+
+First, the technique of finding an alternate space in which the state
+evolves linearly is not novel (nor is it claimed to be). The paper
+would benefit from an extended discussion and comparison to alternative
+methods. In particular there has recently been considerable interest in
+methods inspired by Koopman analysis, which the authors mention only
+extrememly briefly, in passing. Since the authors present experiments
+on fluid flow problems, they should present comparisons to dynamic mode
+decomposition, which has been a popular technique and has many
+similarities to the method presented in this work. See, e.g.,
+Schmid, Peter J. "Dynamic mode decomposition of numerical and
+experimental data." Journal of fluid mechanics 656 (2010): 5-28.
+and the many articles that cite the above. Moreover, there is a broad
+literature extending dynamic mode decomposition and other
+Koopman-inspired techniques. In particular, one may refer to the work
+of Steve Brunton and Nathan Kutz, such as 
+Brunton, Steven L., Joshua L. Proctor, and J. Nathan Kutz. "Discovering
+governing equations from data by sparse identification of nonlinear
+dynamical systems." Proceedings of the National Academy of Sciences
+113.15 (2016): 3932-3937.
+
+While these works do not explicitly discuss the estimation problem,
+comparisons between the chosen model and those discussed above would
+greatly improve the paper and allow readers to better appreciate and
+situate the proposed methods within the literature. 
+
+{\color{red}(Response)}
+
+{\color{red}(R1:P3)} In addition the above, I was confused by the presentation of the
+theoretical results. I could not find the appendix in which proof of
+the theoretical results was presented, and so have not been able to
+review them. 
+
+{\color{red}(Response)}
+
+{\color{red}(R1:P4)} The evolving GP formulation, in which dynamics are shared across
+dynamical systems should not behave similarly, was confusing. In
+particular, the definition of similar fluid systems seems ad hoc, and
+this section must be better motivated and explained in general. 
+
+{\color{red}(Response)}
+
+
+{\color{red}(R1:P5)} Minor comments
+\gXX{when you have addressed the comment, remove the red lining}
+---------------
+\begin{enumerate}
+\item page 1 line 10, "spatiotemporally" misspelled \gXX{Josh}
+\item page 4 line 24 "interpretability" misspelled \gXX{Josh}
+\item text very small in figure 8, figure 10, figure S8. Generally, the
+text size of the figures needs to be fixed throughout. \gXX{Josh, Harshals}
+\end{enumerate}
+
+{\color{red}(Response)}
+
+
+
+{\bf Comments by Referee 6. reviewer ID 4667}
+
+{\bf Comments by Referee 7. reviewer ID 4669}
+
+{\bf Comments by Referee 9. reviewer ID 4673}
+
+{\bf Comments by Referee 1. reviewer ID 4665}
+
+Again, we thank the anonymous reviewers for their comments. We hope we 
+addressed all concerns and improved the overall readability of the paper. We are happy to provide further clarification or revisions as requested.
+
+
+\small
+%\bibliographystyle{unsrt}
+\bibliographystyle{plain}
+\bibliography{../bibifiles/controls,../bibifiles/chowdhary_RLDP,../bibifiles/bibtex_database_chowdhary_machine_learning,../BIB_all/bibtex_database_Chowdhary,../BIB_all/ACL_all,../BIB_all/ACL_Publications}
+
+\end{document}
