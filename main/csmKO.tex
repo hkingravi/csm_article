@@ -47,13 +47,15 @@
 \usepackage[left,pagewise]{lineno} 
 % added for CSMAG only
 
-\usepackage{amssymb,amsmath,bm,booktabs}
+\usepackage{amssymb,amsmath,bm,booktabs,amsthm}
 \usepackage[sort,compress]{cite}
-\usepackage{algorithm,algcompatible}
+%\usepackage{algorithm,algcompatible}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 %\usepackage{algpseudocode}
 %for making comments in algorithm
-\renewcommand{\COMMENT}[2][.5\linewidth]{%
-	\leavevmode\hfill\makebox[#1][l]{//~#2}}
+%\renewcommand{\COMMENT}[2][.5\linewidth]{%
+%	\leavevmode\hfill\makebox[#1][l]{//~#2}}
 
 \usepackage{subfig}
 %\usepackage{subcaption}
@@ -153,7 +155,7 @@
 
 %\input{estimation}
 \input{sec_conclusion}
-
+\input{sec_supplementary}
 \section{Software}
 To facilitate implementation of the material presented in this paper we have made an open-source code-base. A MATLAB version is available at \url{http://daslab.illinois.edu/software.html} or at \url{https://github.com/hkingravi/FunctionObservers} with examples and documentation. In addition, a  Python version is available on GitHub at \url{https://github.com/hkingravi/funcobspy}.
 
@@ -209,7 +211,7 @@ and USDA/NSF CPS grant 2018-67007-28379, and USDA/NSF NRI grant 2019-67021-28989
 \section{Author Biography}
 %Insert the author bios here.
 
-\noindent \textbf{Harshal Maske} is competed his PhD in 2017 from the University
+\noindent \textbf{Harshal Maske} completed his PhD in 2018 from the University
 of Illinois in Urbana-Champaign, he is currently a postdoc at UIUC. He received his Masters
 and Bachelors integrated degree in Mechanical
 Engineering from the Indian Institute of Technology
