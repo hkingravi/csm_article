@@ -491,3 +491,66 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 	\item By plotting arrows from center $c_j$ to $c_i$ for each of the largest elements $\hat a_{ij}$ of $\dualopApprox$, one can visualize how different areas of the domain influence each other's evolution.
 	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system.
 \end{enumerate}
+
+
+\subsection{Spectral Analysis of Evolving Gaussian Process Model and Resulting Algorithms}
+
+One way of viewing the invariant subspaces concept (as described earlier) is say that information contained in an invariant subspace never leaves that invariant subspace. We hypothesize that the kernel centers associated with the invariant subspaces of a spatiotemporally evolving system are generally associated with spatial regions in the domain (and not just homogeneously spread all over and or mixed with the other invariant subspaces). This hypothesis makes sense both physically and mathematically. In physics, the \emph{principle of locality} states that an object is only directly influenced by its immediate surroundings \cite{berkovitz2007action}. If this is the case (and there is no reason to believe that it is not, apart from certain quantum dynamics situations), and the E-GP model accurately captures the physics of the system, then information (measurable phenomena) may only travel continuously from one point in the domain to another. Mathematically, since a value at any one point in the domain is influenced by the weights of multiple nearby centers, we would expect nearby centers to be connected dynamically, unless separated by ``plains'' where the values are indistinguishable from noise.
+
+When a square matrix is perfectly formed, the Jordan form of a $n\times n$ matrix $\dualopApprox$ is block diagonal, and therefore gives a decomposition of the $n$ dimensional Euclidean space into invariant subspaces of $\dualopApprox$. The cyclic index, which can be found by counting the geometric multiplicities of eigenvalues in $\dualopApprox$, gives the number of invariant subspaces. In reality, data-driven approximations of $\dualopApprox$ rarely give such easily interpretable properties. Hence, the need for an algorithm can divide the system into invariant subspaces even when the boundaries between them are ``fuzzy''.
+
+Each block in the Jordan normal form has a set of corresponding eigenvectors and an eigenvalue with geometric multiplicity. When we transform the former back into the domain space, we obtain complex-valued functions which are the Koopman modes of the system. These provide an image of what kind of structures we see in the dynamics. The eigenvalues describe the frequency with which these structures oscillate between their real and imaginary forms, as well as the exponential growth or decay of their magnitudes. %In this section, we demonstrate our method on systems with eigenvalues primarily on the unit circle (neither growing nor decaying).
+
+\subsubsection{$k$-Invariant Subspaces Clustering}
+The intuition behind our $k$-invariant subspaces clustering algorithm is to replace the Euclidean distance in the $k$-means algorithm with a different metric of ``nearness'', namely one corresponding with the dynamic connections in the space. The $\dualopApprox$ matrix provides easy access to these: its rows $\dualopApprox_{i\ast}$ indicate which centers inform the i\textsuperscript{th} value of $\weight_{tindex+1}$, and its columns $\dualopApprox_{\ast j}$ indicate what centers will be informed by the j\textsuperscript{th} value of $\weight_{\tindex}$. However, these values do tend to be biased towards the eigenmodes with higher frequencies (i.e. those whose eigenvalues have a greater polar angle) and those which grow exponentially. To  control for this, we chose modify the eigenvalues of the matrix in the following way: (1) We zeroed any eigenvalue that is clearly inside (not on) the unit circle, (2) We unitized the remaining eigenvalues, and (3) We adjusted the frequency of the remaining eigenvalues on the unit circle to either $\pm \frac{\pi}{4}$. If the eigen-decomposition of the original was $\dualopApprox = UDU^{-1}$, then we can reconstruct a new matrix with our modified eigenvalues $\bar D$ as $\bar A = U\bar D U^{-1}$.
+
+Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as
+$$\arg\max_S \sum_{i=1}^k \frac{1}{2|S_i|} \sum_{\substack{x_i \neq x_j \\ x_j,x_i\in S_i}} \bar A_{ij}^2 $$
+This problem can be solved with the following algorithm:
+\begin{figure}[t!]
+\begin{algorithm}
+	\caption{$k$-Invariant Subspaces Algorithm}\label{kinvsub}
+	\begin{algorithmic}[1]
+		
+		\WHILE{clusters have changed}
+		\FOR{each center $i$}
+		\STATE find cluster $k$ which maximizes the score $$ \frac{1}{|S_k|} \left( \|\bar A_{i, S_k\setminus \{i\} } \|^2 + \|\bar A_{S_k\setminus \{i\},i} \|^2 \right)$$
+		\STATE reassign center $i$ to cluster with highest score
+		\ENDFOR
+		\ENDWHILE
+		\STATE \textbf{return} clusters
+	\end{algorithmic}
+\end{algorithm}
+\end{figure}
+Note the differences between this and the $k$-means clustering algorithm: first, we are \emph{maximizing} since the terms represent influence rather than distance. Secondly, in the possible case that $|S_k|=0$, we make the total value zero in order to avoid division by zero. Thirdly, we exclude centers' influence on themselves from the score by taking $S_k\setminus\{i\}$.
+
+This algorithm can be repeated as many times as desired with different random initial conditions, and the result which produces the highest score retained.
+
+\subsubsection{Scoring Paths for a Moving Agent}
+
+Consider the problem of predicting the current state of a spatiotemporally-evolving function with a set of robots, each one of whom can only observe the phenomena partially. When there are sufficient such robots to cover the entire domain, there are many approaches in the coverage literature available for solving this problem \cite{hussein2006effective,hussein2007effective}. In those approaches, the robots figure out the best trajectories to create a network of connected sensors that can simultaneously observe the whole environment. However, when the number of robots is limited, full coverage of the domain is not possible. How a few robots whose combined sensors can only observe a small part of the domain can predict the state of the spatiotemporally-evolving function remains an open problem.  Here we consider a limiting case of this problem where only a single robot is available to observe the whole environment, but the robot has available to it an approximate model of the function learned through past experience Evolving Gaussian Processes.
+
+We will be using a Kalman filter in the weight space of the E-GP as described in previous sections. In order to determine where a moving agent should go in order to gather the measurements which will help it converge to the true state of the system quickest, we use information from the spectral analysis of the E-GP model. We postulate that the value of taking a measurement at a point in the domain with respect to a particular eigenvector is proportional to the following factors:
+
+\begin{enumerate}
+	\item The spatial extent of the eigenvector. This can be taken to be equivalent to the area under the curve of the magnitude of the complex function corresponding to that eigenvector (normalized by the function peak)
+	$$ SE_i = \frac{1}{\sup_x |v_i \hat\Phi(x)|} \int_X |v_i \hat\Phi(x)| dx $$
+	This Riemman integral can of course be approximated by discretely partitioning the space. From this point of view, we can see that this expression represents what proportion of the domain is subject to variance due to the oscillation of this mode.
+	
+	\item The expected size of the measurement itself, which we take to be proportional to to $|v_i \hat \Phi(x)|$. This is included because greater measurements mean relatively greater correction to the state estimate.
+	
+	\item The ratio of the frequency with which that Koopman mode is visited to the frequency of its eigenvalue. This factor is included due to the aliasing effect, and is related to the concept of the Nyquist frequency. Modes with higher frequencies need to be visited more often than modes with lower frequencies.
+	
+	\item A discount factor equal to a decaying exponential of the number of times that eigenmode has been visited. This factor is included due to the exponential convergence of a Kernel Observer. The information gained by taking a measurement within the active area of a particular dynamic mode decreases exponentially the more measurements are taken.
+\end{enumerate}
+
+This scoring method allows one to decide the likeliest candidate amongst a large family of paths.
+
+\subsubsection{Generating High-Scoring Random Paths}
+
+We propose the following algorithm for generating high-scoring paths:
+\begin{enumerate}
+	\item Cluster the centers into invariant subspaces according to the $k$-invariant subspaces algorithm, with the best reasonable guess(es) for $k$. This is necessary in order that the robot may be sure it is keeping track of each of the independent subsystems.
+	\item Within each cluster, select a waypoints at local maxima of the sum of the Koopman modes. These are where the best measurements may be taken.
+	\item Generate a path by selecting waypoints randomly according to a weighting scheme. The weights are equal to the spatial extent of the clusters, multiplied by an exponential decay factor for the number of times each has been visited (see item 4 in the previous section)
+\end{enumerate}
