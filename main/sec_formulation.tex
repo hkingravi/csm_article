@@ -6,6 +6,8 @@ This section outlines our modeling framework and presents theoretical results as
 \vspace{-0.1in}
 
 
+
+
 \subsection{Main Results}\label{sec:theory_results}
 %\vspace{-0.1in}
 In this section, we prove results concerning the observability of spatiotemporally varying functions modeled by the functional evolution and measurement equations \eqref{k_measure}. In particular,  observability of the system states implies that we can recover the current state of the spatiotemporally varying function using a small number of sampling locations $\nsamp$, which allows us to 1) track the function, and 2) predict its evolution forward in time. We work with the approximation $\fspaceApprox\approx\fspace$: given $\ncent$ basis functions, this implies that the dual space of $\fspaceApprox$ is $\R^{\ncent}$.
@@ -507,22 +509,43 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 
 \rr{Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as}
 $$\arg\max_S \sum_{i=1}^k \frac{1}{2|S_i|} \sum_{\substack{x_i \neq x_j \\ x_j,x_i\in S_i}} \bar A_{ij}^2 $$
+
 This problem can be solved with the following algorithm:
 \begin{figure}[t!]
-\begin{algorithm}
-	\caption{$k$-Invariant Subspaces Algorithm}\label{kinvsub}
-	\begin{algorithmic}[1]
-		
-		\WHILE{clusters have changed}
-		\FOR{each center $i$}
-		\STATE find cluster $k$ which maximizes the score $$ \frac{1}{|S_k|} \left( \|\bar A_{i, S_k\setminus \{i\} } \|^2 + \|\bar A_{S_k\setminus \{i\},i} \|^2 \right)$$
-		\STATE reassign center $i$ to cluster with highest score
-		\ENDFOR
-		\ENDWHILE
-		\STATE \textbf{return} clusters
-	\end{algorithmic}
-\end{algorithm}
+	\begin{algorithm}[H]
+		\caption{$k$-Invariant Subspaces Algorithm}
+		\label{kinvsub}
+		\begin{algorithmic}
+				\WHILE{clusters have changed}   
+				\FOR{each center $i$}
+				\STATE {Find cluster $k$ which maximizes the score} $ \frac{1}{|S_k|} \left( \|\bar A_{i, S_k\setminus \{i\} } \|^2 + \|\bar A_{S_k\setminus \{i\},i} \|^2 \right)$
+				\STATE Reassign center $i$ to cluster with highest score
+				\ENDFOR
+				\ENDWHILE   
+				\STATE \textbf{return} clusters
+		\end{algorithmic}
+	\end{algorithm}
+	\vspace{-0.2in}
 \end{figure}
+
+
+
+%\begin{figure}[t!]
+%\begin{algorithm}
+%
+%	\begin{algorithmic}
+%	%	\WHILE{clusters have changed}
+%%		\FOR{each center $i$}
+%%		%\STATE {find cluster $k$ which maximizes the score} $ \frac{1}{|S_k|} \left( \|\bar A_{i, S_k\setminus \{i\} } \|^2 + \|\bar A_{S_k\setminus \{i\},i} \|^2 \right)$
+%%		\STATE reassign center $i$ to cluster with highest score
+%%		\ENDFOR
+%%		\ENDWHILE
+%%		\STATE \textbf{return} clusters
+%	\end{algorithmic}
+%\end{algorithm}
+%\end{figure}
+
+
 \rr{Note the differences between this and the $k$-means clustering algorithm: first, we are \emph{maximizing} since the terms represent influence rather than distance. Secondly, in the possible case that $|S_k|=0$, we make the total value zero in order to avoid division by zero. Thirdly, we exclude centers' influence on themselves from the score by taking $S_k\setminus\{i\}$.}
 
 \rr{This algorithm can be repeated as many times as desired with different random initial conditions, and the result which produces the highest score retained.}
@@ -556,3 +579,4 @@ This problem can be solved with the following algorithm:
 	\item Within each cluster, select a waypoints at local maxima of the sum of the Koopman modes. These are where the best measurements may be taken.
 	\item Generate a path by selecting waypoints randomly according to a weighting scheme. The weights are equal to the spatial extent of the clusters, multiplied by an exponential decay factor for the number of times each has been visited (see item 4 in the previous section)
 \end{enumerate}
+ 

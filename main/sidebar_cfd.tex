@@ -11,49 +11,49 @@ We demonstrate the Evolving Gaussian Processes method on CFD data of flow over a
 In our CFD simulation, we used a 4th-order polynomial expansion with spectral element method on the incompressible Navier-Stokes equation to generate the cylinder flow data for Re = 100, 300, 600, 800, and 1000. The spatial domain is $\left[-2,10\right]\times\left[-3,3\right]$, excluding the diameter-1 cylinder at the origin.  Neumann boundary conditions are applied to the far-field of the cylinder in the y-direction and the outlet of the flow field; and a Dirichlet boundary condition is applied to the inlet. Each data set contains at least 200 snapshots with a uniform time step of \~0.03 sec. Each snapshot contains 24,000 velocity data points for Re=100 or 95,000 velocity data points for Re=300,600,800,1000. Each data set took at least 10 hours in a high performance computer cluster to generate. Figures \ref{fig:cfd_100},\ref{fig:cfd_1000}(a-d) visualize the horizontal velocity for Re=100 and Re=1000, with red being the greatest negative velocity and blue the greatest positive velocity. The flow is unstable, periodic, and clearly nonlinear.
 %The meshes are more concentrated around the cylinder and its wake in order to accurately capture the phenomenon of the flow field. The no-slip boundary condition is applied to the cylinder wall;
 %In the case of Re=100, the simulated degrees of freedom (DOFs) are approximately 24,000, whereas the Re300, Re600, and Re1000 cases have 96,000 check this number, I remember is 96000, not sure!
-\begin{figure*}[h]
-	\centering
-	\subfloat[Data from classes $A$ and $B$.]
-	{
-		\includegraphics[width=0.45\columnwidth]{linsep_data.pdf}
-		\label{fig:lisep_data}}
-	\subfloat[Linear boundary separating data.]
-	{\includegraphics[width=0.45\columnwidth]{linsep_data_perceptron.pdf}
-		\label{fig:lin_sep_bound}}  
-	\caption{Example of linearly separable data. Any simple linear learning algorithm e.g. perceptron, finds a solution.}
-	\label{fig:linsep}
-	%\end{figure*}
-	%\begin{figure}[tbh] %{r}{0.5\textwidth}
-\end{figure*} 
-\begin{figure*}[h]
-	\centering
-	\subfloat[Data from classes $A$ and $B$.]
-	{
-		\includegraphics[width=0.45\columnwidth]{figures/pres_original_data.pdf}
-		\label{fig:nlisep_data}}
-	\subfloat[Linear boundary fails to separate data.]
-	{\includegraphics[width=0.45\columnwidth]{figures/pres_perc_original_data.pdf}
-		\label{fig:nlin_sep_bound}}  
-	\caption{Example of nonlinearly separable data. Perceptron fails to find a solution, and diverges.}
-	\label{fig:nlinsep}
-	%\end{figure*}
-	%\begin{figure}[tbh] %{r}{0.5\textwidth}
-\end{figure*} 
-\begin{figure*}[h]
-	\centering
-	\subfloat[Nonlinear mapping of data.]
-	{
-		\includegraphics[width=0.45\columnwidth]{figures/fmapped_data.pdf}
-		\label{fig:fmapped_data}}
-	\subfloat[Linear boundary in new space.]
-	{\includegraphics[width=0.45\columnwidth]{figures/pres_perc_fmapped_data_after.jpg}
-		\label{fig:fmapped_bound}}  
-	\caption{If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
-		in 3 dimensions.}
-	\label{fig:fmapped}
-	%\end{figure}
-	%\begin{figure*}[tbh] %{r}{0.5\textwidth}
-\end{figure*} 
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[Data from classes $A$ and $B$.]
+%	{
+%		\includegraphics[width=0.45\columnwidth]{linsep_data.pdf}
+%		\label{fig:lisep_data}}
+%	\subfloat[Linear boundary separating data.]
+%	{\includegraphics[width=0.45\columnwidth]{linsep_data_perceptron.pdf}
+%		\label{fig:lin_sep_bound}}  
+%	\caption{Example of linearly separable data. Any simple linear learning algorithm e.g. perceptron, finds a solution.}
+%	\label{fig:linsep}
+%	%\end{figure*}
+%	%\begin{figure}[tbh] %{r}{0.5\textwidth}
+%\end{figure*} 
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[Data from classes $A$ and $B$.]
+%	{
+%		\includegraphics[width=0.45\columnwidth]{figures/pres_original_data.pdf}
+%		\label{fig:nlisep_data}}
+%	\subfloat[Linear boundary fails to separate data.]
+%	{\includegraphics[width=0.45\columnwidth]{figures/pres_perc_original_data.pdf}
+%		\label{fig:nlin_sep_bound}}  
+%	\caption{Example of nonlinearly separable data. Perceptron fails to find a solution, and diverges.}
+%	\label{fig:nlinsep}
+%	%\end{figure*}
+%	%\begin{figure}[tbh] %{r}{0.5\textwidth}
+%\end{figure*} 
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[Nonlinear mapping of data.]
+%	{
+%		\includegraphics[width=0.45\columnwidth]{figures/fmapped_data.pdf}
+%		\label{fig:fmapped_data}}
+%	\subfloat[Linear boundary in new space.]
+%	{\includegraphics[width=0.45\columnwidth]{figures/pres_perc_fmapped_data_after.jpg}
+%		\label{fig:fmapped_bound}}  
+%	\caption{If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
+%		in 3 dimensions.}
+%	\label{fig:fmapped}
+%	%\end{figure}
+%	%\begin{figure*}[tbh] %{r}{0.5\textwidth}
+%\end{figure*} 
 
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
