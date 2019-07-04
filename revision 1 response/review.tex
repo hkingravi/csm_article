@@ -29,8 +29,9 @@
 
 \centerline{{\bf \large Statement of Revision}}
 
-In the following, we provide an account of the changes that have been made
-in order to address the concerns of the reviewers.  The nature of
+We thank the associate editor and reviewers for their useful comments and suggestion. We have significantly revised the manuscript to reflect the reviewer comments and concerns.
+
+In the following, we provide an account of the changes that have been made.  The nature of
 the review for this paper is such that the comments were provided both
 in paragraph form and in bulleted form.  When addressing the paragraph
 form, we have identify the comment using the notation {\bf {\color{red}(Rx:Py)}} where 
@@ -182,6 +183,117 @@ text size of the figures needs to be fixed throughout. \gXX{Josh, Harshals}
 
 {\bf Comments by Referee 6. reviewer ID 4667}
 
+{\color{red}(R6:P1)} In this paper, the authors study how to perform state estimation of
+time-varying spatio-temporal processes, and how to design sensors
+placement. 
+The topic is of interest for the community, however, the
+paper needs significant changes and work, both on the scientific side
+and writing style. 
+
+{\color{red}(Response)} We thank the reviewer for their interest. We have significantly revised the paper to address the concerns raised by the reviewers.
+
+{\color{red}(R6:P2)} The authors claim that one of the two main contributions is 
+
+"we demonstrate that spatiotemporal functional evolution can be modeled
+using stationary kernels with a linear dynamical systems layer on their
+mixing weights",
+
+however, to me, this is not a novelty and there is a huge literature
+about the estimation of time-varying spatio-temporal processes and I
+would recommend the authors to compare their work with the following
+papers, highlighting the differences
+\begin{enumerate}
+\item J. Hartikainen and S. Sarkka. Kalman filtering and smoothing
+solutions to temporal Gaussian process regression models. In Machine
+Learning for Signal Processing (MLSP), 2010 IEEE International
+Workshop on, pages 379ñ384. IEEE, 2010.
+\item J. Hartikainen, J. Riihimaki, and S. Sarkka. Sparse spatio-temporal
+gaussian processes with general likelihoods. In Artificial Neural
+Networks and Machine LearningñICANN 2011, pages 193ñ200.
+Springer, 2011.
+\item A. Carron, M. Todescato, R. Carli, L. Schenato, and G. Pillonetto.
+Machine learning meets Kalman filtering. In 55th Conference on
+Decision and Control. IEEE, December 2016.
+\item J. Hartikainen. Sequential Inference for Latent Temporal Gaussian
+Process Models. PhD thesis, Aalto University, 2013.
+\item S. Sarkka and R. Piche. On convergence and accuracy of statespace
+approximations of squared exponential covariance functions.
+In Machine Learning for Signal Processing (MLSP), 2014 IEEE
+International Workshop on, pages 1ñ6. IEEE, 2014.
+\item S. Sarkka, A. Solin, and J. Hartikainen. Spatiotemporal learning
+via infinite-dimensional bayesian filtering and smoothing: A look
+at Gaussian process regression through kalman filtering. Signal
+Processing Magazine, IEEE, 30(4):51ñ61, 2013.
+\item TT Ho et.al., Multiresolution stochastic models for
+the efficient solution of large-scale space time estimation
+problems, Proc. IEEE ICASSP, 1996
+\item Noh J, Solo V, Testing for Space-time Separability in
+functional MRI. Proc IEEE Int Symposium on Biomedical
+Imaging, pp 412-415,Washington DC, USA, April
+2007.
+\item J. Noh and V. Solo, Space-Time Separability in FMRI:
+Asymptotic Power Analysis and Cramer- Rao Lower
+Bounds, IEEE Trans. Sig. Proc., (2013), 61(1), pp
+148-153.
+\item JR Stroud et al, Dynamic models for spatio-temporal
+data, JRSSB,63, pp673-689, 2001.
+\item RN Miller, Toward the application of the Kalman filter
+to regional open ocean modelling, Jl Phys Oceanog.,
+16, 72-86, 1986.
+\item F Lindgren and Havard Rue and J Lindstrom, An explicit
+link between Gaussian fields and Gaussian Markov
+random fields: The SPDE approach, Jl Royal Stat.
+Soc. B, 2011.
+\end{enumerate}
+
+
+{\color{red}(Response)}: The reviewer is indeed correct, there is a very large body of work on modeling spatiotemporally varying dynamic systems in the literature. Our work is inspired from this literature, and our main contribution is in realizing that the Hilbert spaces produced by Kernel methods can embed dynamical systems, and then utilizing those dynamical systems for doing estimation and control. The prior literature  spans from that of statistical modeling to modern machine learning methods such as LSTMs. In particular, there is also a very large body of work on kernel methods, and Gaussian processes to modeling spatiotemporally varying functions. A large number of those papers have been cited in the related work. We have now made sure that all of the papers suggested by reviewer have also been cited. With respect to those papers, and many similar ones, what is new with E-GP is its ability to learn end-to-end complex spatiotemporal dynamic patterns such as solutions to Navier Stokes equations, and its ability to approximate the eigenmodes of Koopman decomposition (please see response to reviewer 1). 
+
+We have revised the paper to address the reviewer concern in the following manner:
+
+\rr{The kernel based approach to modeling spatiotemporally varying system has received significant attention in the literature, and there are many key and important works in this area, including \cite{}. Our work here is indeed inspired by this rich body of literature. The significance of our main contribution is in demonstrating how dynamical systems can be embedded within the Reproducing Kernel Hilbert Spaces of kernel models and utilizing those embeddings for estimation and control. From that perspective, embedding a linear dynamical system in the RKHS is the simplest and the most straight-forward part of the contribution, and has indeed been tried before. The significance of our contribution is in showcasing the elegance of this approach is by providing theoretical insights to discovering hidden spatiotemporal structures in the RKHS and using those for estimation and control. We strongly believe that our results indicate that such embeddings in feature spaces of machine learning models are indeed going to be key to bring machine learning to solve meaningful control problems.}
+specific comparisons
+
+{\color{red}(R6:P2)} Also, the second contribution is not clear to me, what are the
+differences with the previous work [19], [20],[21]? 
+
+{\color{red}(Response)} 
+
+{\color{red}(R6:P2)}Additionally, I think that the paper has not been carefully proofread
+since it is plenty of mistakes, repetitions, and sentence that are not
+appropriate for a journal publication. For example:
+\begin{enumerate}
+\item The comma after the last name in the authors' list
+\item first page: spatiotermpoarlly -> spatiotemporally 
+\item first page: this very challenging problem -> this challenging
+problem
+\item first page: There are many parallel (I would remove parallel)
+examples in other fields -> can you provide references?
+\item first page: computational packages?
+\item second page: has traditionally been in the province? 
+\item second page: very high amount of variability -> high variability 
+\item second page, line 13-24: can the literature review be structured? 
+\item second page: (for the matter) -> remove
+\item second page, line 32: can you provide a reference about deep
+learning models?
+\item fourth page, line 5: machine learning machine learning 
+\item fourth page, line 5: fused? 
+\item fourth page, line 25: This is mostly because -> This is one of the
+reasons 
+\item fourth page, line 27: I do not think this is one of the major
+challenges 
+\item fifth page, line 2-6: here the text is too informal 
+\item page 7, line 10: time-varying distribution?
+\item page 7, line 17: taxing? 
+\item page 7, line 17: realizable? -> feasible 
+\end{enumerate}
+
+
+The list is however way longer. I recommend the authors to clarify
+their contributions, extend the literature review, and carefully
+proofread the paper. 
+
+
 {\bf Comments by Referee 7. reviewer ID 4669}
 
 {\bf Comments by Referee 9. reviewer ID 4673}
@@ -190,6 +302,9 @@ text size of the figures needs to be fixed throughout. \gXX{Josh, Harshals}
 
 Again, we thank the anonymous reviewers for their comments. We hope we 
 addressed all concerns and improved the overall readability of the paper. We are happy to provide further clarification or revisions as requested.
+
+
+
 
 
 \small
