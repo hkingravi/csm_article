@@ -1,3 +1,108 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{carron2016machine}
+Andrea Carron, Marco Todescato, Ruggero Carli, Luca Schenato, and Gianluigi
+  Pillonetto.
+\newblock Machine learning meets kalman filtering.
+\newblock In {\em 2016 IEEE 55th Conference on Decision and Control (CDC)},
+  pages 4594--4599. IEEE, 2016.
+
+\bibitem{hartikainen2013sequential}
+Jouni Hartikainen et~al.
+\newblock Sequential inference for latent temporal gaussian process models.
+\newblock 2013.
+
+\bibitem{hartikainen2010kalman}
+Jouni Hartikainen and Simo S{\"a}rkk{\"a}.
+\newblock Kalman filtering and smoothing solutions to temporal gaussian process
+  regression models.
+\newblock In {\em 2010 IEEE International Workshop on Machine Learning for
+  Signal Processing}, pages 379--384. IEEE, 2010.
+
+\bibitem{ho1996multiresolution}
+Terrence~T Ho, Paul~W Fieguth, and Alan~S Willsky.
+\newblock Multiresolution stochastic models for the efficient solution of
+  large-scale space-time estimation problems.
+\newblock In {\em 1996 IEEE International Conference on Acoustics, Speech, and
+  Signal Processing Conference Proceedings}, volume~6, pages 3097--3100. IEEE,
+  1996.
+
+\bibitem{Kingravi16_NIPS}
+Hassan Kingravi, Harshal Maske, and Girish Chowdhary.
+\newblock Kernel observers: Systems theoretic modeling and inference of
+  spatiotemporally varying processes.
+\newblock In {\em Advances in Neural Information Processing Systems (NIPS)},
+  Barcelona, Spain, 2016.
+
+\bibitem{Kingravi:2015a}
+Hassan~A. Kingravi, Harshal Maske, and Girish Chowdhary.
+\newblock Kernel controllers: {A} systems-theoretic approach for data-driven
+  modeling and control of spatiotemporally evolving processes.
+\newblock {\em arXiv}, abs/1508.02086, 2015.
+
+\bibitem{lindgren2011explicit}
+Finn Lindgren, Haavard Rue, and Johan Lindstrom.
+\newblock An explicit link between gaussian fields and gaussian markov random
+  fields: the stochastic partial differential equation approach.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 73(4):423--498, 2011.
+
+\bibitem{Maske18_ACC}
+Harshal Maske, Hassan Kingravi, and Girish Chowdhary.
+\newblock Sensor selection via observability analysis in feature space.
+\newblock In {\em American Control Conference}, 2018.
+\newblock accepted.
+
+\bibitem{miller1986toward}
+Robert~N Miller.
+\newblock Toward the application of the kalman filter to regional open ocean
+  modeling.
+\newblock {\em Journal of Physical Oceanography}, 16(1):72--86, 1986.
+
+\bibitem{noh2007testing}
+Joonki Noh and Victor Solo.
+\newblock Testing for space-time separability in functional mri.
+\newblock In {\em 2007 4th IEEE International Symposium on Biomedical Imaging:
+  From Nano to Macro}, pages 412--415. IEEE, 2007.
+
+\bibitem{noh2012space}
+Joonki Noh and Victor Solo.
+\newblock Space-time separability in fmri: Asymptotic power analysis and
+  cram{\'e}r-rao lower bounds.
+\newblock {\em IEEE Transactions on Signal Processing}, 61(1):148--153, 2012.
+
+\bibitem{sarkka2014convergence}
+Simo S{\"a}rkk{\"a} and Robert Pich{\'e}.
+\newblock On convergence and accuracy of state-space approximations of squared
+  exponential covariance functions.
+\newblock In {\em 2014 IEEE International Workshop on Machine Learning for
+  Signal Processing (MLSP)}, pages 1--6. IEEE, 2014.
+
+\bibitem{sarkka2013spatiotemporal}
+Simo Sarkka, Arno Solin, and Jouni Hartikainen.
+\newblock Spatiotemporal learning via infinite-dimensional bayesian filtering
+  and smoothing: A look at gaussian process regression through kalman
+  filtering.
+\newblock {\em IEEE Signal Processing Magazine}, 30(4):51--61, 2013.
+
+\bibitem{stroud2001dynamic}
+Jonathan~R Stroud, Peter M{u}ller, and Bruno Sans{o}.
+\newblock Dynamic models for spatiotemporal data.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 63(4):673--689, 2001.
+
+\bibitem{whitman2017learning}
+Joshua Whitman and Girish Chowdhary.
+\newblock Learning dynamics across similar spatiotemporally-evolving physical
+  systems.
+\newblock In {\em Conference on Robot Learning}, pages 472--481, 2017.
+
+\bibitem{whitman2016NIPSworkshop}
+Joshua Whitman, Harshal Maske, Girish Chowdhary, Hassan Kingravi, Chen Lu, and
+  Balaji Jayaraman.
+\newblock Modeling nonlinear dynamical fluid flows with evolving gaussian
+  process models.
+\newblock In {\em NIPS workshop on Machine Learning in the Wild}, Barcelona,
+  Spain, 2016. NIPS.
 
 \end{thebibliography}

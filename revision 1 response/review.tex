@@ -257,10 +257,16 @@ We have added the below statement at the beginning of related work section:
 
 We then proceed to discuss the various modeling methods mentioned by the reviewer:
 
+\rr{Other approaches that utilize hierarchy or evolution of kernels have also been used for modeling spatiotemporal functions \cite{hartikainen2013sequential,lindgren2011explicit,ho1996multiresolution}}.
 
-\rr{A more clever approach is to use state-space representations of time-varying GPs \cite{simo}. In this view point, each GP instance is viewed as a snapshot of an evolving set of weights. We follow in a similar vein here, with added emphasis on understanding the mathematical structures leading to observability and controllability.}
+\rr{A more clever approach is to use state-space representations of time-varying GPs \cite{sarkka2014convergence,hartikainen2013sequential}. In this view point, each GP instance is viewed as a snapshot of an evolving set of weights. We follow in a similar vein here, with added emphasis on understanding the mathematical structures leading to observability and controllability.}
 
-\rr{The kernel based approach to modeling spatiotemporally varying system has received significant attention in the literature. Our work here is indeed inspired by this rich body of literature. The significance of our main contribution is in demonstrating how dynamical systems can be embedded within the Reproducing Kernel Hilbert Spaces of kernel models and utilizing those embeddings for estimation and control. From that perspective, embedding a linear dynamical system in the RKHS is the simplest and the most straight-forward part of the contribution, and has indeed been tried before. The significance of our contribution is in showcasing the elegance of this approach is by providing theoretical insights to discovering hidden spatiotemporal structures in the RKHS and using those for estimation and control. We strongly believe that our results indicate that such embeddings in feature spaces of machine learning models are indeed going to be key to bring machine learning to solve meaningful control problems.}
+\rr{This approach has been utilized previously in MRI imaging \cite{noh2007testing,noh2012space}}.
+
+\rr{Kalman filtering in the context of Gaussian processes and Kernel models has also been quite widely studied \cite{carron2016machine,hartikainen2010kalman,sarkka2013spatiotemporal,stroud2001dynamic,miller1986toward}.  There is clearly a direct link between the Bayesian approach to inference taken in GPs and its natural extension to Kalman Filters. Our contributions here are in creating explicit connections between feedback observers and inference by deriving conditions of observability in the kernel space. This leads to explicit conditions on the number of sensors required and where to place them.}
+
+
+%\rr{As can be seen, the kernel based approach to modeling spatiotemporally varying system has received significant attention in the literature. Our work here is indeed inspired by this rich body of literature. The significance of our main contribution is in demonstrating how dynamical systems can be embedded within the Reproducing Kernel Hilbert Spaces of kernel models and utilizing those embeddings for estimation and control. From that perspective, embedding a linear dynamical system in the RKHS is the simplest and the most straight-forward part of the contribution, and has indeed been tried before. The significance of our contribution is in showcasing the elegance of this approach is by providing theoretical insights to discovering hidden spatiotemporal structures in the RKHS and using those for estimation and control. We strongly believe that our results indicate that such embeddings in feature spaces of machine learning models are indeed going to be key to bring machine learning to solve meaningful control problems.}
 specific comparisons, discuss the work on reservoir computing, cite Brockett
 
 {\color{red}(R6:P2)} Also, the second contribution is not clear to me, what are the
@@ -322,6 +328,6 @@ addressed all concerns and improved the overall readability of the paper. We are
 \small
 %\bibliographystyle{unsrt}
 \bibliographystyle{plain}
-\bibliography{../bibifiles/controls,../bibifiles/chowdhary_RLDP,../bibifiles/bibtex_database_chowdhary_machine_learning,../BIB_all/bibtex_database_Chowdhary,../BIB_all/ACL_all,../BIB_all/ACL_Publications}
+\bibliography{../main/BIB/daslab_all,../main/BIB/daslab_pubs,../main/BIB/ACL_all,../main/BIB/ACL_Publications,../main/BIB/bibtex_database_chowdhary_machine_learning,../main/BIB/cybersees,../main/BIB/Robotics}
 
 \end{document}
