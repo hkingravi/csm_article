@@ -251,13 +251,25 @@ Soc. B, 2011.
 
 We have revised the paper to address the reviewer concern in the following manner:
 
-\rr{The kernel based approach to modeling spatiotemporally varying system has received significant attention in the literature, and there are many key and important works in this area, including \cite{}. Our work here is indeed inspired by this rich body of literature. The significance of our main contribution is in demonstrating how dynamical systems can be embedded within the Reproducing Kernel Hilbert Spaces of kernel models and utilizing those embeddings for estimation and control. From that perspective, embedding a linear dynamical system in the RKHS is the simplest and the most straight-forward part of the contribution, and has indeed been tried before. The significance of our contribution is in showcasing the elegance of this approach is by providing theoretical insights to discovering hidden spatiotemporal structures in the RKHS and using those for estimation and control. We strongly believe that our results indicate that such embeddings in feature spaces of machine learning models are indeed going to be key to bring machine learning to solve meaningful control problems.}
+We have added the below statement at the beginning of related work section:
+
+\rr{There is a very large amount of literature on Gaussian Processes and spatiotemporal modeling, a complete survey of this literature is beyond the scope of this paper. Since our contributions are in the area of creating a feedback based observer in the feature spaces of GP models, we discuss here related work in three related areas: Spatiotemporal modeling with GPs, Kalman filtering and GP connection, and sensor placement for inference in spatiotemporal domains.}
+
+We then proceed to discuss the various modeling methods mentioned by the reviewer:
+
+
+\rr{A more clever approach is to use state-space representations of time-varying GPs \cite{simo}. In this view point, each GP instance is viewed as a snapshot of an evolving set of weights. We follow in a similar vein here, with added emphasis on understanding the mathematical structures leading to observability and controllability.}
+
+\rr{The kernel based approach to modeling spatiotemporally varying system has received significant attention in the literature. Our work here is indeed inspired by this rich body of literature. The significance of our main contribution is in demonstrating how dynamical systems can be embedded within the Reproducing Kernel Hilbert Spaces of kernel models and utilizing those embeddings for estimation and control. From that perspective, embedding a linear dynamical system in the RKHS is the simplest and the most straight-forward part of the contribution, and has indeed been tried before. The significance of our contribution is in showcasing the elegance of this approach is by providing theoretical insights to discovering hidden spatiotemporal structures in the RKHS and using those for estimation and control. We strongly believe that our results indicate that such embeddings in feature spaces of machine learning models are indeed going to be key to bring machine learning to solve meaningful control problems.}
 specific comparisons, discuss the work on reservoir computing, cite Brockett
 
 {\color{red}(R6:P2)} Also, the second contribution is not clear to me, what are the
 differences with the previous work [19], [20],[21]? 
 
-{\color{red}(Response)} 
+{\color{red}(Response)} This paper represents a single unifying body of work bringing together out previous work and linking it together. In addition, there are significant new contributions introduced in this paper, including results relating to random sensor placement, connection with Koopman operators, and sensor placement with mobile sensors. To clarify the relationship with our prior work, we have added a new section titled: Outline and relationship with author's prior work. In that section, the following statement is added:
+
+\rr{Elements of the work presented in this paper first appeared in Neural Information Processing Systems (NIPS 2016) (\cite{Kingravi16_NIPS,whitman2016NIPSworkshop}), IEEE CDC 2015 conference \cite{Kingravi:2015a}, the Conference on Robot Learning (CoRL 2017) \cite{whitman2017learning} and IEEE ACC 2018 conference \cite{Maske18_ACC}.  This paper presents a comprehensive set of results and fills in the missing links in a single encompassing publication, and introduces new results on observability in the presence of random sensor placement, connection to Koopman operators, and generating paths for single observing agents. As such, we have focused in this article mostly on the fundamental theory and practical algorithms for modeling, estimation, and control, while the excruciating details of how to optimally implement the presented algorithms are omitted. Instead an open-source code-base is made available in MATLAB at \url{http://daslab.illinois.edu/software.html} or at \url{https://github.com/hkingravi/FunctionObservers} and in Python on GitHub at \url{https://github.com/hkingravi/funcobspy}. }
+
 
 {\color{red}(R6:P2)}Additionally, I think that the paper has not been carefully proofread
 since it is plenty of mistakes, repetitions, and sentence that are not
