@@ -314,6 +314,36 @@ proofread the paper.
 
 {\bf Comments by Referee 7. reviewer ID 4669}
 
+{\color{red}(R7:P1)} My main concern is that there are no proofs of the formal
+statements. The authors do say that the proofs are included in the
+appendix, but I could not find any appendix, nor any pointer to any
+online technical report for them. Therefore, I cannot recommend this
+paper for publication until I get a chance to review the proofs.
+
+{\color{red}(Response)} Appendix is now included
+
+{\color{red}(R7:P2)} For example, the notion of shadedness seems to too strong, i.e., it appears
+that the sensor matrix needs to ensure that it "sees" all states
+directly! On the other hand, the classical notion of observability
+leverages the dynamics matrix A to provide a crisp, necessary and
+sufficient rank condition. 
+
+{\color{red}(R7:P3)} Proposition 2 is only a sufficient condition. I think the discussion
+just prior to Proposition 2 will benefit with the example of a K which
+is shaded and yet the system is not observable.
+
+{\color{red}(R7:P4)} The second on random sampling is very vaguely written. There is no
+clear ``algorithm" that summarizes the method. Further, how is the
+measure $ \nu $ in equation 10 defined? What if the $ p_\epsilon $ = 0? Can
+that happen in the present set-up? Theorem 2 talks about an expected
+number of randomly placed sensors -- what is this expectation over? There is a $ \delta $ in Theorem 3, but that never appears anywhere in the result. 
+
+{\color{red}(Response)}  Algorithm 2 in the appendix summarizes the method. For two-dimensional domain, the measure $ \nu $ would correspond to area, and for other high dimensional domains it would correspond to volume. Expectation is over the number of sensors (or samples). If the probability $ p_\epsilon $ is 0, the solution would degenerate to infinite number of samples. Definition of $ \delta $ is provided  within Theorem 3's proof given in the appendix.  
+
+{\color{red}(R7:P5)} Further, if one plugs in the value of N equal to the lower bound in Theorem 3, then the probability of unobservability appears to be a number that can be larger than 1 and therefore, the utility of this result appears to be unclear!
+
+{\color{red}(Response)} Thanks for pointing out this flaw. The condition on $ N $ in theorem 3 is now changed to $ N > 2\varsigma/p_\epsilon $, with the proof remaining unaffected. 
+
 {\bf Comments by Referee 9. reviewer ID 4673}
 
 {\bf Comments by Referee 1. reviewer ID 4665}
