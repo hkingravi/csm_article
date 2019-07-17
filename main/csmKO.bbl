@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{McAllistar18IROS}
 Wyatt McAllistar, Denis Osipychev, Girish Chowdhary, and Adam Davis.
@@ -317,6 +317,23 @@ W~Murray Wonham.
 Lehel Csat\"{o} and Manfred Opper.
 \newblock Sparse on-line gaussian processes.
 \newblock {\em Neural computation}, 14(3):641--668, 2002.
+
+\bibitem{mezic2013analysis}
+Igor Mezi{\'c}.
+\newblock Analysis of fluid flows via spectral properties of the koopman
+  operator.
+\newblock {\em Annual Review of Fluid Mechanics}, 45:357--378, 2013.
+
+\bibitem{rowley2009spectral}
+Clarence~W Rowley, Igor Mezi{\'c}, Shervin Bagheri, Philipp Schlatter, and
+  Dan~S Henningson.
+\newblock Spectral analysis of nonlinear flows.
+\newblock {\em Journal of fluid mechanics}, 641:115--127, 2009.
+
+\bibitem{berkovitz2007action}
+Joseph Berkovitz.
+\newblock Action at a distance in quantum mechanics.
+\newblock 2007.
 
 \bibitem{li2006spatiotemporal}
 Lixin Li, Xingyou Zhang, and Reinhard Piltner.
