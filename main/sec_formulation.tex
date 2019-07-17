@@ -491,11 +491,20 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 \begin{enumerate}
 	\item By plotting which kernel centers are associated with which invariant subspaces in the transition matrix, one can visualize where the eigenfunctions are found and how the dynamic modes are separated spatially
 	\item By plotting arrows from center $c_j$ to $c_i$ for each of the largest elements $\hat a_{ij}$ of $\dualopApprox$, one can visualize how different areas of the domain influence each other's evolution.
-	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system.
+	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section)
 \end{enumerate}
 
 
 \subsection{Spectral Analysis of Evolving Gaussian Process Model and Resulting Algorithms}
+
+For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex}$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $\mathbf{g} : \fspace \to \R^{\nsamp}$. Note that the space of observables $\mathbf{g}$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that
+$$ U \mathbf{g}(f_{\tindex}) = \mathbf{g}(\mathbb{F}(f_{\tindex}))$$
+This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property
+$$ U \phi(f_{\tindex}) = \phi(\mathbb{F}(f_{\tindex})) = \lambda \phi(f_{\tindex})$$
+are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues.
+
+
+\subsubsection{Invariant Subspaces}
 
 \rr{One way of viewing the invariant subspaces concept (as described earlier) is say that information contained in an invariant subspace never leaves that invariant subspace. We hypothesize that the kernel centers associated with the invariant subspaces of a spatiotemporally evolving system are generally associated with spatial regions in the domain (and not just homogeneously spread all over and or mixed with the other invariant subspaces). This hypothesis makes sense both physically and mathematically. In physics, the \emph{principle of locality} states that an object is only directly influenced by its immediate surroundings \cite{berkovitz2007action}. If this is the case (and there is no reason to believe that it is not, apart from certain quantum dynamics situations), and the E-GP model accurately captures the physics of the system, then information (measurable phenomena) may only travel continuously from one point in the domain to another. Mathematically, since a value at any one point in the domain is influenced by the weights of multiple nearby centers, we would expect nearby centers to be connected dynamically, unless separated by ``plains'' where the values are indistinguishable from noise.}
 
