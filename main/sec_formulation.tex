@@ -497,59 +497,72 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 
 \subsection{\rr{Spectral Analysis of Evolving Gaussian Process Model and Resulting Algorithms}}
 
-\rr{For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $\mathbf{g} : \fspace \to \R^{\nsamp}$. Note that the space of observables $\mathbf{g}$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that}
+\rr{For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that}
 \begin{align} \eqlabel{koopman_operator}
-U \mathbf{g}(f_{\tindex}) = \mathbf{g}(\mathbb{F}(f_{\tindex})) = \mathbf{g}(f_{\tindex+1})
+U g(f_{\tindex}) = g(\mathbb{F}(f_{\tindex})) = g(f_{\tindex+1})
 \end{align}
 \rr{This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property}
 \begin{align} \eqlabel{koopman_eigenfunctions}
 U \phi(f_{\tindex}) = \phi(\mathbb{F}(f_{\tindex})) = \phi(f_{\tindex+1}) = \lambda \phi(f_{\tindex})
 \end{align}
-\rr{are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues. Suppose now we have a vector-valued observable $\mathbf{u}(\fspaceEl,\mathbf{x})$, where $\mathbf{x}\in\dom$ and $\fspaceEl\in\fspace$.}
+\rr{are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues. Suppose now we have a vector-valued observable $u(\fspaceEl,x)$, where $x\in\dom$ and $\fspaceEl\in\fspace$.}
 
 \begin{definition}
-	\rr{The Koopman mode $\mathbf{s}(\mathbf{x})$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $\mathbf{u}(f,\mathbf{x})$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}}
+	\rr{The Koopman mode $s(x)$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $u(f,x)$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}}
 \end{definition}
 
 \rr{As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes. Mezic (2013) showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA). We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.}
 
 \begin{proposition}\label{thm:ApproxObsv}
-	\rr{Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $\mathbf{u}(\fspaceEl,\mathbf{x})$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\mathbf{\hat u}(\fspaceEl,\mathbf{x}) \coloneqq \mathbf{u}(\fspaceApproxEl,\mathbf{x})$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.}
+	\rr{Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $u(\fspaceEl,x)$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\hat u(\fspaceEl,x) \coloneqq u(\fspaceApproxEl,x)$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.}
 	%Given a RKHS $\fspace$ and an approximate feature space $\fspaceApprox$ which has finite dimension $\ncent$, the projection $\fmapApprox : \fspace \to \R^\ncent$ from the RKHS to the dual space of $\fspaceApprox$ is an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$
 \end{proposition}
 
 This follows from the fact that the projection from the function space to its subspace is well-defined when the $\fmapApprox_i$ are independent. Now, Koopman modes of observables are of interest because they are akin to the eigenvector expansions utilized in linear dynamics. If we separate the Koopman operator into $U = U_s + U_r$ where $U_s$ has a pure point spectrum and $U_r$ has a pure continuous spectrum, then we can write
 \begin{align} \eqlabel{spectral_expansion}
-U^t \mathbf{u}(\fspaceEl,\mathbf{x}) = \mathbf{u^{\ast}}(\fspaceEl,\mathbf{x}) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \mathbf{s}_j (\mathbf{x})  +  U_r^t \mathbf{u}(\fspaceEl,\mathbf{x})
+U^t u(\fspaceEl,x) = \mathbf{u^{\ast}}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) s_j (x)  +  U_r^t u(\fspaceEl,x)
 \end{align}
-where $\mathbf{u^{\ast}}(\mathbf{x})$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous part is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time. Now, from this expansion we can prove that:
+where $\mathbf{u^{\ast}}(x)$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous-spectrum component is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time, which could be modeled as a stochastic process \cite{mezic2013analysis}. Now, from this expansion we can prove that:
 \begin{proposition}\label{thm:ApproxModes}
-	Let $\mathbf{u}(\fspaceEl,\mathbf{x})$ and $\mathbf{\hat u}(\fspaceEl,\mathbf{x})$ be observables as in the Proposition \ref{thm:ApproxObsv}, and $\mathbf{s}_j(\mathbf{x})$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\mathbf{\hat u}$ are
+	Let $u(\fspaceEl,x)$ and $\hat u(\fspaceEl,x)$ be observables as in Proposition \ref{thm:ApproxObsv}, and $s_j(x)$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\hat u$ are
 	\begin{align}
-	\mathbf{\hat s}_j(\mathbf{x}) = \frac{\phi_j(\fspaceApproxEl)}{\phi_j(\fspaceEl)} \mathbf{s}_j(\mathbf{x})
+	\hat s_j(x) = \frac{\phi_j(\fspaceApproxEl)}{\phi_j(\fspaceEl)} s_j(x)
 	\end{align}
 \end{proposition}
 \begin{proof}
 	Using the spectral expansion and the definition of the observables, we have
-$$U^t \mathbf{\hat u}(\fspaceEl,\mathbf{x}) = U^t \mathbf{u}(\fspaceApproxEl,\mathbf{x}) = \mathbf{u^{\ast}}(\fspaceApproxEl,\mathbf{x}) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) \mathbf{s}_j (\mathbf{x})  +  U_r^t \mathbf{u}(\fspaceApproxEl,\mathbf{x})$$
-$$ = \mathbf{\hat u^{\ast}}(\fspaceEl,\mathbf{x}) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \mathbf{\hat s}_j (\mathbf{x})  +  U_r^t \mathbf{\hat u}(\fspaceEl,\mathbf{x}) $$
-It is easy to see that this must be the spectral expansion of $\mathbf{\hat u}(\fspaceEl,\mathbf{x})$
+$$U^t \hat u(\fspaceEl,x) = U^t u(\fspaceApproxEl,x) = \mathbf{u^{\ast}}(\fspaceApproxEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) s_j (x)  +  U_r^t u(\fspaceApproxEl,x)$$
+$$ = \hat u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \hat s_j (x)  +  U_r^t \hat u(\fspaceEl,x) $$
+It is easy to see that this must be the spectral expansion of $\hat u(\fspaceEl,x)$
 \end{proof}
 
-Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant). In the exceptional case that $\phi_j(\fspaceEl)=0$, the GLA method is unable to compute $\mathbf{s}_j (\mathbf{x})$ anyway, so that is not an issue for this proposition. The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
+Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant). In the exceptional case that $\phi_j(\fspaceEl)=0$, the GLA method is unable to compute $s_j (x)$ anyway, so that is not an issue for this proposition. The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
 
-\begin{theorem}
-	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$, the eigenvalues of $\dualopApprox$ correspond to the eigenvalues of the Koopman operator. Furthermore, if the observable $\mathbf{u}(\fspaceEl,\mathbf{x})$ is the evaluation operator, $\mathbf{u}(\fspaceEl,\mathbf{x}) = \fspaceEl(\mathbf{x})$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable $\mathbf{s}_j (\mathbf{x}) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(\mathbf{x}) v_j$.
+\begin{theorem}\label{thm:DualApproxModes}
+	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$, the eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator. Furthermore, if the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) = \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by
+	$$s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j$$
 \end{theorem}
 \begin{proof}
-	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $\weight(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle \weight(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox_{\ast}$, then $\phi_j$ is an eigenfunction of the Koopman operator: $U \phi_j(f_{\tindex}) = \langle \weight(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$ %$U \weight(f_{\tindex}) = \weight(f_{\tindex+1}) = \weight_{\tindex+1} = \dualopApprox \weight_{\tindex} = \dualopApprox \weight(f_{\tindex})$. Therefore 
+	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $\weight(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle \weight(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox^{\ast}$ (that is, $\dualopApprox^{\ast} q_j = \bar \lambda_j q_j$), then $\phi_j$ is an eigenfunction of the Koopman operator: $U \phi_j(f_{\tindex}) = \langle \weight(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$. This shows that the eigenvalues of $\dualopApprox$ correspond with that of the Koopman operator.
+	
+	In the case that $u(\fspaceEl,x) = \fspaceEl(x)$, we have the relationship $\hat u(\fspaceEl,x) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$.
 \end{proof}
 
-in an rkhs, f and fhat being close means they are pointwise close.
+In the end, we have established a direct connection between the spectral decomposition of the transition matrix in the dual space of the approximate feature space and the Koopman modes, eigenfunctions, and eigenvalues. 
 
-It is well known that in the case in which the dynamical system is linear, such as $\weight_{\tindex+1} = \dualopApprox\weight_{\tindex}$, its matrix eigenvalues are eigenvalues of the associated Koopman operator. The associated Koopman eigenfunctions
+\begin{corollary}
+	Suppose, given an $\e>0$, we are able to find an approximate feature space $\fspaceApprox$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. Then, if $\phi_j(\fspaceEl) \neq 0$, there exists an approximate feature space such that $\obsMatRow(x) \cdot v_j$ (where $v_j$ is an eigenvector of the dual space transition matrix $\dualopApprox$) is arbitrarily close to the Koopman mode $s_j(x)$
+\end{corollary}
+\begin{proof}
+	Since $\phi_j$ is continuous, we can make $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)|$ arbitrarily small, which means if $\phi_j{\fspaceEl} \neq 0$ we can make $\frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)}$ arbitrarily close to 1. From Theorem \ref{thm:DualApproxModes} and the fact that $s_j\in\fspace$ means $s_j$ is bounded, we can conclude that $\obsMatRow(x) \cdot v_j$ can be made arbitrarily close to $s_j(x)$ everywhere in $\dom$. %choose $\delta$ such that $\|\fspaceEl - \fspaceApproxEl\| < \delta$ implies $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)| < 
+\end{proof}
 
-We can show that there exists a relationship between the 
+
+%in an rkhs, f and fhat being close means they are pointwise close.
+
+%It is well known that in the case in which the dynamical system is linear, such as $\weight_{\tindex+1} = \dualopApprox\weight_{\tindex}$, its matrix eigenvalues are eigenvalues of the associated Koopman operator. The associated Koopman eigenfunctions
+
+%We can show that there exists a relationship between the 
 
 
 \subsubsection{Invariant Subspaces}
