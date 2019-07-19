@@ -536,11 +536,14 @@ $$ = \mathbf{\hat u^{\ast}}(\fspaceEl,\mathbf{x}) + \sum_{j=1}^k \lambda_j^t \ph
 It is easy to see that this must be the spectral expansion of $\mathbf{\hat u}(\fspaceEl,\mathbf{x})$
 \end{proof}
 
-Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant), except in one case: when $\phi_j(\fspaceEl)=0$,  The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
+Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant). In the exceptional case that $\phi_j(\fspaceEl)=0$, the GLA method is unable to compute $\mathbf{s}_j (\mathbf{x})$ anyway, so that is not an issue for this proposition. The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
 
 \begin{theorem}
-	In an E-GP or KO model of the dynamical system $ $, the eigenvalues of $\dualopApprox$ correspond to the eigenvalues of the Koopman operator, and the eigenvectors 
+	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$, the eigenvalues of $\dualopApprox$ correspond to the eigenvalues of the Koopman operator. Furthermore, if the observable $\mathbf{u}(\fspaceEl,\mathbf{x})$ is the evaluation operator, $\mathbf{u}(\fspaceEl,\mathbf{x}) = \fspaceEl(\mathbf{x})$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable $\mathbf{s}_j (\mathbf{x}) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(\mathbf{x}) v_j$.
 \end{theorem}
+\begin{proof}
+	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $\weight(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then $U \weight(f_{\tindex}) = \weight(f_{\tindex+1}) = \weight_{\tindex+1} = \dualopApprox \weight_{\tindex} = \dualopApprox \weight(f_{\tindex})$. Therefore 
+\end{proof}
 
 in an rkhs, f and fhat being close means they are pointwise close.
 
