@@ -630,10 +630,10 @@ This problem can be solved with the following algorithm:
 
 \subsubsection{Generating High-Scoring Random Paths}
 
-\rr{We propose the following algorithm for generating high-scoring paths:}
+\rr{Leveraging the above insights, the following procedure can be utilized for high-scoring paths:
 \begin{enumerate}
 	\item Cluster the centers into invariant subspaces according to the $k$-invariant subspaces algorithm, with the best reasonable guess(es) for $k$. This is necessary in order that the robot may be sure it is keeping track of each of the independent subsystems.
 	\item Within each cluster, select a waypoints at local maxima of the sum of the Koopman modes. These are where the best measurements may be taken.
 	\item Generate a path by selecting waypoints randomly according to a weighting scheme. The weights are equal to the spatial extent of the clusters, multiplied by an exponential decay factor for the number of times each has been visited (see item 4 in the previous section)
 \end{enumerate}
- 
+ }
