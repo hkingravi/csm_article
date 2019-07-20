@@ -268,7 +268,57 @@ $\ncontrol=13$, generating the control space $\fspaceD$. The number of, and the 
     \includegraphics[width=0.45\columnwidth]{controlled_pde_error_heat.jpg} 
     \label{fig:controlled_pde_error} }
     \caption{Demonstration of the control of a linear diffusion equation.}     
-\end{figure} 
+\end{figure}
+
+\subsection{Comparison of Eigenvalues and Koopman modes with DMD}
+
+In order to verify empirically our theoretical results, we compared the eigenvalues and Koopman modes derived from $\dualopApprox$ in our E-GP model with the eigenvalues and Koopman modes derived by the well-known Dynamic Mode Decomposition (DMD) algorithm using data from fluid flowing past a cylinder at different Reynolds numbers. The results are presented in figures \ref{fig:cfd_100_modes} and \ref{fig:eigenvalues}.
+
+\begin{figure*}[h]
+	\centering
+	\subfloat[0$^\circ$, real component]{
+		\includegraphics[width=0.30\textwidth]{EGP/Re100/modeR_1a0deg}		}
+	\subfloat[6$^\circ$, real component]{
+		\includegraphics[width=0.30\textwidth]{EGP/Re100/modeR_1a6deg}		}
+	\subfloat[12$^\circ$, real component]{
+		\includegraphics[width=0.30\textwidth]{EGP/Re100/modeR_1a12deg}		}\\
+	\subfloat[0$^\circ$, imaginary component]{
+		\includegraphics[width=0.30\textwidth]{EGP/Re100/modeI_1a0deg}		}
+	\subfloat[6$^\circ$, imaginary component]{
+		\includegraphics[width=0.30\textwidth]{EGP/Re100/modeI_1a6deg}		}
+	\subfloat[12$^\circ$, imaginary component]{
+		\includegraphics[width=0.30\textwidth]{EGP/Re100/modeI_1a12deg}		}\\
+	\subfloat[0$^\circ$, real component]{
+		\includegraphics[width=0.30\textwidth]{DMD/Re100/modeR_1a0deg}		}
+	\subfloat[6$^\circ$, real component]{
+		\includegraphics[width=0.30\textwidth]{DMD/Re100/modeR_1a6deg}		}
+	\subfloat[12$^\circ$, real component]{
+		\includegraphics[width=0.30\textwidth]{DMD/Re100/modeR_1a12deg}		}\\
+	\subfloat[0$^\circ$, imaginary component]{
+		\includegraphics[width=0.30\textwidth]{DMD/Re100/modeI_1a0deg}		}
+	\subfloat[6$^\circ$, imaginary component]{
+		\includegraphics[width=0.30\textwidth]{DMD/Re100/modeI_1a6deg}		}
+	\subfloat[12$^\circ$, imaginary component]{
+		\includegraphics[width=0.30\textwidth]{DMD/Re100/modeI_1a12deg}		}
+	\caption{Primary Koopman Modes, Re=100. (a-f) E-GP, (g-l) DMD}
+	\label{fig:cfd_100_modes}
+\end{figure*}
+
+\begin{figure*}[h]
+	\centering
+	\subfloat[Re=100]{
+		\includegraphics[width=0.48\textwidth]{eigenvalues/dmd100valscomp}		}
+	\subfloat[Re=300]{
+		\includegraphics[width=0.48\textwidth]{eigenvalues/dmd300valscomp}		}\\
+	\subfloat[Re=600]{
+		\includegraphics[width=0.48\textwidth]{eigenvalues/dmd600valscomp}		}
+	\subfloat[Re=800]{
+		\includegraphics[width=0.48\textwidth]{eigenvalues/dmd800valscomp}		}\\
+	\subfloat[Re=1000]{
+		\includegraphics[width=0.48\textwidth]{eigenvalues/dmd1000valscomp}		}
+	\caption{Eigenvalue Comparison}
+	\label{fig:eigenvalues}
+\end{figure*}
 
 \subsection{Paths for Moving Agents}
 \rr{To begin our investigation into the problem of finding best paths for sensing agents in motion, we constructed a number of simple synthetic spatiotemporally evolving systems for the agents to explore. One of these is displayed below \ref{fig:synthetic}. This is a system with two invariant subspaces, in each of which, two hills oscillate up and down in sync at a different frequency than the other invariant subspace. This is ideal for testing our methods. If successful, our methods should be able to (1) divide the space evenly between the two invariant subspaces, (2) be able to evaluate the spatial extent of the subspaces as roughly equivalent, (3) be able to identify the centers of each of the four hills as valuable waypoints, and (4) choose paths that travel between each of the hills equitably. In the example below, we used 100 centers with an RBF kernel with a bandwidth of 0.2 to train our E-GP model, though in testing we could also go as low as 20 centers.}

@@ -575,9 +575,8 @@ The intuition behind our $k$-invariant subspaces clustering algorithm is to repl
 Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as
 $$\arg\max_S \sum_{i=1}^k \frac{1}{2|S_i|} \sum_{\substack{x_i \neq x_j \\ x_j,x_i\in S_i}} \bar A_{ij}^2 $$
 
-}
-
 This problem can be solved with the following algorithm:
+}
 \begin{figure}[t!]
 	\begin{algorithm}[H]
 		\caption{$k$-Invariant Subspaces Algorithm}
