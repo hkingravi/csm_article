@@ -526,3 +526,33 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
 \end{algorithm}
 \vspace{-0.2in}
 \end{figure}
+
+
+\rr{
+The following proofs deal with the spectral analysis of our model using Koopman operator theory.
+\begin{proof}
+	\textbf{(Proposition \ref{prop:ApproxModes})} Using the spectral expansion and the definition of the observables, we have
+	$$U^t \hat u(\fspaceEl,x) = U^t u(\fspaceApproxEl,x) = u^{\ast}(\fspaceApproxEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) s_j (x)  +  U_r^t u(\fspaceApproxEl,x)$$
+	$$ = \hat u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \hat s_j (x)  +  U_r^t \hat u(\fspaceEl,x) $$
+	It is easy to see that this must be the spectral expansion of $\hat u(\fspaceEl,x)$
+\end{proof}
+
+\begin{proof}
+	\textbf{(Theorem \ref{thm:DualApproxModes})} It should be clear that, as long as the projection onto the approximate feature space is well defined, that $\weight(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle \weight(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox^{\ast}$ (that is, $\dualopApprox^{\ast} q_j = \bar \lambda_j q_j$), then $\phi_j$ is an eigenfunction of the Koopman operator in $\fspace$ since $U \phi_j(f_{\tindex}) = \langle \weight(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$. This shows that the eigenvalues of $\dualopApprox$ correspond with that of the Koopman operator. It also shows that the eigenfunctions of the Koopman operator in the dual space, known to be $\hat\phi_j(\weight) = \langle \weight, q_j \rangle$, correspond with the eigenfunctions of the Koopman operator in $\fspace$.
+	
+	In the case that $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, we have the relationship $\hat u(\fspaceEl,x) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$ according to the formulation of our model. Now, it is well known that the spectral expansion of a finite linear system is
+	$$ \weight_t = \sum_{j=1}^{\ncent} \lambda_j^t \hat\phi_j(\weight_0) v_j$$
+	where $v_j$ are the eigenvectors of the transition matrix. Therefore, we have
+	$$ U^t \hat u(\fspaceEl_0,x) = U^t \left( \obsMatRow(x) \cdot \weight(\fspaceEl_0) \right) = \obsMatRow(x) \cdot \weight_t = \obsMatRow(x) \cdot \left( \sum_{j=1}^{\ncent} \lambda_j \hat\phi_j(\weight_0)  v_j \right) = \sum_{j=1}^{\ncent} \lambda_j \phi_j(\fspaceEl_0) \obsMatRow(x) \cdot v_j$$
+	
+	Comparing this to the spectral expansion of $\hat u(\fspaceEl,x)$, we see (letting $\lambda_1=1$) that $\hat u^{\ast}(\fspaceEl,x) = \obsMatRow(x) \cdot v_1$, $\hat s_j(x) = \obsMatRow(x) \cdot v_j$, and that there is no continuous spectrum component. The hypothesis now follows from Proposition \ref{prop:ApproxModes}.
+	
+\end{proof}
+
+
+\begin{proof}
+	\textbf{(Corollary \ref{cor:ModesApprox})} Since $\phi_j$ is continuous, we can make $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)|$ arbitrarily small, which means if $\phi_j{\fspaceEl} \neq 0$ we can make $\frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)}$ arbitrarily close to 1. From Theorem \ref{thm:DualApproxModes} and the fact that $s_j\in\fspace$ means $s_j$ is bounded, we can conclude that $\obsMatRow(x) \cdot v_j$ can be made arbitrarily close to $s_j(x)$ everywhere in $\dom$. %choose $\delta$ such that $\|\fspaceEl - \fspaceApproxEl\| < \delta$ implies $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)| < 
+	
+	% neeed to actually say why the phi are continuous
+\end{proof}
+}

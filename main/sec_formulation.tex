@@ -494,91 +494,88 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section)
 \end{enumerate}
 
+\rr{
+\subsection{Spectral Analysis of Evolving Gaussian Process Model and Resulting Algorithms}
 
-\subsection{\rr{Spectral Analysis of Evolving Gaussian Process Model and Resulting Algorithms}}
-
-\rr{For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that}
+For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that
 \begin{align} \eqlabel{koopman_operator}
 U g(f_{\tindex}) = g(\mathbb{F}(f_{\tindex})) = g(f_{\tindex+1})
 \end{align}
-\rr{This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property}
+This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property
 \begin{align} \eqlabel{koopman_eigenfunctions}
 U \phi(f_{\tindex}) = \phi(\mathbb{F}(f_{\tindex})) = \phi(f_{\tindex+1}) = \lambda \phi(f_{\tindex})
 \end{align}
-\rr{are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues. Suppose now we have a vector-valued observable $u(\fspaceEl,x)$, where $x\in\dom$ and $\fspaceEl\in\fspace$.}
+are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues. Suppose now we have a vector-valued observable $u(\fspaceEl,x)$, where $x\in\dom$ and $\fspaceEl\in\fspace$.
 
 \begin{definition}
-	\rr{The Koopman mode $s(x)$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $u(f,x)$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}}
+	The Koopman mode $s(x)$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $u(f,x)$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}
 \end{definition}
 
-\rr{As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes. Mezic (2013) showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA). We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.}
+As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes. Mezic (2013) showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA). We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.
 
 \begin{proposition}\label{thm:ApproxObsv}
-	\rr{Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $u(\fspaceEl,x)$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\hat u(\fspaceEl,x) \coloneqq u(\fspaceApproxEl,x)$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.}
+	Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $u(\fspaceEl,x)$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\hat u(\fspaceEl,x) \coloneqq u(\fspaceApproxEl,x)$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.
 	%Given a RKHS $\fspace$ and an approximate feature space $\fspaceApprox$ which has finite dimension $\ncent$, the projection $\fmapApprox : \fspace \to \R^\ncent$ from the RKHS to the dual space of $\fspaceApprox$ is an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$
 \end{proposition}
 
 This follows from the fact that the projection from the function space to its subspace is well-defined when the $\fmapApprox_i$ are independent. Now, Koopman modes of observables are of interest because they are akin to the eigenvector expansions utilized in linear dynamics. If we separate the Koopman operator into $U = U_s + U_r$ where $U_s$ has a pure point spectrum and $U_r$ has a pure continuous spectrum, then we can write
 \begin{align} \eqlabel{spectral_expansion}
-U^t u(\fspaceEl,x) = \mathbf{u^{\ast}}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) s_j (x)  +  U_r^t u(\fspaceEl,x)
+U^t u(\fspaceEl,x) = u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) s_j (x)  +  U_r^t u(\fspaceEl,x)
 \end{align}
-where $\mathbf{u^{\ast}}(x)$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous-spectrum component is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time, which could be modeled as a stochastic process \cite{mezic2013analysis}. Now, from this expansion we can prove that:
-\begin{proposition}\label{thm:ApproxModes}
+where $u^{\ast}(x)$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous-spectrum component is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time, which could be modeled as a stochastic process \cite{mezic2013analysis}. Now, from this expansion we can prove that:
+\begin{proposition}\label{prop:ApproxModes}
 	Let $u(\fspaceEl,x)$ and $\hat u(\fspaceEl,x)$ be observables as in Proposition \ref{thm:ApproxObsv}, and $s_j(x)$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\hat u$ are
 	\begin{align}
 	\hat s_j(x) = \frac{\phi_j(\fspaceApproxEl)}{\phi_j(\fspaceEl)} s_j(x)
 	\end{align}
 \end{proposition}
-\begin{proof}
-	Using the spectral expansion and the definition of the observables, we have
-$$U^t \hat u(\fspaceEl,x) = U^t u(\fspaceApproxEl,x) = \mathbf{u^{\ast}}(\fspaceApproxEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) s_j (x)  +  U_r^t u(\fspaceApproxEl,x)$$
-$$ = \hat u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \hat s_j (x)  +  U_r^t \hat u(\fspaceEl,x) $$
-It is easy to see that this must be the spectral expansion of $\hat u(\fspaceEl,x)$
-\end{proof}
+
 
 Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant). In the exceptional case that $\phi_j(\fspaceEl)=0$, the GLA method is unable to compute $s_j (x)$ anyway, so that is not an issue for this proposition. The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
 
 \begin{theorem}\label{thm:DualApproxModes}
-	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$, the eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator. Furthermore, if the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) = \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by
-	$$s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j$$
+	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$,
+	\begin{enumerate}
+		\item The eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator.
+		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, i.e. $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
+		\item If the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by
+		$$s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j$$
+	\end{enumerate} 
 \end{theorem}
-\begin{proof}
-	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $\weight(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle \weight(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox^{\ast}$ (that is, $\dualopApprox^{\ast} q_j = \bar \lambda_j q_j$), then $\phi_j$ is an eigenfunction of the Koopman operator: $U \phi_j(f_{\tindex}) = \langle \weight(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$. This shows that the eigenvalues of $\dualopApprox$ correspond with that of the Koopman operator.
-	
-	In the case that $u(\fspaceEl,x) = \fspaceEl(x)$, we have the relationship $\hat u(\fspaceEl,x) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$.
-\end{proof}
 
 In the end, we have established a direct connection between the spectral decomposition of the transition matrix in the dual space of the approximate feature space and the Koopman modes, eigenfunctions, and eigenvalues. 
 
-\begin{corollary}
-	Suppose, given an $\e>0$, we are able to find an approximate feature space $\fspaceApprox$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. Then, if $\phi_j(\fspaceEl) \neq 0$, there exists an approximate feature space such that $\obsMatRow(x) \cdot v_j$ (where $v_j$ is an eigenvector of the dual space transition matrix $\dualopApprox$) is arbitrarily close to the Koopman mode $s_j(x)$
+\begin{corollary}\label{cor:ModesApprox}
+	Suppose, given an $\e>0$, we are able to find an approximate feature space $\fspaceApprox$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. Then, if $\phi_j(\fspaceEl) \neq 0$, there exists an approximate feature space such that $\obsMatRow(x) \cdot v_j$ is arbitrarily close to the Koopman mode $s_j(x)$ (where $v_j$ is an eigenvector of the dual space transition matrix $\dualopApprox$).
 \end{corollary}
-\begin{proof}
-	Since $\phi_j$ is continuous, we can make $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)|$ arbitrarily small, which means if $\phi_j{\fspaceEl} \neq 0$ we can make $\frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)}$ arbitrarily close to 1. From Theorem \ref{thm:DualApproxModes} and the fact that $s_j\in\fspace$ means $s_j$ is bounded, we can conclude that $\obsMatRow(x) \cdot v_j$ can be made arbitrarily close to $s_j(x)$ everywhere in $\dom$. %choose $\delta$ such that $\|\fspaceEl - \fspaceApproxEl\| < \delta$ implies $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)| < 
-\end{proof}
 
 
-%in an rkhs, f and fhat being close means they are pointwise close.
+%\begin{corollary}
+	%Suppose that for an approximate feature space $\fspaceApprox$, there exists $\e>0$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. For all $\phi_j(\fspaceEl) \gg \e$, and if the phi are lipshitz, then $s_j(x) \approx \obsMatRow(x) \cdot v_j$
+%\end{corollary}
 
-%It is well known that in the case in which the dynamical system is linear, such as $\weight_{\tindex+1} = \dualopApprox\weight_{\tindex}$, its matrix eigenvalues are eigenvalues of the associated Koopman operator. The associated Koopman eigenfunctions
-
-%We can show that there exists a relationship between the 
+}
 
 
+\rr{
 \subsubsection{Invariant Subspaces}
 
-\rr{One way of viewing the invariant subspaces concept (as described earlier) is say that information contained in an invariant subspace never leaves that invariant subspace. We hypothesize that the kernel centers associated with the invariant subspaces of a spatiotemporally evolving system are generally associated with spatial regions in the domain (and not just homogeneously spread all over and or mixed with the other invariant subspaces). This hypothesis makes sense both physically and mathematically. In physics, the \emph{principle of locality} states that an object is only directly influenced by its immediate surroundings \cite{berkovitz2007action}. If this is the case (and there is no reason to believe that it is not, apart from certain quantum dynamics situations), and the E-GP model accurately captures the physics of the system, then information (measurable phenomena) may only travel continuously from one point in the domain to another. Mathematically, since a value at any one point in the domain is influenced by the weights of multiple nearby centers, we would expect nearby centers to be connected dynamically, unless separated by ``plains'' where the values are indistinguishable from noise.}
+One way of viewing the invariant subspaces concept (as described earlier) is say that information contained in an invariant subspace never leaves that invariant subspace. We hypothesize that the kernel centers associated with the invariant subspaces of a spatiotemporally evolving system are generally associated with spatial regions in the domain (and not just homogeneously spread all over and or mixed with the other invariant subspaces). This hypothesis makes sense both physically and mathematically. In physics, the \emph{principle of locality} states that an object is only directly influenced by its immediate surroundings \cite{berkovitz2007action}. If this is the case (and there is no reason to believe that it is not, apart from certain quantum dynamics situations), and the E-GP model accurately captures the physics of the system, then information (measurable phenomena) may only travel continuously from one point in the domain to another. Mathematically, since a value at any one point in the domain is influenced by the weights of multiple nearby centers, we would expect nearby centers to be connected dynamically, unless separated by ``plains'' where the values are indistinguishable from noise.
 
-\rr{When a square matrix is perfectly formed, the Jordan form of a $n\times n$ matrix $\dualopApprox$ is block diagonal, and therefore gives a decomposition of the $n$ dimensional Euclidean space into invariant subspaces of $\dualopApprox$. The cyclic index, which can be found by counting the geometric multiplicities of eigenvalues in $\dualopApprox$, gives the number of invariant subspaces. In reality, data-driven approximations of $\dualopApprox$ rarely give such easily interpretable properties. Hence, the need for an algorithm can divide the system into invariant subspaces even when the boundaries between them are ``fuzzy''.}
+When a square matrix is perfectly formed, the Jordan form of a $n\times n$ matrix $\dualopApprox$ is block diagonal, and therefore gives a decomposition of the $n$ dimensional Euclidean space into invariant subspaces of $\dualopApprox$. The cyclic index, which can be found by counting the geometric multiplicities of eigenvalues in $\dualopApprox$, gives the number of invariant subspaces. In reality, data-driven approximations of $\dualopApprox$ rarely give such easily interpretable properties. Hence, the need for an algorithm can divide the system into invariant subspaces even when the boundaries between them are ``fuzzy''.
 
-\rr{Each block in the Jordan normal form has a set of corresponding eigenvectors and an eigenvalue with geometric multiplicity. When we transform the former back into the domain space, we obtain complex-valued functions which are the Koopman modes of the system. These provide an image of what kind of structures we see in the dynamics. The eigenvalues describe the frequency with which these structures oscillate between their real and imaginary forms, as well as the exponential growth or decay of their magnitudes.} %In this section, we demonstrate our method on systems with eigenvalues primarily on the unit circle (neither growing nor decaying).
+Each block in the Jordan normal form has a set of corresponding eigenvectors and an eigenvalue with geometric multiplicity. When we transform the former back into the domain space, we obtain complex-valued functions which are the Koopman modes of the system. These provide an image of what kind of structures we see in the dynamics. The eigenvalues describe the frequency with which these structures oscillate between their real and imaginary forms, as well as the exponential growth or decay of their magnitudes. %In this section, we demonstrate our method on systems with eigenvalues primarily on the unit circle (neither growing nor decaying).
 
+}
 
+\rr{
 \subsubsection{$k$-Invariant Subspaces Clustering}
-\rr{The intuition behind our $k$-invariant subspaces clustering algorithm is to replace the Euclidean distance in the $k$-means algorithm with a different metric of ``nearness'', namely one corresponding with the dynamic connections in the space. The $\dualopApprox$ matrix provides easy access to these: its rows $\dualopApprox_{i\ast}$ indicate which centers inform the i\textsuperscript{th} value of $\weight_{tindex+1}$, and its columns $\dualopApprox_{\ast j}$ indicate what centers will be informed by the j\textsuperscript{th} value of $\weight_{\tindex}$. However, these values do tend to be biased towards the eigenmodes with higher frequencies (i.e. those whose eigenvalues have a greater polar angle) and those which grow exponentially. To  control for this, we chose modify the eigenvalues of the matrix in the following way: (1) We zeroed any eigenvalue that is clearly inside (not on) the unit circle, (2) We unitized the remaining eigenvalues, and (3) We adjusted the frequency of the remaining eigenvalues on the unit circle to either $\pm \frac{\pi}{4}$. If the eigen-decomposition of the original was $\dualopApprox = UDU^{-1}$, then we can reconstruct a new matrix with our modified eigenvalues $\bar D$ as $\bar A = U\bar D U^{-1}$.}
+The intuition behind our $k$-invariant subspaces clustering algorithm is to replace the Euclidean distance in the $k$-means algorithm with a different metric of ``nearness'', namely one corresponding with the dynamic connections in the space. The $\dualopApprox$ matrix provides easy access to these: its rows $\dualopApprox_{i\ast}$ indicate which centers inform the i\textsuperscript{th} value of $\weight_{tindex+1}$, and its columns $\dualopApprox_{\ast j}$ indicate what centers will be informed by the j\textsuperscript{th} value of $\weight_{\tindex}$. However, these values do tend to be biased towards the eigenmodes with higher frequencies (i.e. those whose eigenvalues have a greater polar angle) and those which grow exponentially. To  control for this, we chose modify the eigenvalues of the matrix in the following way: (1) We zeroed any eigenvalue that is clearly inside (not on) the unit circle, (2) We unitized the remaining eigenvalues, and (3) We adjusted the frequency of the remaining eigenvalues on the unit circle to either $\pm \frac{\pi}{4}$. If the eigen-decomposition of the original was $\dualopApprox = UDU^{-1}$, then we can reconstruct a new matrix with our modified eigenvalues $\bar D$ as $\bar A = U\bar D U^{-1}$.
 
-\rr{Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as}
+Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as
 $$\arg\max_S \sum_{i=1}^k \frac{1}{2|S_i|} \sum_{\substack{x_i \neq x_j \\ x_j,x_i\in S_i}} \bar A_{ij}^2 $$
+
+}
 
 This problem can be solved with the following algorithm:
 \begin{figure}[t!]
@@ -615,16 +612,18 @@ This problem can be solved with the following algorithm:
 %\end{algorithm}
 %\end{figure}
 
+\rr{
+Note the differences between this and the $k$-means clustering algorithm: first, we are \emph{maximizing} since the terms represent influence rather than distance. Secondly, in the possible case that $|S_k|=0$, we make the total value zero in order to avoid division by zero. Thirdly, we exclude centers' influence on themselves from the score by taking $S_k\setminus\{i\}$.
 
-\rr{Note the differences between this and the $k$-means clustering algorithm: first, we are \emph{maximizing} since the terms represent influence rather than distance. Secondly, in the possible case that $|S_k|=0$, we make the total value zero in order to avoid division by zero. Thirdly, we exclude centers' influence on themselves from the score by taking $S_k\setminus\{i\}$.}
+This algorithm can be repeated as many times as desired with different random initial conditions, and the result which produces the highest score retained.
 
-\rr{This algorithm can be repeated as many times as desired with different random initial conditions, and the result which produces the highest score retained.}
+}
 
 \subsubsection{Scoring Paths for a Moving Agent}
 
-\rr{Consider the problem of predicting the current state of a spatiotemporally-evolving function with a set of robots, each one of whom can only observe the phenomena partially. When there are sufficient such robots to cover the entire domain, there are many approaches in the coverage literature available for solving this problem \cite{hussein2006effective,hussein2007effective}. In those approaches, the robots figure out the best trajectories to create a network of connected sensors that can simultaneously observe the whole environment. However, when the number of robots is limited, full coverage of the domain is not possible. How a few robots whose combined sensors can only observe a small part of the domain can predict the state of the spatiotemporally-evolving function remains an open problem.  Here we consider a limiting case of this problem where only a single robot is available to observe the whole environment, but the robot has available to it an approximate model of the function learned through past experience Evolving Gaussian Processes.}
+\rr{Consider the problem of predicting the current state of a spatiotemporally-evolving function with a set of robots, each one of whom can only observe the phenomena partially. When there are sufficient such robots to cover the entire domain, there are many approaches in the coverage literature available for solving this problem \cite{hussein2006effective,hussein2007effective}. In those approaches, the robots figure out the best trajectories to create a network of connected sensors that can simultaneously observe the whole environment. However, when the number of robots is limited, full coverage of the domain is not possible. How a few robots whose combined sensors can only observe a small part of the domain can predict the state of the spatiotemporally-evolving function remains an open problem.  Here we consider a limiting case of this problem where only a single robot is available to observe the whole environment, but the robot has available to it an approximate model of the function learned through past experience Evolving Gaussian Processes.
 
-\rr{We will be using a Kalman filter in the weight space of the E-GP as described in previous sections. In order to determine where a moving agent should go in order to gather the measurements which will help it converge to the true state of the system quickest, we use information from the spectral analysis of the E-GP model. We postulate that the value of taking a measurement at a point in the domain with respect to a particular eigenvector is proportional to the following factors:}
+We will be using a Kalman filter in the weight space of the E-GP as described in previous sections. In order to determine where a moving agent should go in order to gather the measurements which will help it converge to the true state of the system quickest, we use information from the spectral analysis of the E-GP model. We postulate that the value of taking a measurement at a point in the domain with respect to a particular eigenvector is proportional to the following factors:
 
 \begin{enumerate}
 	\item The spatial extent of the eigenvector. This can be taken to be equivalent to the area under the curve of the magnitude of the complex function corresponding to that eigenvector (normalized by the function peak)
@@ -638,15 +637,16 @@ This problem can be solved with the following algorithm:
 	\item A discount factor equal to a decaying exponential of the number of times that eigenmode has been visited. This factor is included due to the exponential convergence of a Kernel Observer. The information gained by taking a measurement within the active area of a particular dynamic mode decreases exponentially the more measurements are taken.
 \end{enumerate}
 
-\rr{This scoring method allows one to decide the likeliest candidate amongst a large family of paths.}
+This scoring method allows one to decide the likeliest candidate amongst a large family of paths.
 
+}
 
 \subsubsection{Generating High-Scoring Random Paths}
 
-\rr{We propose the following algorithm for generating high-scoring paths:}
+\rr{Leveraging the above insights, the following procedure can be utilized for high-scoring paths:
 \begin{enumerate}
 	\item Cluster the centers into invariant subspaces according to the $k$-invariant subspaces algorithm, with the best reasonable guess(es) for $k$. This is necessary in order that the robot may be sure it is keeping track of each of the independent subsystems.
 	\item Within each cluster, select a waypoints at local maxima of the sum of the Koopman modes. These are where the best measurements may be taken.
 	\item Generate a path by selecting waypoints randomly according to a weighting scheme. The weights are equal to the spatial extent of the clusters, multiplied by an exponential decay factor for the number of times each has been visited (see item 4 in the previous section)
 \end{enumerate}
- 
+ }
