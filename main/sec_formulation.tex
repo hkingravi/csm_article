@@ -494,8 +494,11 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section)
 \end{enumerate}
 
+
 \rr{
-\subsection{Spectral Analysis of Evolving Gaussian Process Model and Resulting Algorithms}
+\subsection{Spectral Analysis of Evolving Gaussian Process Model, and Resulting Algorithms and Applications}
+
+We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade, especially within the Computational Flow Dynamics (CFD) community. Here we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
 
 For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that
 \begin{align} \eqlabel{koopman_operator}
@@ -539,7 +542,10 @@ Note that this means the modes of the two observables are identical in shape (on
 		\item The eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator.
 		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, i.e. $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
 		\item If the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by
-		$$s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j$$
+		\begin{align}
+			s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j
+		\end{align}
+		where $\obsMatRow(x)$ is the feature map of our model as a row vector.
 	\end{enumerate} 
 \end{theorem}
 
@@ -618,9 +624,11 @@ This algorithm can be repeated as many times as desired with different random in
 
 }
 
+
+\rr{
 \subsubsection{Scoring Paths for a Moving Agent}
 
-\rr{Consider the problem of predicting the current state of a spatiotemporally-evolving function with a set of robots, each one of whom can only observe the phenomena partially. When there are sufficient such robots to cover the entire domain, there are many approaches in the coverage literature available for solving this problem \cite{hussein2006effective,hussein2007effective}. In those approaches, the robots figure out the best trajectories to create a network of connected sensors that can simultaneously observe the whole environment. However, when the number of robots is limited, full coverage of the domain is not possible. How a few robots whose combined sensors can only observe a small part of the domain can predict the state of the spatiotemporally-evolving function remains an open problem.  Here we consider a limiting case of this problem where only a single robot is available to observe the whole environment, but the robot has available to it an approximate model of the function learned through past experience Evolving Gaussian Processes.
+Consider the problem of predicting the current state of a spatiotemporally-evolving function with a set of robots, each one of whom can only observe the phenomena partially. When there are sufficient such robots to cover the entire domain, there are many approaches in the coverage literature available for solving this problem \cite{hussein2006effective,hussein2007effective}. In those approaches, the robots figure out the best trajectories to create a network of connected sensors that can simultaneously observe the whole environment. However, when the number of robots is limited, full coverage of the domain is not possible. How a few robots whose combined sensors can only observe a small part of the domain can predict the state of the spatiotemporally-evolving function remains an open problem.  Here we consider a limiting case of this problem where only a single robot is available to observe the whole environment, but the robot has available to it an approximate model of the function learned through past experience Evolving Gaussian Processes.
 
 We will be using a Kalman filter in the weight space of the E-GP as described in previous sections. In order to determine where a moving agent should go in order to gather the measurements which will help it converge to the true state of the system quickest, we use information from the spectral analysis of the E-GP model. We postulate that the value of taking a measurement at a point in the domain with respect to a particular eigenvector is proportional to the following factors:
 
@@ -640,9 +648,11 @@ This scoring method allows one to decide the likeliest candidate amongst a large
 
 }
 
+
+\rr{
 \subsubsection{Generating High-Scoring Random Paths}
 
-\rr{Leveraging the above insights, the following procedure can be utilized for high-scoring paths:
+Leveraging the above insights, the following procedure can be utilized for high-scoring paths:
 \begin{enumerate}
 	\item Cluster the centers into invariant subspaces according to the $k$-invariant subspaces algorithm, with the best reasonable guess(es) for $k$. This is necessary in order that the robot may be sure it is keeping track of each of the independent subsystems.
 	\item Within each cluster, select a waypoints at local maxima of the sum of the Koopman modes. These are where the best measurements may be taken.
