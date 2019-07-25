@@ -19,7 +19,7 @@ The choice of the function space $\functionSet$ can be critical for the task we 
 similar to how the choice of the state space is in control theory. Let's consider a simple
 example. Suppose we have data from two \emph{classes} $\sampSetClass_A = \{(x_1^A, y_1^A), \dots, (x_N^A, y_N^A)\}$ and 
 $\sampSetClass_B = \{(x_1^B, y_1^B), \dots, (x_N^B, y_N^B)\}$, where $x_i^{\{A,B\}}\in\R^D$, and $y_i^{\{A,B\}}\in\{-1,+1\}$, shown
-in Figure \ref{fig:lisep_data}. Let $f$ be chosen from the class of linear algorithms, i.e. $f = w^Tx + b$, where $w\in\R^D, b\in\R$. 
+in Figure \ref{fig:linsep}. Let $f$ be chosen from the class of linear algorithms, i.e. $f = w^Tx + b$, where $w\in\R^D, b\in\R$. 
 We pick a loss $L$ that returns a loss of zero when the prediction is the correct class, and if the prediction is the incorrect class,
 returns a higher value for misclassifications that are closer to the boundary. A classical example of such a loss is that used by
 the \emph{perceptron algorithm}, which can be written as 
@@ -123,7 +123,7 @@ these models generate, to restrict certain forms of output, and to shape decisio
     \subfloat[Data from classes $A$ and $B$.]
     {
     \includegraphics[width=0.45\columnwidth]{figures/linsep_data.pdf}
-    \label{fig:lisep_data}}
+    \label{fig:linsep_data}}
      \subfloat[Linear boundary separating data.]
      {\includegraphics[width=0.45\columnwidth]{figures/linsep_data_perceptron.pdf}
      \label{fig:lin_sep_bound}}  
