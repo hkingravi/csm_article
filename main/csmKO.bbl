@@ -600,6 +600,11 @@ Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio.
 \newblock {\em Deep learning}, volume~1.
 \newblock MIT press Cambridge, 2016.
 
+\bibitem{panton2006incompressible}
+Ronald~L Panton.
+\newblock {\em Incompressible flow}.
+\newblock John Wiley \& Sons, 2006.
+
 \bibitem{polyculture_fig}
 Graham Burnett.
 \newblock The seven layers of the forest garden.
@@ -612,10 +617,5 @@ Christopher~J Rhodes.
 \newblock Feeding and healing the world: through regenerative agriculture and
   permaculture.
 \newblock {\em Science progress}, 95(4):345--446, 2012.
-
-\bibitem{panton2006incompressible}
-Ronald~L Panton.
-\newblock {\em Incompressible flow}.
-\newblock John Wiley \& Sons, 2006.
 
 \end{thebibliography}

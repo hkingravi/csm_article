@@ -30,7 +30,7 @@
 
 \section{Statement of Revision}
 
-We thank the associate editor and reviewers for their useful comments and suggestion. We have significantly revised the manuscript to reflect the reviewer comments and concerns.
+We thank the associate editor and reviewers for their useful comments and suggestion. We have significantly revised the manuscript to reflect the reviewer comments and concerns. Wherever possible, we have marked the changes within our manuscript in \rr{blue}.
 
 In the following, we provide an account of the changes that have been made.  The nature of
 the review for this paper is such that the comments were provided both
@@ -52,7 +52,8 @@ In response to reviewer comments, we have undertaken some major revisions for th
 \begin{enumerate}
 \item We have included proofs of all main theorems in the appendix.
 \item We have included new sections on generating path for a single mobile agents to observe a dynamically varying phenomena.
-\item We have added theoretical insights into links with Koopman operator theory
+\item We have added theoretical results into links between our model and Koopman operator theory
+\item We have shown how those results can be used for the problem of path planning for mobile sensing agents seeking to estimate the state of the system
 \item We have significantly re-focused the control problems in agriculture sidebar.
 \item We have included several references in the related works section to better outline the contributions of this work in the context of the vast literature out there on Gaussian Processes, spatiotemporal modeling, and distributed sensing.
 \end{enumerate}
@@ -163,7 +164,7 @@ comparisons between the chosen model and those discussed above would
 greatly improve the paper and allow readers to better appreciate and
 situate the proposed methods within the literature. 
 
-{\color{red}(Response)} We have included in this revision an extensive analysis of this our methods in terms Koopman operator theory, including proofs of key theoretical results. To demonstrate those results, we have included a comparison of the modes derived from our model to those obtained via dynamic mode decomposition (DMD). We have also included recent research into how the modes can be utilized to generate best paths for moving agents seeking to infer the current state of a system.
+{\color{red}(Response)} We have included in this revision an extensive analysis of this our methods in terms Koopman operator theory, including proofs of key theoretical results. To demonstrate those results, we have included a comparison of the modes derived from our model to those obtained via dynamic mode decomposition (DMD). We have also included recent research into how the modes can be utilized to generate best paths for moving agents seeking to infer the current state of a system. This amounts to around six new pages of material, primarily in pages 20-25.
 
 {\color{red}(R1:P3)} In addition the above, I was confused by the presentation of the
 theoretical results. I could not find the appendix in which proof of
@@ -181,13 +182,12 @@ this section must be better motivated and explained in general.
 
 
 {\color{red}(R1:P5)} Minor comments
-\gXX{when you have addressed the comment, remove the red lining}
 ---------------
 \begin{enumerate}
 \item page 1 line 10, "spatiotemporally" misspelled
 \item page 4 line 24 "interpretability" misspelled
 \item text very small in figure 8, figure 10, figure S8. Generally, the
-text size of the figures needs to be fixed throughout. \gXX{Josh, Harshals}
+text size of the figures needs to be fixed throughout.
 \end{enumerate}
 
 {\color{red}(Response)} Thank you for pointing out these typos; they have been fixed.
@@ -376,7 +376,7 @@ number of randomly placed sensors -- what is this expectation over? There is a $
 
 {\color{red}(R9:P3)} Overall, this article is well written for people who seek to gain some overview of the results in such as research fields. The content and results in this article are abstract, but the authors have tried to make them direct and easy to understand to a broader class of readers. In general, it is the authors’ choice about how much technical stuff should be put into this article. From my point of view, I did find the math not easy to follow when the authors try to put many results into this article. However, they do a good job to explain the intuition behind the theoretical results in the “Discussion of Theoretical Results” section. I believe more of such explanations could make the presentation of this article better. Moreover, as machine learning is supposed to be a keyword of this article, more explanations about how the authors apply the techniques from machine learning to system analysis would also be beneficial. These explanations could potentially use some plain expressions without going to the math.
 
-{\color{red}(Response)} The authors thank the reviewer for his grace in reading and reviewing the materials we have submitted. The reviewer should note that the kernel methods which form the backbone of our Kernel Observer and Evolving Gaussian Processes models are classic machine methods.
+{\color{red}(Response)} The authors thank the reviewer for his grace in reading and reviewing the materials we have submitted. The reviewer should note that the kernel methods which form the backbone of our Kernel Observer and Evolving Gaussian Processes models are classic machine learning methods.
 
 Here are some detailed comments:
 \begin{enumerate}[(1)]
