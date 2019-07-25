@@ -555,6 +555,8 @@ In the end, we have established a direct connection between the spectral decompo
 	Suppose, given an $\e>0$, we are able to find an approximate feature space $\fspaceApprox$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. Then, if $\phi_j(\fspaceEl) \neq 0$, there exists an approximate feature space such that $\obsMatRow(x) \cdot v_j$ is arbitrarily close to the Koopman mode $s_j(x)$ (where $v_j$ is an eigenvector of the dual space transition matrix $\dualopApprox$).
 \end{corollary}
 
+In essence, this says that if we can find a close-enough approximate feature space, then the eigenvectors of the transition matrix in the dual space correspond exactly with the Koopman modes in the input space.
+
 
 %\begin{corollary}
 	%Suppose that for an approximate feature space $\fspaceApprox$, there exists $\e>0$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. For all $\phi_j(\fspaceEl) \gg \e$, and if the phi are lipshitz, then $s_j(x) \approx \obsMatRow(x) \cdot v_j$
