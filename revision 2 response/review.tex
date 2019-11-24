@@ -1,0 +1,196 @@
+\documentclass{letter}
+
+\usepackage{times,fullpage}
+
+\usepackage{amsmath, amsfonts, amssymb, amscd}
+\usepackage{color}
+%\usepackage{srcltx}
+\usepackage{latexsym,amssymb,amsmath,amsfonts}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage{letterbib} 
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage[shortlabels]{enumitem}
+
+%\newcommand{\gXX}[1]{\color{red} XX #1 XX \color{black}}
+%\newcommand{\gsout}[2]{{\sout{#1}}{{\gXX{#2}}}} 
+\newcommand{\rr}[1]{{\bf \color{blue}{#1}}}
+
+
+\input{../main/inc_macros.tex}
+
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\begin{document}
+
+\section{Statement of Revision}
+
+We thank the associate editor and reviewers for their useful comments and suggestion. We have significantly revised the manuscript to reflect the reviewer comments and concerns. Wherever possible, we have marked the changes within our manuscript in \rr{blue}.
+
+In the following, we provide an account of the changes that have been made.  The nature of the review for this paper is such that the comments were provided both in paragraph form and in bulleted form.  When addressing the paragraph form, we have identify the comment using the notation {\bf {\color{red}(Rx:Py)}} where {\bf x} is the Reviewer number and {\bf y} is paragraph referred to. When addressing the bullet form, we utilize the form {\bf (Rx:z)} where {\bf x} identifies the Reviewer and {\bf z} identifies the bulleted comment. Each bulleted comment included in the listing is followed by a description of modifications to the paper addressing the comment. Furthermore, changes in the paper have been marked with a color coding.  We hope that this method is sufficiently clear. We would like to thank the reviewers for their time and effort at providing feedback in order to improve the exposition of the paper.
+
+\noindent\textbf{An overview of the major changes}
+
+In response to reviewer comments, we have undertaken some revisions for this paper. Here we summarize some of those major revisions, further details are provided in response to individual reviewers:
+
+\begin{enumerate}
+\item We have moved the materials in the appendix to the main text
+\end{enumerate}
+
+\section{Response to comments by Associate Editor}
+
+The paper has been re-reviewed by four reviewers. In general, the reviewers found the revised paper significantly improved, but still
+point out a number of issues. Specifically:
+\begin{itemize}
+	\item Presentation style: the paper still contains several typos (Reviewer 5, Reviewer 9). Even the statement of revision has several clumsy sentences. Most importantly, some parts (in particular, the newly added	part on Koopman operator theory) are very hard to follow (Reviewer 5, Reviewer 6, Reviewer 7, and Reviewer 9).
+	\item Comparison with the state of the art: the comparison with the state of the art still requires improvement (Reviewer 6 and Reviewer 7).
+	\item Tutorial contribution: the unusual length of this paper, along with the fact that some sections are difficult to follow, severely limit the tutorial contribution of this paper (Reviewer 7).
+\end{itemize}
+
+I concur with the reviewers' comments. The authors should prepare a revised version addressing \emph{all} the concerns and suggestions. In
+particular, the authors should significantly strengthen the tutorial value of the paper, and carefully proofread the manuscript. Finally,
+note that CSM papers do not have appendices, so the location of the proofs needs to be changed.
+
+{\color{red}(AE:1)} We thank the associate editor for the opportunity to submit a revision.  We have prepared a revision that ???
+
+
+\section{Response to comments by Referee 5. Reviewer ID 4949}
+
+{\color{red}(R1:P1)} Overall, I wish to thank the authors for thoughtfully addressing the previous comments of the reviewers. My comments will primarily address the added content. 
+
+I think the added discussion of the connections between Koopman operator methods (both in theory and practice) and the proposed
+approach is very helpful. I think it could be structured slightly better: while the first paragraph discusses that connections will be
+presented, I think the results of Theorem 4 (either the explicit theorem, or a rough outline) could be presented earlier. I realize that
+the theorem relies on machinery developed in the preceding propositions---I'm not entirely sure how to restructure this section,
+but a better roadmap to the main results would be helpful for the reader. 
+
+{\color{red} Response:} Joshua
+
+
+{\color{red}(R1:P2)} I think the discussion of scoring paths could be better motivated. In particular, providing more intuition for the measurement values (items 1-4) would be helpful for the reader. 
+
+
+{\color{red}(Response)} Joshua
+
+{\color{red}(R1:P3)} Generally, the captions on figures need to be made more descriptive. For example, the caption on figure 20 is simply "more results" which isn't adequate for a reader. 
+
+{\color{red}(Response)} 
+
+{\color{red}(R1:P4)} Small comments: There remain many typos. The authors must do a thorough proofread. Some that I noticed:
+\begin{itemize}
+	\item Mezic (2013) in page 21, pg 2, missing reference 
+	\item Broken references in line 13 of page 24
+	\item On page 25, Riemann is mispelled
+	\item Figure 22, "mean" is written ",ean"
+\end{itemize}
+
+{\color{red}(Response)}
+
+
+
+\section{Response to comments by Referee 6. Reviewer ID 4945}
+
+{\color{red}(R6:P1)} The authors tried to improve the quality of the paper, in particular, they added novel material, references, and the appendix. However, I think it is still not enough for publication. In particular, they should better revise the introduction and in general the writing style. The quality of images 3,7,14,16,18,19,20,22,S1 is quite poor and must be improved. 
+
+{\color{red}(Response)}: 
+
+
+{\color{red}(R6:P2)} I also do not think that a link between GPs and dynamical systems (and then using dynamical systems for estimation) is a contribution since it has already been studied in [42-44] and also deeply discussed here (this reference is missing in the paper): Todescato et al., Efficient Spatio-Temporal Gaussian Regression via Kalman Filtering, ArXiv, 2017
+
+{\color{red}(Response)} Girish
+
+
+\section{Response to comments by Referee 7. reviewer ID 4669}
+
+{\color{red}(R7:P1)} This is a revised version of the previously submitted manuscript on the use of data driven methods such as Kernel observers for learning and
+control of spatially varying dynamical systems. In my previous review, I had highlighted several missing aspects such as inclusion of formal
+mathematical proofs of the claims, use of an algorithmic format to explain the proposed placement methods, etc.
+The authors have addressed some aspects satisfactorily, but in an effort to respond to other reviewer comments, they have added
+significant new text that can confuse a reader. Below are some comments on the revised version:
+
+{\color{red}(Response)} 
+
+{\color{red}(R7:P2)} 1. The new section on Koopman operator methods introduces new concepts and in order to compare the kernel based method. However, this
+comparison and the new description is confusing for a non-practitioner and needs a careful writing. For instance,
+\begin{enumerate}[(i)]
+	\item in the proof of Theorem 4, why is $w(\cdot)$ suddenly an operator, whereas in the earlier sections, $w_\tau$ was a vector.
+	\item the moving agent version of the problem needs further discussion -- how does the motion model of the agent play a role? There are a couple of missing references in the new section. There are several works	addressing this problem in oceanic environments (e.g., the works by	Sukhatme et al, Leonard et al) that one would need to compare with.
+	\item The moving agent problem now needs a fresh comparison with spectral methods for coverage (e.g., the works of Mezic et al). 
+\end{enumerate}
+
+{\color{red}(Response)} Joshua
+
+
+{\color{red}(R7:P3)} 2. The proofs of the original results seem to be fairly clear. However a few questions come up -- Regarding the sampling section, it is
+unclear as to what is the measure $\nu$ selected in the experiments. Also how useful is the theoretical result? What would be the measures under which $p_\epsilon$ would tend to zero?  
+
+Algorithms 3 and 9 talk about the use of a 'standard kernel inference procedure'. It would be helpful to explain what such a procedure is.
+
+{\color{red}(Response)} Harshal
+
+
+{\color{red}(R7:P4)} 3. The numerics are very useful and would be appealing for a reader. Overall, I think this paper needs to be condensed from its current
+state as I think there is too much content in this version to be considered for a CSM publication.
+
+{\color{red}(Response)} 
+
+
+
+\section{Response to comments by Referee 9. Reviewer ID 4943}
+
+{\color{red}(R9:P1)} I have read the revised version of this paper and the response letter from the authors. We thank the authors for the efforts to make modifications and improvements based on the reviews. In particular, the authors make comparisons between their methods and Koopman operator theory. Additionally, the authors also provide an appendix to include the missing proofs from the first submission. Overall, the paper has been improved. There is still a potential to further improve the paper from both of the clarity of the theoretical analysis and the presentation style. Here are some comments:  
+
+{\color{red}(Response)} The authors thank the anonymous reviewer.
+
+{\color{red}(R9:P2)} One note about the “set of time instances” (which appears in Prop 1, Thm 1, and etc.). Could the authors give some explanations about the difference between this and the set of sampling locations? For example, we do not want the cardinality of the set of sampling locations (i.e., N) to be large, compared with M. Would the condition that the cardinality of the set of time instances (i.e., L) is greater than M be an issue?
+
+{\color{red}(Response)} Harshal
+
+{\color{red}(R9:P3)} When proposing the random sensor placement scheme, it would be better to give some more details about how the random scheme compares with/differ from the measurement map approach, besides Figure 8. For example, the computational complexities of these two methods could be compared further and explain which method is suitable under which scenario.
+
+{\color{red}(Response)}  Harshal
+
+{\color{red}(R9:P4)} One note about the value $\frac{\varsigma}{p_{\epsilon}}$. How does this value compare with the dimension of the matrix $\hat{A}$ in Eq. (3)?
+
+{\color{red}(Response)} 
+
+{\color{red}(R9:P5)} A general suggestion about the section “Spectral Analysis of Evolving Gaussian Process Model, and Resulting Algorithms and Applications”. This section could be potentially better structured. One way could be to split it into several subsections, since the comparison with the Koopman method is also in this section.
+
+{\color{red}(Response)} Joshua
+
+{\color{red}(R9:P6)} There seem to be quite a few typos and unclear sentences throughout the paper, some of which could prevent the readers/reviewers from better
+understanding the content. In particular, the newly added sections (to the revised paper) need a careful proofread. A partial list of them is
+provided here for the authors’ reference: 
+
+\begin{enumerate}
+	\item In general, many equations and sentences in the text are missing a
+	comma or period at the end.
+	\item The last sentence in the second paragraph on page 23 needs to be fixed.
+	\item When referring to a previous section or a defined algorithm, etc., later in the text, it would be better to add a number reference since the paper has many pages. For example, the “k-invariant subspaces clustering algorithm” mentioned in the first sentence in the third paragraph on page 23.
+	\item The references on page 24 need to be fixed. The sentence in line 20 of the same page needs to be restructured. Line 24 on the same page: 	“quickest” should be “fastest”.
+	\item Line 5 on page 25, duplicated “to”. The sentence in line 15 on this page should be restructured. Line 17, “likeliest”.
+	\item The “Generating High-Scoring Random Paths” subsection could be better explained with more details.
+	\item In Appendix, Remark 3 and the paragraph before it also appear in the main body of the paper. In the last subsection of Appendix containing the proofs of the Koopman method, the proof for Prop 4 or Prop 5 seems to be missing. The proof for Theorem 4 could be made clearer by splitting the proof according to the three results in the statement of Theorem 4.
+\end{enumerate}
+
+{\color{red}(Response)} 
+
+\section{Conclusion}
+
+Again, we thank the anonymous reviewers for their comments. We hope we addressed all concerns and improved the overall readability of the paper. We are happy to provide further clarification or revisions as requested.
+
+
+
+
+
+\small
+%\bibliographystyle{unsrt}
+\bibliographystyle{plain}
+\bibliography{../main/BIB/daslab_all,../main/BIB/daslab_pubs,../main/BIB/ACL_all,../main/BIB/ACL_Publications,../main/BIB/bibtex_database_chowdhary_machine_learning,../main/BIB/cybersees,../main/BIB/Robotics}
+
+\end{document}
