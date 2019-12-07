@@ -129,10 +129,12 @@ comparison and the new description is confusing for a non-practitioner and needs
 {\color{red}(R7:P3)} 2. The proofs of the original results seem to be fairly clear. However a few questions come up -- Regarding the sampling section, it is
 unclear as to what is the measure $\nu$ selected in the experiments. Also how useful is the theoretical result? What would be the measures under which $p_\epsilon$ would tend to zero?  
 
-Algorithms 3 and 9 talk about the use of a 'standard kernel inference procedure'. It would be helpful to explain what such a procedure is.
 
-{\color{red}(Response)} Harshal
+{\color{red}(Response)} Measure $ \nu $ relates to the domain space of the function, for one dimensional domain it corresponds to length, for two dimensional space to area, and so on. Our synthetic dataset experiments considers one dimensional domain space, hence the measure $ \nu $ would correspond to length that each kernel center occupies given an epsilon. The useful part of these results is Theorem 3 which dictates a definite relationship between observability and number of random samples which generalizes to any domain, whereas Theorem 2 is a step that leads to theorem 3. $p_\epsilon$ would tend to zero only if $ \epsilon $ is very small.
 
+{\color{red}(R7:P3)} Algorithms 3 and 9 talk about the use of a 'standard kernel inference procedure'. It would be helpful to explain what such a procedure is.
+
+{\color{red}(Response)} Hassan/Girish
 
 {\color{red}(R7:P4)} 3. The numerics are very useful and would be appealing for a reader. Overall, I think this paper needs to be condensed from its current
 state as I think there is too much content in this version to be considered for a CSM publication.
@@ -149,11 +151,11 @@ state as I think there is too much content in this version to be considered for 
 
 {\color{red}(R9:P2)} One note about the “set of time instances” (which appears in Prop 1, Thm 1, and etc.). Could the authors give some explanations about the difference between this and the set of sampling locations? For example, we do not want the cardinality of the set of sampling locations (i.e., N) to be large, compared with M. Would the condition that the cardinality of the set of time instances (i.e., L) is greater than M be an issue?
 
-{\color{red}(Response)} Harshal
+{\color{red}(Response)} Hassan
 
 {\color{red}(R9:P3)} When proposing the random sensor placement scheme, it would be better to give some more details about how the random scheme compares with/differ from the measurement map approach, besides Figure 8. For example, the computational complexities of these two methods could be compared further and explain which method is suitable under which scenario.
 
-{\color{red}(Response)}  Harshal
+{\color{red}(Response)}  Random scheme inherently requires no computational effort but comes at the cost of requiring large number of samples, on the other hand measurement map approach is computationally expensive and infeasible for budgeted kernel centers. 
 
 {\color{red}(R9:P4)} One note about the value $\frac{\varsigma}{p_{\epsilon}}$. How does this value compare with the dimension of the matrix $\hat{A}$ in Eq. (3)?
 
