@@ -51,7 +51,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	To begin, consider a system where $\dualopApprox = \JorLa$, with Jordan blocks $\{\JorLa_1, \JorLa_2, \dots, \JorLa_{\JorMul}\}$ along the 
 	diagonal. Then $\dualopApprox^{\tindex_i} = \diag(\begin{bmatrix}\JorLa_1^{\tindex_i} & \JorLa_2^{\tindex_i} & \cdots & \JorLa_{\JorMul}^{\tindex_i}\end{bmatrix})$. 
 	%The exponentiation of each Jordan block results in upper triangular matrices with linearly independent columns. 
-	We have that 
+	We have that:
 	\begin{align*}
 	\Obs_{\Tset} &=
 	\underbrace{
@@ -67,9 +67,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	two simple matrices. In what follows,
 	we use the notation $\zerosMat{I}{J}$ to denote an $I\times J$ matrix of all zeros. 
 	
-	In the first step, we write the above matrix as the product of two matrices. 
-	Then it can be 
-	shown that $\Obs_{\Tset}$ is the product of two block matrices 
+	In the first step, we write the above matrix as the product of two matrices. Then it can be	shown that $\Obs_{\Tset}$ is the product of two block matrices.
 	\begin{align*}
 	\Obs_{\Tset}  
 	&=
@@ -94,7 +92,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	\end{align*}
 	We need to simplify $\catempK$ even further. 
 	Recall that a matrix's rank is preserved under a product with an invertible matrix. Design a 
-	matrix of elementary row operations $U\in\R^{\nsamp\times\nsamp}$ such that $\transempK := U\empK$ is a matrix with at least one row vector of nonzeros; this can be achieved by having an elementary matrix that adds rows together. By the shadedness assumption, such a matrix exists. We can write this operation as 
+	matrix of elementary row operations $U\in\R^{\nsamp\times\nsamp}$ such that $\transempK := U\empK$ is a matrix with at least one row vector of nonzeros; this can be achieved by having an elementary matrix that adds rows together. By the shadedness assumption, such a matrix exists. We can write this operation as:
 	\begin{align*}
 	U\empK = 
 	\begin{bmatrix}
@@ -104,7 +102,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	\transempK_{\nsamp1} & \transempK_{\nsamp2} & \cdots & \transempK_{\nsamp\ncent}.
 	\end{bmatrix}
 	\end{align*}
-	Without loss of generality, and abusing notation slightly, let this multiplication lead to one nonzero row, with the rest of the elements of the matrix being zero, as 
+	Without loss of generality, and abusing notation slightly, let this multiplication lead to one nonzero row, with the rest of the elements of the matrix being zero, as:
 	\begin{align*}
 	U\empK = 
 	\begin{bmatrix}
@@ -117,7 +115,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	Since elementary matrices are full-rank, we then have that $\Rank(U\empK) = \Rank(\empK)$. 
 	
 	To analyze the rank of $\Obs_{\Tset}$, we apply these elementary matrices to every $\empK\in\catempK$. To do so, consider the block-diagonal matrix $\bdU\in\R^{\nsamp\otime\times\nsamp\otime}$ with $U\in\R^{\nsamp\times\nsamp}$ along the diagonal, and zeros everywhere else,
-	i.e.
+	i.e.:
 	\begin{align}
 	\bdU:= \begin{bmatrix}
 	U   & \zerosU & \cdots & \zerosU\\
@@ -126,7 +124,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	\zerosU & \zerosU & \cdots & U
 	\end{bmatrix}.
 	\end{align}
-	It can be shown that  $\bdU$ is full-rank, i.e. has rank $\nsamp\otime$. Going back to the observability matrix, we have that 
+	It can be shown that  $\bdU$ is full-rank, i.e. has rank $\nsamp\otime$. Going back to the observability matrix, we have that:
 	\begin{align*}
 	\bdU\Obs_{\Tset} &= \bdU\catempK\catdualopC\\
 	%  \underbrace{
@@ -168,7 +166,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	\underbrace{\catdualopC}_{\in\R^{\ncent\otime\times\ncent}},
 	\end{align*}
 	since $\zerosU\zerosK = \zerosK$. Due to the fact that $\Rank(\bdU\Obs_{\Tset}) = \Rank(\Obs_{\Tset})$,
-	we can therefore perform our rank analysis on the simpler matrix $\Rank(\bdU\Obs_{\Tset})$. Note that
+	we can therefore perform our rank analysis on the simpler matrix $\Rank(\bdU\Obs_{\Tset})$. Note that:
 	\begin{align*}
 	U\empK \dualopApprox^{\tindex_j} &=  
 	\begin{bmatrix}
@@ -186,7 +184,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	0 & 0 & \cdots & 0
 	\end{bmatrix}.  
 	\end{align*}
-	Therefore, following some more elementary row operations encoded by $V\in\R^{\ncent\otime\times\ncent\otime}$, we have that
+	Therefore, following some more elementary row operations encoded by $V\in\R^{\ncent\otime\times\ncent\otime}$, we have that:
 	\begin{align*}
 	V \bdU\Obs_{\Tset}
 	&= 
@@ -207,7 +205,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	If the individual entries $\kernel_{1i}$ are nonzero, and the Jordan block diagonals have nonzero eigenvalues, the columns of $\boldsymbol\Phi$
 	become linearly independent. Therefore, if $\otime \geq \ncent$, the column rank of $\Obs_{\Tset}$ is $\ncent$, which results in an observable system.
 	
-	To extend this proof to matrices $\dualopApprox = \JorP\JorLa\JorP^{-1}$, note that 
+	To extend this proof to matrices $\dualopApprox = \JorP\JorLa\JorP^{-1}$, note that:
 	\begin{align*}
 	\Obs_{\Tset} &= 
 	\begin{bmatrix}
@@ -245,16 +243,14 @@ In the next proposition, we take a geometric approach and utilize the rational c
  the Jordan blocks $\left[\begin{smallmatrix}
                            \JorLa_1 &\cdots & \JorLa_{\JorMul}
                           \end{smallmatrix}\right]$ may have 
- repeated eigenvalues (i.e. $\exists \JorLa_i$ and $\JorLa_j$ s.t. $\eval_i = \eval_j$). 
- Then there exist kernels $\kernel(x,y)$ such that 
- the lower bound $\minmeas$ on the number of sampling locations $\nsamp$ is given by the cyclic index of $\dualopApprox$. In other words, the system in \eqref{k_measure} is observable if $ \nsamp \geq \ell$.
+ repeated eigenvalues (i.e. $\exists \JorLa_i$ and $\JorLa_j$ s.t. $\eval_i = \eval_j$). Then there exist kernels $\kernel(x,y)$ such that the lower bound $\minmeas$ on the number of sampling locations $\nsamp$ is given by the cyclic index of $\dualopApprox$. In other words, the system in \eqref{k_measure} is observable if $ \nsamp \geq \ell$.
 \end{proposition}
 \begin{proof}
 	\textbf{By Contrapositive.} We will show that if the number of sampling locations are $ \nsamp=\ell-1 $ (i.e. $ \nsamp < \ell$), then the system is not observable. Pick the Gaussian kernel in the dictionary of atoms framework,
 	with sampling locations $x_i\in\sampSet$ and centers $c_j\in\shCent$, with the additional 
 	property that $x_i\neq x_j \forall i,j\in\{1,\dots,\nsamp\}, i\neq j$.
 	In this case, 
-	$\empKShadFull$ has $\minmeas-1$ nonzero, linearly independent rows, and can be written as
+	$\empKShadFull$ has $\minmeas-1$ nonzero, linearly independent rows, and can be written as:
 	\begin{align*}
 	\empKShadFull &= \begin{bmatrix}
 	k_{11} & k_{12} & \cdots & k_{1\ncent} \\
@@ -262,11 +258,9 @@ In the next proposition, we take a geometric approach and utilize the rational c
 	k_{(\minmeas-1)1} & k_{(\minmeas-1)2} & \cdots & k_{(\minmeas-1)\ncent} 
 	\end{bmatrix}.
 	\end{align*}
-	Since the cyclic index is $\minmeas$, this implies that at least one eigenvalue, say $\eval$, has $\minmeas$ Jordan 
-	blocks. 
+	Since the cyclic index is $\minmeas$, this implies that at least one eigenvalue, say $\eval$, has $\minmeas$ Jordan blocks. 
 	%  For concreteness, suppose $\minmeas=2$, and let the size of the blocks be $i\times i$ and $j\times j$. 
-	Define indices $j_1, j_2, \dots, j_{\minmeas} \in \{1,2,\dots,\ncent\}$ as the columns corresponding to the leading entries of the $\minmeas$ Jordan blocks corresponding to $\eval$. WLOG, let $j_1 = 1$.
-	Using ideas similar to the last proof, we can write the observability matrix as
+	Define indices $j_1, j_2, \dots, j_{\minmeas} \in \{1,2,\dots,\ncent\}$ as the columns corresponding to the leading entries of the $\minmeas$ Jordan blocks corresponding to $\eval$. WLOG, let $j_1 = 1$. Using ideas similar to the last proof, we can write the observability matrix as:
 	\begin{align*}
 	\Obs_{\Tset}
 	&:= 
@@ -281,7 +275,7 @@ In the next proposition, we take a geometric approach and utilize the rational c
 	\end{bmatrix}.
 	\end{align*}
 	Define $\evalvec:= \begin{bmatrix}\eval^{\tindex_1} & \eval^{\tindex_2} & \cdots \eval^{\tindex_{\otime}}\end{bmatrix}^T$. 
-	Then the above matrix becomes 
+	Then the above matrix becomes:
 	\begin{align*}
 	\Obs_{\Tset}
 	&:= 
@@ -291,7 +285,7 @@ In the next proposition, we take a geometric approach and utilize the rational c
 	\kernel_{(\minmeas-1)1}\evalvec  & \cdots & \kernel_{(\minmeas-1)j_2}\evalvec & \cdots & \kernel_{(\minmeas-1)j_{\minmeas}}\evalvec & \cdots
 	\end{bmatrix}.
 	\end{align*}
-	We need to show that one of the columns above can be written in terms of the others. This is equivalent to solving the linear system
+	We need to show that one of the columns above can be written in terms of the others. This is equivalent to solving the linear system.
 	\begin{align*}
 	\begin{bmatrix}
 	\kernel_{1j_1}\\
@@ -369,10 +363,7 @@ The construction provided in the proof of Proposition \ref{prop:3} is utilized i
 Unfortunately, the measurement map $\measmap$, being an abstract construction unrelated to the kernel, does not directly select $\sampSet$. We will show how to use the measurement map to guide a search for $\sampSet$ in Remark \ref{rem:1} (in Appendix). For now, we state a sufficient condition for observability of a general system. 
 
 \begin{theorem}\label{thm:1}
- Suppose that the conditions in Proposition \ref{prop:1} hold, with the relaxation that
- the Jordan blocks $\begin{bmatrix}\JorLa_1 & &\cdots & \JorLa_{\JorMul}\end{bmatrix}$ may have 
- repeated eigenvalues. Let $\minmeas$ be the cyclic index of $\dualopApprox$.
- Define 
+ Suppose that the conditions in Proposition \ref{prop:1} hold, with the relaxation that the Jordan blocks $\begin{bmatrix}\JorLa_1 & &\cdots & \JorLa_{\JorMul}\end{bmatrix}$ may have repeated eigenvalues. Let $\minmeas$ be the cyclic index of $\dualopApprox$. Define:
  \begin{align}\eqlabel{empKShadFull}
   \empKShadFull = \left[\begin{smallmatrix}
                     \empK^{{(1)}^T} & 
@@ -387,8 +378,8 @@ Unfortunately, the measurement map $\measmap$, being an abstract construction un
 \end{theorem}
 \begin{proof}
 	A cyclic index of $\minmeas$ for this system implies that there exists an eigenvalue $\eval$ that's repeated $\minmeas$ times. We prove the theorem for repeated eigenvalues of dimension 1: the same statement can be proven for repeated eigenvalues for Jordan blocks using the ideas in the proof of Proposition \ref{prop:1}. 
-	WLOG, let $\empKShadFull$ have $\minmeas$ fully shaded, linearly independent rows, and, assume that the column indices corresponding to this eigenvalue are $\{1,2,\dots,\minmeas\}$. Define 
-	$\evalvec_i:= \begin{bmatrix}\eval_i^{\tindex_1} & \eval_i^{\tindex_2} & \cdots \eval_i^{\tindex_{\otime}}\end{bmatrix}^T$. Then
+	WLOG, let $\empKShadFull$ have $\minmeas$ fully shaded, linearly independent rows, and, assume that the column indices corresponding to this eigenvalue are $\{1,2,\dots,\minmeas\}$. Define: 
+	$\evalvec_i:= \begin{bmatrix}\eval_i^{\tindex_1} & \eval_i^{\tindex_2} & \cdots \eval_i^{\tindex_{\otime}}\end{bmatrix}^T$. Then,
 	\begin{align*}
 	\Obs_{\Tset}
 	&:= 
@@ -400,7 +391,7 @@ Unfortunately, the measurement map $\measmap$, being an abstract construction un
 	\end{align*}
 	Let $\evalvec_1 = \evalvec_2 = \cdots \evalvec_{\minmeas} := \evalvec$. 
 	Focusing on these first $\minmeas$ columns of this matrix, this implies that
-	we need to find constants $c_1,c_2,\dots, c_{\minmeas-1}$ such that
+	we need to find constants $c_1,c_2,\dots, c_{\minmeas-1}$ such that:
 	\begin{align*}
 	\begin{bmatrix}
 	k_{11}\\
@@ -803,7 +794,7 @@ Overall, our construction is as follows: for each subspace $ \linspace_i $, let 
 \end{equation}
 where $\sigma(\dualopApprox) $ represents the spectrum of $ \dualopApprox $, whose elements are the eigenvalues of $ \dualopApprox $, and $ \gamma_{\dualopApprox}(\lambda) $ is the geometric multiplicity corresponding to the eigenvalue $ \lambda $, which is also equal to the total number of Jordan blocks corresponding to the eigenvalue $ \lambda $. Define a set of centers $ \shCent_\rands $ with elements $ \{c_1, c_2,\dots, c_\rands\} $, to be the centers corresponding to the leading entries of  the Jordan blocks.
 For sensor location $x\in\dom$, and $ \epsilon > 0 $, let $\kernel(x, c_j) > \epsilon$, denote the region $\dom_j\subset\dom$, such that the kernel evaluation with respect to center $c_j$ is greater than $\e$, that is $ \dom_j \equiv \{x\in \dom:\kernel(x, c_j) > \epsilon\} $. We define
-$ p_{\e} $ as
+$ p_{\e} $ as:
 \begin{equation}\label{ppp}
 p_{\e} = \min_{c_j \in \shCent_\rands} \frac{\measure(\kernel(x, c_j) > \epsilon)}{\measure(\dom)},
 \end{equation}
@@ -827,7 +818,6 @@ where $\measure$ is a measure in the real analysis sense. Hence, $p_{\e}$ corres
 	Given the spatiotemporal function $ f(x,\tindex) $ with $ x \in \dom \subseteq  \mathbb{R}^\dimI, \tindex\in \mathbb{Z}^+  $, its kernel observer model \eqref{k_measure}, a tolerance parameter $\e>0$, summation over geometric multiplicities of each $ \lambda \in \sigma(\dualopApprox) $ denoted by $ \rands  $ as in  (\ref{rands}), and a constant $ \delta \in (0,1] $, the probability that pair $ (\empK, \dualopApprox) $ is unobservable after the selection of $ \nsamp $ random sensors is at most $ e^{\frac{-1}{2}(\nsamp p_{\e}-2\rands)} $, where $ p_{\e} $ is given by (\ref{ppp}) and \rr{$ \nsamp > 2\rands/p_{\e} $}.
 \end{theorem}
 \begin{proof}
-	\textbf{(Theorem \ref{thm:r2})}
 	The random variable $ X $ from the proof of Theorem 1 has a binomial distribution, which enables the application of a Chernoff-type bound on its tail probabilities. A well known result  on multiplicative Chernoff bound \cite{motwani2010randomized} is directly applied to establish this Theorem. If $ X $ is binomially distributed, $ \delta \in (0,1] $, and $ \meanDist = \mathbb{E}[X] $, then $ P[X\leq(1-\delta)\meanDist] \leq \exp(-\meanDist \delta^2/2) $, in which we let $ \delta = 1-\frac{\rands}{\nsamp p_{\e}}$.  The expression in the exponent can be simplified to $ -\frac{1}{2}\nsamp p_{\e}+\rands - \frac{\rands^2}{2\nsamp p_{\e}} $, using $ \meanDist = \nsamp p_{\e} $. Note that $ e^{\frac{-\rands^2}{2\nsamp p_{\e}}} \leq 1$. This implies that,
 	\begin{equation*}
 	\exp(-\meanDist \delta^2/2) =  e^{-\frac{1}{2}(\nsamp p_{\e}-2\rands)}.e^{\frac{-\rands^2}{2\nsamp p_{\e}}}\leq e^{-\frac{1}{2}(\nsamp p_{\e}-2\rands)}
@@ -855,9 +845,9 @@ For the sake of defining when it is appropriate to expect this method to be able
 
 Unlike neural networks, the weights in an E-GP do not exist in some abstract, difficult-to-comprehend space, but are associated with kernel centers in specific locations in the domain. We refer to this attribute of E-GPs as the \emph{spatial encoding} property. This property is an extremely valuable tool for gaining insight into the learned model works:
 \begin{enumerate}
-	\item By plotting which kernel centers are associated with which invariant subspaces in the transition matrix, one can visualize where the eigenfunctions are found and how the dynamic modes are separated spatially
+	\item By plotting which kernel centers are associated with which invariant subspaces in the transition matrix, one can visualize where the eigenfunctions are found and how the dynamic modes are separated spatially.
 	\item By plotting arrows from center $c_j$ to $c_i$ for each of the largest elements $\hat a_{ij}$ of $\dualopApprox$, one can visualize how different areas of the domain influence each other's evolution.
-	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section)
+	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section).
 \end{enumerate}
 
 
@@ -866,11 +856,11 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 
 We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade, especially within the Computational Flow Dynamics (CFD) community. Here we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. \rr{In fact, in our final theorem, we show that the eigenvalues of our model are all eigenvalues of the Koopman operator, the eigenvectors transformed to the input space are congruent in shape to the Koopman modes, and the eigenfunctions are identical}. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
 
-For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that
+For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that:
 \begin{align} \eqlabel{koopman_operator}
 U g(f_{\tindex}) = g(\mathbb{F}(f_{\tindex})) = g(f_{\tindex+1})
 \end{align}
-This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property
+This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property,
 \begin{align} \eqlabel{koopman_eigenfunctions}
 U \phi(f_{\tindex}) = \phi(\mathbb{F}(f_{\tindex})) = \phi(f_{\tindex+1}) = \lambda \phi(f_{\tindex})
 \end{align}
@@ -888,20 +878,20 @@ As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produ
 \end{proposition}
 
 
-This follows from the fact that the projection from the function space to its subspace is well-defined when the $\fmapApprox_i$ are independent. Now, Koopman modes of observables are of interest because they are akin to the eigenvector expansions utilized in linear dynamics. If we separate the Koopman operator into $U = U_s + U_r$ where $U_s$ has a pure point spectrum and $U_r$ has a pure continuous spectrum, then we can write
+This follows from the fact that the projection from the function space to its subspace is well-defined when the $\fmapApprox_i$ are independent. Now, Koopman modes of observables are of interest because they are akin to the eigenvector expansions utilized in linear dynamics. If we separate the Koopman operator into $U = U_s + U_r$ where $U_s$ has a pure point spectrum and $U_r$ has a pure continuous spectrum, then we can write,
 \begin{align} \eqlabel{spectral_expansion}
 U^t u(\fspaceEl,x) = u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) s_j (x)  +  U_r^t u(\fspaceEl,x)
 \end{align}
 where $u^{\ast}(x)$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous-spectrum component is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time, which could be modeled as a stochastic process \cite{mezic2013analysis}. Now, from this expansion we can prove that:
 
 \begin{proposition}\label{prop:ApproxModes}
-	Let $u(\fspaceEl,x)$ and $\hat u(\fspaceEl,x)$ be observables as in Proposition \ref{thm:ApproxObsv}, and $s_j(x)$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\hat u$ are
+	Let $u(\fspaceEl,x)$ and $\hat u(\fspaceEl,x)$ be observables as in Proposition \ref{thm:ApproxObsv}, and $s_j(x)$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\hat u$ are:
 	\begin{align}
 	\hat s_j(x) = \frac{\phi_j(\fspaceApproxEl)}{\phi_j(\fspaceEl)} s_j(x)
 	\end{align}
 \end{proposition}
 \begin{proof}
-	Using the spectral expansion and the definition of the observables, we have
+	Using the spectral expansion and the definition of the observables, we have:
 	$$U^t \hat u(\fspaceEl,x) = U^t u(\fspaceApproxEl,x) $$
 	$$ \hat u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \hat s_j (x)  +  U_r^t \hat u(\fspaceEl,x) = u^{\ast}(\fspaceApproxEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) s_j (x)  +  U_r^t u(\fspaceApproxEl,x)$$
 	Since this must be true for all $t$, the terms must match, and the hypothesis follows.% see that this must be the spectral expansion of $\hat u(\fspaceEl,x)$
@@ -915,19 +905,19 @@ Note that this means the modes of the two observables are identical in shape (on
 	\begin{enumerate}
 		\item The eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator.
 		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, i.e. $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
-		\item If the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by
+		\item If the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by:
 		\begin{align}
 			s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j
-		\end{align}
+		\end{align},
 		where $\obsMatRow(x)$ is the feature map of our model as a row vector.
 	\end{enumerate} 
 \end{theorem}
 \begin{proof}
 	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $P(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle P(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox^{\ast}$ (that is, $\dualopApprox^{\ast} q_j = \bar \lambda_j q_j$), then $\phi_j$ is an eigenfunction of the Koopman operator in $\fspace$ since $U \phi_j(f_{\tindex}) = \langle P(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$. This shows that the eigenvalues of $\dualopApprox$ correspond with that of the Koopman operator. It also shows that the eigenfunctions of the Koopman operator in the dual space, known to be $\hat\phi_j(\cdot) = \langle \cdot, q_j \rangle$, correspond with the eigenfunctions of the Koopman operator in $\fspace$.
 	
-	In the case that $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, we have the relationship $\hat u(\fspaceEl,x) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$ according to the formulation of our model. Now, it is well known that the spectral expansion of a finite linear system is
+	In the case that $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, we have the relationship $\hat u(\fspaceEl,x) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$ according to the formulation of our model. Now, it is well known that the spectral expansion of a finite linear system is:
 	$$ \weight_t = \sum_{j=1}^{\ncent} \lambda_j^t \hat\phi_j(\weight_0) v_j$$
-	where $v_j$ are the eigenvectors of the transition matrix. Therefore, we have
+	where $v_j$ are the eigenvectors of the transition matrix. Therefore, we have:
 	$$ U^t \hat u(\fspaceEl_0,x) = U^t \left( \obsMatRow(x) \cdot \weight(\fspaceEl_0) \right) = \obsMatRow(x) \cdot \weight_t = \obsMatRow(x) \cdot \left( \sum_{j=1}^{\ncent} \lambda_j \hat\phi_j(\weight_0)  v_j \right) = \sum_{j=1}^{\ncent} \lambda_j \phi_j(\fspaceEl_0) \obsMatRow(x) \cdot v_j$$
 	
 	Comparing this to the spectral expansion of $\hat u(\fspaceEl,x)$, we see (letting $\lambda_1=1$) that $\hat u^{\ast}(\fspaceEl,x) = \obsMatRow(x) \cdot v_1$, $\hat s_j(x) = \obsMatRow(x) \cdot v_j$, and that there is no continuous spectrum component. The hypothesis now follows from Proposition \ref{prop:ApproxModes}.
@@ -966,7 +956,7 @@ Each block in the Jordan normal form has a set of corresponding eigenvectors and
 \subsubsection{$k$-Invariant Subspaces Clustering}
 The intuition behind our $k$-invariant subspaces clustering algorithm is to replace the Euclidean distance in the $k$-means algorithm with a different metric of ``nearness'', namely one corresponding with the dynamic connections in the space. The $\dualopApprox$ matrix provides easy access to these: its rows $\dualopApprox_{i\ast}$ indicate which centers inform the i\textsuperscript{th} value of $\weight_{tindex+1}$, and its columns $\dualopApprox_{\ast j}$ indicate what centers will be informed by the j\textsuperscript{th} value of $\weight_{\tindex}$. However, these values do tend to be biased towards the eigenmodes with higher frequencies (i.e. those whose eigenvalues have a greater polar angle) and those which grow exponentially. To  control for this, we chose to modify the eigenvalues of the matrix in the following way: (1) We zeroed any eigenvalue that is clearly inside (not on) the unit circle, (2) We unitized the remaining eigenvalues, and (3) We adjusted the frequency of the remaining eigenvalues on the unit circle to either $\pm \frac{\pi}{4}$. If the eigen-decomposition of the original was $\dualopApprox = UDU^{-1}$, then we can reconstruct a new matrix with our modified eigenvalues $\bar D$ as $\bar A = U\bar D U^{-1}$.
 
-Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as
+Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as:
 $$\arg\max_S \sum_{i=1}^k \frac{1}{2|S_i|} \sum_{\substack{x_i \neq x_j \\ x_j,x_i\in S_i}} \bar A_{ij}^2 $$
 
 This problem can be solved with Algorithm \ref{kinvsub}.
@@ -1016,14 +1006,14 @@ This algorithm can be repeated as many times as desired with different random in
 %
 %Consider the problem of predicting the current state of a spatiotemporally-evolving function with a set of robots, each one of whom can only observe the phenomena partially. When there are sufficient such robots to cover the entire domain, there are many approaches in the coverage literature available for solving this problem \cite{hussein2006effective,hussein2007effective}. In those approaches, the robots figure out the best trajectories to create a network of connected sensors that can simultaneously observe the whole environment. However, when the number of robots is limited, full coverage of the domain is not possible. How a few robots whose combined sensors can only observe a small part of the domain can predict the state of the spatiotemporally-evolving function remains an open problem.  Here we consider a limiting case of this problem where only a single robot is available to observe the whole environment, but the robot has available to it an approximate model of the function learned through past experience Evolving Gaussian Processes.
 %
-%We will be using a Kalman filter in the weight space of the E-GP as described in previous sections. In order to determine where a moving agent should go in order to gather the measurements which will help it converge to the true state of the system quickest, we use information from the spectral analysis of the E-GP model. We postulate that the value of taking a measurement at a point in the domain with respect to a particular eigenvector is proportional to the following factors:
+%We will be using a Kalman filter in the weight space of the E-GP as described in previous sections. In order to determine where a moving agent should go in order to gather the measurements which will help it converge to the true state of the system fastest, we use information from the spectral analysis of the E-GP model. We postulate that the value of taking a measurement at a point in the domain with respect to a particular eigenvector is proportional to the following factors:
 %
 %\begin{enumerate}
 %	\item The spatial extent of the eigenvector. This can be taken to be equivalent to the area under the curve of the magnitude of the complex function corresponding to that eigenvector (normalized by the function peak)
 %	$$ SE_i = \frac{1}{\sup_x |v_i \hat\Phi(x)|} \int_X |v_i \hat\Phi(x)| dx $$
-%	This Riemman integral can of course be approximated by discretely partitioning the space. From this point of view, we can see that this expression represents what proportion of the domain is subject to variance due to the oscillation of this mode.
+%	This Riemann integral can of course be approximated by discretely partitioning the space. From this point of view, we can see that this expression represents what proportion of the domain is subject to variance due to the oscillation of this mode.
 %	
-%	\item The expected size of the measurement itself, which we take to be proportional to to $|v_i \hat \Phi(x)|$. This is included because greater measurements mean relatively greater correction to the state estimate.
+%	\item The expected size of the measurement itself, which we take to be proportional to $|v_i \hat \Phi(x)|$. This is included because greater measurements mean relatively greater correction to the state estimate.
 %	
 %	\item The ratio of the frequency with which that Koopman mode is visited to the frequency of its eigenvalue. This factor is included due to the aliasing effect, and is related to the concept of the Nyquist frequency. Modes with higher frequencies need to be visited more often than modes with lower frequencies.
 %	
