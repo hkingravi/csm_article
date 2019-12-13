@@ -495,10 +495,10 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 \end{enumerate}
 
 
-\rr{
+
 \subsection{Spectral Analysis of Evolving Gaussian Process Model, and Resulting Algorithms and Applications}
 
-We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade, especially within the Computational Flow Dynamics (CFD) community. Here we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
+We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade, especially within the Computational Flow Dynamics (CFD) community. Here we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. \rr{In fact, in our final theorem, we show that the eigenvalues of our model are all eigenvalues of the Koopman operator, the eigenvectors transformed to the input space are congruent in shape to the Koopman modes, and the eigenfunctions are identical}. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
 
 For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that
 \begin{align} \eqlabel{koopman_operator}
@@ -514,7 +514,7 @@ are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues.
 	The Koopman mode $s(x)$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $u(f,x)$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}
 \end{definition}
 
-As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes. Mezic (2013) showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA). We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.
+As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes. Mezic (2013) \cite{mezic2013analysis} showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA). We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.
 
 \begin{proposition}\label{thm:ApproxObsv}
 	Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $u(\fspaceEl,x)$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\hat u(\fspaceEl,x) \coloneqq u(\fspaceApproxEl,x)$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.
@@ -561,8 +561,6 @@ In essence, this says that if we can find a close-enough approximate feature spa
 %\begin{corollary}
 	%Suppose that for an approximate feature space $\fspaceApprox$, there exists $\e>0$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. For all $\phi_j(\fspaceEl) \gg \e$, and if the phi are lipshitz, then $s_j(x) \approx \obsMatRow(x) \cdot v_j$
 %\end{corollary}
-
-}
 
 
 \rr{

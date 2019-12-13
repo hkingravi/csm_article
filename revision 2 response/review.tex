@@ -47,8 +47,7 @@ In response to reviewer comments, we have undertaken some revisions for this pap
 
 \section{Response to comments by Associate Editor}
 
-The paper has been re-reviewed by four reviewers. In general, the reviewers found the revised paper significantly improved, but still
-point out a number of issues. Specifically:
+The paper has been re-reviewed by four reviewers. In general, the reviewers found the revised paper significantly improved, but still point out a number of issues. Specifically:
 \begin{itemize}
 	\item Presentation style: the paper still contains several typos (Reviewer 5, Reviewer 9). Even the statement of revision has several clumsy sentences. Most importantly, some parts (in particular, the newly added	part on Koopman operator theory) are very hard to follow (Reviewer 5, Reviewer 6, Reviewer 7, and Reviewer 9).
 	\item Comparison with the state of the art: the comparison with the state of the art still requires improvement (Reviewer 6 and Reviewer 7).
@@ -66,17 +65,12 @@ note that CSM papers do not have appendices, so the location of the proofs needs
 
 {\color{red}(R1:P1)} Overall, I wish to thank the authors for thoughtfully addressing the previous comments of the reviewers. My comments will primarily address the added content. 
 
-I think the added discussion of the connections between Koopman operator methods (both in theory and practice) and the proposed
-approach is very helpful. I think it could be structured slightly better: while the first paragraph discusses that connections will be
-presented, I think the results of Theorem 4 (either the explicit theorem, or a rough outline) could be presented earlier. I realize that
-the theorem relies on machinery developed in the preceding propositions---I'm not entirely sure how to restructure this section,
-but a better roadmap to the main results would be helpful for the reader. 
+I think the added discussion of the connections between Koopman operator methods (both in theory and practice) and the proposed approach is very helpful. I think it could be structured slightly better: while the first paragraph discusses that connections will be presented, I think the results of Theorem 4 (either the explicit theorem, or a rough outline) could be presented earlier. I realize that the theorem relies on machinery developed in the preceding propositions---I'm not entirely sure how to restructure this section, but a better roadmap to the main results would be helpful for the reader. 
 
-{\color{red} Response:} Joshua
+{\color{red} Response:} Thank you for your encouraging feedback. We have restructured this section in order to declare the main theoretical results more clearly at the beginning, while still maintaining the logical structure of the proofs.
 
 
 {\color{red}(R1:P2)} I think the discussion of scoring paths could be better motivated. In particular, providing more intuition for the measurement values (items 1-4) would be helpful for the reader. 
-
 
 {\color{red}(Response)} Joshua
 
@@ -92,7 +86,7 @@ but a better roadmap to the main results would be helpful for the reader.
 	\item Figure 22, "mean" is written ",ean"
 \end{itemize}
 
-{\color{red}(Response)}
+{\color{red}(Response)} Thank you for pointing out these typos. A thorough proofread has been performed, and these errors have been corrected.
 
 
 
@@ -105,21 +99,19 @@ but a better roadmap to the main results would be helpful for the reader.
 
 {\color{red}(R6:P2)} I also do not think that a link between GPs and dynamical systems (and then using dynamical systems for estimation) is a contribution since it has already been studied in [42-44] and also deeply discussed here (this reference is missing in the paper): Todescato et al., Efficient Spatio-Temporal Gaussian Regression via Kalman Filtering, ArXiv, 2017
 
-{\color{red}(Response)} We thank the reviewer for pointing out the missing reference, we have included that in the paper \gXX{Josh can we please add this}. We have also carefully gone through the introduction and contributions part and ensured that we are not overstating the contributions of the paper.
+{\color{red}(Response)} We thank the reviewer for pointing out the missing reference, we have included this in the paper among the other references to methods which use a nonstationary covariance kernel. While this work shares with ours a similar ability to predict-and-correct using a Kalman filter, it lacks the guarantees on observability granted by our informed sensor-placing strategies. We have reviewed our introduction and contributions section carefully to ensure that we are clear stating, not overstating, the contributions of the paper.
 
 
-To ensure clear communication, we now discuss the concern about papers 42-44. For reference, these papers are  [42] Carron et al. 
-Machine learning meets kalman filtering. In 2016 IEEE 55th Conference on Decision and
-Control (CDC); [43] Jouni Hartikainen and Simo Sarkka Kalman filtering and smoothing solutions to temporal
-gaussian process regression models. In 2010 IEEE International Workshop on Machine
-Learning for Signal Processing, and 
-[44] Simo Sarkka, Arno Solin, and Jouni Hartikainen. Spatiotemporal learning via infinite dimensional bayesian filtering and smoothing: A look at gaussian process regression through kalman filtering. IEEE Signal Processing Magazine.
+We would like to be completely clear about the concern about papers 42-44. For reference, these papers are 
+[42] Carron et al. Machine learning meets kalman filtering. In 2016 IEEE 55th Conference on Decision and Control (CDC);
+[43] Jouni Hartikainen and Simo Sarkka Kalman filtering and smoothing solutions to temporal gaussian process regression models. In 2010 IEEE International Workshop on Machine
+Learning for Signal Processing, and [44] Simo Sarkka, Arno Solin, and Jouni Hartikainen. Spatiotemporal learning via infinite dimensional bayesian filtering and smoothing: A look at gaussian process regression through kalman filtering. IEEE Signal Processing Magazine.
 
- We are certainly aware of the seminal work in this area done by Sarkka's group and other groups in the area of bringing together Kalman filters with Gaussian Processes. This work has led to efficient ways of estimating GP parameters. We certainly agree that our paper is not the first one to establish the link, and neither have we made such claim. In fact, we have cited other such papers, including the very first time the link between Kalman filters and GPs was established, as we have noted, in the work in Kriged KFs.  
+We are certainly aware of the seminal work in this area done by Sarkka's group and other groups in the area of bringing together Kalman filters with Gaussian Processes. This work has led to efficient ways of estimating GP parameters. We certainly agree that our paper is not the first one to establish the link, and neither have we made such claim. In fact, we have cited other such papers, including the very first time the link between Kalman filters and GPs was established, as we have noted, in the work in Kriged KFs.  
 
-To clarify our contributions over  the work of Sarkka et al., and specifically 44, we bring the reviewer's attention to equations (14) in Sarkka et al., note that the kernel uses both $X$ and $t$. The formulation in (15) in Sarkka et al. further establishes this by showing that both the linear evolution and the spatial prediction equations have kernels over $(x,t)$. As such, the kernel dictionary in these models need to have kernels over both $x$ and $t$ increasing drastically the number of kernels. This is the first point of departure and our contribution, in the E-GP model we enforce that the kernel of the GP is only a function of $x$, all of the temporal evolution is restricted to the linear part of the model. This approach is designed specifically to model large scale spatiotemporal dynamical systems. As such, we do not assume the knowledge of the $A$ matrix, and provide methods for estimating it, which is different than 42-44. In addition, we present results on approximation of the Koopman operator and provide results that show that the method works well in predicting complex spatiotemporal PDEs such as Navier Stokes.
+To clarify our contributions over  the work of Sarkka et al., and specifically 44, we bring the reviewer's attention to equations (14) in Sarkka et al., note that the kernel uses both $X$ and $t$. The formulation in (15) in Sarkka et al. further establishes this by showing that both the linear evolution and the spatial prediction equations have kernels over $(x,t)$. As such, the kernel dictionary in these models need to have kernels over both $x$ and $t$ increasing drastically the number of kernels. This is the first point of departure and our contribution, in the E-GP model we enforce that the kernel of the GP is only a function of $x$, all of the temporal evolution is restricted to the linear part of the model. This approach is designed specifically to model large scale spatiotemporal dynamical systems. As such, we do not assume the knowledge of the $A$ matrix, and provide methods for estimating it, which is different than 42-44. In addition, we present results on approximation of the Koopman operator and provide results that show that the method works well in predicting complex spatiotemporal PDEs such as Navier-Stokes.
 
-In summary, we agree that this is not the first paper to link GPs and dynamical systems, indeed we have cited many others. Our contributions however are in strengthening that link and establishing a theory of observability and contrallability in feature spaces, as well as using it to design sensing schemes.
+In summary, we agree that this is not the first paper to link GPs and dynamical systems, indeed we have cited many others. Our contributions however are in strengthening that link and establishing a theory of observability and controllability  in feature spaces, as well as using it to design sensing schemes.
 
 \section{Response to comments by Referee 7. reviewer ID 4669}
 
