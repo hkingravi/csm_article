@@ -58,6 +58,12 @@ Christian Plagemann, Kristian Kersting, and Wolfram Burgard.
 \newblock In {\em Machine learning and knowledge discovery in databases}, pages
   204--219. Springer, 2008.
 
+\bibitem{todescato2017efficient}
+Marco Todescato, Andrea Carron, Ruggero Carli, Gianluigi Pillonetto, and Luca
+  Schenato.
+\newblock Efficient spatio-temporal gaussian regression via kalman filtering.
+\newblock {\em arXiv preprint arXiv:1705.01485}, 2017.
+
 \bibitem{Chowdhary13_CDC1}
 G.~Chowdhary, H.~Kingravi, J.P. How, and P.~Vela.
 \newblock Nonparametric adaptive control using gaussian processes.
@@ -313,6 +319,18 @@ W~Murray Wonham.
 \newblock {\em Linear multivariable control}.
 \newblock Springer, 1974.
 
+\bibitem{micchelli1984interpolation}
+Charles~A Micchelli.
+\newblock Interpolation of scattered data: distance matrices and conditionally
+  positive definite functions.
+\newblock In {\em Approximation Theory and Spline Functions}, pages 143--145.
+  Springer Netherlands, 1984.
+
+\bibitem{motwani2010randomized}
+Rajeev Motwani and Prabhakar Raghavan.
+\newblock {\em Randomized algorithms}.
+\newblock Chapman \& Hall/CRC, 2010.
+
 \bibitem{csato2002sparse}
 Lehel Csat\"{o} and Manfred Opper.
 \newblock Sparse on-line gaussian processes.
@@ -401,39 +419,11 @@ Lehel Csato and Manfred Opper.
 \newblock {\em Advances in neural information processing systems}, pages
   444--450, 2001.
 
-\bibitem{roshko1954cylinder}
-A.~Roshko.
-\newblock On the development of turbulent wakes from vortex streets.
-\newblock {\em California Institute of Technology}, Report 1191, 1954.
-
-\bibitem{braza1986cylinder}
-M.~Braza, P.H.H.M. Chassaing, and H.H. Minh.
-\newblock Numerical study and physical analysis of the pressure and velocity
-  fields in the near wake of a circular cylinder.
-\newblock {\em Journal of fluid mechanics}, 165(130), 1986.
-
-\bibitem{rajani1986cylinder}
-B.N. Rajani, A.~Kandasamy, and S.~Majumdar.
-\newblock Numerical simulation of laminar flow past a circular cylinder.
-\newblock {\em Applied Mathematical Modelling}, 33(3):1228--1247, 2009.
-
 \bibitem{tran2015learning}
 Du~Tran, Lubomir Bourdev, Rob Fergus, Lorenzo Torresani, and Manohar Paluri.
 \newblock Learning spatiotemporal features with 3d convolutional networks.
 \newblock In {\em Proceedings of the IEEE international conference on computer
   vision}, pages 4489--4497, 2015.
-
-\bibitem{micchelli1984interpolation}
-Charles~A Micchelli.
-\newblock Interpolation of scattered data: distance matrices and conditionally
-  positive definite functions.
-\newblock In {\em Approximation Theory and Spline Functions}, pages 143--145.
-  Springer Netherlands, 1984.
-
-\bibitem{motwani2010randomized}
-Rajeev Motwani and Prabhakar Raghavan.
-\newblock {\em Randomized algorithms}.
-\newblock Chapman \& Hall/CRC, 2010.
 
 \bibitem{richards2018immigration}
 Timothy~J Richards.
@@ -604,6 +594,22 @@ Ian Goodfellow, Yoshua Bengio, Aaron Courville, and Yoshua Bengio.
 Ronald~L Panton.
 \newblock {\em Incompressible flow}.
 \newblock John Wiley \& Sons, 2006.
+
+\bibitem{roshko1954cylinder}
+A.~Roshko.
+\newblock On the development of turbulent wakes from vortex streets.
+\newblock {\em California Institute of Technology}, Report 1191, 1954.
+
+\bibitem{braza1986cylinder}
+M.~Braza, P.H.H.M. Chassaing, and H.H. Minh.
+\newblock Numerical study and physical analysis of the pressure and velocity
+  fields in the near wake of a circular cylinder.
+\newblock {\em Journal of fluid mechanics}, 165(130), 1986.
+
+\bibitem{rajani1986cylinder}
+B.N. Rajani, A.~Kandasamy, and S.~Majumdar.
+\newblock Numerical simulation of laminar flow past a circular cylinder.
+\newblock {\em Applied Mathematical Modelling}, 33(3):1228--1247, 2009.
 
 \bibitem{polyculture_fig}
 Graham Burnett.

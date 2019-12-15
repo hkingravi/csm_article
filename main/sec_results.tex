@@ -153,18 +153,18 @@ This figure shows the trend of the observer getting better and better state esti
 \begin{figure*}
     \centering
     \hspace{-0.3in}\subfloat[6th May]{
-	\includegraphics[scale=0.22]{May6}
+	\includegraphics[scale=0.39]{May6}
 	\label{fig:May6 } }
 	\hspace{-0.5in}
 	\subfloat[7th May]{
-	\includegraphics[scale=0.22]{May7}
+	\includegraphics[scale=0.39]{May7}
 	\label{fig:May7 } }
 	\hspace{-0.5in}
 	\subfloat[28th May]{
-	\includegraphics[scale=0.22]{May28}
+	\includegraphics[scale=0.39]{May28}
 	\label{fig:May28 } }
 	\hspace{-0.5in}\subfloat[29th May]{
-	\includegraphics[scale=0.22]{May29}
+	\includegraphics[scale=0.39]{May29}
 	\label{fig:May29 } }
 	\caption{Locations of weather anomaly obtained based on the error between the acutual temperature and the prediction of autonomous kernel observer. Landmass is shown in white and the ocean is in green. Locations marked have error greater than two standard deviations above the mean error. }
 	\label{fig:anomaly}
@@ -271,12 +271,11 @@ $\ncontrol=13$, generating the control space $\fspaceD$. The number of, and the 
 \end{figure}
 
 
-\rr{
+
 \subsection{Comparison of Eigenvalues and Koopman modes with DMD}
 
 In order to verify empirically our theoretical results, we compared the eigenvalues and Koopman modes derived from $\dualopApprox$ in our E-GP model with the eigenvalues and Koopman modes derived by the well-known Dynamic Mode Decomposition (DMD) algorithm using data from fluid flowing past a cylinder at different Reynolds numbers. The results are presented in figures \ref{fig:cfd_100_modes} and \ref{fig:eigenvalues}.
 
-}
 
 \begin{figure*}[h]
 	\centering
@@ -325,76 +324,76 @@ In order to verify empirically our theoretical results, we compared the eigenval
 \end{figure*}
 
 
-\rr{
-\subsection{Paths for Moving Agents}
-To begin our investigation into the problem of finding best paths for sensing agents in motion, we constructed a number of simple synthetic spatiotemporally evolving systems for the agents to explore. One of these is displayed below \ref{fig:synthetic}. This is a system with two invariant subspaces, in each of which, two hills oscillate up and down in sync at a different frequency than the other invariant subspace. This is ideal for testing our methods. If successful, our methods should be able to (1) divide the space evenly between the two invariant subspaces, (2) be able to evaluate the spatial extent of the subspaces as roughly equivalent, (3) be able to identify the centers of each of the four hills as valuable waypoints, and (4) choose paths that travel between each of the hills equitably. In the example below, we used 100 centers with an RBF kernel with a bandwidth of 0.2 to train our E-GP model, though in testing we could also go as low as 20 centers.}
-
-
-\begin{figure*}[h]
-	\centering
-	\subfloat[Synthetic system with 2 invariant subspaces]{
-		\includegraphics[width=0.30\textwidth]{synthetic23}
-		\label{fig:synthetic}	}
-	\subfloat[\small{Initial clustering of centers}]{
-		\includegraphics[width=0.30\textwidth]{init_cluster}
-		\label{fig:init_cluster}		}
-	\subfloat[\small{Final clustering of centers}]{
-		\includegraphics[width=0.34\textwidth]{final_cluster}
-		\label{fig:final_cluster}	}
-	\caption{Synthetic System Invariant Subspaces}
-\end{figure*}
-
-\rr{The $k$-means algorithm divides the system nicely through the middle, as expected.}
-
-\begin{figure*}[h]
-	\centering
-	\subfloat[Best Path Chosen for Synthetica Data Set]{
-		\includegraphics[width=0.30\textwidth]{pathS}
-		\label{fig:pathS}	}
-	\subfloat[\small{Convergence of State Prediction for Synthetic}]{
-		\includegraphics[width=0.30\textwidth]{convS}
-		\label{fig:convS}		}
-	\subfloat[\small{Best Path Chosen for CFD}]{
-		\includegraphics[width=0.34\textwidth]{path}
-		\label{fig:path}	}
-	\caption{More Results}
-\end{figure*}
-
-\rr{We found that the naive method of generating paths purely at random was largely futile, due to the large plain of zero values in-between the two invariant subspaces, which offer little in the way of meaningful data to correct the state estimate. By working with these synthetic data sets, we were able to test the three algorithms described in the previous section and demonstrate that they achieved the four criteria we laid out for them.}
-
-\rr{
-\subsubsection{Fluid Flow Past a Cylinder}
-
-To test our methods on challenging, realistic data sets, we used CFD methods to generate the states for a canonical fluid mechanics problem: flow past a cylinder at various Reynolds numbers, namely Re = 100, 300, 600, 800 and 1000. This deterministic, high-dimensional spatiotemporal dynamical system is well-studied in the fluid dynamics literature, both experimentally and numerically \cite{roshko1954cylinder, braza1986cylinder, rajani1986cylinder}. In our CFD simulation, we used a 4th-order polynomial expansion with spectral element method on the incompressible Navier-Stokes equation to generate the cylinder flow data. The spatial domain is $\left[-2,10\right]\times\left[-3,3\right]$, excluding the diameter-1 cylinder at the origin.  Neumann boundary conditions are applied to the far-field of the cylinder in the y-direction and the outlet of the flow field; and a Dirichlet boundary condition is applied to the inlet. The flow is unstable, periodic, and clearly nonlinear.
-
-For training the E-GP we used 600 centers with an RBF kernel with a bandwidth of 0.4. This output a $600\times600$ matrix $\dualopApprox$ which accurately captures the dynamics of the whole system. (Note that this reduces the size of the model by almost two orders of magnitude from the original CFD data).
-
-Since the CFD set has dynamics almost everywhere, most paths are able to converge to the state eventually, as long as they avoid wandering at the edges where the fluid velocity is semi-constant. However, we were able to demonstrate (as shown in the figures below) that our method of generating paths from valuable waypoints performs statistically much better than either purely random paths or random paths selected by the scoring algorithm.}%However, it is notable that a pre-designed lawnmower path failed to do as well as most random paths. Once again, the random paths generated and chosen by our methods did the best.
-
-\begin{figure*}[h]
-	\centering
-	\subfloat[\small{CFD system, Re=1000}]{
-		\includegraphics[width=0.30\textwidth]{snap1000_0}
-		\label{fig:cfd1000}	}
-	\subfloat[\small{Initial clustering of centers}]{
-		\includegraphics[width=0.30\textwidth]{init_clusterCFD}
-		\label{fig:cfd_init_cluster}		}
-	\subfloat[\small{Final clustering of centers}]{
-		\includegraphics[width=0.34\textwidth]{final_clusterCFD}
-		\label{fig:cfd_final_cluster}	}
-	\caption{CFD System Invariant Subspaces}
-\end{figure*}
-
-\begin{figure*}[h]
-	\centering
-	\subfloat[\small{Convergence of purely random paths}]{
-		\includegraphics[width=0.30\textwidth]{observer_worst}
-		\label{fig:observer_worst}	}
-	\subfloat[\small{Convergence of best scoring paths selected from random set}]{
-		\includegraphics[width=0.30\textwidth]{observer_middle}
-		\label{fig:observer_middle}		}
-	\subfloat[\small{Convergence of Best Scoring Path using Waypoints}]{
-		\includegraphics[width=0.34\textwidth]{observer_best}
-		\label{fig:observer_best}	}
-	\caption{Convergence results for CFD, showing ,ean, 15th, and 85th percentile path performance}
-\end{figure*}
+%\rr{
+%\subsection{Paths for Moving Agents}
+%To begin our investigation into the problem of finding best paths for sensing agents in motion, we constructed a number of simple synthetic spatiotemporally evolving systems for the agents to explore. One of these is displayed below \ref{fig:synthetic}. This is a system with two invariant subspaces, in each of which, two hills oscillate up and down in sync at a different frequency than the other invariant subspace. This is ideal for testing our methods. If successful, our methods should be able to (1) divide the space evenly between the two invariant subspaces, (2) be able to evaluate the spatial extent of the subspaces as roughly equivalent, (3) be able to identify the centers of each of the four hills as valuable waypoints, and (4) choose paths that travel between each of the hills equitably. In the example below, we used 100 centers with an RBF kernel with a bandwidth of 0.2 to train our E-GP model, though in testing we could also go as low as 20 centers.}
+%
+%
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[Synthetic system with 2 invariant subspaces]{
+%		\includegraphics[width=0.30\textwidth]{synthetic23}
+%		\label{fig:synthetic}	}
+%	\subfloat[\small{Initial clustering of centers}]{
+%		\includegraphics[width=0.30\textwidth]{init_cluster}
+%		\label{fig:init_cluster}		}
+%	\subfloat[\small{Final clustering of centers}]{
+%		\includegraphics[width=0.34\textwidth]{final_cluster}
+%		\label{fig:final_cluster}	}
+%	\caption{Synthetic System Invariant Subspaces}
+%\end{figure*}
+%
+%\rr{The $k$-means algorithm divides the system nicely through the middle, as expected.}
+%
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[Best Path Chosen for Synthetica Data Set]{
+%		\includegraphics[width=0.30\textwidth]{pathS}
+%		\label{fig:pathS}	}
+%	\subfloat[\small{Convergence of State Prediction for Synthetic}]{
+%		\includegraphics[width=0.30\textwidth]{convS}
+%		\label{fig:convS}		}
+%	\subfloat[\small{Best Path Chosen for CFD}]{
+%		\includegraphics[width=0.34\textwidth]{path}
+%		\label{fig:path}	}
+%	\caption{More Results}
+%\end{figure*}
+%
+%\rr{We found that the naive method of generating paths purely at random was largely futile, due to the large plain of zero values in-between the two invariant subspaces, which offer little in the way of meaningful data to correct the state estimate. By working with these synthetic data sets, we were able to test the three algorithms described in the previous section and demonstrate that they achieved the four criteria we laid out for them.}
+%
+%\rr{
+%\subsubsection{Fluid Flow Past a Cylinder}
+%
+%To test our methods on challenging, realistic data sets, we used CFD methods to generate the states for a canonical fluid mechanics problem: flow past a cylinder at various Reynolds numbers, namely Re = 100, 300, 600, 800 and 1000. This deterministic, high-dimensional spatiotemporal dynamical system is well-studied in the fluid dynamics literature, both experimentally and numerically \cite{roshko1954cylinder, braza1986cylinder, rajani1986cylinder}. In our CFD simulation, we used a 4th-order polynomial expansion with spectral element method on the incompressible Navier-Stokes equation to generate the cylinder flow data. The spatial domain is $\left[-2,10\right]\times\left[-3,3\right]$, excluding the diameter-1 cylinder at the origin.  Neumann boundary conditions are applied to the far-field of the cylinder in the y-direction and the outlet of the flow field; and a Dirichlet boundary condition is applied to the inlet. The flow is unstable, periodic, and clearly nonlinear.
+%
+%For training the E-GP we used 600 centers with an RBF kernel with a bandwidth of 0.4. This output a $600\times600$ matrix $\dualopApprox$ which accurately captures the dynamics of the whole system. (Note that this reduces the size of the model by almost two orders of magnitude from the original CFD data).
+%
+%Since the CFD set has dynamics almost everywhere, most paths are able to converge to the state eventually, as long as they avoid wandering at the edges where the fluid velocity is semi-constant. However, we were able to demonstrate (as shown in the figures below) that our method of generating paths from valuable waypoints performs statistically much better than either purely random paths or random paths selected by the scoring algorithm.}%However, it is notable that a pre-designed lawnmower path failed to do as well as most random paths. Once again, the random paths generated and chosen by our methods did the best.
+%
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[\small{CFD system, Re=1000}]{
+%		\includegraphics[width=0.30\textwidth]{snap1000_0}
+%		\label{fig:cfd1000}	}
+%	\subfloat[\small{Initial clustering of centers}]{
+%		\includegraphics[width=0.30\textwidth]{init_clusterCFD}
+%		\label{fig:cfd_init_cluster}		}
+%	\subfloat[\small{Final clustering of centers}]{
+%		\includegraphics[width=0.34\textwidth]{final_clusterCFD}
+%		\label{fig:cfd_final_cluster}	}
+%	\caption{CFD System Invariant Subspaces}
+%\end{figure*}
+%
+%\begin{figure*}[h]
+%	\centering
+%	\subfloat[\small{Convergence of purely random paths}]{
+%		\includegraphics[width=0.30\textwidth]{observer_worst}
+%		\label{fig:observer_worst}	}
+%	\subfloat[\small{Convergence of best scoring paths selected from random set}]{
+%		\includegraphics[width=0.30\textwidth]{observer_middle}
+%		\label{fig:observer_middle}		}
+%	\subfloat[\small{Convergence of Best Scoring Path using Waypoints}]{
+%		\includegraphics[width=0.34\textwidth]{observer_best}
+%		\label{fig:observer_best}	}
+%	\caption{Convergence results for CFD, showing mean, 15th, and 85th percentile path performance}
+%\end{figure*}
