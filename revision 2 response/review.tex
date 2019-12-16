@@ -30,13 +30,14 @@
 
 \section{Statement of Revision}
 
-We thank the associate editor and reviewers for their useful comments and suggestion. We have significantly the manuscript to reflect the reviewer comments and concerns. Wherever possible, we have marked the changes within our manuscript in \rr{blue}.
+We thank the associate editor and reviewers for their useful comments and suggestion. We have made significant revisions to the manuscript to reflect the reviewer comments and concerns. 
 
-In the following, we provide an account of the changes that have been made.  The nature of the review for this paper is such that the comments were provided both in paragraph form and in bulleted form.  When addressing the paragraph form, we have identify the comment using the notation {\bf {\color{red}(Rx:Py)}} where {\bf x} is the Reviewer number and {\bf y} is paragraph referred to. When addressing the bullet form, we utilize the form {\bf (Rx:z)} where {\bf x} identifies the Reviewer and {\bf z} identifies the bulleted comment. Each bulleted comment included in the listing is followed by a description of modifications to the paper addressing the comment. Furthermore, changes in the paper have been marked with a color coding.  We hope that this method is sufficiently clear. We would like to thank the reviewers for their time and effort at providing feedback in order to improve the exposition of the paper.
+In the following, we provide an account of the changes that have been made. Once again, we will be responding to the comments both in their paragraph form and bulleted form, using the notation {\bf {\color{red}(Rx:Py)}} where {\bf x} is the Reviewer number and {\bf y} is paragraph referred to. %When addressing the bullet form, we utilize the form {\bf (Rx:z)} where {\bf x} identifies the Reviewer and {\bf z} identifies the bulleted comment. Each bulleted comment included in the listing is followed by a description of modifications to the paper addressing the comment.
+As before, wherever a full sentence or more has been added in the manuscript, we have marked the changes in \rr{blue}.. We would like to thank the reviewers for their time and effort in providing feedback for the improvement of the paper.
 
 \noindent\textbf{An overview of the major changes}
 
-In response to reviewer comments, we have undertaken some revisions for this paper. Here we summarize some of those major revisions, further details are provided in response to individual reviewers:
+Here we provide a summary of the most major revisions in response to reviewer comments. Further details will be provided in the sections dedicated to each individual reviewer.
 
 \begin{enumerate}
 \item We have moved the materials in the appendix to the main text.
@@ -48,7 +49,7 @@ In response to reviewer comments, we have undertaken some revisions for this pap
 
 \section{Response to comments by Associate Editor}
 
-The paper has been re-reviewed by four reviewers. In general, the reviewers found the revised paper significantly improved, but still point out a number of issues. Specifically:
+{\color{red}(AE:1)} The paper has been re-reviewed by four reviewers. In general, the reviewers found the revised paper significantly improved, but still point out a number of issues. Specifically:
 \begin{itemize}
 	\item Presentation style: the paper still contains several typos (Reviewer 5, Reviewer 9). Even the statement of revision has several clumsy sentences. Most importantly, some parts (in particular, the newly added	part on Koopman operator theory) are very hard to follow (Reviewer 5, Reviewer 6, Reviewer 7, and Reviewer 9).
 	\item Comparison with the state of the art: the comparison with the state of the art still requires improvement (Reviewer 6 and Reviewer 7).
@@ -57,7 +58,7 @@ The paper has been re-reviewed by four reviewers. In general, the reviewers foun
 
 I concur with the reviewers' comments. The authors should prepare a revised version addressing \emph{all} the concerns and suggestions. In particular, the authors should significantly strengthen the tutorial value of the paper, and carefully proofread the manuscript. Finally, note that CSM papers do not have appendices, so the location of the proofs needs to be changed.
 
-{\color{red}(AE:1)} We thank the associate editor for the opportunity to submit a revision.  We have prepared a revision that addresses each and every one of these concerns. In particular, care has been taken to review the entire paper sentence by sentence to ensure complete readability and freedom from typos.
+{\color{red} Response:} We thank the associate editor for the opportunity to submit a revision.  We have prepared a revision that addresses each and every one of these concerns. Care has been taken to review the entire paper sentence-by-sentence to ensure complete readability and freedom from typos. We have diligently reviewed, clarified, and added nuance to the claims our paper makes about our contribution to the literature. We have shortened the paper by more than 10\% while also restructuring multiple sections to better communicate the driving motivations and important outcomes of our work.
 
 
 \section{Response to comments by Referee 5. Reviewer ID 4949}
@@ -71,7 +72,7 @@ I think the added discussion of the connections between Koopman operator methods
 
 {\color{red}(R1:P2)} I think the discussion of scoring paths could be better motivated. In particular, providing more intuition for the measurement values (items 1-4) would be helpful for the reader. 
 
-{\color{red}(Response)} We have chosen to remove the section on path planning for mobile agents. While we believe that this work has novel contributions to the problem at hand, we believe that to do it justice in comparing it to the work cited above would only lengthen a paper that the Associate Editor has said is too long.
+{\color{red}(Response)} We have chosen to remove the section on path planning for mobile agents. While we believe that this work has novel contributions to the problem at hand, we believe that to do it justice in comparing it to the work cited above would only lengthen a paper that the Associate Editor has mentioned is too long. We hope to publish this late-breaking work soon in another paper, but at this time we are convinced that this paper is strongest without it.
 
 {\color{red}(R1:P3)} Generally, the captions on figures need to be made more descriptive. For example, the caption on figure 20 is simply "more results" which isn't adequate for a reader. 
 
@@ -101,11 +102,12 @@ I think the added discussion of the connections between Koopman operator methods
 {\color{red}(Response)} We thank the reviewer for pointing out the missing reference, we have included this in the paper among the other references to methods which use a nonstationary covariance kernel. While this work shares with ours a similar ability to predict-and-correct using a Kalman filter, it lacks the guarantees on observability granted by our informed sensor-placing strategies. We have reviewed our introduction and contributions section carefully to ensure that we are clear stating, not overstating, the contributions of the paper.
 
 
-We would like to be completely clear about the concern about papers 42-44. For reference, these papers are 
-[42] Carron et al. Machine learning meets kalman filtering. In 2016 IEEE 55th Conference on Decision and Control (CDC);
-[43] Jouni Hartikainen and Simo Sarkka Kalman filtering and smoothing solutions to temporal gaussian process regression models. In 2010 IEEE International Workshop on Machine
-Learning for Signal Processing, and [44] Simo Sarkka, Arno Solin, and Jouni Hartikainen. Spatiotemporal learning via infinite dimensional bayesian filtering and smoothing: A look at gaussian process regression through kalman filtering. IEEE Signal Processing Magazine.
-
+We would like to be completely clear about the concern about papers 42-44. For reference, these papers are
+\begin{itemize}
+	\item [42] Carron et al. Machine learning meets kalman filtering. In 2016 IEEE 55th Conference on Decision and Control (CDC)
+	\item [43] Jouni Hartikainen and Simo Sarkka Kalman filtering and smoothing solutions to temporal gaussian process regression models. In 2010 IEEE International Workshop on Machine Learning for Signal Processing
+	\item [44] Simo Sarkka, Arno Solin, and Jouni Hartikainen. Spatiotemporal learning via infinite dimensional bayesian filtering and smoothing: A look at gaussian process regression through kalman filtering. IEEE Signal Processing Magazine.
+\end{itemize}
 We are certainly aware of the seminal work in this area done by Sarkka's group and other groups in the area of bringing together Kalman filters with Gaussian Processes. This work has led to efficient ways of estimating GP parameters. We certainly agree that our paper is not the first one to establish the link, and neither have we made such claim. In fact, we have cited other such papers, including the very first time the link between Kalman filters and GPs was established, as we have noted, in the work in Kriged KFs.  
 
 To clarify our contributions over  the work of Sarkka et al., and specifically 44, we bring the reviewer's attention to equations (14) in Sarkka et al., note that the kernel uses both $X$ and $t$. The formulation in (15) in Sarkka et al. further establishes this by showing that both the linear evolution and the spatial prediction equations have kernels over $(x,t)$. As such, the kernel dictionary in these models need to have kernels over both $x$ and $t$ increasing drastically the number of kernels. This is the first point of departure and our contribution, in the E-GP model we enforce that the kernel of the GP is only a function of $x$, all of the temporal evolution is restricted to the linear part of the model. This approach is designed specifically to model large scale spatiotemporal dynamical systems. As such, we do not assume the knowledge of the $A$ matrix, and provide methods for estimating it, which is different than 42-44. In addition, we present results on approximation of the Koopman operator and provide results that show that the method works well in predicting complex spatiotemporal PDEs such as Navier-Stokes.
@@ -128,7 +130,7 @@ In summary, we agree that this is not the first paper to link GPs and dynamical 
 {\color{red}(Response)}
 \begin{enumerate}[(i)]
 	\item In the proof of Theorem 4, we note that an operator defined by $f_{\tau} \mapsto w_{\tindex}$, or $w(f_{\tau})=w_{\tau}$, is an observable. The output of the operator has the same value as the vector. This becomes useful in defining the eigenfunctions. In order to clear up this confusion, we have used a different symbol $P$ for the projection operator.
-	\item We have chosen to remove the section on path planning for mobile agents. While we believe that this work has novel contributions to the problem at hand, we believe that to do it justice in comparing it to the work cited above would only lengthen a paper that the Associate Editor has said is too long. 
+	\item We have chosen to remove the section on path planning for mobile agents for reasons given in the response to {\color{red}(R1:P2)}.
 	\item Nevertheless, to answer the questions posed about the now-removed section: 1. We assume that the system is large-scale enough that the motion models of the agent(s) do not play an important role in determining trajectories. 2. The problem we pose is fundamentally different than the problem posed in other works on coverage, most of which seek uniform coverage or at least a static weighted coverage. Since we seek to accurately predict the spatio-temporal evolution the system, our coverage needs change continuously.
 \end{enumerate}
 
@@ -145,7 +147,7 @@ unclear as to what is the measure $\nu$ selected in the experiments. Also how us
 
 {\color{red}(R7:P4)} 3. The numerics are very useful and would be appealing for a reader. Overall, I think this paper needs to be condensed from its current state as I think there is too much content in this version to be considered for a CSM publication.
 
-{\color{red}(Response)} We have condensed this paper by 10\% from the previous version.
+{\color{red}(Response)} We agree with the reviewer that this was a very long paper, and so we have taken the effort to condense it by 10\% from the previous version.
 
 
 
@@ -153,7 +155,7 @@ unclear as to what is the measure $\nu$ selected in the experiments. Also how us
 
 {\color{red}(R9:P1)} I have read the revised version of this paper and the response letter from the authors. We thank the authors for the efforts to make modifications and improvements based on the reviews. In particular, the authors make comparisons between their methods and Koopman operator theory. Additionally, the authors also provide an appendix to include the missing proofs from the first submission. Overall, the paper has been improved. There is still a potential to further improve the paper from both of the clarity of the theoretical analysis and the presentation style. Here are some comments:  
 
-{\color{red}(Response)} The authors thank the anonymous reviewer for their helpful comments. 
+{\color{red}(Response)} The authors appreciate the helpful comments from the anonymous reviewer!
 
 {\color{red}(R9:P2)} One note about the “set of time instances” (which appears in Prop 1, Thm 1, and etc.). Could the authors give some explanations about the difference between this and the set of sampling locations? For example, we do not want the cardinality of the set of sampling locations (i.e., N) to be large, compared with M. Would the condition that the cardinality of the set of time instances (i.e., L) is greater than M be an issue?
 
@@ -161,7 +163,7 @@ unclear as to what is the measure $\nu$ selected in the experiments. Also how us
 
 {\color{red}(R9:P3)} When proposing the random sensor placement scheme, it would be better to give some more details about how the random scheme compares with/differ from the measurement map approach, besides Figure 8. For example, the computational complexities of these two methods could be compared further and explain which method is suitable under which scenario.
 
-{\color{red}(Response)}  Random scheme inherently requires no computational effort but comes at the cost of requiring large number of samples, on the other hand measurement map approach is computationally expensive and infeasible for budgeted kernel centers. 
+{\color{red}(Response)}  Random scheme inherently requires no computational effort, but comes at the cost of requiring large number of samples; on the other hand, the measurement map approach is computationally expensive and infeasible for budgeted kernel centers. 
 
 {\color{red}(R9:P4)} One note about the value $\frac{\varsigma}{p_{\epsilon}}$. How does this value compare with the dimension of the matrix $\hat{A}$ in Eq. (3)?
 
@@ -186,8 +188,17 @@ provided here for the authors’ reference:
 	\item In Appendix, Remark 3 and the paragraph before it also appear in the main body of the paper. In the last subsection of Appendix containing the proofs of the Koopman method, the proof for Prop 4 or Prop 5 seems to be missing. The proof for Theorem 4 could be made clearer by splitting the proof according to the three results in the statement of Theorem 4.
 \end{enumerate}
 
-{\color{red}(Response)} 
-ending commas and periods fixed. References not fixed \gXX{Harshal can you please respond}. \gXX{Theorem 4 has not been restructured}.
+{\color{red}(Response)}
+\begin{itemize}
+	\item Reviewed and corrected.
+	\item Reviewed and corrected.
+	\item This section actually first introduces said algorithm. We have made revisions to help avoid such confusion.
+	\item The section on path planning for mobile agents has been removed, for reasons given in the response to {\color{red}(R1:P2)}.
+	\item See above.
+	\item See above.
+	\item The Appendix has been merged with the main text in accordance with comments from the Associate Editor. Proposition 4, as has now been made more clear, follows directly from the definition of observables, so no proof is provided. The proof for Theorem 4 has been structured as suggested.
+\end{itemize}
+ending commas and periods fixed. References not fixed \gXX{Harshal can you please respond}. \gXX{Theorem 4 has not been restructured}. 
 
 \section{Conclusion}
 
