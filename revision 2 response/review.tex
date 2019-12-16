@@ -141,7 +141,7 @@ unclear as to what is the measure $\nu$ selected in the experiments. Also how us
 
 {\color{red}(R7:P3)} Algorithms 3 and 9 talk about the use of a 'standard kernel inference procedure'. It would be helpful to explain what such a procedure is.
 
-{\color{red}(Response)} Hassan/Girish \gXX{Hassan can you please respond}
+{\color{red}(Response)} The step in those algorithms has been changed to read `Solve for $\hat{w}_{\tau}$ by using least squares on $y_{\tau} = K\hat{w}_{\tau}$'.
 
 {\color{red}(R7:P4)} 3. The numerics are very useful and would be appealing for a reader. Overall, I think this paper needs to be condensed from its current state as I think there is too much content in this version to be considered for a CSM publication.
 
@@ -153,11 +153,11 @@ unclear as to what is the measure $\nu$ selected in the experiments. Also how us
 
 {\color{red}(R9:P1)} I have read the revised version of this paper and the response letter from the authors. We thank the authors for the efforts to make modifications and improvements based on the reviews. In particular, the authors make comparisons between their methods and Koopman operator theory. Additionally, the authors also provide an appendix to include the missing proofs from the first submission. Overall, the paper has been improved. There is still a potential to further improve the paper from both of the clarity of the theoretical analysis and the presentation style. Here are some comments:  
 
-{\color{red}(Response)} The authors thank the anonymous reviewer for thier helpful comments. 
+{\color{red}(Response)} The authors thank the anonymous reviewer for their helpful comments. 
 
 {\color{red}(R9:P2)} One note about the “set of time instances” (which appears in Prop 1, Thm 1, and etc.). Could the authors give some explanations about the difference between this and the set of sampling locations? For example, we do not want the cardinality of the set of sampling locations (i.e., N) to be large, compared with M. Would the condition that the cardinality of the set of time instances (i.e., L) is greater than M be an issue?
 
-{\color{red}(Response)} \gXX{Hassan can you please respond}
+{\color{red}(Response)} The cardinality of the set of time instances is independent from that of the sampling locations. In the proof of Proposition 1, note that the interaction between the sampling locations and the time instances is relevant mainly to show observability. Therefore, $N\times L$ has to be greater than equal to $M$: since $L$ is assumed to be at least $M$, the number of sampling locations can remain small, as long as we have a shaded observation matrix. 
 
 {\color{red}(R9:P3)} When proposing the random sensor placement scheme, it would be better to give some more details about how the random scheme compares with/differ from the measurement map approach, besides Figure 8. For example, the computational complexities of these two methods could be compared further and explain which method is suitable under which scenario.
 
