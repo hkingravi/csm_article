@@ -425,33 +425,33 @@ While Theorem \ref{thm:1} is a quite general result, the condition that any $\mi
 
 This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $\dualopApprox$ needs to be inferred from measurements of the process $f_{\tindex}$. If no assumptions are placed on $\dualopApprox$, it's clear that at least $\ncent$ sensors are required for the system identification phase. Future work will study the precise conditions under which system identification is possible with less than $\ncent$ sensors.
 
-\begin{figure}[t!]
-	\begin{algorithm}[H]
-		\caption{Measurement Map $\measmap$}
-		\label{alg:measmap}
-		\begin{algorithmic}
-			\begin{footnotesize} 
-				\STATE {\bfseries Input:} $\dualopApprox\in\R^{\ncent\times\ncent}$
-				\STATE Compute Frobenius canonical form, such that $ \FrobC  = \FrobP^{-1} \dualopApprox^T\FrobP$. Set $\FrobC_0:=\FrobC$, and
-				$\ncent_0:=\ncent$. 
-				%           Obtain subspaces 
-				%           $\linspace_i\subset\R^{\ncent}$ s.t. $\R^{\ncent} = \linspace_1\oplus\cdots\oplus\linspace_{\minmeas}$.
-				\FOR{$i=1$ {\bfseries to} $\minmeas$}
-				\STATE Obtain MP $\minpoly_i(\eval)$ of $\FrobC_{i-1}$. 
-				This returns associated indices $\mmapInd{i}\subset\{1,2,\dots,\ncent_{i-1}\}$. 
-				%             \STATE Use $\mmapInd{i}$ to select submatrix $\widetilde{\FrobP}_i$, where an index $j\in\mmapInd{i}$ 
-				%                    indicates selection of the row and column associated to $j$.
-				\STATE Construct vector $\linvec_i \in \R^{\ncent}$ such that 
-				$\minpolyv_{\linvec_i}(\eval)=\minpoly_{i}(\eval)$ .
-				\STATE Use indices $\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}$ to select matrix $\FrobC_i$. Set 
-				$\ncent_i:= |\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}|$
-				\ENDFOR
-				\STATE Compute $ \premeasmap = [\linvec_1^T, \linvec_2^T,...,\linvec_{\minmeas}^T]^T$
-				\STATE {\bfseries Output:} $ \measmap =\premeasmap\FrobP^{-1}  $
-			\end{footnotesize}
-		\end{algorithmic}
-	\end{algorithm} 
-\end{figure}
+% \begin{figure}[t!]
+% 	\begin{algorithm}[H]
+% 		\caption{Measurement Map $\measmap$}
+% 		\label{alg:measmap}
+% 		\begin{algorithmic}
+% 			\begin{footnotesize} 
+% 				\STATE {\bfseries Input:} $\dualopApprox\in\R^{\ncent\times\ncent}$
+% 				\STATE Compute Frobenius canonical form, such that $ \FrobC  = \FrobP^{-1} \dualopApprox^T\FrobP$. Set $\FrobC_0:=\FrobC$, and
+% 				$\ncent_0:=\ncent$. 
+% 				%           Obtain subspaces 
+% 				%           $\linspace_i\subset\R^{\ncent}$ s.t. $\R^{\ncent} = \linspace_1\oplus\cdots\oplus\linspace_{\minmeas}$.
+% 				\FOR{$i=1$ {\bfseries to} $\minmeas$}
+% 				\STATE Obtain MP $\minpoly_i(\eval)$ of $\FrobC_{i-1}$. 
+% 				This returns associated indices $\mmapInd{i}\subset\{1,2,\dots,\ncent_{i-1}\}$. 
+% 				%             \STATE Use $\mmapInd{i}$ to select submatrix $\widetilde{\FrobP}_i$, where an index $j\in\mmapInd{i}$ 
+% 				%                    indicates selection of the row and column associated to $j$.
+% 				\STATE Construct vector $\linvec_i \in \R^{\ncent}$ such that 
+% 				$\minpolyv_{\linvec_i}(\eval)=\minpoly_{i}(\eval)$ .
+% 				\STATE Use indices $\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}$ to select matrix $\FrobC_i$. Set 
+% 				$\ncent_i:= |\{1,2,\dots,\ncent_{i-1}\}\setminus\mmapInd{i}|$
+% 				\ENDFOR
+% 				\STATE Compute $ \premeasmap = [\linvec_1^T, \linvec_2^T,...,\linvec_{\minmeas}^T]^T$
+% 				\STATE {\bfseries Output:} $ \measmap =\premeasmap\FrobP^{-1}  $
+% 			\end{footnotesize}
+% 		\end{algorithmic}
+% 	\end{algorithm} 
+% \end{figure}
 
 \begin{figure}[t!]
 	\begin{algorithm}[H]
@@ -480,7 +480,7 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
 				step $\ftime$. 
 				\WHILE{$\tindex \leq \ftime$}
 				\STATE $1)$ Sample data $\{y^i_{\tindex}\}_{i=1}^{\ncent}$ from $f_{\tindex}$. 
-				\STATE $2)$ Estimate $\estweight_\tindex$ via standard kernel inference procedure. 
+				\STATE $2)$ Solve for $\estweight_\tindex$ by using least squares on $\meas_{\tindex} = \obsMat \estweight_{\tindex}$. 
 				\STATE $3)$ Store weights $\estweight_\tindex$ in matrix $\W\in\R^{\ncent\times \ftime}$.
 				\ENDWHILE
 				\STATE To infer $\dualopApprox$, define matrix $\Phi = \W^T\W$. Then:
@@ -519,26 +519,26 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
 	\end{algorithm}
 	\vspace{-0.2in}
 \end{figure}
-
-\begin{figure}[tbh]
-	\begin{algorithm}[H]
-		\caption{Kernel Controller}
-		\label{alg:egp_control}
-		\begin{algorithmic}
-				\STATE {\bfseries Input:} Kernel $\kernel$, basis points $\shCent$,
-				estimated system matrix $\estsysop$, estimated covariance matrix $\estcontrolop$, and function $f_{\text{ref}}$ 
-				to drive initial function to.    
-				\STATE {\bfseries Initialize Observer:} (see Algorithm \ref{alg:egp_inf}). 
-				\STATE {\bfseries Initialize Controller:} Use Jordan decomposition of $\estsysop$ to obtain  no. of control locations $\controlCent$, compute kernel matrix $\empKCD\in\R^{\ncontrol\times\ncent}$ between $\controlCent$ and $\shCent$, and initialize controller (e.g. LQR) utilizing $(\estsysop, \estcontrolop)$.
-				\WHILE{ measurements available }   
-				\STATE 1) Sample data $\{y^i_k\}_{i=1}^{\nsamp}$ from $f(x,\tindex)$.    
-				\STATE 2) Utilize observer to estimate $\estweight_{\tindex+1}$.
-				\STATE 3) Use $\estweight_{\tindex+1}$ and $f_{\text{ref}}$ as input to controller to get feedback. 
-				\ENDWHILE   
-		\end{algorithmic}
-	\end{algorithm}
-	\vspace{-0.2in}
-\end{figure}
+% 
+% \begin{figure}[tbh]
+% 	\begin{algorithm}[H]
+% 		\caption{Kernel Controller}
+% 		\label{alg:egp_control}
+% 		\begin{algorithmic}
+% 				\STATE {\bfseries Input:} Kernel $\kernel$, basis points $\shCent$,
+% 				estimated system matrix $\estsysop$, estimated covariance matrix $\estcontrolop$, and function $f_{\text{ref}}$ 
+% 				to drive initial function to.    
+% 				\STATE {\bfseries Initialize Observer:} (see Algorithm \ref{alg:egp_inf}). 
+% 				\STATE {\bfseries Initialize Controller:} Use Jordan decomposition of $\estsysop$ to obtain  no. of control locations $\controlCent$, compute kernel matrix $\empKCD\in\R^{\ncontrol\times\ncent}$ between $\controlCent$ and $\shCent$, and initialize controller (e.g. LQR) utilizing $(\estsysop, \estcontrolop)$.
+% 				\WHILE{ measurements available }   
+% 				\STATE 1) Sample data $\{y^i_k\}_{i=1}^{\nsamp}$ from $f(x,\tindex)$.    
+% 				\STATE 2) Utilize observer to estimate $\estweight_{\tindex+1}$.
+% 				\STATE 3) Use $\estweight_{\tindex+1}$ and $f_{\text{ref}}$ as input to controller to get feedback. 
+% 				\ENDWHILE   
+% 		\end{algorithmic}
+% 	\end{algorithm}
+% 	\vspace{-0.2in}
+% \end{figure}
 
 \begin{figure*}[ht!]
 \centering
