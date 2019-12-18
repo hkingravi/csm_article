@@ -1,5 +1,5 @@
 \vspace{-0.1in}
-\subsection{Problem Formulation}\label{sec:formulation}
+\subsection{Problem Formulation}\label{sec:prelim}
 We focus on predictive inference of a time-varying stochastic process, whose mean $f$ evolves temporally as $f_{\tindex+1} \sim \mathbb{F}(f_{\tindex},\eta_{\tindex})$, where $\mathbb{F}$ is a distribution varying with time $\tindex$ and exogenous inputs $\eta$. Our approach builds on the fact that in several cases, temporal evolution can be hierarchically separated from spatial functional evolution. A classical and quite general example of this is the \emph{abstract evolution equation} (AEO), which can be defined as the evolution of a function $\banachfunc$ embedded in a Banach space $\banachspace$: $\dot{\banachfunc}(t) = \banachop\banachfunc(t)$, subject to $\banachfunc(0)= \banachfunc_0$, and $\banachop:\banachspace\to\banachspace$ determines spatiotemporal transitions of $\banachfunc\in\banachspace$ \cite{brezis2010functional}. This model of spatiotemporal evolution is very general (AEOs, for example, model many PDEs), but working in Banach spaces can be computationally taxing.  A simple way to make the approach computationally feasible is to place restrictions on $\banachspace$: in particular, we restrict the sequence $f_{\tindex}$ to lie in a RKHS, the theory of which provides powerful tools for generating flexible classes of functions with relative ease \cite{RasmussenWilliams2005}.
 In a kernel-based model, $\kernel:\dom\times\dom\to\R$ is a positive-definite Mercer kernel on a domain $\dom$ that models the covariance between any two points in the input space,  
 and implies the existence of a smooth map $\fmap:\dom\to\fspace$, where $\fspace$ is an RKHS with the property $\kernel(x,y) = \Kiprod{x}{y}$. The key insight behind the proposed model is that spatiotemporal evolution in the input domain corresponds to temporal evolution of the mixing weights of a kernel model alone in the functional domain. Therefore, $f_{\tindex}$ can be modeled by tracing the evolution of its mean embedded in a RKHS using switched ordinary differential equations (ODE) when the evolution is continuous, or switched difference equations when it is discrete (Figure \ref{fig:hilbert_evolution}). 
@@ -8,7 +8,7 @@ The advantage of this approach is that it allows us to utilize powerful ideas fr
 \centering
 \begin{minipage}{0.45\textwidth}
 \centering
-\includegraphics[height=1.0in]{figures/model.png}
+\includegraphics[height=3.0in]{figures/model.png}
 \caption{\small{Two types of Hilbert space evolutions. Left: discrete switches in RKHS $\fspace$; Right: smooth evolution in $\fspace$.}}
 \label{fig:hilbert_evolution}           
 \end{minipage}\hfill

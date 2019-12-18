@@ -460,7 +460,7 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
 		\begin{algorithmic}
 				\STATE {\bfseries Input:} $ \dualopApprox =\FrobC $, lower bound $\minmeas$
 				%		\STATE Check $k=\max_i \nu(\lambda_i)$
-				\STATE Decompose $ \FrobC $ to generate invariant subspaces $ \fsubspaceC{j} $, $ j\in \{1,2,\dots,\minmeas\} $ (see section \ref{sec_prelim})
+				\STATE Decompose $ \FrobC $ to generate invariant subspaces $ \fsubspaceC{j} $, $ j\in \{1,2,\dots,\minmeas\} $ (see section \ref{sec:invariant})
 				\FOR{$j=1$ {\bfseries to} $\minmeas$}
 				\STATE Obtain centers $\shCent^{(j)}$ w.r.t subspace $ \fsubspaceC{j} $,
 				\STATE Generate samples $x_i^{(j)}$ to create a kernel matrix $\empK^{(j)}$ that is shaded only with respect to centers $\shCent^{(j)}$
@@ -546,27 +546,27 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
 \framebox[1.1\textwidth]{
  \begin{tikzpicture}[->,>=stealth',auto,node distance=1cm,
   thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
-  \node[inner sep=0pt,label=below:{\tiny Physical 
+  \node[inner sep=0pt,label=below:{\scriptsize Physical 
                                   sampling locations},draw] (physical) at (-8,-0.3)
-    {\includegraphics[width=0.13\textwidth,
-                      height=0.08\textwidth]{figures/lab.png}};
-  \node[inner sep=0pt,label=below:{\tiny Data locations},draw] (data) at (-4.25,-0.3)
-    {\includegraphics[width=0.13\textwidth,
-                      height=0.08\textwidth]{figures/locations.pdf}};
-  \node[inner sep=0pt,label=below:{\tiny Functional inference 
+    {\includegraphics[width=0.19\textwidth,
+                      height=0.13\textwidth]{figures/lab.png}};
+  \node[inner sep=0pt,label=below:{\scriptsize Data locations},draw] (data) at (-4.25,-0.3)
+    {\includegraphics[width=0.19\textwidth,
+                      height=0.13\textwidth]{figures/locations.pdf}};
+  \node[inner sep=0pt,label=below:{\scriptsize Functional inference 
                                    (for $\estsysop$)},draw] (inference) at (-0.5,-0.3)
     {\includegraphics[trim=2.4cm 2.6cm 3.4cm 1.5cm,clip,
-                      width=0.13\textwidth,
-                      height=0.08\textwidth]{figures/kernel_evol_cauchy.pdf}};    
+                      width=0.19\textwidth,
+                      height=0.13\textwidth]{figures/kernel_evol_cauchy.pdf}};    
   \node[inner sep=0pt,label={[align=center]
-       below:{\tiny Sensor location selection after\\[-1.7\jot]
-              \tiny basis decomposition ($\minmeas=3$)}},draw] 
+       below:{\scriptsize Sensor location selection after\\[-1.5\jot]
+              \scriptsize basis decomposition ($\minmeas=3$)}},draw] 
        (sensors) at (3.25,-0.3)
-       {\includegraphics[width=0.13\textwidth,
-                         height=0.08\textwidth]{figures/locations_sensors.pdf}};                          
-  \node[inner sep=0pt,label=below:{\tiny Physical sensor placement},draw] (placement) at (6.75,-0.3)
-    {\includegraphics[width=0.13\textwidth,
-                      height=0.08\textwidth]{figures/lab_sensors2.png}};                                                
+       {\includegraphics[width=0.19\textwidth,
+                         height=0.13\textwidth]{figures/locations_sensors.pdf}};                          
+  \node[inner sep=0pt,label=below:{\scriptsize Physical sensor placement},draw] (placement) at (6.75,-0.3)
+    {\includegraphics[width=0.19\textwidth,
+                      height=0.13\textwidth]{figures/lab_sensors2.png}};                                                
   \path[every node/.style={font=\sffamily\small}]
     (physical) edge node [right] {} (data)
     (data) edge node [right] {} (inference)
@@ -828,136 +828,13 @@ where $\measure$ is a measure in the real analysis sense. Hence, $p_{\e}$ corres
 
 For the case when $ \dualopApprox \neq \JorLa $, a change of basis can be used to obtain $ \JorLa = P^{-1}\dualopApprox P $, where $ P $ is the projection map. There are two challenges in performing the above analysis for $\JorLa$ so obtained: first, the leading entries of Jordan blocks do not directly correspond to the centers $\{ c_1,\dots,c_\ncent\}$ which was the case for $ \dualopApprox = \JorLa $. Second, although we can obtain the transformation of the row vector (\ref{eq:rowvec}) using the projection map $P$, we can no longer arrive at the definition of the probability $p_{\e}$ as in  (\ref{ppp}). The existence of the similarity transform hints that the results in Theorems \ref{thm:r1}-\ref{thm:r2} should hold for any $ \dualopApprox$, but the mathematical tools utilized in the paper seem to be insufficient to prove them. However, we present some empirical evidence for these claims for when $ \dualopApprox \neq \JorLa $  in the empirical results section.%Section \cite{Maske18_ACC}.
 
+\subsection{\rr{Invariant Subspaces}}\label{sec:invariant}
 
-\subsection{Generalizing Across Similar Spatiotemporally Evolving Systems} \label{sec:egp}
-Building on the Kernel Observers method, let us introduce Evolving Gaussian Processes (E-GP). The primary novelty in this method of generating a model is learning an $\dualopApprox$ matrix for \emph{multiple} systems. The ultimate goal of this research would be to generate highly efficient machine learning models that can be used instead of the costly numerical simulations for design and autonomy purposes. This would be a major success for the design and control of complex physical systems, such as soft robotics, as they would significantly reduce the cost and resources required in simulations. The ability to generalize across different physical situations, is critical. This is a difficult problem, as it requires that the model have the capability to actually learn the underlying physics and not just input-output relationships. For example, in the context of fluid flows, these models must be able to predict fluid dynamics at different conditions (e.g. Reynolds number) than the training data. E-GP, as far as the authors know, was the first machine learning method to generalize across spatiotemporally evolving systems of such complexity using end-to-end data.
+\rr{An invariant subspace is a subspace $ \fsubspaceC{j} $ which is preserved by the transition operator $\sysop$, that is $\sysop(\fsubspaceC{j}) \subseteq \fsubspaceC{j}$. The whole space is trivially an invariant subspace, but for our algorithms we are interested in finding the smallest non-zero subspaces.} One way of understanding the invariant subspaces concept is to say that information contained in an invariant subspace never leaves that invariant subspace. We hypothesize that the kernel centers associated with the invariant subspaces of a spatiotemporally evolving system are generally associated with spatial regions in the domain (and not just homogeneously spread throughout, or mixed with other invariant subspaces). This hypothesis makes sense both physically and mathematically. In physics, the \emph{principle of locality} states that an object is only directly influenced by its immediate surroundings \cite{berkovitz2007action}. If this is the case (and there is no reason to believe that it is not, apart from certain quantum dynamics situations), and the E-GP model accurately captures the physics of the system, then information (measurable phenomena) may only travel continuously from one point in the domain to another. \rr{Mathematically the hypothesis makes sense, since a value at any one point in the domain is influenced by the weights of multiple nearby centers, we would expect centers to be connected dynamically to those nearest. A ``low'' area between two nearby centers, where measurements are consistently close enough to zero to be indistinguishable from noise, might mark the boundary between two distinct invariant subspaces.}
 
-We found that the class of functional evolutions $\mathbb{F}$ defined by linear Markovian transitions in a RKHS is still sufficient to model the nonlinear Navier Stokes equations which govern fluid dynamics, since the unknown map $\fmap$ allows us to model highly nonlinear dynamics in the input space. However, we do expect that phenomena such as bifurcation or turbulence will require nonlinear mappings $\fspace$. There are three steps to generate an E-GP model:
+The Jordan form of a $n\times n$ matrix $\dualopApprox$ is block diagonal, and therefore gives a decomposition of the $n$ dimensional Euclidean space into invariant subspaces of $\dualopApprox$. The cyclic index, which can be found by counting the geometric multiplicities of eigenvalues in $\dualopApprox$, gives the number of invariant subspaces. \rr{However, in reality, the square matrices generated from the data using our regression methods do not usually decompose neatly into a few precise Jordan blocks, but instead usually end up as one large, useless block. This drives the need for an algorithm that can divide the system into invariant subspaces even when the boundaries between such spaces are not mathematically exact.}
 
-\begin{enumerate}
-	\item After picking the kernel and estimating the bandwidth hyperparameter $\s$ (we utilize the maximum likelihood approach, although other approaches can be used), find an optimal basis vector set $\shCent$ using the algorithm in \cite{csato2002sparse}.
-	\item Use Gaussian process inference to find weight vectors for each time-step in the training set(s), generating the sequence $\weight_\tindex, \tindex=1,\dots,T$ for each system. A uniform time-step makes next step easier but can be worked around for non-uniform data sets
-	\item Using the weight trajectory, use matrix least-squares with the equation $\dualopApprox [\weight_1,\weight_2, ...,\weight_{T-1}] = [\weight_2,\weight_3,...,\weight_T]$ to solve for $\dualopApprox$.
-	\item To generate a multi-system model, concatenate the weight trajectories from each similar system in the least-squares computation of $\dualopApprox$. That is, let $W_{\theta} = [\weight_1^{(\theta)},\weight_2^{(\theta)}, ...,\weight_{n-1}^{(\theta)}]$ and $W_{\theta}' = [\weight_2^{(\theta)},\weight_3^{(\theta)}, ...,\weight_n^{(\theta)}]$ be the weight trajectory and next weight trajectory for some parameter . Then we solve the least-squares problem $\dualopApprox = [W_{\theta_1},\dots,W_{\theta_n}] = [W_{\theta}',\dots,W_{\theta_n}']$
-\end{enumerate}
-
-For the sake of defining when it is appropriate to expect this method to be able to generalize across different spatiotemporally evolving systems, we shall define what it means for two fluid flows to be \emph{similar}. In configuring a fluid dynamics simulation, a set of quantifiable parameters are defined. Two dynamical fluid systems $S_1$ and $S_2$ are considered \emph{similar} if they have  the same configuration of parameters and differ only in the value of at most one parameter. Furthermore, we require that the parameter be continuously variable, and that any observable quantity in the domain of the system vary smoothly as that parameter varies from its value in $S_1$ to its value in $S_2$. For example, for fluids flowing past identical cylinders, the Reynolds number associated with the free stream velocity may be varied to produce similar systems. However, to replace the system's cylinder with a triangle would be to qualitatively change the configuration of the system parameters, and thus would produce a non-similar system.
-
-Unlike neural networks, the weights in an E-GP do not exist in some abstract, difficult-to-comprehend space, but are associated with kernel centers in specific locations in the domain. We refer to this attribute of E-GPs as the \emph{spatial encoding} property. This property is an extremely valuable tool for gaining insight into the learned model works:
-\begin{enumerate}
-	\item By plotting which kernel centers are associated with which invariant subspaces in the transition matrix, one can visualize where the eigenfunctions are found and how the dynamic modes are separated spatially.
-	\item By plotting arrows from center $c_j$ to $c_i$ for each of the largest elements $\hat a_{ij}$ of $\dualopApprox$, one can visualize how different areas of the domain influence each other's evolution.
-	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section).
-\end{enumerate}
-
-
-
-\subsection{Spectral Analysis of Evolving Gaussian Process Model}
-
-We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade, especially within the Computational Flow Dynamics (CFD) community. Here we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. \rr{In fact, in our final theorem, we show that the eigenvalues of our model are all eigenvalues of the Koopman operator, the eigenvectors transformed to the input space are congruent in shape to the Koopman modes, and the eigenfunctions are identical}. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
-
-For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that:
-\begin{align} \eqlabel{koopman_operator}
-U g(f_{\tindex}) = g(\mathbb{F}(f_{\tindex})) = g(f_{\tindex+1})
-\end{align}
-This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property,
-\begin{align} \eqlabel{koopman_eigenfunctions}
-U \phi(f_{\tindex}) = \phi(\mathbb{F}(f_{\tindex})) = \phi(f_{\tindex+1}) = \lambda \phi(f_{\tindex})
-\end{align}
-are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues. Suppose now we have a vector-valued observable $u(\fspaceEl,x)$, where $x\in\dom$ and $\fspaceEl\in\fspace$.
-
-\begin{definition}
-	The Koopman mode $s(x)$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $u(f,x)$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}
-\end{definition}
-
-As previously shown by Rowley in 2009 \cite{rowley2009spectral}, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes. Mezic (2013) \cite{mezic2013analysis} showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA). We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.
-
-\begin{proposition}\label{thm:ApproxObsv}
-	Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $u(\fspaceEl,x)$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\hat u(\fspaceEl,x) \coloneqq u(\fspaceApproxEl,x)$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.
-	%Given a RKHS $\fspace$ and an approximate feature space $\fspaceApprox$ which has finite dimension $\ncent$, the projection $\fmapApprox : \fspace \to \R^\ncent$ from the RKHS to the dual space of $\fspaceApprox$ is an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$
-\end{proposition}
-
-
-This follows from the fact that the projection from the function space to its subspace is well-defined when the $\fmapApprox_i$ are independent. Now, Koopman modes of observables are of interest because they are akin to the eigenvector expansions utilized in linear dynamics. If we separate the Koopman operator into $U = U_s + U_r$ where $U_s$ has a pure point spectrum and $U_r$ has a pure continuous spectrum, then we can write,
-\begin{align} \eqlabel{spectral_expansion}
-U^t u(\fspaceEl,x) = u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) s_j (x)  +  U_r^t u(\fspaceEl,x)
-\end{align}
-where $u^{\ast}(x)$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous-spectrum component is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time, which could be modeled as a stochastic process \cite{mezic2013analysis}. Now, from this expansion we can prove that:
-
-\begin{proposition}\label{prop:ApproxModes}
-	Let $u(\fspaceEl,x)$ and $\hat u(\fspaceEl,x)$ be observables as in Proposition \ref{thm:ApproxObsv}, and $s_j(x)$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\hat u$ are:
-	\begin{align}
-	\hat s_j(x) = \frac{\phi_j(\fspaceApproxEl)}{\phi_j(\fspaceEl)} s_j(x)
-	\end{align}
-\end{proposition}
-\begin{proof}
-	Using the spectral expansion and the definition of the observables, we have:
-	$$U^t \hat u(\fspaceEl,x) = U^t u(\fspaceApproxEl,x) $$
-	$$ \hat u^{\ast}(\fspaceEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \hat s_j (x)  +  U_r^t \hat u(\fspaceEl,x) = u^{\ast}(\fspaceApproxEl,x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) s_j (x)  +  U_r^t u(\fspaceApproxEl,x)$$
-	Since this must be true for all $t$, the terms must match, and the hypothesis follows.% see that this must be the spectral expansion of $\hat u(\fspaceEl,x)$
-\end{proof}
-
-
-Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant). In the exceptional case that $\phi_j(\fspaceEl)=0$, the GLA method is unable to compute $s_j (x)$ anyway, so that is not an issue for this proposition. The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
-
-\begin{theorem}\label{thm:DualApproxModes}
-	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$,
-	\begin{enumerate}
-		\item The eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator.
-		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, i.e. $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
-		\item If the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by:
-		\begin{align}
-			s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j
-		\end{align},
-		where $\obsMatRow(x)$ is the feature map of our model as a row vector.
-	\end{enumerate} 
-\end{theorem}
-\begin{proof}
-	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $P(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle P(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox^{\ast}$ (that is, $\dualopApprox^{\ast} q_j = \bar \lambda_j q_j$), then $\phi_j$ is an eigenfunction of the Koopman operator in $\fspace$ since $U \phi_j(f_{\tindex}) = \langle P(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$. This shows that:
-	\rr{\begin{enumerate}
-		\item The eigenvalues of $\dualopApprox$ correspond with that of the Koopman operator.
-		\item The eigenfunctions of the Koopman operator in the dual space, known to be $\hat\phi_j(\cdot) = \langle \cdot, q_j \rangle$, correspond with the eigenfunctions of the Koopman operator in $\fspace$.
-	\end{enumerate}}
-	In the case that $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, we have the relationship $\hat u(\fspaceEl,x) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$ according to the formulation of our model. Now, it is well known that the spectral expansion of a finite linear system is:
-	$$ \weight_t = \sum_{j=1}^{\ncent} \lambda_j^t \hat\phi_j(\weight_0) v_j$$
-	where $v_j$ are the eigenvectors of the transition matrix. Therefore, we have:
-	$$ U^t \hat u(\fspaceEl_0,x) = U^t \left( \obsMatRow(x) \cdot \weight(\fspaceEl_0) \right) = \obsMatRow(x) \cdot \weight_t = \obsMatRow(x) \cdot \left( \sum_{j=1}^{\ncent} \lambda_j \hat\phi_j(\weight_0)  v_j \right) = \sum_{j=1}^{\ncent} \lambda_j \phi_j(\fspaceEl_0) \obsMatRow(x) \cdot v_j$$
-	
-	Comparing this to the spectral expansion of $\hat u(\fspaceEl,x)$, we see (letting $\lambda_1=1$) that:
-	\rr{\begin{enumerate}
-		\setcounter{enumi}{2}
-		\item $\hat u^{\ast}(\fspaceEl,x) = \obsMatRow(x) \cdot v_1$, $\hat s_j(x) = \obsMatRow(x) \cdot v_j$, and that there is no continuous spectrum component. The hypothesis now follows from Proposition \ref{prop:ApproxModes}.
-	\end{enumerate}}
-	
-\end{proof}
-
-In the end, we have established a direct connection between the spectral decomposition of the transition matrix in the dual space of the approximate feature space and the Koopman modes, eigenfunctions, and eigenvalues. 
-
-\begin{corollary}\label{cor:ModesApprox}
-	Suppose, given an $\e>0$, we are able to find an approximate feature space $\fspaceApprox$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. Then, if $\phi_j(\fspaceEl) \neq 0$, there exists an approximate feature space such that $\obsMatRow(x) \cdot v_j$ is arbitrarily close to the Koopman mode $s_j(x)$ (where $v_j$ is an eigenvector of the dual space transition matrix $\dualopApprox$).
-\end{corollary}
-\begin{proof}
-	Since $\phi_j$ is continuous, we can make $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)|$ arbitrarily small, which means if $\phi_j{\fspaceEl} \neq 0$ we can make $\frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)}$ arbitrarily close to 1. From Theorem \ref{thm:DualApproxModes} and the fact that $s_j\in\fspace$ means $s_j$ is bounded, we can conclude that $\obsMatRow(x) \cdot v_j$ can be made arbitrarily close to $s_j(x)$ everywhere in $\dom$. %choose $\delta$ such that $\|\fspaceEl - \fspaceApproxEl\| < \delta$ implies $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)| < 
-	
-	% neeed to actually say why the phi are continuous
-\end{proof}
-
-In essence, this says that if we can find a close-enough approximate feature space, then the eigenvectors of the transition matrix in the dual space correspond exactly with the Koopman modes in the input space.
-
-
-%\begin{corollary}
-	%Suppose that for an approximate feature space $\fspaceApprox$, there exists $\e>0$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. For all $\phi_j(\fspaceEl) \gg \e$, and if the phi are lipshitz, then $s_j(x) \approx \obsMatRow(x) \cdot v_j$
-%\end{corollary}
-
-
-
-\subsubsection{Invariant Subspaces}
-
-One way of viewing the invariant subspaces concept (as described earlier) is to say that information contained in an invariant subspace never leaves that invariant subspace. We hypothesize that the kernel centers associated with the invariant subspaces of a spatiotemporally evolving system are generally associated with spatial regions in the domain (and not just homogeneously spread all over and or mixed with the other invariant subspaces). This hypothesis makes sense both physically and mathematically. In physics, the \emph{principle of locality} states that an object is only directly influenced by its immediate surroundings \cite{berkovitz2007action}. If this is the case (and there is no reason to believe that it is not, apart from certain quantum dynamics situations), and the E-GP model accurately captures the physics of the system, then information (measurable phenomena) may only travel continuously from one point in the domain to another. Mathematically, since a value at any one point in the domain is influenced by the weights of multiple nearby centers, we would expect nearby centers to be connected dynamically, unless separated by ``plains'' where the values are indistinguishable from noise.
-
-When a square matrix is perfectly formed, the Jordan form of a $n\times n$ matrix $\dualopApprox$ is block diagonal, and therefore gives a decomposition of the $n$ dimensional Euclidean space into invariant subspaces of $\dualopApprox$. The cyclic index, which can be found by counting the geometric multiplicities of eigenvalues in $\dualopApprox$, gives the number of invariant subspaces. In reality, data-driven approximations of $\dualopApprox$ rarely give such easily interpretable properties. This fact drives the need for an algorithm that can divide the system into invariant subspaces even when the boundaries between such spaces are not mathematically precise.
-
-Each block in the Jordan normal form has a set of corresponding eigenvectors and an eigenvalue with geometric multiplicity. When we transform the former back into the domain space, we obtain complex-valued functions which are the Koopman modes of the system. These provide an image of what kind of structures we see in the dynamics. The eigenvalues describe the frequency with which these structures oscillate between their real and imaginary forms, as well as their exponential growth or decay in magnitude. %In this section, we demonstrate our method on systems with eigenvalues primarily on the unit circle (neither growing nor decaying).
+%Each block in the Jordan normal form has a set of corresponding eigenvectors and an eigenvalue with geometric multiplicity. When we transform the former back into the domain space, we obtain complex-valued functions which are the Koopman modes of the system. These provide an image of what kind of structures we see in the dynamics. The eigenvalues describe the frequency with which these structures oscillate between their real and imaginary forms, as well as their exponential growth or decay in magnitude. %In this section, we demonstrate our method on systems with eigenvalues primarily on the unit circle (neither growing nor decaying).
 
 
 \subsubsection{$k$-Invariant Subspaces Clustering}
@@ -973,13 +850,13 @@ This problem can be solved with Algorithm \ref{kinvsub}.
 		\caption{$k$-Invariant Subspaces Algorithm}
 		\label{kinvsub}
 		\begin{algorithmic}
-				\WHILE{clusters have changed}   
-				\FOR{each center $i$}
-				\STATE {Find cluster $k$ which maximizes the score} $ \frac{1}{|S_k|} \left( \|\bar A_{i, S_k\setminus \{i\} } \|^2 + \|\bar A_{S_k\setminus \{i\},i} \|^2 \right)$
-				\STATE Reassign center $i$ to cluster with highest score
-				\ENDFOR
-				\ENDWHILE   
-				\STATE \textbf{return} clusters
+			\WHILE{clusters have changed}   
+			\FOR{each center $i$}
+			\STATE {Find cluster $k$ which maximizes the score} $ \frac{1}{|S_k|} \left( \|\bar A_{i, S_k\setminus \{i\} } \|^2 + \|\bar A_{S_k\setminus \{i\},i} \|^2 \right)$
+			\STATE Reassign center $i$ to cluster with highest score
+			\ENDFOR
+			\ENDWHILE   
+			\STATE \textbf{return} clusters
 		\end{algorithmic}
 	\end{algorithm}
 	\vspace{-0.2in}
@@ -1004,7 +881,137 @@ This problem can be solved with Algorithm \ref{kinvsub}.
 
 Note the differences between this and the $k$-means clustering algorithm: first, we are \emph{maximizing} since the terms represent influence rather than distance. Secondly, in the possible case that $|S_k|=0$, we make the total value zero in order to avoid division by zero. Thirdly, we exclude centers' influence on themselves from the score by taking $S_k\setminus\{i\}$.
 
-This algorithm can be repeated as many times as desired with different random initial conditions, and the result which produces the highest score retained.
+\rr{This algorithm can be repeated as many times as desired with different random initial conditions and different $k$-values in order to find the maximal configuration. These semi-invariant subspaces may then be used in methods such as Algorithm \ref{alg:samples} which depend on such a decomposition.}
+
+
+
+\subsection{Generalizing Across Similar Spatiotemporally Evolving Systems} \label{sec:egp}
+Building on the Kernel Observers method, let us introduce Evolving Gaussian Processes (E-GP). The primary novelty in this method of generating a model is learning an $\dualopApprox$ matrix for \emph{multiple} systems. The ultimate goal of this research would be to generate highly efficient machine learning models that can be used instead of the costly numerical simulations for design and autonomy purposes. This would be a major success for the design and control of complex physical systems, such as soft robotics, as they would significantly reduce the cost and resources required in simulations. The ability to generalize across different physical situations, is critical. This is a difficult problem, as it requires that the model have the capability to actually learn the underlying physics and not just input-output relationships. For example, in the context of fluid flows, these models must be able to predict fluid dynamics at different conditions (e.g. Reynolds number) than the training data. E-GP, as far as the authors know, was the first machine learning method to generalize across spatiotemporally evolving systems of such complexity using end-to-end data.
+
+We found that the class of functional evolutions $\mathbb{F}$ defined by linear Markovian transitions in a RKHS is still sufficient to model the nonlinear Navier Stokes equations which govern fluid dynamics, since the unknown map $\fmap$ allows us to model highly nonlinear dynamics in the input space. However, we do expect that phenomena such as bifurcation or turbulence will require nonlinear mappings $\fspace$. There are three steps to generate an E-GP model:
+
+\begin{enumerate}
+	\item After picking the kernel and estimating the bandwidth hyperparameter $\s$ (we utilize the maximum likelihood approach, although other approaches can be used), find an optimal basis vector set $\shCent$ using the algorithm in \cite{csato2002sparse}.
+	\item Use Gaussian process inference to find weight vectors for each time-step in the training set(s), generating the sequence $\weight_\tindex, \tindex=1,\dots,T$ for each system. A uniform time-step makes next step easier but can be worked around for non-uniform data sets
+	\item Using the weight trajectory, use matrix least-squares with the equation $\dualopApprox [\weight_1,\weight_2, ...,\weight_{T-1}] = [\weight_2,\weight_3,...,\weight_T]$ to solve for $\dualopApprox$.
+	\item To generate a multi-system model, concatenate the weight trajectories from each similar system in the least-squares computation of $\dualopApprox$. That is, let $W_{\theta} = [\weight_1^{(\theta)},\weight_2^{(\theta)}, ...,\weight_{n-1}^{(\theta)}]$ and $W_{\theta}' = [\weight_2^{(\theta)},\weight_3^{(\theta)}, ...,\weight_n^{(\theta)}]$ be the weight trajectory and next weight trajectory for some parameter . Then we solve the least-squares problem $\dualopApprox = [W_{\theta_1},\dots,W_{\theta_n}] = [W_{\theta}',\dots,W_{\theta_n}']$
+\end{enumerate}
+
+For the sake of defining when it is appropriate to expect this method to be able to generalize across different spatiotemporally evolving systems, we shall define what it means for two fluid flows to be \emph{similar}. In configuring a fluid dynamics simulation, a set of quantifiable parameters are defined. Two dynamical fluid systems $S_1$ and $S_2$ are considered \emph{similar} if they have  the same configuration of parameters and differ only in the value of at most one parameter. Furthermore, we require that the parameter be continuously variable, and that any observable quantity in the domain of the system vary smoothly as that parameter varies from its value in $S_1$ to its value in $S_2$. For example, for fluids flowing past identical cylinders, the Reynolds number associated with the free stream velocity may be varied to produce similar systems. However, to replace the system's cylinder with a triangle would be to qualitatively change the configuration of the system parameters, and thus would produce a non-similar system.
+
+Unlike neural networks, the weights in an E-GP do not exist in some abstract, difficult-to-comprehend space, but are associated with kernel centers in specific locations in the domain. We refer to this attribute of E-GPs as the \emph{spatial encoding} property. This property is an extremely valuable tool for gaining insight into the learned model works:
+\begin{enumerate}
+	\item By plotting which kernel centers are associated with which invariant subspaces in the transition matrix, one can visualize where the eigenfunctions are found and how the dynamic modes are separated spatially.
+	\item By plotting arrows from center $c_j$ to $c_i$ for each of the largest elements $\hat a_{ij}$ of $\dualopApprox$, one can visualize how different areas of the domain influence each other's evolution.
+	\item By performing an eigendecomposition of the $\dualopApprox$ matrix, and transforming the eigenvectors back from the weight space to the function space, one can obtain the Koopman modes (and associated eigenvalues) of the system (see next section).
+\end{enumerate}
+
+\rr{Demonstration of E-GP's ability to generalize over similar dynamical systems may be found in the sidebar on Fluid Flows.}
+
+
+
+\subsection{\rr{Spectral Analysis of Evolving Gaussian Process Model and Koopman Operator Theory}}
+
+%Within the computational flow dynamics (CFD) community, there has recently been considerable interest in methods inspired by Koopman operator theory. A Koopman operator is a linear but infinite-dimensional operator that is defined for an autonomous dynamical system and governs the evolution of its \emph{observables} \cite{williams2015koopman}, rather than states. An observable is a function from the state space to a measurement space; the Koopman operator is in essence a composition operator on an observable and the state-transition operator, returning a new function which takes a state and gives a prediction of future measurements. By performing a spectral analysis of this linear operator, one reveals modes which show the spatial distribution, oscillation frequency, and growth rate/decay of the component dynamics of the system. Many advantages can be realized from this: the ability to transform the state space so the dynamics appear linear, to predict the temporal evolution of the linear system, to reconstruct the state of the original nonlinear system, and even to implement controller design. Dynamic Mode Decomposition (DMD) is the most widely used method for finding a finite-dimensional subspace of the Koopman operator's infinite-dimensional domain to work in. Williams et al., recently integrated DMD with the kernel trick, allowing the algorithm to be extended to systems with much larger dimensions \cite{williams2015kerneldmd}. Brunton et al., inspired by DMD, were able to generate governing equations from data by sparse identification of nonlinear dynamical systems \cite{brunton2016discovering}. However, these methods are restricted to approximating the Koopman operator given a fixed vector-valued observable, and have no way of effectively using measurements that vary in both size and location over time. Furthermore, the state of research into data-driven generalizing over similar systems with varying parameters is at best preliminary.
+
+We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade. \rr{A Koopman operator is a linear but infinite-dimensional operator that is defined for an autonomous dynamical system and governs the evolution of its \emph{observables} \cite{williams2015koopman}, rather than states. An observable is a function from the state space to a measurement space; the Koopman operator essentially composes an observable with the state-transition operator, returning a new function which takes a state and gives a prediction of future measurements. The spectral analysis of this Koopman operator yields the major insights in this field.}
+
+In the following proofs we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. \rr{In fact, in our final theorem, we show that the eigenvalues of our model are all eigenvalues of the Koopman operator, the eigenvectors transformed to the input space are congruent in shape to the Koopman modes, and the eigenfunctions are identical}. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
+
+For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $\measop : \fspace \to \R^{\nsamp}$ \rr{(as before, though with no requirement of linearity this time)}. Note that the space of observables $\measop \in \mathcal G$ is a vector space. The Koopman operator $U : \mathcal G \to \mathcal G$ is defined to be the operator on the space of observables such that:
+\begin{align} \eqlabel{koopman_operator}
+(U \measop)(f_{\tindex}) \coloneqq \measop(\mathbb{F}(f_{\tindex})) = \measop(f_{\tindex+1}) = y_{\tindex+1}
+\end{align}
+This operator is clearly linear from its definition, and thus it is reasonable to examine its spectral properties. The special observables $\phi : \fspace \to \C$ that have the property,
+\begin{align} \eqlabel{koopman_eigenfunctions}
+U \phi(f_{\tindex}) = \phi(\mathbb{F}(f_{\tindex})) = \phi(f_{\tindex+1}) = \lambda \phi(f_{\tindex})
+\end{align}
+are the eigenfunctions of $U$, and the associated $\lambda$ are the eigenvalues. \rr{As of yet, we have not involved the concept of space anywhere in our math.} So, suppose now that we have a vector-valued observable $\measop_x(\fspaceEl)$, where $x\in\dom$ is the measurement location and $\fspaceEl\in\fspace$. 
+
+\begin{definition}
+	The Koopman mode $s(x)$ at isolated eigenvalue $\lambda$ of algebraic multiplicity 1 is the projection of $\measop_x(f)$ onto the eigenfunction $\phi_{\lambda}(\fspaceEl)$ of $U$ at $\lambda$. \cite{mezic2013analysis}
+\end{definition}
+
+As previously shown by Rowley in 2009, the modes produced by the Dynamic Mode Decomposition (DMD) algorithm constitute a subset of Koopman modes \cite{rowley2009spectral}. Mezic showed that there exists, in principle if not in practice, a rigorous method for computing the full set of Koopman modes by a method known as generalized Laplace analysis (GLA) \cite{mezic2013analysis}. We have generated a number of results interpreting the E-GP model in terms of Koopman operator theory, culminating in the proof that the eigenvalues and eigenvectors of $\dualopApprox$ are related to the Koopman eigenvalues and modes.
+
+\begin{proposition}\label{thm:ApproxObsv}
+	Let $\fspace$ be a RKHS with  an approximate feature space $\fspaceApprox$, and let $\measop_x(\fspaceEl)$ be an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ in $\fspace$. Then $\hat \measop_x(\fspaceEl) \coloneqq u(\fspaceApproxEl,x)$, where $\fspaceApproxEl$ is the projection of $\fspaceEl\in\fspace$ onto $\fspaceApprox$, is also an observable.
+	%Given a RKHS $\fspace$ and an approximate feature space $\fspaceApprox$ which has finite dimension $\ncent$, the projection $\fmapApprox : \fspace \to \R^\ncent$ from the RKHS to the dual space of $\fspaceApprox$ is an observable in the Koopman sense with respect to the dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$
+\end{proposition}
+
+
+This follows from the fact that the projection from the function space to its subspace is well-defined when the $\fmapApprox_i$ are independent. Now, Koopman modes of observables are of interest because they are akin to the eigenvector expansions utilized in linear dynamics. If we separate the Koopman operator into $U = U_s + U_r$ where $U_s$ has a pure point spectrum and $U_r$ has a pure continuous spectrum, then we can write,
+\begin{align} \eqlabel{spectral_expansion}
+(U^t \measop_x)(\fspaceEl) = \measop^{\ast}(x) + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) s_j (x)  +  U_r^t \measop_x(\fspaceEl)
+\end{align}
+where $\measop_x^{\ast}$ represents the time-averaged of part of the field, which corresponds with $\lambda=1$ (see GLA in \cite{mezic2013analysis}). The continuous-spectrum component is usually discarded/neglected since it represents the part of the field that is genuinely aperiodic (or chaotic) in time, which could be modeled as a stochastic process \cite{mezic2013analysis}. Now, from this expansion we can prove that:
+
+\begin{proposition}\label{prop:ApproxModes}
+	Let $\measop_x(\fspaceEl)$ and $\hat \measop_x(\fspaceEl)$ be observables as in Proposition \ref{thm:ApproxObsv}, and $s_j(x)$ be the Koopman modes associated with the projection of the former onto the eigenfunctions $\phi_j$ of $U$ at $\lambda_j$. Then the Koopman modes associated with $\hat \measop_x$ are:
+	\begin{align}
+	\hat s_j(x) = \frac{\phi_j(\fspaceApproxEl)}{\phi_j(\fspaceEl)} s_j(x)
+	\end{align}
+\end{proposition}
+\begin{proof}
+	Using the spectral expansion and the definition of the observables, we have:
+	$$U^t \hat \measop_x(\fspaceEl) = U^t \measop_x(\fspaceApproxEl) $$
+	$$ \hat \measop_x^{\ast} + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceEl) \hat s_j (x)  +  U_r^t \hat \measop_x(\fspaceEl) = \measop_x^{\ast} + \sum_{j=1}^k \lambda_j^t \phi_j(\fspaceApproxEl) s_j (x)  +  U_r^t \measop_x(\fspaceApproxEl)$$
+	Since this must be true for all $t$, the terms must match, and the hypothesis follows.% see that this must be the spectral expansion of $\hat u(\fspaceEl,x)$
+\end{proof}
+
+
+Note that this means the modes of the two observables are identical in shape (only differing by a multiplicative constant). In the exceptional case that $\phi_j(\fspaceEl)=0$, the GLA method is unable to compute $s_j (x)$ anyway, so that is not an issue for this proposition. The final step in our analysis is to connect the Koopman modes with the spectral decomposition of  our model's $\dualopApprox$ operator in the dual space.
+
+\begin{theorem}\label{thm:DualApproxModes}
+	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$,
+	\begin{enumerate}
+		\item The eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator.
+		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, i.e. $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
+		\item If the observable $\measop_x(\fspaceEl)$ is the evaluation operator, $\measop_x(\fspaceEl) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by:
+		\begin{align}
+			s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j
+		\end{align}
+		where $\obsMatRow(x)$ is the feature map of our model as a row vector (see def. of $\obsMat$ from \eqref{k_measure}).
+	\end{enumerate} 
+\end{theorem}
+\begin{proof}
+	It should be clear that, as long as the projection onto the approximate feature space is well defined, that $P(f_{\tindex}) \coloneqq \weight_{\tindex} $ is an observable. Then if we let $\phi_j(\fspaceEl) = \langle P(\fspaceEl), q_j \rangle$, where $q_j$ are eigenvectors of the adjoint $\dualopApprox^{\ast}$ (that is, $\dualopApprox^{\ast} q_j = \bar \lambda_j q_j$), then $\phi_j$ is an eigenfunction of the Koopman operator in $\fspace$ since $U \phi_j(f_{\tindex}) = \langle P(f_{\tindex+1}), q_j \rangle = \langle \weight_{\tindex+1}, q_j \rangle = \langle \dualopApprox \weight_{\tindex}, q_j \rangle =  \langle \weight_{\tindex}, \dualopApprox^{\ast} q_j \rangle =  \lambda_j \langle \weight_{\tindex}, q_j \rangle =  \lambda_j \phi_j(f_{\tindex})$. This shows that:
+	\rr{\begin{enumerate}
+		\item The eigenvalues of $\dualopApprox$ correspond with that of the Koopman operator.
+		\item The eigenfunctions of the Koopman operator in the dual space, known to be $\hat\phi_j(\cdot) = \langle \cdot, q_j \rangle$, correspond with the eigenfunctions of the Koopman operator in $\fspace$.
+	\end{enumerate}}
+	In the case that $\measop_x(\fspaceEl) \coloneqq \fspaceEl(x)$, we have the relationship $\hat \measop_x(\fspaceEl) = \fspaceApproxEl(x) = \obsMatRow(x) \cdot \weight(\fspaceEl)$ according to the formulation of our model. Now, it is well known that the spectral expansion of a finite linear system is:
+	$$ \weight_t = \sum_{j=1}^{\ncent} \lambda_j^t \hat\phi_j(\weight_0) v_j$$
+	where $v_j$ are the eigenvectors of the transition matrix. Therefore, we have:
+	$$ U^t \hat \measop_x(\fspaceEl_0) = U^t \left( \obsMatRow(x) \cdot \weight(\fspaceEl_0) \right) = \obsMatRow(x) \cdot \weight_t = \obsMatRow(x) \cdot \left( \sum_{j=1}^{\ncent} \lambda_j \hat\phi_j(\weight_0)  v_j \right) = \sum_{j=1}^{\ncent} \lambda_j \phi_j(\fspaceEl_0) \obsMatRow(x) \cdot v_j$$
+	
+	Comparing this to the spectral expansion of $\hat \measop_x(\fspaceEl)$, we see (letting $\lambda_1=1$) that:
+	\rr{\begin{enumerate}
+		\setcounter{enumi}{2}
+		\item First $\hat \measop_x^{\ast} = \obsMatRow(x) \cdot v_1$, second $\hat s_j(x) = \obsMatRow(x) \cdot v_j$, and thirdly there is no continuous spectrum component. The hypothesis follows from Proposition \ref{prop:ApproxModes}.
+	\end{enumerate}}
+	
+\end{proof}
+
+In the end, we have established a direct connection between the spectral decomposition of the transition matrix in the dual space of the approximate feature space and the Koopman modes, eigenfunctions, and eigenvalues. 
+
+\begin{corollary}\label{cor:ModesApprox}
+	Suppose, given an $\e>0$, we are able to find an approximate feature space $\fspaceApprox$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. Then, if $\phi_j(\fspaceEl) \neq 0$, there exists an approximate feature space such that $\obsMatRow(x) \cdot v_j$ is arbitrarily close to the Koopman mode $s_j(x)$ (where $v_j$ is an eigenvector of the dual space transition matrix $\dualopApprox$).
+\end{corollary}
+\begin{proof}
+	Since $\phi_j$ is continuous, we can make $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)|$ arbitrarily small, which means if $\phi_j{\fspaceEl} \neq 0$ we can make $\frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)}$ arbitrarily close to 1. From Theorem \ref{thm:DualApproxModes} and the fact that $s_j\in\fspace$ means $s_j$ is bounded, we can conclude that $\obsMatRow(x) \cdot v_j$ can be made arbitrarily close to $s_j(x)$ everywhere in $\dom$. %choose $\delta$ such that $\|\fspaceEl - \fspaceApproxEl\| < \delta$ implies $|\phi_j(\fspaceEl) - \phi_j(\fspaceApproxEl)| < 	% neeed to actually say why the phi are continuous
+\end{proof}
+
+In essence, this says that if we can find a close-enough approximate feature space, then the eigenvectors of the transition matrix in the dual space correspond exactly with the Koopman modes in the input space. \rr{There are many exciting possibilities that are opened up for us from this ability to find Koopman modes using the E-GP model, but for the purposes of this paper, the Koopman modes serve as a visual representation of the various dynamic structures present in the data.}
+
+
+%\begin{corollary}
+	%Suppose that for an approximate feature space $\fspaceApprox$, there exists $\e>0$ such that for all $\fspaceEl\in\fspace$ there exists $\fspaceApproxEl\in\fspaceApprox$ such that $\|\fspaceEl - \fspaceApproxEl\| < \e$. For all $\phi_j(\fspaceEl) \gg \e$, and if the phi are lipshitz, then $s_j(x) \approx \obsMatRow(x) \cdot v_j$
+%\end{corollary}
+
+
+
+% INVARIANT SUBSPACES SECTION HAS BEEN MOVED
 
 
 
