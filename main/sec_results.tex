@@ -1,10 +1,10 @@
 \section{Empirical Results}
-We begin with numerical results on determining sensing location and application of Kernel Observers to predict the spatiotemporal functions. The highlight here is results on sensing global ocean temperature with information from just a few location using the AVHRR satellite data. This is followed by application of E-GP in predicting spatiotemporal functions. We include results in prediction weed growth in simulated agricultural fields. Application of E-GP to model flow past a cylinder in the Reynold's number range 100-1000 are explored in ``\nameref{sb:cfd}''. We conclude the section with some results on control of linear Partial Differential Equation.
+We begin with numerical results on determining sensing location and application of kernel observers to predict the spatiotemporal functions. The highlight here is a set of results on sensing global ocean temperature with information from just a few location using the AVHRR satellite data. This is followed by application of E-GP in predicting spatiotemporal functions. We include results in prediction weed growth in simulated agricultural fields. Application of E-GP to model flow past a cylinder in the Reynold's number range 100-1000 are explored in ``\nameref{sb:cfd}''. We conclude the results section with a comparison of eigenvalues and Koopman modes computed from E-GP to DMD. 
 
 \subsection{Sensing Locations for Synthetic Data Sets}\label{sec:exp}
  The goal of this experiment is to investigate the dependency of the observability of system \eqref{k_measure} on the shaded observation matrix and the lower bound presented in Proposition \ref{prop:2}. The domain is fixed on the interval $\dom = [0,2\pi]$. First, we pick sets of points $\shCent^{(\setind)} = \{c_1,\dots,c_{\ncent_{\setind}}\}, \ c_{\centind}\in\dom$, $\ncent=50$, and construct a dynamics matrix $\dualop = \JorLa \in {\R^{\ncent \times \ncent}}$, with cyclic index $5$.  We pick the RBF kernel $\kernel(x,y) = e^{-\|x-y\|^2/2\s^2}$, $\s=0.02$. Generating samples $\sampSet=\sampSetLong$, $x_{\sampind}\in\dom$ randomly, we compute the $\minmeas$-shaded property and observability for this system. Figure \ref{fig:kobs_small} shows how shadedness is a necessary condition for observability, validating Proposition \ref{prop:1}: the slight gap between shadedness and observability here can be explained due to numerical issues in computing the rank of $\Obs_{\Tset}$. 
  
-Next, we  consider a system with a cyclic index $\minmeas=18$ to verify random sensor placement results. We constructed the measurement operator $\empK$ using the heuristic in Remark \ref{rem:1} (Algorithm \ref{alg:samples}), and random sensor selection to generate the sampling locations $\sampSet$. These results are presented in Figure \ref{fig:sample_observability}. The plot for random sampling which has been averaged over $ 100 $ runs, resembles a c.d.f function of an exponential distribution $ F(X=x)=1-\exp(-\lambda x) $. This verifies the claim made in Theorem \ref{thm:r2}, as the probability of becoming unobservable decays exponentially with the number of sensors placed. Also, fitting an exponential distribution we found that the mean $ \lambda^{-1}$ comes close to the ratio $ {\rands}/{p} $, which is the expected number of randomly placed sensors required for observability as per Theorem \ref{thm:r1}. Note that observability is not achieved if the number of samples $\nsamp < \minmeas$ verifying the result in Proposition \ref{prop:2}. %, although it is more expensive. 
+Next, we  consider a system with a cyclic index $\minmeas=18$ to verify random sensor placement results. We constructed the measurement operator $\empK$ using the heuristic in Remark \ref{rem:1} (Algorithm \ref{alg:samples}), and random sensor selection to generate the sampling locations $\sampSet$. These results are presented in Figure \ref{fig:sample_observability}. The plot for random sampling which has been averaged over $ 100 $ runs, resembles a c.d.f function of an exponential distribution $ F(X=x)=1-\exp(-\lambda x) $. This verifies the claim made in Theorem \ref{thm:r2}, as the probability of becoming unobservable decays exponentially with the number of sensors placed. Also, fitting an exponential distribution, we found that the mean $ \lambda^{-1}$ comes close to the ratio $ {\rands}/{p} $, which is the expected number of randomly placed sensors required for observability as per Theorem \ref{thm:r1}. Note that observability is not achieved if the number of samples $\nsamp < \minmeas$, which is experimental evidence of the result in Proposition \ref{prop:2}. %, although it is more expensive. 
 % Finally, using Algorithm \ref{algo:C2}, we estimate the probable sampling locations $\minmeas $ and check whether the system is observable. We repeat Algorithm \ref{algo:C2}, with $N=\minmeas+1$ and so on, until the system is observable. Figures \ref{fig:aa} and \ref{fig:sample_observability} compares two such results of observability phase transition achieved against an approach that randomly selects sampling locations for $M=50$. Both the plots show that with the random approach we need to sample at more locations as compared to our approach in Algorithm \ref{algo:C2}. Also from the figure \ref{fig:aa}, it is clear that even increasing the number of sampling locations does not guarantee observability for random sampling. %Note that we did not compare with information entropy based methods since they are not applicable 
 % For each $M$ the experiment was repeated 100 times; table \ref{sample-table} compares the computed average and variance of sampling locations required to achieve observability using sample locations %$ \hat{c}_{sj} $ 
 % from Algorithm \ref{algo:C2} and randomly chosen locations. These results further verify the inference made from figures \ref{fig:aa} and \ref{fig:sample_observability}.
@@ -67,10 +67,10 @@ and %13(f) %
 \ref{fig:pathfinder_errors_boxplots} 
 show a  comparison of the RMS error of estimated values from the real data.
 This figure shows the trend of the observer getting better and better state estimates as a function of the number of sensing locations $\nsamp$. Note that we checked the performance of training a GP with only $1,000$ samples as a control, but the average error was about 10 Kelvins, i.e. much worse than FKO.
- Time required for kernel observer is much lesser than retraining the model every time step, see Figures %13(g)-13(h). 
+ The time required for using the kernel observer is significantly less than retraining the model every time step; see Figures %13(g)-13(h). 
  \ref{fig:pathfinder_tr_times_boxplots_day}-\ref{fig:pathfinder_tr_times_boxplots_night}.
  
- \textbf{Weather Anomaly in 2012:} We further investigated the poor performance of autonomous kernel observer in the year 2012 as observed in Figures \ref{fig:time_series_day} and \ref{fig:time_series_night}. Clearly, the error in prediction blows up at the start of May in the year 2012. Indicating that the autonomous model trained using the data of the year 2011 does well in capturing the annual weather dynamics up to the month of May 2012. We turned our attention towards the weather in May 2012, as changes in ocean temperatures are directly related to the weather. Surprisingly, severe weather onset was reported on the east coast of United States in May 2012, and this anomaly continued over the period of May to June 2012. Thus, the apparent poor performance of autonomous kernel observer can actually be a useful indicator in detecting the anomalous behavior, as was the case with the ocean temperature in May 2012 which had deviated from the nominal weather dynamics observed in the year 2011 in which no severe weather anomalies were reported. Further, we identified the locations at which the prediction error was two standard deviations above the mean error. These error locations are plotted in Figure \ref{fig:anomaly}. Error locations on 6-7th May coincide with the severe weather onset on the east coast of United states and that of 28-29th May were along the track of storm Beryl approaching the eastern coastline. This shows that the autonomous kernel observer model captures the dynamics of spatiotemporal evolution, and has the potential of identifying current behavior as anomalous to that observed in the training set.
+ \textbf{Weather Anomaly in 2012:} We further investigated the poor performance of autonomous kernel observer in the year 2012 as observed in Figures \ref{fig:time_series_day} and \ref{fig:time_series_night}. Clearly, the prediction error blows up at the start of May in the year 2012, indicating that the autonomous model trained using the data of the year 2011 does well in capturing the annual weather dynamics up to the month of May 2012. We turned our attention towards the weather in May 2012, as changes in ocean temperatures are directly related to the weather. Unsuprisingly, severe weather conditions were reported on the east coast of United States in May 2012, and this anomaly continued over the period of May to June 2012. Here, the apparent poor performance of autonomous kernel observer can actually be a useful indicator in detecting the anomalous behavior, as was the case with the ocean temperature in May 2012 which had deviated from the nominal weather dynamics observed in the year 2011 in which no severe weather anomalies were reported. Further, we identified the locations at which the prediction error was two standard deviations above the mean error. These error locations are plotted in Figure \ref{fig:anomaly}. Error locations on 6-7th May coincide with the severe weather onset on the east coast of United states and that of 28-29th May were along the track of storm Beryl approaching the eastern coastline. This shows that the autonomous kernel observer model captures the dynamics of spatiotemporal evolution, and has the potential of identifying current behavior as anomalous to that observed in the training set.
  
 \begin{figure}
 \centering
@@ -201,7 +201,7 @@ The weed density in each cell, $\zeta \left( {x,y,t} \right) $, grows as seeds e
 
 The main challenge with weeding robots is that they only have access to sparse data about weed density and height, and no data about the seedbank. In fact, the robots can only sense the row that they are in and potentially the adjacent rows on either side. They have no information about the field in locations that have not been visited. Hence, the robots have to try and predict the global weed density given sparse information. This is a great application for the Kernel observer techniques studied in this paper. To demonstrate the proof of concept, we have trained a Kernel observers model on the weed density data generated by our simulations, so that robots in the field can quickly infer the state of the field globally from partial measurements from a few rows.
 
-We used a Radial Basis Function (RBF) kernels with a bandwidth approximately 5 cells (4.5 meters) wide. These were centered throughout the domain using the algorithm in \cite{csato2001sparse}. After training a GP on each snapshot of the data, we obtained a weight vector trajectory. We used linear least squares do determine the best linear transition in the weight space for this trajectory. Below we have included images of system as predicted by feeding forward the initial condition through this linear transition, as a comparison with the original data. The model is able to approximate the weed density growth data very well, with percent error averaging 5\%. These results show the feasibility of modeling weed growth using E-GPs. Ongoing work involves massive field campaign to collect the weed density data required to learn these models. Such datasets are currently not available, and the TerraSentia robots discussed in ``Sidebar: Key control problems in agriculture'' are being used to collect these data.
+We used a Radial Basis Function (RBF) kernels with a bandwidth approximately 5 cells (4.5 meters) wide. These were centered throughout the domain using the algorithm in \cite{csato2001sparse}. After training a GP on each snapshot of the data, we obtained a weight vector trajectory. We used linear least squares do determine the best linear transition in the weight space for this trajectory. Below we have included images of system as predicted by feeding forward the initial condition through this linear transition, as a comparison with the original data. The model is able to approximate the weed density growth data very well, with percent error averaging 5\%. These results show the feasibility of modeling weed growth using E-GPs. Ongoing work involves massive field campaign to collect the weed density data required to learn these models. Such datasets are currently not available, and the TerraSentia robots discussed in Sidebar: Key control problems in agriculture are being used to collect these data.
 
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
@@ -269,42 +269,6 @@ We used a Radial Basis Function (RBF) kernels with a bandwidth approximately 5 c
 %     \label{fig:controlled_pde_error} }
 %     \caption{Demonstration of the control of a linear diffusion equation.}     
 % \end{figure}
-
-\rr{
-\subsection{$k$-Invariant Subspaces Clustering}
-First we tested our algorithm on a number of simple synthetic spatiotemporally-evolving systems. One is displayed in Figure \ref{fig:synthetic}), having two invariant subspaces, each of which has two hills oscillating up and down in sync at a different frequency. Our method is able to successfully divide the system nicely through the middle, as expected (Figures \ref{fig:init_cluster}, \ref{fig:final_cluster}).
-
-We also tested our algorithm on fluid flow data sets (see Sidebar \ref{sb:cfd}). We found that our algorithm was able to separate divide different parts of the flow in a way that makes sense, see Figures \ref{fig:init_clusterCFD},\ref{fig:final_clusterCFD}.
-
-}
-
-\begin{figure*}[h]
-	\centering
-	\subfloat[Synthetic system with 2 invariant subspaces]{
-		\includegraphics[width=0.30\textwidth]{synthetic23}
-		\label{fig:synthetic}	}
-	\subfloat[\small{Initial clustering of centers}]{
-		\includegraphics[width=0.30\textwidth]{init_cluster}
-		\label{fig:init_cluster}		}
-	\subfloat[\small{Final clustering of centers}]{
-		\includegraphics[width=0.34\textwidth]{final_cluster}
-		\label{fig:final_cluster}	}
-	\caption{Synthetic System Invariant Subspaces}
-\end{figure*}
-
-\begin{figure*}[h]
-	\centering
-	\subfloat[\small{CFD system, Re=1000}]{
-		\includegraphics[width=0.30\textwidth]{snap1000_0}
-		\label{fig:cfd1000}	}
-	\subfloat[\small{Initial clustering of centers}]{
-		\includegraphics[width=0.30\textwidth]{init_clusterCFD}
-		\label{fig:init_clusterCFD}		}
-	\subfloat[\small{Final clustering of centers}]{
-		\includegraphics[width=0.34\textwidth]{final_clusterCFD}
-		\label{fig:final_clusterCFD}	}
-	\caption{CFD System Invariant Subspaces}
-\end{figure*}
 
 
 
