@@ -330,21 +330,10 @@ Rajeev Motwani and Prabhakar Raghavan.
 \newblock {\em Randomized algorithms}.
 \newblock Chapman \& Hall/CRC, 2010.
 
-\bibitem{berkovitz2007action}
-Joseph Berkovitz.
-\newblock Action at a distance in quantum mechanics.
-\newblock 2007.
-
 \bibitem{csato2002sparse}
 Lehel Csat\"{o} and Manfred Opper.
 \newblock Sparse on-line gaussian processes.
 \newblock {\em Neural computation}, 14(3):641--668, 2002.
-
-\bibitem{williams2015koopman}
-Ioannis G.~Kevrekidis Williams, Matthew~O. and Clarence~W. Rowley.
-\newblock A data–driven approximation of the koopman operator: Extending
-  dynamic mode decomposition.
-\newblock {\em Journal of Nonlinear Science}, 25(6):1307--1346, 2015.
 
 \bibitem{mezic2013analysis}
 Igor Mezi{\'c}.
@@ -357,6 +346,11 @@ Clarence~W Rowley, Igor Mezi{\'c}, Shervin Bagheri, Philipp Schlatter, and
   Dan~S Henningson.
 \newblock Spectral analysis of nonlinear flows.
 \newblock {\em Journal of fluid mechanics}, 641:115--127, 2009.
+
+\bibitem{berkovitz2007action}
+Joseph Berkovitz.
+\newblock Action at a distance in quantum mechanics.
+\newblock 2007.
 
 \bibitem{li2006spatiotemporal}
 Lixin Li, Xingyou Zhang, and Reinhard Piltner.
