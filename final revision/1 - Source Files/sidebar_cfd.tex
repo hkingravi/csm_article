@@ -1,31 +1,29 @@
 \section[Learning Fluid Flows with Evolving Gaussian Processes]{Sidebar: Learning Fluid Flows with Evolving Gaussian Processes}\label{sb:cfd}
 
-2nd order Partial Differential Equations (PDEs) are ubiquitous in practical science and engineering, from mechanics to transport phenomena to electromagnetics. In our view, the Navier-Stokes equations governing fluid dynamics represent most, if not all of the overall complexity of modeling these as (a) it exhibits of hybrid system behavior, e.g. elliptic-hyperbolic, and (b) the nonlinearity results in the complex spatio-temporal dynamics that are prevalent in many practical situations. %The form of the NSE for compressible Newtonian fluids is expressed below, where $\mathbf u$ is the fluid velocity, $p$ is the fluid pressure, $\rho$ is the fluid density, and $\mu$ is the fluid dynamic viscosity. \cite{panton2006incompressible}
+2nd order Partial Differential Equations (PDEs) are ubiquitous in practical science and engineering, from mechanics to transport phenomena to electromagnetics. In our view, the Navier-Stokes equations governing fluid dynamics represent most, if not all of the overall complexity of modeling these as (a) it exhibits of hybrid system behavior, such as elliptic-hyperbolic, and (b) the nonlinearity results in the complex spatio-temporal dynamics that are prevalent in many practical situations. 
 
-% $$ \rho \left(\frac{\partial \mathbf u}{\partial t} + \mathbf u \cdot \nabla \mathbf u\right) = -\nabla p + \nabla \cdot \left(\mu (\nabla \mathbf u + (\nabla \mathbf u)^T)\right) + \nabla \left( - \frac{2\mu}{3}\nabla \cdot \mathbf u\right) + \rho \mathbf{g}$$
-
-We demonstrate the Evolving Gaussian Processes method on CFD data of flow over a bluff body (a cylinder) over a range of Reynolds numbers from 100 to 1000 (the Reynold number is a dimensionless flow rate). This deterministic, high-dimensional spatiotemporal dynamical system is well-studied in the fluid dynamics literature, both experimentally and numerically \cite{roshko1954cylinder, braza1986cylinder, rajani1986cylinder}. The conventional wisdom would be to learn a separate model over each Reynolds number, but our results show that the E-GP method is capable of learning the dynamics of all the flow patterns at once. Using the learned dynamics over weights of successive kernel models, E-GP is capable of predicting the future states of functional evolution in a recursive manner. The key advantage of E-GP is that evolution of large function spaces can be transformed into learning the evolution in a relatively smaller Hilbert space which is encoded by the kernels and the associated weight vector. %Furthermore, the values of the weights and the associated linear dynamical systems provide critical insights, such as spatial-correlations through the structure of the transition matrix, local modes of dynamic evolution through invariant subspaces of the transition matrix, and eigenmodes of evolution. The latter is of significant importance to the ongoing work in Koopman operator models of spatiotemporal phenomena.
+We demonstrate the Evolving Gaussian Processes method on CFD data of flow over a bluff body (a cylinder) over a range of Reynolds numbers from 100 to 1000 (the Reynold number is a dimensionless flow rate). This deterministic, high-dimensional spatiotemporal dynamical system is well-studied in the fluid dynamics literature, both experimentally and numerically \cite{roshko1954cylinder, braza1986cylinder, rajani1986cylinder}. The conventional wisdom would be to learn a separate model over each Reynolds number, but our results show that the E-GP method is capable of learning the dynamics of all the flow patterns at once. Using the learned dynamics over weights of successive kernel models, E-GP is capable of predicting the future states of functional evolution in a recursive manner. The key advantage of E-GP is that evolution of large function spaces can be transformed into learning the evolution in a relatively smaller Hilbert space which is encoded by the kernels and the associated weight vector. 
 
 In our CFD simulation, we used a 4th-order polynomial expansion with the spectral element method on the incompressible Navier-Stokes equation to generate the cylinder flow data for Re = 100, 300, 600, 800, and 1000. The spatial domain is $\left[-2,10\right]\times\left[-3,3\right]$, excluding the diameter-1 cylinder at the origin.  Neumann boundary conditions are applied to the far-field of the cylinder in the y-direction and the outlet of the flow field; and a Dirichlet boundary condition is applied to the inlet. Each dataset contains at least 200 snapshots with a uniform time step of 0.03 sec. Each snapshot contains 24,000 velocity data points for Re=100 or 95,000 velocity data points for Re=300,600,800,1000. Each dataset took at least 10 hours in a high performance computer cluster to generate. Figures \ref{fig:cfd_100},\ref{fig:cfd_1000}(a-d) visualize the horizontal velocity for Re=100 and Re=1000, with red being the greatest negative velocity and blue the greatest positive velocity. The flow is unstable, periodic, and clearly nonlinear.
 
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[Snapshot 0]{
-		\includegraphics[width=0.23\textwidth]{snap100_0}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6a}		}
 	\subfloat[Snapshot 10]{
-		\includegraphics[width=0.23\textwidth]{snap100_10}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6b}		}
 	\subfloat[Snapshot 20]{
-		\includegraphics[width=0.23\textwidth]{snap100_20}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6c}		}
 	\subfloat[Snapshot 30]{
-		\includegraphics[width=0.23\textwidth]{snap100_30}		}\\
+		\includegraphics[width=0.23\textwidth]{Figure S6d}		}\\
 	\subfloat[Snapshot 0]{
-		\includegraphics[width=0.23\textwidth]{snap100_c600_0}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6e}		}
 	\subfloat[Snapshot 10]{
-		\includegraphics[width=0.23\textwidth]{snap100_c600_10}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6f}		}
 	\subfloat[Snapshot 20]{
-		\includegraphics[width=0.23\textwidth]{snap100_c600_20}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6g}		}
 	\subfloat[Snapshot 30]{
-		\includegraphics[width=0.23\textwidth]{snap100_c600_30}		}
+		\includegraphics[width=0.23\textwidth]{Figure S6h}		}
 	
 	\caption{Visualization of Fluid Flow at Re = 100, CFD (a-d), E-GP (e-h)}
 	\label{fig:cfd_100}
@@ -34,21 +32,21 @@ In our CFD simulation, we used a 4th-order polynomial expansion with the spectra
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[Snapshot 0]{
-		\includegraphics[width=0.23\textwidth]{snap1000_0}		}
+		\includegraphics[width=0.23\textwidth]{Figure S7a}		}
 	\subfloat[Snapshot 5]{
-		\includegraphics[width=0.23\textwidth]{snap1000_5}		}
+		\includegraphics[width=0.23\textwidth]{Figure S7b}		}
 	\subfloat[Snapshot 10]{
-		\includegraphics[width=0.23\textwidth]{snap1000_10}		}
+		\includegraphics[width=0.23\textwidth]{Figure S7c}		}
 	\subfloat[Snapshot 15]{
-		\includegraphics[width=0.24\textwidth]{snap1000_15}		}\\
+		\includegraphics[width=0.24\textwidth]{Figure S7d}		}\\
 	\subfloat[Snapshot 0]{
-		\includegraphics[width=0.24\textwidth]{snap1000_c600_0}		}
+		\includegraphics[width=0.24\textwidth]{Figure S7e}		}
 	\subfloat[Snapshot 5]{
-		\includegraphics[width=0.23\textwidth]{snap1000_c600_5}		}
+		\includegraphics[width=0.23\textwidth]{Figure S7f}		}
 	\subfloat[Snapshot 10]{
-		\includegraphics[width=0.23\textwidth]{snap1000_c600_10}	}
+		\includegraphics[width=0.23\textwidth]{Figure S7g}	}
 	\subfloat[Snapshot 15]{
-		\includegraphics[width=0.23\textwidth]{snap1000_c600_15}	}
+		\includegraphics[width=0.23\textwidth]{Figure S7h}	}
 	\caption{Visualization of Fluid Flow at Re = 1000, CFD (a-d), E-GP (e-h)}
 	\label{fig:cfd_1000}
 \end{figure*}
@@ -64,141 +62,64 @@ To approach the challenge of generalizing across similar spatiotemporally evolvi
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Universal Generalizer vs Individual Models}]{
-		\includegraphics[width=0.7\textwidth]{errors}
+		\includegraphics[width=0.7\textwidth]{Figure S8a}
 		\label{fig:errors}		}\\
 	\subfloat[\small{Different Models Tested on Re=800}]{
-		\includegraphics[width=0.7\textwidth]{boxploterrors800}
+		\includegraphics[width=0.7\textwidth]{Figure S8b}
 		\label{fig:errors_boxplot}		}
 	\caption{Total Percentage Errors}
 \end{figure*}
 
 \subsection{Generalizing from Learned Dynamics to Unknown Dynamics}\label{sec:generalize}
 
-Having seen that it is possible to find a single transition in the weight space that models the dynamics systems over a range of parameters, the next challenge is to be able to model flows with parameters that the model has not been trained on. We derived an $\dualopApprox$ matrix from the Re=100, 300, 600, and 1000 datasets and tested it against the Re=800 dataset. The results are below in Figure \ref{fig:errors_boxplot}. For the first 120 snapshots, the total percentage error remains under 10\%, which is satisfactory. After this, however, the total percentage error curves upwards as the slight errors in the transition matrix compound. Over 800 snapshots, we found an average total percentage error of less than 25\%. %Taking a long-range view of the error plots, we found that they curve back downward again sinusoidally at snapshot 600, 35\% error. This indicates that the source of the divergence is likely due to a slight error in the speed of the vortices. This is confirmed by Fourier analysis as above, with the generalized model producing a wake frequency of 1.427 Hz in comparison to the actual frequency of 1.388 Hz, a 2.8\% difference. This small difference explains why the model is accurate for approximately the first 10 cycles before it begins to diverge.
+Having seen that it is possible to find a single transition in the weight space that models the dynamics systems over a range of parameters, the next challenge is to be able to model flows with parameters that the model has not been trained on. We derived an $\dualopApprox$ matrix from the Re=100, 300, 600, and 1000 datasets and tested it against the Re=800 dataset. The results are below in Figure \ref{fig:errors_boxplot}. For the first 120 snapshots, the total percentage error remains under 10\%, which is satisfactory. After this, however, the total percentage error curves upwards as the slight errors in the transition matrix compound. Over 800 snapshots, we found an average total percentage error of less than 25\%. 
 
 \subsection{Linear Dynamical Layer Analysis \& Insights}\label{sec:analysis}
 Due to the spatial encoding of the weights which the linear transition model operates on, we are able to analyze the dynamics and find physical insights into the process. We demonstrate two techniques: (1) using eigendecomosition of the transition matrix to discover the eigenfunctions and invariant subspaces of system, and (2) visualizing the most significant spatial interactions in the system.
 
 By marking which kernel centers are associated with different invariant subspaces, we can spatially separate the space into multiple dynamic modules. The physical insight is that some areas of the space are dynamically entangled with each other, and other are independent. For those interested in monitoring spatiotemporally evolving systems, the number and location of the invariant subspaces determines how many and where feedback sensors ought to be for robust prediction of the system state.
+
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re = 100, $\varepsilon$ = 0.005}]{
-		\includegraphics[width=0.31\textwidth]{matrix100floor5e3}
+		\includegraphics[width=0.31\textwidth]{Figure S9a}
 		\label{fig:eigen100}	}
 	\subfloat[\small{Re = 1000, $\varepsilon$ = 0.05}]{
-		\includegraphics[width=0.31\textwidth]{matrix1000floor50e3}
+		\includegraphics[width=0.31\textwidth]{Figure S9b}
 		\label{fig:eigen1000}		}
 	\subfloat[\small{All Reynolds numbers, $\varepsilon$ =0.069}]{
-		\includegraphics[width=0.31\textwidth]{matrixallfloor69}
+		\includegraphics[width=0.31\textwidth]{Figure S9c}
 		\label{fig:eigenall}	}
 	\caption{Eigenvector Heat Maps}
 \end{figure*}
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re = 100, $\varepsilon$ = 0.005}]{
-		\includegraphics[width=0.30\textwidth]{subspaces100}}
+		\includegraphics[width=0.30\textwidth]{Figure S10a}}
 	\subfloat[\small{Re = 1000, $\varepsilon$ = 0.05}]{
-		\includegraphics[width=0.30\textwidth]{subspaces1000}}
+		\includegraphics[width=0.30\textwidth]{Figure S10b}}
 	\subfloat[\small{All Reynolds numbers, $\varepsilon$ = 0.069}]{
-		\includegraphics[width=0.34\textwidth]{subspacesall}}
+		\includegraphics[width=0.34\textwidth]{Figure S10c}}
 	\caption{Invariant Subspaces}
 	\label{fig:subspaces}
 \end{figure*}
+
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\subfloat[\small{Re=100}]{
-		\includegraphics[width=0.31\textwidth]{Amatrix3d100.pdf}
+		\includegraphics[width=0.31\textwidth]{Figure S11a.pdf}
 		\label{fig:haystack100}	}
 	\subfloat[\small{Re=1000}]{
-		\includegraphics[width=0.31\textwidth]{Amatrix3d1000.pdf}
+		\includegraphics[width=0.31\textwidth]{Figure S11b.pdf}
 		\label{fig:haystack1000} }
 	\subfloat[\small{Trained on all 5 datasets}]{
-		\includegraphics[width=0.31\textwidth]{Amatrix3dall.pdf}
+		\includegraphics[width=0.31\textwidth]{Figure S11c.pdf}
 		\label{fig:haystackall}	}
 	\caption{Visualization of Co-Relations in Transition Matrix}
 \end{figure*}
+
 Before attempting a Jordan decomposition of $\dualopApprox$, we zero any elements smaller than some small $\varepsilon$ in order to stabilize the algorithm for matrices with many elements close to zero. Afterwards we visualize the eigenvector matrix using a \emph{logarithmic} color chart, as seen in Figures \ref{fig:eigen100},\ref{fig:eigen1000},\ref{fig:eigenall}. These plots are for models trained individually on Re=100 and Re=1000 with 300 kernels, and on all five with 600 kernels, for comparison. We see three categories of eigenvector in the rows: (1) Rows at the bottom that have exactly one non-zero elements, (2) In the middle, a couple rows with a dozen significant elements, and (3) at the top a number of rows that affect the majority of the kernel centers in the space.
 
 Each eigenvector of (1) spans its own invariant subspace, and is depicted in magenta circles in Figure \ref{fig:subspaces}. Category (3) is one invariant subspace, depicted with black crosses. Category (2) is subsumed in Category (3). The figures show that the dynamics near/around the cylinder and in its wake are so entangled that a single sensor measurement in that area may be sufficient to estimate over that entire subspace. On the other hand, areas far from the core of dynamic excitement are their own independent, invariant subspaces, and thus must be monitored locally.
 
 Another way to visualize the operation of the linear transition matrix is to plot lines between kernel centers that are influencing each other strongly. That is, if we draw a line center $c_j$ to $c_i$ for each of the (relatively) largest elements $a_{ij}$ of $\dualopApprox$, one can see how the system dynamics are coupled spatially (Figures \ref{fig:haystack100},\ref{fig:haystack1000},\ref{fig:haystackall}). We can also plot the magnitude of $a_{ij}$ in a third axis for further insight into the most dominant dynamic connection in the system.
-
-
-
-
-
-
-
-
-%\begin{figure}[t]
-%	\centering
-%	\subfloat[\small{Gaussian}]{
-%		\includegraphics[width=0.25\columnwidth]{figures/kernel_evol_gaussian.pdf}
-%	}
-%	\subfloat[\small{Laplacian}]{
-%		\includegraphics[width=0.25\columnwidth]{figures/kernel_evol_laplacian.pdf}
-%	}
-%	% \\
-%	\subfloat[\small{Periodic}]{
-%		\includegraphics[width=0.25\columnwidth]{figures/kernel_evol_periodic.pdf}
-%	}
-%	% \subfloat[\small{Locally periodic}]{
-%	%   \includegraphics[width=0.3\columnwidth]{figures/kernel_evol_locally_periodic.pdf}
-%	%}
-%	\caption{\small{One-dimensional function evolution over a fixed transition matrix $A$, 
-%			initial condition $\weight_0$ and centers $\shCent$, but with different kernels $\kernel(x,y)$. 
-%			Each $y$-vector at a given value of $x$ represents the output of the function, which evolves from left to right. 
-%			As seen, changing the kernel creates quite different dynamic behaviors. }%behavior for the same system.}
-%	}
-%	\label{fig:kernel_variation}
-%\end{figure}
-
-
-
-
-%\begin{figure}\label{fig:linsep}
-%\centering
-%    \subfloat[Data from classes $A$ and $B$.]
-%    {
-%    \includegraphics[width=0.45\columnwidth]{figures/linsep_data.pdf}
-%    \label{fig:lisep_data}}
-%     \subfloat[Linear boundary separating data.]
-%     {\includegraphics[width=0.45\columnwidth]{figures/linsep_data_perceptron.pdf}
-%     \label{fig:lin_sep_bound}}  
-%    \caption{Example of linearly separable data. Any simple linear learning algorithm e.g. perceptron, finds a solution.}
-%    \label{fig:linsep}
-%    %\end{figure}
-%%\begin{figure}[tbh] %{r}{0.5\textwidth}
-%\end{figure} 
-%
-%\begin{figure}
-%\centering
-%    \subfloat[Data from classes $A$ and $B$.]
-%    {
-%    \includegraphics[width=0.45\columnwidth]{figures/pres_original_data.pdf}
-%    \label{fig:nlisep_data}}
-%     \[Linear boundary fails to separate data.]
-%     {\includegraphics[width=0.45\columnwidth]{figures/pres_perc_original_data.pdf}
-%     \label{fig:nlin_sep_bound}}  
-%    \caption{Example of nonlinearly separable data. Perceptron fails to find a solution, and diverges.}
-%    \label{fig:nlinsep}
-%    %\end{figure}
-%%\begin{figure}[tbh] %{r}{0.5\textwidth}
-%\end{figure} 
-%
-%
-%\begin{figure}
-%\centering
-%    \subfloat[Nonlinear mapping of data.]
-%    {
-%    \includegraphics[width=0.45\columnwidth]{fmapped_data.pdf}
-%    \label{fig:fmapped_data}}
-%     \subfloat[Linear boundary in new space.]
-%     {\includegraphics[width=0.45\columnwidth]{pres_perc_fmapped_data_after.jpg}
-%     \label{fig:fmapped_bound}}  
-%    \caption{If we map the same data using a nonlinear map $\phi(x,y):= (x^2, y^2, 2xy)$, the perceptron now finds a solution
-%             in 3 dimensions.}
-%    \label{fig:fmapped}
-%    %\end{figure}
-%%\begin{figure}[tbh] %{r}{0.5\textwidth}
-%\end{figure} 

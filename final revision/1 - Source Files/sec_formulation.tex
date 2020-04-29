@@ -112,7 +112,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	Since elementary matrices are full-rank, we then have that $\Rank(U\empK) = \Rank(\empK)$. 
 	
 	To analyze the rank of $\Obs_{\Tset}$, we apply these elementary matrices to every $\empK\in\catempK$. To do so, consider the block-diagonal matrix $\bdU\in\R^{\nsamp\otime\times\nsamp\otime}$ with $U\in\R^{\nsamp\times\nsamp}$ along the diagonal, and zeros everywhere else,
-	i.e.:
+	that is,
 	\begin{align}
 	\bdU:= \begin{bmatrix}
 	U   & \zerosU & \cdots & \zerosU\\
@@ -121,7 +121,7 @@ $\Tset$ has distinct values, and $|\Tset| \geq \ncent$.
 	\zerosU & \zerosU & \cdots & U
 	\end{bmatrix}.
 	\end{align}
-	It can be shown that  $\bdU$ is full-rank, i.e. has rank $\nsamp\otime$. Going back to the observability matrix, we have that:
+	It can be shown that  $\bdU$ is full-rank, that is, has rank $\nsamp\otime$. Going back to the observability matrix, we have that:
 	\begin{align*}
 	\bdU\Obs_{\Tset} &= \bdU\catempK\catdualopC\\
 	&=  
@@ -209,10 +209,10 @@ In the next proposition, we take a geometric approach and utilize the rational c
  the Jordan blocks $\left[\begin{smallmatrix}
                            \JorLa_1 &\cdots & \JorLa_{\JorMul}
                           \end{smallmatrix}\right]$ may have 
- repeated eigenvalues (i.e. $\exists \JorLa_i$ and $\JorLa_j$ s.t. $\eval_i = \eval_j$). Then there exist kernels $\kernel(x,y)$ such that the lower bound $\minmeas$ on the number of sampling locations $\nsamp$ is given by the cyclic index of $\dualopApprox$. In other words, the system in \eqref{k_measure} is observable if $ \nsamp \geq \ell$.
+ repeated eigenvalues (that is, $\exists \JorLa_i$ and $\JorLa_j$ s.t. $\eval_i = \eval_j$). Then there exist kernels $\kernel(x,y)$ such that the lower bound $\minmeas$ on the number of sampling locations $\nsamp$ is given by the cyclic index of $\dualopApprox$. In other words, the system in \eqref{k_measure} is observable if $ \nsamp \geq \ell$.
 \end{proposition}
 \begin{proof}
-	\textbf{By Contrapositive.} We will show that if the number of sampling locations are $ \nsamp=\ell-1 $ (i.e. $ \nsamp < \ell$), then the system is not observable. Pick the Gaussian kernel in the dictionary of atoms framework,
+	\textbf{By Contrapositive.} We will show that if the number of sampling locations are $ \nsamp=\ell-1 $ (that is, $ \nsamp < \ell$), then the system is not observable. Pick the Gaussian kernel in the dictionary of atoms framework,
 	with sampling locations $x_i\in\sampSet$ and centers $c_j\in\shCent$, with the additional 
 	property that $x_i\neq x_j \forall i,j\in\{1,\dots,\nsamp\}, i\neq j$.
 	In this case, 
@@ -431,7 +431,7 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
 				\STATE {\bfseries Input:} Kernel $\kernel$, basis centers $\shCent$, 
 				estimated system matrix $\dualopApprox$, estimated covariance matrix $\estcontrolop$.
 				\STATE {\bfseries Compute Observation Matrix:} Compute the cyclic index $\minmeas$ of $\dualopApprox$, and compute $\empK$.
-				\STATE {\bfseries Initialize Observer:} Use $\dualopApprox$, $\estcontrolop$, and $\empK$ to initialize a state-observer (e.g. Kalman filter (KF)) on $\fspaceApprox$.
+				\STATE {\bfseries Initialize Observer:} Use $\dualopApprox$, $\estcontrolop$, and $\empK$ to initialize a state-observer (such as Kalman filter (KF)) on $\fspaceApprox$.
 				\WHILE{ measurements available }   
 				\STATE 1) Sample data $\{y^i_{\tindex}\}_{i=1}^{\nsamp}$ from $f_{\tindex}$.
 				\STATE 2) Propagate KF estimate $\estweight_{\tindex}$ 
@@ -629,8 +629,8 @@ solve for $\estsysop$. The measurement operator $\empK$ is then computed
   \end{minipage} 
   \caption{
   Diagram demonstrating sensor placement using the measurement map or random sampling approaches. 
-  The circles represent data locations associated to bases (e.g. $c_j\Leftrightarrow\fmap(c_j)$) 
-  and the squares represent sensor locations (e.g. $x_i\Leftrightarrow\fmap(x_i)$) .
+  The circles represent data locations associated to bases (such as $c_j\Leftrightarrow\fmap(c_j)$) 
+  and the squares represent sensor locations (such as $x_i\Leftrightarrow\fmap(x_i)$) .
   The cyclic index ($\minmeas=2$) indicates how many possible couplings of bases exist, 
   which can be represented 
   as a choice of $\binom{\ncent}{\minmeas}$ hyperplanes in $\dom$. If the measurement map is 
@@ -685,7 +685,7 @@ where $\measure$ is a measure in the real analysis sense. Hence, $p_{\e}$ corres
 	\begin{equation*}
 	P(X=h) = {\nsamp \choose h}p_{\e}^h (1-p_{\e})^{\nsamp-h},
 	\end{equation*}
-	in which $ h  $ is the number of success. The expectation of the binomial distribution, i.e. the expected number of success, is $ Np_{\e} $, and thus the expected number of trials required will be $ N = \rands/p_{\e}$.
+	in which $ h  $ is the number of success. The expectation of the binomial distribution, that is, the expected number of success, is $ Np_{\e} $, and thus the expected number of trials required will be $ N = \rands/p_{\e}$.
 \end{proof}
 
 \begin{theorem}\label{thm:r2}
@@ -704,7 +704,7 @@ For the case when $ \dualopApprox \neq \JorLa $, a change of basis can be used t
 
 
 \subsection{Generalizing Across Similar Spatiotemporally Evolving Systems} \label{sec:egp}
-Building on the Kernel Observers method, let us introduce Evolving Gaussian Processes (E-GP). The primary novelty in this method of generating a model is learning an $\dualopApprox$ matrix for \emph{multiple} systems. The ultimate goal of this research would be to generate highly efficient machine learning models that can be used instead of the costly numerical simulations for design and autonomy purposes. This would be a major success for the design and control of complex physical systems, such as soft robotics, as they would significantly reduce the cost and resources required in simulations. The ability to generalize across different physical situations, is critical. This is a difficult problem, as it requires that the model have the capability to actually learn the underlying physics and not just input-output relationships. For example, in the context of fluid flows, these models must be able to predict fluid dynamics at different conditions (e.g. Reynolds number) than the training data. E-GP, as far as the authors know, was the first machine learning method to generalize across spatiotemporally evolving systems of such complexity using end-to-end data.
+Building on the Kernel Observers method, let us introduce Evolving Gaussian Processes (E-GP). The primary novelty in this method of generating a model is learning an $\dualopApprox$ matrix for \emph{multiple} systems. The ultimate goal of this research would be to generate highly efficient machine learning models that can be used instead of the costly numerical simulations for design and autonomy purposes. This would be a major success for the design and control of complex physical systems, such as soft robotics, as they would significantly reduce the cost and resources required in simulations. The ability to generalize across different physical situations, is critical. This is a difficult problem, as it requires that the model have the capability to actually learn the underlying physics and not just input-output relationships. For example, in the context of fluid flows, these models must be able to predict fluid dynamics at different conditions (such as Reynolds number) than the training data. E-GP, as far as the authors know, was the first machine learning method to generalize across spatiotemporally evolving systems of such complexity using end-to-end data.
 
 We found that the class of functional evolutions $\mathbb{F}$ defined by linear Markovian transitions in a RKHS is still sufficient to model the nonlinear Navier Stokes equations which govern fluid dynamics, since the unknown map $\fmap$ allows us to model highly nonlinear dynamics in the input space. However, we do expect that phenomena such as bifurcation or turbulence will require nonlinear mappings $\fspace$. There are three steps to generate an E-GP model:
 
@@ -730,7 +730,7 @@ Unlike neural networks, the weights in an E-GP do not exist in some abstract, di
 
 We would be remiss not to examine our methods in light of Koopman operator theory, which has served as a major source of inspiration for number of new methods in analyzing dynamical systems in the last decade, especially within the Computational Flow Dynamics (CFD) community. Here we present results which show a direct connection between the Koopman modes, eigenfunctions, and eigenvalues and the spectral decomposition of the transition matrix in our model. In fact, in our final theorem, we show that the eigenvalues of our model are a subset of the eigenvalues of the infinite-dimensional Koopman operator, the eigenvectors transformed to the input space are congruent in shape to the Koopman modes, and the eigenfunctions are identical. These results have allowed us to construct new methods for sensor placement under even more difficult conditions than described previously -- specifically, the situation of one (or a few) sensors attached to moving agents or robots.
 
-For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS, i.e. $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that:
+For a general dynamical system $f_{\tindex+1} = \mathbb{F}(f_{\tindex})$ defined on a state space (for us, an RKHS $f\in\fspace$), we can define an arbitrary, vector-valued \emph{observable} $g : \fspace \to \R^{\nsamp}$. Note that the space of observables $g$ is a vector space. The Koopman operator $U$ is defined to be the operator on the space of observables such that:
 \begin{align} \eqlabel{koopman_operator}
 U g(f_{\tindex}) = g(\mathbb{F}(f_{\tindex})) = g(f_{\tindex+1})
 \end{align}
@@ -778,7 +778,7 @@ Note that this means the modes of the two observables are identical in shape (on
 	In an E-GP or KO model of the dynamical system $ f_{\tindex+1} = \sysop f_{\tindex}$,
 	\begin{enumerate}
 		\item The eigenvalues of $\dualopApprox$ are a subset of the eigenvalues of the Koopman operator.
-		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, i.e. $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
+		\item The eigenfunctions of the Koopman operator in the dual space correspond with a subset of the eigenfunctions of the Koopman operator on $\fspaceEl_0$, that is $\hat\phi_j(\weight_{\tindex}) = \phi_j(f_{\tindex})$.
 		\item If the observable $u(\fspaceEl,x)$ is the evaluation operator, $u(\fspaceEl,x) \coloneqq \fspaceEl(x)$, then the eigenvectors $v_j$ of $\dualopApprox$ are related to the Koopman modes of the observable by:
 		\begin{align}
 			s_j (x) = \frac{\phi_j(\fspaceEl)}{\phi_j(\fspaceApproxEl)} \obsMatRow(x) \cdot v_j
@@ -828,7 +828,7 @@ Each block in the Jordan normal form has a set of corresponding eigenvectors and
 
 
 \subsubsection{$k$-Invariant Subspaces Clustering}
-In response to the need for an algorithm that can separate invariant subspaces in the linear model of a system generated by data, we have developed what we call ``$k$-invariant subspaces clustering''. The intuition behind our algorithm is to replace the Euclidean distance in the well-known $k$-means algorithm with a different metric of ``nearness'', namely one corresponding with the dynamic connections in the space. The $\dualopApprox$ matrix provides easy access to these: its rows $\dualopApprox_{i\ast}$ indicate which centers inform the i\textsuperscript{th} value of $\weight_{\tindex+1}$, and its columns $\dualopApprox_{\ast j}$ indicate what centers will be informed by the j\textsuperscript{th} value of $\weight_{\tindex}$. However, these values do tend to be biased towards the eigenmodes with higher frequencies (i.e. those whose eigenvalues have a greater polar angle) and those which grow exponentially. To  control for this, we chose to modify the eigenvalues of the matrix in the following way: we (1) zeroed any eigenvalue that is clearly inside (not on) the unit circle, (2) unitized the remaining eigenvalues, and (3) adjusted the frequency of the remaining eigenvalues on the unit circle to either $\pm \frac{\pi}{4}$. If the eigen-decomposition of the original was $\dualopApprox = UDU^{-1}$, then we can reconstruct a new matrix with our modified eigenvalues $\bar D$ as $\bar A = U\bar D U^{-1}$.
+In response to the need for an algorithm that can separate invariant subspaces in the linear model of a system generated by data, we have developed what we call ``$k$-invariant subspaces clustering''. The intuition behind our algorithm is to replace the Euclidean distance in the well-known $k$-means algorithm with a different metric of ``nearness'', namely one corresponding with the dynamic connections in the space. The $\dualopApprox$ matrix provides easy access to these: its rows $\dualopApprox_{i\ast}$ indicate which centers inform the i\textsuperscript{th} value of $\weight_{\tindex+1}$, and its columns $\dualopApprox_{\ast j}$ indicate what centers will be informed by the j\textsuperscript{th} value of $\weight_{\tindex}$. However, these values do tend to be biased towards the eigenmodes with higher frequencies (that is, those whose eigenvalues have a greater polar angle) and those which grow exponentially. To  control for this, we chose to modify the eigenvalues of the matrix in the following way: we (1) zeroed any eigenvalue that is clearly inside (not on) the unit circle, (2) unitized the remaining eigenvalues, and (3) adjusted the frequency of the remaining eigenvalues on the unit circle to either $\pm \frac{\pi}{4}$. If the eigen-decomposition of the original was $\dualopApprox = UDU^{-1}$, then we can reconstruct a new matrix with our modified eigenvalues $\bar D$ as $\bar A = U\bar D U^{-1}$.
 
 Much like the pairwise-squared deviations of points formulation of the $k$-means clustering problem, we can now write our problem as:
 $$\arg\max_S \sum_{i=1}^k \frac{1}{2|S_i|} \sum_{\substack{x_i \neq x_j \\ x_j,x_i\in S_i}} \bar A_{ij}^2 $$
