@@ -1,0 +1,14 @@
+\begin{table}[t] \caption{Compares the transient response to a step input for different architectures (cascade and two-input) of the dynamic output feedback controller with the same closed-loop poles locations. The full-state feedback (FSFB) result matches the predicted properties closely (limited by  the dominant pole pair assumption), but the cascade dynamic response is significantly different. The closed-loop response using the two-input dynamic output feedback controller discussed later closely matches the predicted values.} \vspace*{.1in}
+\centering
+\begin{tabular}{|l||c|c|c|c|} \hline
+Property & Predicted & FSFB & Cascade & Two-input\\ \hline\hline
+Rise time (s) & 0.44 & 0.3798 & \textbf{0.1687} &0.4050\\
+Settling time (2\%) (s) &  0.9775 & 1.0534& 0.9593&1.0978\\
+%       SettlingMin& 0.9048& 0.9137&\\
+%      SettlingMax& 1.0432& 1.2799&\Ï\
+Overshoot (\%)& 4.0 & 4.3146& \textbf{27.9841}&3.9771\\
+%        Undershoot& 0& 0\\f
+%         Peak& 1.0432& 1.2799\\
+Peak time (s) & 0.79 & 0.7873& \textbf{0.4648}&0.8459 \\ \hline
+\end{tabular}
+\end{table}

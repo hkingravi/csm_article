@@ -1,0 +1,456 @@
+\documentclass[letterpaper,12pt,peerreviewca,draftcls]{IEEEtran}
+\usepackage{microtype}
+\usepackage{csmMBFeb07,graphicx,url}
+\usepackage{times,amssymb,amsmath,bm,booktabs}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{tikz}
+\usepackage{algorithm,algorithmic}
+\usepackage{subfigure}
+%\usepackage{subcaption}
+\usepackage{algorithmic}
+ \usepackage{tikz}
+ \usepackage{tikz-qtree}
+ \usepackage{wrapfig}
+ \usetikzlibrary{automata}
+ \usetikzlibrary{arrows,snakes,backgrounds}
+ 
+ \usepackage{float}
+ 
+ \usepackage{xr}
+\externaldocument{gpq}
+\externaldocument{gp_mrac}
+\externaldocument{background}
+\externaldocument{control}
+\externaldocument{gp_tutorial_main}
+ 
+ % for sidebar
+\usepackage{lipsum}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lipsum}
+\mdfdefinestyle{MyFrame}{%
+    linecolor=blue,
+    outerlinewidth=2pt,
+    roundcorner=20pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    innerleftmargin=20pt,
+    backgroundcolor=yellow!80!red}
+
+\global\mdfdefinestyle{exampledefault}{
+ linecolor=red,
+ linewidth=8pt,% 
+ leftmargin=1cm,rightmargin=1cm
+}
+%\newmdtheoremenv [% 
+%outerlinewidth = 2,
+%roundcorner  = 10pt,
+%leftmargin = 40,
+%rightmargin = 40,
+%backgroundcolor = yellow !40 ,
+%outerlinecolor = blue !70!black,
+%innertopmargin = \topskip ,
+%splittopskip = \topskip ,
+%ntheorem = true ,
+%]{theorem}{Theorem}[section]
+
+ 
+\usepackage[colorinlistoftodos,textsize=scriptsize]{todonotes} 
+%\usepackage[disable]{todonotes} %Use this line to hide all todo notes
+\presetkeys{todonotes}{fancyline, color=green!30}{} %Default to fancyline and green
+\newcommand{\todopara}[1]{\vspace{0px} %
+	\todo[inline, color=black!10]{\textbf{[Add Paragraph:]} {#1}} %
+}
+\newcommand{\todonote}[1]{\vspace{0px} %
+	\todo[inline, color=green!30]{\textbf{[Note:]} {#1}} %
+}
+\usepackage[hidelinks,pdftex]{hyperref}
+\usepackage[capitalise]{cleveref}
+
+
+\usepackage{comment}
+\definecolor{DarkRed}{rgb}{0.75,0,0}
+\definecolor{DarkGreen}{rgb}{0,0.5,0}
+\definecolor{DarkBlue}{rgb}{0,0,0.5}
+\definecolor{DarkPurple}{rgb}{0.5,0,0.5}
+\definecolor{LightGrey}{rgb}{0.9,0.9,0.9}
+\sethlcolor{LightGrey}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{assumption}[theorem]{Assumption}
+%\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{finalremark}[theorem]{Final Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}{Question}
+\usepackage[normalem]{ulem}
+
+\newcommand{\mX}[1]{{\color{DarkRed} ~\hl{ #1 } }} %\XX\newcommand{\bXX}[1]{{\color{DarkRed} XX #1~XX }} %\XX
+\newcommand{\gX}[1]{{\color{DarkGreen} ~\hl{ #1 } }} %\XX
+\newcommand{\gXX}[1]{{\color{DarkGreen} ~\hl{ #1 } }} %\XX
+\newcommand{\sX}[1]{{\color{DarkBlue} ~\hl{ #1 } }} %\XX
+\newcommand{\jX}[1]{{\color{DarkPurple} ~\hl{ #1 } }} %\XX
+\newcommand{\gcmargin}[2]{{\color{DarkGreen}#1}\marginpar{\color{DarkGreen}\tiny\raggedright \bf [GC] #2}}
+\newcommand{\gsout}[2]{{\sout{#1}}{{\gX{#2}}}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand{\hideX}{
+	\renewcommand{\mX}[1]{}
+	\renewcommand{\gX}[1]{}
+	\renewcommand{\sX}[1]{}
+	\renewcommand{\jX}[1]{}
+}
+%\hideX
+\input{macros}
+\input{inc_macros}
+
+
+\title{Side Bars\\
+{\Large }
+}
+\author{  --- \today}
+
+\begin{document}
+\maketitle
+\CSMsetup
+
+\setcounter{equation}{0} 
+\renewcommand{\theequation}{S\arabic{equation}} 
+\setcounter{table}{0} 
+\renewcommand{\thetable}{S\arabic{table}} 
+\setcounter{figure}{0} 
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+%\section{Sidebar -- Tracking a nonlinear system using Bayesian Filter: A Starting Point}
+%\subsubsection{Figure 8 maneuvers}
+\section{Sidebar I: Limitations of fixed-parameter Radial Basis Function or Neural Network Models: flight control example}
+The quadrotor performed 5 trials consisting of 20 ``figure 8'' maneuvers with a period of $6.28$s, taking approximately $125$s per trial. In the case of GP-MRAC with hyperparameter estimation, the initial bandwidth was set to $\mu = 0.55, 1.1, 2.2, 4.4, 8.8$ for trials $1,2,3,4,5$, respectively.
+In figure \ref{fig:fig8_2D} a plot of the trajectory in space is presented. Using the initial PID controller, the quadrotor is unable to track the figure 8. CL-MRAC performs better, although it overshoots at points, resulting in sharp corners. Lastly, GP-MRAC performs the best in terms of tracking error as well as qualitatively matching the figure eight shape. GP-MRAC is also the most consistent of the controllers, producing little variation between iterations of the figure 8 shape.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}
+\centering
+\includegraphics[width=0.3\columnwidth]{figures/PID_2D.pdf}
+\end{subfigure} 
+\begin{subfigure}
+\centering
+\includegraphics[width=0.3\columnwidth]{figures/CLMRAC_2D.pdf}
+\end{subfigure} 
+\begin{subfigure}
+\centering
+\includegraphics[width=0.3\columnwidth]{figures/GPMRAC_2D.pdf}
+\end{subfigure}
+\caption{Sample trajectories of the quadrotor following a figure eight pattern. The blue indicates the commanded path and the red indicates the actual path flown by the quadrotor. On the left, baseline PID is shown, in the middle, CL-MRAC, on the right, GP-MRAC. GP-MRAC follows the trajectory best in terms of both tracking error and qualitatively matching the shape of the figure 8 trajectory.}
+\label{fig:fig8_2D}
+\end{figure}
+
+% In figure \ref{fig:fig8_track}, we show the windowed tracking error of each algorithm as a function of time. 
+%The baseline PID controller does not perform well in terms of tracking error. Due to a poor approximate model, the feed forward component of the control signal does very little in ensuring good tracking, and the majority of trajectory tracking performance is due to the feedback, leading to high error. RBFN-MRAC performs better over time, but the convergence rate is quite slow due to a lack of persistency of excitation (PE). CL-MRAC does not require PE and converges relatively quickly with less tracking error than traditional MRAC. However, GP-MRAC outperforms all three previously mentioned controllers substantially in terms of tracking error. GP-MRAC reduces the steady state error from the PID controller by approximately 85\%, outperforms RBFN-MRAC by over a factor of three, and outperforms CL-MRAC by over a factor of two. GP-MRAC-HP with initial suboptimal bandwidth selection still performs well, although not as well as GP-MRAC. As GP-MRAC-HP adapts the hyperparameters, the certainty in our model decreases, leading to a lower $\rho_{MAP}$ and a higher tracking error. As time tends to infinity, GP-MRAC-HP will converge to the optimal hyperparameters, leading to the same performances as GP-MRAC with initial optimal hyperparameters.
+
+%In figure \ref{fig:fig8_model}, the windowed RMSE of the difference $\|\Delta(z) - \nu_{ad}\|$ is plotted. GP-MRAC models the error $\|\Delta(z) - \nu_{ad}\|$ substantially better than RBFN-MRAC and CL-MRAC. GP-MRAC outperforms RBFN-MRAC by over a factor of three. This improvement in characterizing the uncertainty $\|\Delta(z) - \nu_{ad}\|$ is what fundamentally leads to the lower tracking error of GP-MRAC.
+
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.6\textwidth]{figures/shipcontrol.png}
+%	\caption{Navigation System}\label{fig:mcs}
+%\end{figure}
+
+%{\color{red} need text and picture is too fuzzy/small}
+
+\section{SideBar II: The sparse online Gaussian process algorithm}
+
+At time $\Tdisc+1$, given a new
+datapoint $z_{\Tdisc+1}$, the algorithm minimizes the KL divergence between the
+model with the datapoint included, and the $\Tdisc+1$ models with one
+datapoint deleted. To compute the updates in an online fashion, define the
+scalar quantities
+%\begin{eqnarray}\label{eq:phixi}
+%\hspace{-0cm} q^{(\Tdisc+1)} & = \frac{y-\al_\Tdisc^Tk_{x_{\Tdisc}}}
+%       {\omega_n^2 + k_{x_{\Tdisc}}^TC_\Tdisc k_{x_{\Tdisc}} + k_{\Tdisc}^*}, \label{eq:gp_mean}
+%\cr
+%\hspace{-0.5cm} r^{(\Tdisc+1)} & = - \frac{1}{\omega_n^2
+ %                      + k_{x_{\Tdisc}}^T C_\Tdisc k_{x_{\Tdisc}} + k_{t}^*},\label{eq:gp_cov}
+%\label{eq:phixi}
+%\end{eqnarray}
+\begin{align}
+ q^{(\Tdisc+1)} & = \frac{y-\al_\Tdisc^Tk_{x_{\Tdisc}}}
+       {\omega_n^2 + k_{x_{\Tdisc}}^TC_\Tdisc k_{x_{\Tdisc}} + k_{\Tdisc}^*}, \label{eq:gp_mean}\\
+ r^{(\Tdisc+1)} & = - \frac{1}{\omega_n^2
+                       + k_{x_{\Tdisc}}^T C_\Tdisc k_{x_{\Tdisc}} + k_{t}^*},\label{eq:gp_cov}
+\end{align}
+where $\al_\Tdisc$, $k_{x_\Tdisc}$, and $C_\Tdisc$ are defined in
+(\ref{eq:gp_mean}) and (\ref{eq:gp_cov}).
+Let $e_{\Tdisc+1}$ be the $(\Tdisc+1)$ coordinate vector, and let
+$T_{\Tdisc+1}(\cdot)$ and $U_{\Tdisc+1}(\cdot)$ denote operators that extend
+a $\Tdisc$-dimensional vector and matrix to a $(\Tdisc+1)$ vector and
+$(\Tdisc+1)\times (\Tdisc+1)$ matrix by appending zeros to them.
+The GP parameters can be solved recursively by using the equations
+\begin{equation}
+ \label{eq:recursive_updates}
+ \begin{aligned}
+ \al_{\Tdisc+1} &= T_{\Tdisc+1}(\al_\Tdisc) + q^{(\Tdisc+1)}s_{\Tdisc+1}, \\
+ C_{\Tdisc+1} &= U_{\Tdisc+1}(C_\Tdisc)
+                              + r^{(\Tdisc+1)}s_{\Tdisc+1}s_{\Tdisc+1}^T, \\
+ s_{\Tdisc+1} &= T_{\Tdisc+1}(C_\Tdisc k_{x_{\Tdisc+1}}) + e_{\Tdisc+1}.
+ \end{aligned}
+\end{equation}
+The inverse of the Gram matrix, denoted by $Q$, needed to solve for
+$\beta_{\Tdisc+1}$ is updated online through the equation
+\begin{equation} \label{eq:recursive_gram}
+\begin{aligned}
+ Q& _{\Tdisc+1} = U_{\Tdisc+1}(Q_{\Tdisc}) + \beta_{\Tdisc+1}^{-1}
+     \left(T_{\Tdisc+1}(\hat{e}_{\Tdisc+1})-e_{\Tdisc+1}\right)
+     \left(T_{\Tdisc+1}(\hat{e}_{\Tdisc+1})-e_{\Tdisc+1}\right)^T\!\!\!\!,
+ \end{aligned}
+\end{equation}
+where $\hat{e}_{\Tdisc+1}:= Q_\Tdisc k_{z_{\Tdisc+1}}$. Finally, in order to
+delete an element, one computes the model parameters with the $(\Tdisc+1)$-th
+point, and chooses the basis vector with the smallest score measure, given by
+\begin{equation} \label{eq:score}
+ \e_i = \frac{|\al_{\Tdisc+1}(i)|}{Q_{\Tdisc+1}(i,i)}.
+\end{equation}
+Let $\iota$ be the basis vector chosen to be discarded by the score
+(\ref{eq:score}). Then the deletion equations are given by
+\begin{equation}
+ \label{eq:recursive_delete}
+ \begin{aligned}
+ \hat{\al} & = \hat \al^{\neg \iota} -\al^*\frac{Q^{*}}{q^{*}}, \\
+ \hat{C}   & = C^{\neg \iota} + c^*\frac{Q^{*}Q^{*T}}{q^{*^{2}}}
+                 - \frac{1}{q^{*}}\left[Q^{*}C^{*T} + C^*Q^{*T}\right], \\
+ \hat{Q}   & = Q^{\neg \iota}-\frac{Q^*Q^{*T}}{q^*},
+ \end{aligned}
+\end{equation}
+ where $\al^{*}$ is the $\iota^{\rm th}$ component in the vector
+ $\al_{\Tdisc+1}$,  and $\al^{\neg \iota}$ represents the remaining vector.
+ Similarly, $C^{\neg \iota}$ ($Q^{\neg \iota}$) represents the
+ $\Tdisc \times \Tdisc$ submatrix in the $(\Tdisc+1)\times(\Tdisc+1)$ matrix
+ $C_{\Tdisc+1}$ ($Q_{\Tdisc+1}$) associated to the basis vectors being kept,
+ $c^*$ ($q^*$) represents the $(\iota,\iota)$ index into the
+ matrix chosen by the score measure, and $C^{*}$ ($Q^*$) is the remaining
+ $\Tdisc$-dimensional column vector. Using the above equations, the
+ \emph{\emph{budgeted}} sparse GP algorithm is summarized by
+ Algorithm \ref{alg:GP_sparse}. 
+ 
+ \begin{algorithm}[t]
+   \caption{The budgeted sparse Gaussian process algorithm \label{alg:GP_sparse}}
+{\renewcommand{\baselinestretch}{1}
+	   \begin{algorithmic}[1]
+   \WHILE {new measurements $(z_{\Tdisc+1},y_{\Tdisc+1})$ are available}
+    \STATE Compute $q^{(\Tdisc+1)},\  r^{(\Tdisc+1)},\  k_{\Tdisc+1}^*,\
+      k_{z_{\Tdisc+1}},\ \hat{e}_{\Tdisc+1}$ and $\gamma_{\Tdisc+1}$.
+    \IF{$\gamma_{\Tdisc+1} < \e_{tol}$}
+      \STATE Perform a reduced update, using $\hat{e}_{\Tdisc+1}$ in
+ 	   (\ref{eq:recursive_updates}) without extending the length of the
+ 	   parameters $\al$ and $C$.
+    \ELSE
+ 	 \STATE Perform the update in (\ref{eq:recursive_updates}) using
+ 	   $e_{\Tdisc+1}$. Add the current input to the $\BV$ set, and compute the
+ 	   Gram matrix inverse using (\ref{eq:recursive_gram}).
+     \IF{$|\BV| > p_{\max}$}
+      \STATE Compute scores for the candidate $\BV$'s using (\ref{eq:score}),
+ 	   find the vector corresponding to the lowest score, and delete it using
+ 	   (\ref{eq:recursive_delete}).
+     \ENDIF
+    \ENDIF
+    \ENDWHILE
+     \end{algorithmic}}
+ \end{algorithm}
+ 
+\section{SideBar III: GP-MRAC Theoretical Guarantees}
+%\gXX{Miao, this may need to move to wherever you feel appropriate, the number is just a place holder}
+
+In previous work on neuroadaptive control, the size of the ultimate bound on the tracking error has not been quantified in general because the universal approximation theorems for RBFN or NN adaptive elements only guarantees the existence of a bounded error. We summarize two key results that utilize the nonparametric nature of GPs to quantify the ultimate bounds in terms of the kernel bandwidth, kernel dictionary size, and the magnitude of any outliers. These results appeared first in \cite{Chowdhary13_TNN}. %; Corollary 3 and Theorem 4 allow us to quantify the size precisely.
+
+
+The first result provides an upper bound on the error between the best estimate of the GP mean given the kernel budget and the ideal GP mean given the data. We represent the error between these two quantities by $\switchErrMean(\astate) \def \switchMean(\astate) - \imean(\astate)$. Let $\Tdisc^{-2}\empK_{ij}:= \Tdisc^{-2}\kernel(\astate_i,\astate_j)$ be the kernel matrix associated to 
+$\switchiMean$ (assumed normalized). Then the approximate mean is associated with a kernel matrix induced by a 
+quantization operator $\dcmap:\{1,\dots,\Tdisc\}\to\{1,\dots,p_{\max}\}$, 
+such that $\astate_i\mapsto c_{\dcmap{i}}$, where $c_{\dcmap{i}}\in\dom$ are the set of chosen centers $\BV$. 
+Let $\switchMean(\astate) = \sum_{i=1}^{\Tdisc}\gpRsCoeff_i\kernel(c_{\dcmap(i)},\astate)$, where 
+$\gpRsCoeff = \left(\empRsK + \noise^2 I\right)^{-1}y$ 
+and where $\empRsK_{ij}:= \kernel(c_{\dcmap{i}},c_{\dcmap{j}})$. 
+
+\begin{theorem}\label{theorem:mean_bounded}
+(\textbf{Global Approximation Theorem}\cite{Chowdhary13_TNN})
+Let $\gpHyp$ and $\gpRsHyp$ be defined as above
+% , let $\sup_{\astate'\in\dom}\kernel(\astate',\astate)\leq\kmax$, 
+and let $\|\obs\|_{\infty} \leq M^{\switch}\in\mathbb{R}$.
+Then 
+ \begin{equation}
+  \|\switchErrMean(\astate)\| \leq \frac{2\kmax^2 M^{\switch} \sqrt{\kernel_{\max}}}{\noise^4} + \frac{\kmax \kernel_{\max}M^{\switch}}{\noise^2},
+ \end{equation}
+ where 
+ %$C_{\s} := 2/\s^2$, $\Upsilon := \max_i\left\|\astate_i-c_{\dcmap(i)}\right\|^2$ is the greatest center approximation error, and 
+ $\kernel_{\max} := \max_i\left\|\fmap(\astate_i) - \fmap(c_{\dcmap(i)})\right\|_{\fspace}$ is the greatest kernel approximation 
+ error, $\kmax$ is the maximum value of the chosen kernel (1 for Gaussian kernel), and $\noise^2$ is the variance of the measurement noise.
+\end{theorem}
+
+The proof is available in \cite{Chowdhary13_TNN}. The key point to note about the above universal approximation result is that it relates the bound directly to cyber-physical quantities of interest: available computational power, the available memory, and the quality of the sensor data. In particular, the bound can be made tighter by reducing $\kernel_{\max}$, which requires a higher kernel budget to increase the density of the kernels, and accordingly larger onboard memory and computational power. It can also be reduced by decreasing the magnitude of the outliers $M^{\switch}$. Yet, a key point to note here is that this result assumes Gaussian measurement noise, hence, while increasing $\noise^2$ can counter effect of the outliers, it would affect the prediction accuracy of the GP generative model. Whereas, the appropriate thing to do would be to consider non-Gaussian measurement models. While GPs can accommodate non-Gaussian noise \cite{chan2011generalized,jylanki2011robust,opper2009variational}, the inference techniques described in this paper would require significant modification, and algebraic inference may not always be possible. %, require different 
+
+The second result provides a probabilistic ultimate bound on the tracking error that is directly proportional to $\epsilon_{tol}$, the linear independence check tolerance utilized in the Sparse online GP algorithm described in Algorithm \ref{alg:GP_sparse}.
+
+\begin{theorem}\label{th:gp_mrac}
+(\textbf{Mean Square Uniform Boundedness of GP-MRAC}\cite{Chowdhary13_TNN})
+  Consider the system in (\ref{plant_AMIAC}), the control law of (\ref{eq:inverting_controller})
+  and (\ref{eq:control_law_AMIAC}), and assume that the uncertainty $\uncertainty(\astate)$
+  is representable by a Gaussian process (\ref{e:gp_uncertainty}). % Let $\mathcal {B}_\alpha$ be the largest compact ball in the domain $\mathcal{D}$ over which solutions to (\ref{plant_AMIAC}), and let $\beta>0$. If there exists a set $\Theta_\beta=\{e|V(e)\leq\beta\}$ a.s., a constant $\delta=\left(\frac{2\beta}{\lambda_{\min}(P)}\right)^{\frac{1}{2}}$, and if $r(t)$ is such that the state $x_{rm}$ of the bounded input bounded output reference model in
+  %(\ref{refmodel_AMIAC}) remains bounded in the compact ball $\mathcal {B}_m=\{x_{rm}:\|x_{rm}\|\leq m_{rm}\}$ such that $m_{rm}\leq\alpha-\delta$ holds for all $t\geq0$,
+   Then Algorithm
+  \ref{alg:GP_MRAC} and the adaptive signal $\nu_{ad}(\astate)=\switchMean
+  (\aastate)$ guarantee that the system is (almost surely) mean square uniformly ultimately bounded in the set
+     \begin{equation}\label{gp_lyapunov_set}
+     \Theta_\gamma^{\switch}=\left\{\|\terror\|\geq \frac{c_5^{\switch}M^{\switch} +
+   \sqrt{\left(c_5^{\switch}M^{\switch}\right)^2+2\lambda_{\min}(Q)c_1}}{\lambda_{\min}(Q)}\right\},
+   \end{equation}
+   where  \begin{align}
+    c_5^{\switch} := c_3\sqrt{\kernel_{\max}^{\switch}} + c_4\kernel_{\max}^{\switch}.
+   \end{align}
+   and the size of the bound is proportional to  $\epsilon_{tol}$,
+\end{theorem}
+
+The proof is available in \cite{Chowdhary13_TNN}. The key points to note here is that the bound provides an insight into performing a trade-off on the computational budget available onboard and the effort that needs to be spent in designing the baseline PD controller utilized in the AMI-MRAC framework. In particular, the tracking error bound gets tighter as the kernel density increases (with more memory/processing power), whereas, a baseline controller which results in a higher $λ_{\min}(Q)$ can be used to offset poor onboard computational budget. That is, if there is lots of computational power available onboard, the baseline PD control need not be very good, whereas, if computational power onboard is restricted (thereby restricting learning and representational ability), a better baseline controller can help reduce the tracking error bound.
+%Result provides a formal way to tradeoff computational budget and baseline control accuracy
+
+Another key result was proven in \cite{Kingravi:TNN:2012}, where it was shown that the linear independence of $\BV$ ensures that persistency of excitation (PE) 
+in the state space is visible in $\fspace$ (that is, the regressors are also PE). Since Algorithm \ref{alg:GP_sparse} aims to enforce this independence subject 
+to the tolerance $\e_{tol}$, PE is never lost (ensuring $\kernelM(\bstack_\Tdisc,\bstack_\Tdisc)$ is invertible).
+
+\section{Side bar IV: Convergence of Fitted-Q Iteration}
+Typically, the parameter $\omega_n^2$ is viewed as a uncorrelated, Gaussian measurement noise in GP literature. Here, we offer an alternative interpretation of $\omega_n^2$ as a regularization term, which accounts for the fact that current measurements are not necessarily drawn from the true model and therefore prevents our model from converging too quickly to an incorrect estimate of $Q^*$. As we show later, $\omega_n^2$ plays a pivotal role in preventing divergence as well. 
+
+Below, we prove that GP-FQI can diverge if the regularization parameter is not properly set. However, we also prove that for any set of hyperparameters and desired density of data, a proper regularization constant can be determined to ensure convergence.  We begin with a counter-example showing divergence in the batch setting if $\omega_n^2$ is insufficient, but show convergence when $\omega_n^2$ is large enough. 
+
+\begin{comment}
+\begin{wrapfigure}[14]{r}{0.3\textwidth}
+%\begin{figure}
+%\begin{center}
+\vspace{-10pt}
+	\fbox{
+        \includegraphics[width=.25\textwidth]{./figures/divergence.pdf} }
+        \vspace{-10pt}
+\caption{The maximum error $\|\hat Q - Q^*\|$ is plotted for GP-FQI with insufficient regularization $\omega_n^2 = 0.1$ and sufficient regularization $\omega_n^2 = 1$.}
+	\label{fig:div}
+	%\vspace{-10pt}
+%\end{center}
+%\end{figure}
+\end{wrapfigure}
+\end{comment}
+
+\begin{figure}[H]
+%\vspace{-10pt}
+\centering
+        \includegraphics[width=0.50\textwidth]{./figures/gpq/divergence.pdf} 
+\caption{The maximum error $\|\hat Q - Q^*\|$ is plotted for GP-FQI with insufficient regularization $\omega_n^2 = 0.1$ and sufficient regularization $\omega_n^2 = 1$.}
+	\label{fig:div}
+\end{figure}
+
+
+Consider a system with three nodes on the real line at locations $-1$, $0$, and $1$. At each time step, the agent can move deterministically to any node or remain at its current node. The reward associated with all actions is zero. All algorithms are initialized with $\hat Q(z) = 1 \forall z$, $\gamma = 0.9999$, and we use a RBF kernel with bandwidth $\sigma = 1$ in all cases. We consider two settings of the regularization parameter, $\omega_n^2 = 0.1$ and $\omega_n^2 = 1$.  Figure \ref{fig:div} shows that when $\omega_n^2$ is set too low, the Bellman operator can produce divergence in the batch setting. If the regularization is set to the higher value, GP-FQI converges.  In the following sections, we show that determining the sufficient regularization parameter $\omega_n^2$ depends only on the density of the data and the hyperparameters, not the initialization value of $\hat Q$ or $\gamma$. %\tXX{$\gamma$ is overloaded, we need to change the tolerance symbol to not be the same as the discount factor}
+
+Let $T$ denote the approximate Bellman operator that updates the mean of the current estimate of the Q-function
+using the measurement model of \eqref{eq:Qhat}, that is $\hat m_{k+1}=T\hat m_{k}$, we argue that $T$ is a contraction, so a fixed point exists. %Define $a^* = \argmax \left\{ Q(s,a) \right\}$, %where the action $a$ results in a transition from $s$ to $s'$.
+%In a tabular problem formulation, with $z = \langle s,a \rangle$, $TQ(z)$ is defined as $TQ(z) = r(s,a) + \gamma \max_b \tilde Q(s',b)$.
+For a GP model, we define the approximate Bellman operator in the batch case as training a new GP with the observations $y_i = r(s_i,a_i) + \gamma \max_b \hat Q(s'_i, b)$ at the input locations $z_i = (s_i,  a_i)$.
+
+\section{Side bar IV: Convergence properties of GPQ} 
+ The properties of Algorithm \ref{alg:GPFQI} can be summarized by the following theorems. The proofs are discussed in~\cite{chowdhary2014off}.
+ In the following theorem, we show that in the case of finite data, a finite regularization term always exists which guarantees convergence.
+
+% \noindent\textbf{THEOREM}\\
+%  Given a GP with data $Z$ of finite size $N$, and Mercer kernel that is bounded above by $k_{\max}$, there exists a finite regularization parameter $\omega_n^2$ such that the Bellman operator $T$ is a contraction in the batch setting. In particular, $\omega_n^2 = 2(\|K(Z,Z)\|_\infty -k_{\max}) \leq 2N$
+  
+%  \noindent\textbf{THEOREM}\\
+%  Given a GP with data $Z$ of finite size $N$, and Mercer kernel that is bounded above by $k_{\max}$, there exists a finite regularization parameter $\omega_n^2$ such that the Bellman operator $T$ is a contraction in the batch setting. In particular, $\omega_n^2 = 2(\|K(Z,Z)\|_\infty -k_{\max}) \leq 2N$
+  %given that a sparse GP is trained and $\omega_n^2 > \bar c$ where $\bar c =\sum_{n=1}^\infty f(n,\text{dim})\text{exp}(-1/2 (n\delta_{tol})^2)$ and $f(n,dim)$ is a polynomial function of the dimension and n.
+  %\begin{proof}[Proof sketch]
+%  The crux of the proof is showing that the Bellman operator is a contraction if the term $\|K(Z,Z)\| \| (K(Z,Z) + \omega_n^2I)^{-1}\| \leq 1$ when  $\omega_n^2$ is set in this way. 
+ % In the next theorem, we show that for a GP with infinite data that only adds data points which exceed the linear independence test $\proj_{tol}$, a finite regularization term also exists.
+  %\end{proof}
+  
+  
+%  \noindent\textbf{THEOREM}\\
+%  Given a GP with infinite data generated using a sparse approximation with acceptance tolerance $\proj_{tol}$, and given a Mercer kernel function that decays exponentially, there exists a finite regularization parameter $\omega_n^2$ such that the Bellman operator $T$ is a contraction in the batch setting.
+  %given that a sparse GP is trained and $\omega_n^2 > \bar c$ where $\bar c =\sum_{n=1}^\infty f(n,\text{dim})\text{exp}(-1/2 (n\delta_{tol})^2)$ and $f(n,dim)$ is a polynomial function of the dimension and n.
+  
+  %\begin{proof}[Proof sketch]
+%  The key to the proof is that $\|K(Z,Z)\| = \max_j \sum_i k(z_j,z_i)$, which is convergent for an infinite number of data points selected using the linear independence test in \eqref{eq:linearsol}.
+  %\end{proof}
+%  Theorem \ref{th:batch} provides a powerful insight into the convergence properties of GPs in the context of the Bellman operator. As the density of basis vectors increases or as the bandwidth of the kernel function grows, corresponding to decreasing $\proj_{tol}$, the basis vector weights $\alpha_i$ become increasingly correlated. As the weights become correlated, changing the weight at one basis vector also changes the weights of nearby basis vectors. It is this sharing of weights that can result in divergence, as seen in \cite{Baird95}. Theorem \ref{th:batch} shows that for a given $\proj_{tol}$ and kernel function, there exists a finite regularization parameter $\omega_n^2$ that will prevent divergence. In the next theorem, we bound the approximation error from using a sparse representation of a GP versus a full GP.
+%  The key to the proof is that the maximum error is linear in $\proj_{tol}$.
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  \noindent\textbf{THEOREM}\\ If the sparse GP algorithm is used, the error $\|\E [\hat Q- Q^*]\|$ is uniformly, ultimately bounded for the Bellman operator.
+ 
+\begin{theorem}
+\label{th:finite}
+Given a GP with data $Z$ of finite size $N$, and Mercer kernel that is bounded above by $k_{\max}$, there exists a finite regularization parameter $\omega_n^2$ such that the Bellman operator $T$ is a contraction in the batch setting. In particular, $\omega_n^2 = 2(\|K(Z,Z)\|_\infty -k_{\max}) \leq 2N$
+%given that a sparse GP is trained and $\omega_n^2 > \bar c$ where $\bar c =\sum_{n=1}^\infty f(n,\text{dim})\text{exp}(-1/2 (n\delta_{tol})^2)$ and $f(n,dim)$ is a polynomial function of the dimension and n.
+\end{theorem}
+%\begin{proof}[Proof sketch]
+The crux of the proof is showing that the Bellman operator is a contraction if the term $\|K(Z,Z)\| \| (K(Z,Z) + \omega_n^2I)^{-1}\| \leq 1$ when  $\omega_n^2$ is set in this way. 
+In the next theorem, we show that for a GP with infinite data that only adds data points which exceed the linear independence test $\proj_{tol}$, a finite regularization term also exists.
+%\end{proof}
+\begin{theorem}
+\label{th:batch}
+Given a GP with infinite data generated using a sparse approximation with acceptance tolerance $\proj_{tol}$, and given a Mercer kernel function that decays exponentially, there exists a finite regularization parameter $\omega_n^2$ such that the Bellman operator $T$ is a contraction in the batch setting.
+%given that a sparse GP is trained and $\omega_n^2 > \bar c$ where $\bar c =\sum_{n=1}^\infty f(n,\text{dim})\text{exp}(-1/2 (n\delta_{tol})^2)$ and $f(n,dim)$ is a polynomial function of the dimension and n.
+\end{theorem}
+%\begin{proof}[Proof sketch]
+The key to the proof is that $\|K(Z,Z)\| = \max_j \sum_i k(z_j,z_i)$, which is convergent for an infinite number of data points selected using the linear independence test in \eqref{eq:linearsol}.
+%\end{proof}
+Theorem \ref{th:batch} provides a powerful insight into the convergence properties of GPs in the context of the Bellman operator.
+As the density of basis vectors increases or as the bandwidth of the kernel function grows, corresponding to decreasing $\proj_{tol}$, the basis vector weights $\alpha_i$ become increasingly correlated. As the weights become correlated, changing the weight at one basis vector also changes the weights of nearby basis vectors. It is this sharing of weights that can result in divergence, as seen in \cite{Baird95}. Theorem \ref{th:batch} shows that for a given $\proj_{tol}$ and kernel function, there exists a finite regularization parameter $\omega_n^2$ that will prevent divergence. In the next theorem, we bound the approximation error from using a sparse representation of a GP versus a full GP.
+The key to the proof is that the maximum error is linear in $\proj_{tol}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{theorem}\label{thm:sparse}
+If the sparse GP algorithm is used, the error $\|\E [\hat Q- Q^*]\|$ is uniformly, ultimately bounded for the Bellman operator.
+\end{theorem}
+
+%Below we provide a set of sufficient conditions for convergence in the online case, where $C_t$ and $K_t^{-1}$ are positive definite matrices related to the posterior and the prior covariance.
+%The proof uses similar techniques to Theorem 17 of \cite{Melo08_ICML}, using an ODE representation of $\al$: $\dot \alpha(t)=\E_\pi\left[q_{t}S_{t}\right]$ and then showing that $\al\to\al^*$ for each active basis set.
+%\begin{theorem}
+%with an ergodic sampling policy $\pi$, for each active basis set, a sufficient condition for convergence of $\hat m(z_t)\to m^*(z_t)$ as $t \to %\infty$  online GPQ is $\E_\pi\left[C_t\k_t\k^T_t+K_t^{-1}\k_t\k^T_t\right]\geq\gamma\E_\pi\left[C_t\k_t\k^\al_t+K_t^{-1}\k_t\k^\al_t\right]$, where %$\k^\al_{t}\al_t=\max_{a'}(\k^T(x_{t+1},a'))\al_t$.
+%\end{theorem}
+
+Below we provide a set of sufficient conditions for convergence in the online case, where $C_t$ and $K_t^{-1}$ are positive definite matrices related to the posterior and the prior covariance.
+The proof uses similar techniques to Theorem 17 of \cite{Melo08_ICML}, using an ODE representation of $\al$: $\dot \alpha(t)=\E_\pi\left[q_{t}S_{t}\right]$ and then showing that $\al\to\al^*$ for each active basis set.
+\begin{theorem}
+with an ergodic sampling policy $\pi$, for each active basis set, a sufficient condition for convergence of $\hat m(z_t)\to m^*(z_t)$ as $t \to \infty$  online GPQ is $\E_\pi\left[C_t\k_t\k^T_t+K_t^{-1}\k_t\k^T_t\right]\geq\gamma\E_\pi\left[C_t\k_t\k^\al_t+K_t^{-1}\k_t\k^\al_t\right]$, where $\k^\al_{t}\al_t=\max_{a'}(\k^T(x_{t+1},a'))\al_t$.
+\end{theorem}
+%\begin{proof}[Proof sketch]
+%\end{proof} 
+
+
+\newpage
+
+%\clearpage
+%\bibliographystyle{unsrt}
+%\bibliography{gp_tutorial}
+%\subsubsection*{References}
+\small{
+\bibliographystyle{abbrv}
+%\begingroup
+%\renewcommand{\section}[2]{}%
+%\renewcommand{\chapter}[2]{}% for other classes
+\bibliography{gp_tutorial,gpq_nips,./BIB_all/ACL_all,./BIB_all/ACL_Publications,./BIB_all/ACL_bef2000,./bibifiles/daslab_pubs,./bibifiles/daslab_all,./bibifiles/controls}
+%\endgroup
+
+
+
+%\bibliography{gpq_nips,./BIB_all/ACL_all,./BIB_all/ACL_Publications,./BIB_all/ACL_bef2000,./BIB_all/bibtex_database_Chowdhary,./bibifiles/controls,./bibifiles/bibtex_ftc_database}
+}
+
+%\eject
+
+%\input{authors}
+
+\end{document}

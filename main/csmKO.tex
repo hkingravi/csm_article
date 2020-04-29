@@ -4,6 +4,7 @@
 \usepackage[nolists,nomarkers,tablesfirst]{endfloat} % put figures at end
 \usepackage{amsmath} % for \eqref
 \usepackage{mathtools}
+
 % added for CSMAG only
 \usepackage{url}
 \usepackage{graphicx,xcolor}
@@ -12,40 +13,40 @@
 \newcommand{\verbatimfont}[1]{\def\verbatim@font{#1}}%
 \makeatother
 \verbatimfont{\ttfamily\small}
-\newcommand{\XX}[1]{{\bf \color{orange}{ XX #1 XX}}}
-\newcommand{\rr}[1]{{\bf \color{blue}{#1}}}
-%\usepackage{subfigure} 
-
-
+\newcommand{\XX}[1]{{\bf XX #1 XX}}
+\newcommand{\bi}{\begin{itemize}}\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{equation}}\newcommand{\ee}{\end{equation}}
+\newcommand{\bee}{\begin{enumerate}}\newcommand{\eee}{\end{enumerate}}
+\newcommand{\bea}{\begin{eqnarray}}\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\beas}{\begin{eqnarray*}}\newcommand{\eeas}{\end{eqnarray*}}
+\newcommand{\bc}{\begin{center}}\newcommand{\ec}{\end{center}}
 %
 \usepackage[left,pagewise]{lineno} 
 \usepackage[english]{babel} 
-%\usepackage{blindtext}
+\usepackage{blindtext}
 % added for CSMAG only
 
-\usepackage{etex}
-\usepackage[authormarkuptext=name,addedmarkup=bf,authormarkupposition=left]{changes}
 
-\definecolor{DarkRed}{rgb}{0.75,0,0}
-\definecolor{DarkGreen}{rgb}{0,0.5,0}
-\definecolor{DarkBlue}{rgb}{0,0,0.5}
-\definecolor{DarkPurple}{rgb}{0.5,0,0.5}
-\definecolor{LightGrey}{rgb}{0.9,0.9,0.9}
-
-\definechangesauthor[name={M.~L.}, color={blue}]{ml}
-\definechangesauthor[name={G.~C.}, color={DarkGreen}]{gc}
-\definechangesauthor[name={S.~L.}, color={green}]{sl}
-\definechangesauthor[name={B.~C.}, color={red}]{bc}
-\definechangesauthor[name={J.~H.}, color={DarkPurple}]{jh}
-                              \newcommand{\mX}[1]{\added[id=ml,remark={}]{#1}}
-\newcommand{\gX}[1]{\added[id=gc,remark={}]{#1}}
-\newcommand{\sX}[1]{\added[id=sl,remark={}]{#1}}
-\newcommand{\bX}[1]{\added[id=bc,remark={}]{#1}}
-\newcommand{\jX}[1]{\added[id=jh,remark={}]{#1}}
-
+%\usepackage{etex}
 %
-\usepackage[left,pagewise]{lineno} 
-% added for CSMAG only
+%\usepackage[authormarkuptext=name,addedmarkup=bf,authormarkupposition=left]{changes}
+%
+%\definecolor{DarkRed}{rgb}{0.75,0,0}
+%\definecolor{DarkGreen}{rgb}{0,0.5,0}
+%\definecolor{DarkBlue}{rgb}{0,0,0.5}
+%\definecolor{DarkPurple}{rgb}{0.5,0,0.5}
+%\definecolor{LightGrey}{rgb}{0.9,0.9,0.9}
+%
+%\definechangesauthor[name={M.~L.}, color={blue}]{ml}
+%\definechangesauthor[name={G.~C.}, color={DarkGreen}]{gc}
+%\definechangesauthor[name={S.~L.}, color={green}]{sl}
+%\definechangesauthor[name={B.~C.}, color={red}]{bc}
+%\definechangesauthor[name={J.~H.}, color={DarkPurple}]{jh}
+%                              \newcommand{\mX}[1]{\added[id=ml,remark={}]{#1}}
+%\newcommand{\gX}[1]{\added[id=gc,remark={}]{#1}}
+%\newcommand{\sX}[1]{\added[id=sl,remark={}]{#1}}
+%\newcommand{\bX}[1]{\added[id=bc,remark={}]{#1}}
+%\newcommand{\jX}[1]{\added[id=jh,remark={}]{#1}}
 
 \usepackage{amssymb,amsmath,bm,booktabs,amsthm}
 \usepackage[sort,compress]{cite}
@@ -112,23 +113,23 @@
 \usepackage[capitalise]{cleveref}
 \crefname{equation}{}{}
 
-\usepackage{comment}
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%\sethlcolor{LightGrey}
+%\usepackage{comment}
+%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+%\renewcommand{\algorithmicensure}{\textbf{Output:}}
 
 \usepackage[normalem]{ulem}
 
 \newcounter{JPH}
-%\newtheorem{sidebartheorem}{\textit{Theorem}~S\!\!}[JPH]
 
 \newcounter{sidebartheorem}
-%\renewcommand{\thesidebartheorem}{\Alph{JPH}\thesidebartheore}
 \newenvironment{sidebartheorem}[1][]{\refstepcounter{sidebartheorem}\par\medskip \textit{Theorem~S\thesidebartheorem} #1:\rmfamily}{\medskip}
 \newcommand{\sidebarref}[1]{S\ref{#1}}
 
 
 \usepackage[nolists,tablesfirst,nomarkers]{endfloat}
+ 
+ 
+ 
  
 \title{Evolving Gaussian Processes and Kernel Observers for Learning and Control in Spatiotemporally Varying Domains\\\Large with applications in agriculture, weather monitoring, and fluid dynamics}
 \author{Joshua E. Whitman, Harshal Maske, Hassan A. Kingravi, Girish Chowdhary, \\ POC email: girishc@illinois.edu}
@@ -137,21 +138,25 @@
 \ifPDF 
 %\usepackage[pdftex, plainpages = false, colorlinks=true, linkcolor=black, citecolor = green!50!blue, urlcolor = blue, filecolor=black, pagebackref=false, hypertexnames=false,  pdfpagelabels ]{hyperref}
 \fi
+
 \graphicspath{{figures/}}
+
+
 \input{inc_macros}
+
+
+
 \begin{document}
 \maketitle
 \CSMsetup
 \linenumbers \modulolinenumbers[5] % added for CSMAG only
 
-%\bX{Notation suggestion: bold uppercase for matrices; non-bold uppercase for sets; bold lowercase for vectors, non-bold lowercase for scalars}
 
 \input{sec_introduction}
 \input{sec_relatedwork}
 \input{sec_formulation}
 \input{sec_results}
 \input{sec_conclusion}
-%\input{sec_supplementary}
 
 \section{Software}
 To facilitate implementation of the material presented in this paper we have made an open source code repository. A MATLAB version is available at \url{http://daslab.illinois.edu/software.html} or at \url{https://github.com/hkingravi/FunctionObservers} with examples and documentation. In addition, a Python version is available on GitHub at \url{https://github.com/hkingravi/funcobspy}.
@@ -171,21 +176,10 @@ and USDA/NSF CPS grant 2018-67007-28379, and USDA/NSF NRI grant 2019-67021-28989
 \bibliographystyle{unsrt}
 %needs gp_tuotrial
 \bibliography{BIB/daslab_all,BIB/daslab_pubs,BIB/ACL_all,BIB/ACL_Publications,BIB/bibtex_database_chowdhary_machine_learning,BIB/cybersees,BIB/Robotics}
-%\bibliography{acl_all,daslab_all,daslab_pubs,ACL_Publications}
-%\bibliography{gp_tutorial,./BIB_all/ACL_all,./BIB_all/ACL_Publications,./BIB_all/ACL_bef2000,./bibifiles/daslab_pubs,./bibifiles/daslab_all,./bibifiles/controls}
 
-%\begin{thebibliography}{10}
-%\bibitem{LT} Available online (last accessed 4/25/16)\\ \url{http://ieeecss.org/sites/ieeecss.org/files/documents/CSMLatex.zip}	
-%\bibitem{BIB} Available online (last accessed 4/25/16)\\ \url{https://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/bibtex}
-%\end{thebibliography}
-
-%\XX{make sure that original publication source of each figure is referenced and acknowledged correctly here}
 \processdelayedfloats
 \sidebars
-%\subsection[Use of Hyphens]{Sidebar: Use of Hyphens}
-%\label{sb:UseofHyphens}
-%    		
-%Note the spelling of these words as single words with no hyphen:  aeroelastic, aeroservoelastic, aimpoint, allpass, axisymmetric, backup, bandpass, bandlimited, bloodstream, breakpoint, buildup, colocated, coprime, countdown, counterclockwise, counterintuitive, counterproductive, crossover, cutoff, deadbeat, deadzone, drivetrain, electromechanical, feedback, feedforward, feedthrough, flyby, gearbox, geartrain, handheld, hardwired, highpass, ingoing, inline, interagent, interarrival, interrelated, liftoff, lightweight, longstanding, lookup, lowpass, multidimensional, multidisciplinary, multilayer, multilevel, multimode, multimodel, multiobjective, multipath, multirate, multiscale, multistage, multistep, multivehicle, narrowband, nonadaptive, nonadditive, noncausal, noncolocated, nonconservative, noncontact, nonconvex, nondestructive, nondeterministic, nondissipative, nonempty, nonequilibrium, nonessential, nonferrous, nonholonomic, nonideal, noninvasive, nonlinear, nonlocal, nonminimum, nonnegative, nonoverlapping, nonrepeating, nonsquare, nonstandard, nonstationary, nontrivial, nonuniform, nonzero, offboard offline, offset, offshoot, offsite, onboard, ongoing, online, onsite, outgoing, overcrowded, overparameterized, passband, piecewise, powertrain, preset, reinvent, rewritten, rolloff, rollover, rollup, roundoff, scaleup, setpoint, setup, shutdown, sideslip, speedup, spinup, startup, subdivision, suboptimal, subregion, subsection, substep, subsystem, swingby, swingup, teamwork, testbed, tradeoff, unidirectional, warmup, workpiece, worldwide.
+
 
 \renewcommand{\thealgorithm}{S\arabic{algorithm}} 
 \setcounter{algorithm}{0}

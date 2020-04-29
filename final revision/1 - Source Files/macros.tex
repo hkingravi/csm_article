@@ -1,0 +1,235 @@
+%\usepackage{amsmath,amssymb,amsfonts,color}
+
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+
+\def\citejustyear{\shortcite}
+\makeatletter
+\newcommand\citecomment[2][\relax]{
+  \def\citeauthoryear##1##2{#1 ##1, ##2}\@internalcite{#2}}
+
+%\newcommand{\qed}{~\rule[.1mm]{3mm}{3mm}}
+
+%4Lazy People
+%=================
+\def\ie{{\em i.e.,}}
+\def\eg{{\em e.g.,}}
+\def\etc{{\em etc.}}
+\def\half{\frac{1}{2}}
+\def\etal{{\em et al.}}
+\def\aka{{\em a.k.a}}
+\def\viz{{\em viz.}}
+\def\bp{\begin{proof}}
+\def\ep{\end{proof}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+\def\bes{\begin{eqnarray*}}
+\def\ees{\end{eqnarray*}}
+\def\mcode{lstlisting}
+\def\bc{\begin{centering}}
+\def\ec{\end{centering}}
+\def\bt{\begin{tabular}}
+\def\et{\end{tabular}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+
+%Notations
+\def\Fcal{{\mathbf F}}
+\def\PHI{{\bf \Phi}}
+\def\D{{\bf D}}
+\def\Vapp{{\tilde{\V}}}
+\def\superphi{{\phi_\infty}}
+\def\superPHI{{\PHI_\infty}}
+\def\ej{\mathbf{e}_j}
+\def\ie{{\em i.e.,}}
+\def\eg{{\em e.g.,}}
+\def\etc{{\em etc.}}
+\def\etal{{\em et al.}}
+\def\viz{{\em viz.}}
+\def\I{{\cal I}}
+\def\O{{\cal O}}
+\def\S{{\cal S}}
+\def\A{{\cal A}}
+\def\N{{\cal N}}
+\def\H{{\cal H}}
+\def\Transition#1#2#3{{\cal P}_{#1#3}^{#2}}
+\def\Reward#1#2#3{{\cal R}_{#1#3}^{#2}}
+
+% figure
+\newcommand{\bfig}{\begin{figure}}
+\newcommand{\efig}{\end{figure}}
+
+\newcommand{\argmax}{\arg\!\max}
+\def\bi{\begin{itemize}}
+\def\ei{\end{itemize}}
+\def\ccom#1{\par\noindent\fcolorbox{black}{yellow}{\parbox{0.9\hsize}{#1}}\par\noindent}
+
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}[theorem]{Corollary}
+
+%\newenvironment{proof}[1][Proof]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+%\newenvironment{definition}[1][Definition]%{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\newenvironment{example}[1][Example]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\newenvironment{remark}[1][Remark]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+%Notations
+\def\Fcal{{\mathbf F}}
+\def\PHI{{\bf \Phi}}
+\def\D{{\bf D}}
+\def\Vapp{{\tilde{\V}}}
+\def\superphi{{\phi_\infty}}
+\def\superPHI{{\PHI_\infty}}
+\def\ej{\mathbf{e}_j}
+\def\ie{{\em i.e.,}}
+\def\eg{{\em e.g.,}}
+\def\etc{{\em etc.}}
+\def\etal{{\em et al.}}
+\def\viz{{\em viz.}}
+\def\I{{\cal I}}
+\def\O{{\cal O}}
+\def\S{{\cal S}}
+\def\A{{\cal A}}
+\def\N{{\cal N}}
+\def\H{{\cal H}}
+\def\Transition#1#2#3{{\cal P}_{#1#3}^{#2}}
+\def\Reward#1#2#3{{\cal R}_{#1#3}^{#2}}
+
+
+
+\def\ccom#1{\par\noindent\fcolorbox{black}{yellow}{\parbox{0.9\hsize}{#1}}\par\noindent}
+
+\def\mcode{lstlisting}
+\def\half{\frac{1}{2}}
+\def\etc{{\em etc.}}
+\def\Dm{\Delta_-}
+\def\Dp{\Delta_-}
+\def\la{\lambda}
+\def\MYspace{\hspace{1cm}}
+\def\imiti{\int_{-\infty}^\infty}
+\def\izti{\int_{0}^\infty}
+\def\imitz{\int_{-\infty}^0}
+\def\ootp{\frac{1}{2\pi}}
+%\newcommand{\F}[1]{{\cal F}\{#1\}}
+\newcommand{\bounds}[2]{\big |_{#1}^{#2}}
+\newcommand{\Matto}[2]{	\left[\begin{array}{r}
+     #1\\
+    #2\\
+    \end{array}\right]}
+\newcommand{\Mattho}[3]{	\left[\begin{array}{r}
+     #1\\
+    #2\\
+    #3\\
+    \end{array}\right]}
+\newcommand{\Matot}[2]{	\left[\begin{array}{rr}
+     #1& #2\\
+    \end{array}\right]}
+\newcommand{\Matoth}[3]{	\left[\begin{array}{rrr}
+     #1& #2& #3\\
+    \end{array}\right]}
+\newcommand{\Dett}[4]{	\left|\begin{array}{rr}
+     #1& #2\\
+    #3& #4\\
+    \end{array}\right|}
+\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\Mattt}[4]{	\left[\begin{array}{rr}
+     #1& #2\\
+    #3& #4\\
+    \end{array}\right]}
+\newcommand{\Matthth}[9]{	\left[\begin{array}{rrr}
+     #1& #2& #3\\
+     #4& #5& #6\\
+     #7& #8& #9\\
+    \end{array}\right]}
+\newcommand{\Diagth}[3]{	\left[\begin{array}{rrr}
+     #1& 0& 0\\
+     0& #2& 0\\
+     0& 0& #3\\
+    \end{array}\right]}
+\newcommand{\Diagf}[4]{	\left[\begin{array}{rrrr}
+     #1& 0& 0& 0\\
+     0& #2& 0& 0\\
+     0& 0& #3 & 0\\
+     0& 0& 0& #4\\
+    \end{array}\right]}
+\newcommand{\Diagt}[2]{	\left[\begin{array}{rr}
+     #1& 0\\
+     0& #2\\
+    \end{array}\right]}
+\newcommand{\Detth}[9]{	\left|\begin{array}{rrr}
+     #1& #2& #3\\
+     #4& #5& #6\\
+     #7& #8& #9\\
+    \end{array}\right|}
+
+\newcommand{\sepLine}{
+\begin{center}
+\rule{6cm}{.05cm}
+\end{center}
+}
+
+\newcommand{\bigBracethth}[4]{\left\{\begin{array}{ll}
+     #1& #2\\
+     #3& #4\\
+    \end{array}\right.}
+\newcommand{\bigBracetht}[6]{\left\{\begin{array}{ll}
+     #1& #2\\
+     #3& #4\\
+     #5& #6\\
+    \end{array}\right.}
+\newcommand{\bigBraceft}[8]{\left\{\begin{array}{ll}
+     #1& #2\\
+     #3& #4\\
+     #5& #6\\
+     #7& #8\\
+    \end{array}\right.}
+
+\newcommand{\bigBraceto}[2]{\left\{\begin{array}{l}
+     #1\\
+     #2\\
+    \end{array}\right.}
+
+\newcommand{\bigBracetho}[3]{\left\{\begin{array}{l}
+     #1\\
+     #2\\
+     #3\\
+    \end{array}\right.}
+
+\newcommand{\Mattth}[6]{\left[\begin{array}{rrr}
+     #1& #2& #3\\
+     #4& #5& #6\\
+    \end{array}\right]}
+
+\newcommand{\Mattht}[6]{\left[\begin{array}{rr}
+     #1& #2\\
+     #3& #4\\
+     #5& #6\\
+    \end{array}\right]}
+
+\newcommand{\MatththT}[9]{	\left[\begin{array}{rrr}
+     #1& #4& #7\\
+     #2& #5& #8\\
+     #3& #6& #9\\
+    \end{array}\right]}
+
+\newcommand{\Mattf}[8]{\left[\begin{array}{rrrr}
+     #1& #2& #3 & #4\\
+     #5& #6& #7 & #8\\
+    \end{array}\right]}
+
+
+\newcommand{\bigBracett}[4]{\left\{\begin{array}{ll}
+     #1& #2\\
+     #3& #4\\
+    \end{array}\right.}
