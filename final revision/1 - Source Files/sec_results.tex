@@ -71,10 +71,12 @@ The time required for using the kernel observer is significantly less than retra
     {
     \includegraphics[width=0.45\columnwidth]{Figure 9a.pdf}
     \label{fig:kobs_small}}
-     \subfloat[Heuristic vs. random]
-     {\includegraphics[width=0.45\columnwidth]{Figure 9b.pdf}
-     \label{fig:sample_observability}}  
-    \caption{Kernel observability results.}
+
+	\subfloat[Heuristic vs. random]
+	{\includegraphics[width=0.45\columnwidth]{Figure 9b.pdf}
+	\label{fig:sample_observability}}
+
+	\caption{Kernel observability results.}
 \end{figure} 
 
 
@@ -253,15 +255,15 @@ In order to empirically verify our theoretical results, we compared the eigenval
 		\includegraphics[width=0.30\textwidth]{Figure 16k}		}
 	\subfloat[12$^\circ$, imaginary component]{
 		\includegraphics[width=0.30\textwidth]{Figure 16l}		}
-	\caption{Primary Koopman Modes, Re=100. (a-f) E-GP, (g-l) DMD}
+	\caption{Primary Koopman Modes of a flow past a cylinder at Reynolds number 100. (a-f) E-GP, (g-l) DMD}
 	\label{fig:cfd_100_modes}
 \end{figure*}
 
-\begin{figure*}[h]
+\begin{figure}[!h]
 	\centering
 	\subfloat[Re=100]{
 		\includegraphics[width=0.48\textwidth]{Figure 17a}		}
-	\subfloat[Re=300]{
+	\subfloat[Re=300{
 		\includegraphics[width=0.48\textwidth]{Figure 17b}		}\\
 	\subfloat[Re=600]{
 		\includegraphics[width=0.48\textwidth]{Figure 17c}		}
@@ -269,8 +271,8 @@ In order to empirically verify our theoretical results, we compared the eigenval
 		\includegraphics[width=0.48\textwidth]{Figure 17d}		}\\
 	\subfloat[Re=1000]{
 		\includegraphics[width=0.48\textwidth]{Figure 17e}		}
-	\caption{Eigenvalue Comparison}
+	\caption{Eigenvalue Comparison between E-GP and DMD at different Reynolds numbers}
 	\label{fig:eigenvalues}
-\end{figure*}
+\end{figure}
 
 

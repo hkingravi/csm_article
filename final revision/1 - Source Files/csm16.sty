@@ -120,7 +120,8 @@
 \makeatother
 
 % add brackets for sufigure references using subcaption -> Figure 2(a) 
-\usepackage{subcaption}
+%\usepackage{subcaption}
+\usepackage[labelformat=simple]{subcaption} % use this to get rid of double parenthesis in sub-captions 
 \renewcommand\thesubfigure{(\alph{subfigure})}
 %for subflaot package uses this instead
 %\renewcommand*\thesubfloatfigure{\themainfigure(\alph{subfloatfigure})}
