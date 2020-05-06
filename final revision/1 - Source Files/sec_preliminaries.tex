@@ -1,4 +1,4 @@
-\vspace{-0.1in}
+
 \subsection{Problem Formulation}\label{sec:formulation}
 We focus on predictive inference of a time-varying stochastic process, whose mean $f$ evolves temporally via $f_{\tindex+1} \sim \mathbb{F}(f_{\tindex},\eta_{\tindex})$, where $\mathbb{F}$ is a distribution varying with time $\tindex$ and exogenous inputs $\eta$. Our approach builds on the fact that in several cases, temporal evolution can be hierarchically separated from spatial functional evolution. A classical and quite general example of this is the \emph{abstract evolution equation} (AEO), which can be defined as the evolution of a function $\banachfunc$ embedded in a Banach space $\banachspace$: $\dot{\banachfunc}(t) = \banachop\banachfunc(t)$, subject to $\banachfunc(0)= \banachfunc_0$, and $\banachop:\banachspace\to\banachspace$ determines spatiotemporal transitions of $\banachfunc\in\banachspace$ \cite{brezis2010functional}. This model of spatiotemporal evolution is very general (AEOs, for example, model many PDEs), but working in Banach spaces can be computationally taxing.  A simple way to make the approach computationally feasible is to place restrictions on $\banachspace$: in particular, we restrict the sequence $f_{\tindex}$ to lie in a Reproducing Kernel Hilbert Space (RKHS), the theory of which provides powerful tools for generating flexible classes of functions with relative ease \cite{RasmussenWilliams2005}.
 In a kernel-based model, $\kernel:\dom\times\dom\to\R$ is a positive-definite Mercer kernel on a domain $\dom$ that models the covariance between any two points in the input space,  
@@ -121,7 +121,6 @@ $\fmapApprox(x) := \left[\begin{smallmatrix}
 	}
 	
 	\caption{Commutative diagrams between primal and dual spaces}
-	\vspace{-0.2in}
 	\label{fig:commute_sysop}
 \end{figure}
 
@@ -130,7 +129,7 @@ $\fmapApprox(x) := \left[\begin{smallmatrix}
 In the approximate space case, we replace the transition operator $\sysop:\fspace\to\fspace$ in \eqref{ideal_lin_evol} by $\sysopApprox:\fspaceApprox\to\fspaceApprox$.
 This approximate regime, which combines the flexibility of a truly nonparametric approach with computational realizability, still allows for the representation of rich phenomena, as will be seen in the sequel, and in Figure \ref{fig:kernel_variation}. 
 The finite-dimensional evolution equations approximating \eqref{ideal_lin_evol} in dual form are:
-\vspace{-0.05in}
+
 \begin{align} \eqlabel{k_measure}
  \weight_{\tindex+1} = \dualopApprox\weight_{\tindex} + \processnoise_{\tindex}, \quad 
  \meas_{\tindex} = \obsMat \weight_{\tindex} +\measnoise_{\tindex},
