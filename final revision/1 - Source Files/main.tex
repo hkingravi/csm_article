@@ -96,7 +96,7 @@
 
 \usepackage[nolists,tablesfirst,nomarkers]{endfloat}
 
-
+%\captionsetup[subfigure]{aboveskip=-4pt}
  
  
  
@@ -2016,9 +2016,8 @@ The time required for using the kernel observer is significantly less than retra
 		\includegraphics[width=\linewidth]{"Figure 10a"} \label{fig:intel_boxplots}
 		\caption{Error (boxplot)}
 	\end{subfigure}
-	
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 10b"} \label{fig:intel_comp}}
+		\includegraphics[width=\linewidth]{"Figure 10b"} \label{fig:intel_comp}
 		\caption{Error (time-series)}
 	\end{subfigure}
 	\caption{Comparison of kernel observer to PCLSK and LEIS methods on Intel Berkeley dataset.}     \label{intel}
@@ -2031,69 +2030,95 @@ The time required for using the kernel observer is significantly less than retra
 		\caption{Error (boxplot)}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=0.48\columnwidth]{Figure 11b} \label{fig:irish_comp} }
+		\includegraphics[width=\linewidth]{Figure 11b} \label{fig:irish_comp}
 		\caption{Error (time-series)}
 	\end{subfigure}
 	\caption{Comparison of kernel observer to PCLSK and LEIS methods on Irish Wind dataset.}\label{irish}
 \end{minipage}\\
 
 \begin{minipage}{0.8\textwidth}
-	
-		\subfloat[Error (boxplot)]{
-		\includegraphics[width=0.48\columnwidth]{"Figure 12a"} \label{fig:ozone_boxplots} }
-		\subfloat[Error (time-series)]{
-			\includegraphics[width=0.48\columnwidth]{"Figure 12b"} \label{fig:ozone_comp} }
-		\caption{Comparison of kernel observer to PCLSK and LEIS methods on Ozone dataset.}\label{ozone}
+	\begin{subfigure}[t]{0.48\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 12a"} \label{fig:ozone_boxplots}
+		\caption{Error (boxplot)}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.48\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 12b"} \label{fig:ozone_comp}
+		\caption{Error (time-series)}
+	\end{subfigure}
+	\caption{Comparison of kernel observer to PCLSK and LEIS methods on Ozone dataset.}\label{ozone}
 \end{minipage}
 \end{figure}
 
 
 \begin{figure}
 	\centering
-	\subfloat[Raw Satellite Data]{
-	\includegraphics[width=0.4\columnwidth]{"Figure 13a"}
-	\label{fig:Rawpathfinder} }
-	\subfloat[AKO estimate]{
-	\includegraphics[width=0.4\columnwidth]{"Figure 13b"}
-	\label{fig:pathfinder} }
-	
-	\subfloat[Error-day (time-series)]{
-		\includegraphics[width=0.4\columnwidth]{"Figure 13c"} \label{fig:time_series_day} }
-	\subfloat[Error-night (time-series)]{
-		\includegraphics[width=0.4\columnwidth]{"Figure 13d"} \label{fig:time_series_night} }
-	 %pathfinder_errors_boxplot_2012_all_models_night.pdf
-	 
-	\subfloat[Error-day (box-plot)]{
-		\includegraphics[width=0.4\columnwidth]{"Figure 13e"} \label{fig:pathfinder_errors_boxplots_day} }
-	\subfloat[Error-night (box-plot)]{
-		\includegraphics[width=0.4\columnwidth]{"Figure 13f"} \label{fig:pathfinder_errors_boxplots} }
-		
-	\subfloat[Estimation time (day)]
-	{
-		\includegraphics[width=0.4\columnwidth]{"Figure 13g"} \label{fig:pathfinder_tr_times_boxplots_day}}
-	\subfloat[Estimation time (night)]
-	{
-		\includegraphics[width=0.4\columnwidth]{"Figure 13h"} \label{fig:pathfinder_tr_times_boxplots_night}}
-		
+	\captionsetup[subfigure]{aboveskip = -12pt}
+	\begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13a"}
+		\label{fig:Rawpathfinder}
+		\caption{Raw Satellite Data}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13b"}
+		\label{fig:pathfinder}
+		\caption{AKO estimate}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13c"}
+		\label{fig:time_series_day}
+		\caption{Error-day (time-series)}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.42\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13d"}
+		\label{fig:time_series_night}
+	 	\caption{Error-night (time-series)}
+	\end{subfigure}
+	 \begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13e"}
+		\label{fig:pathfinder_errors_boxplots_day}
+		\caption{Error-day (box-plot)}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13f"}
+		\label{fig:pathfinder_errors_boxplots}
+		\caption{Error-night (box-plot)}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13g"}
+		\label{fig:pathfinder_tr_times_boxplots_day}
+		\caption{Estimation time (day)}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.41\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 13h"}
+		\label{fig:pathfinder_tr_times_boxplots_night}
+		\caption{Estimation time (night)}
+	\end{subfigure}	
 	\caption{Performance of the kernel observer over AVVHR satellite 2012 data with different numbers of observation locations.}
 \end{figure}
 
 \begin{figure*}
-    \centering
-    \hspace{-0.3in}\subfloat[6th May]{
-	\includegraphics[scale=0.39]{"Figure 14a"}
-	\label{fig:May6 } }
-	\hspace{-0.5in}
-	\subfloat[7th May]{
-	\includegraphics[scale=0.39]{"Figure 14b"}
-	\label{fig:May7 } }
-	\hspace{-0.5in}
-	\subfloat[28th May]{
-	\includegraphics[scale=0.39]{"Figure 14c"}
-	\label{fig:May28 } }
-	\hspace{-0.5in}\subfloat[29th May]{
-	\includegraphics[scale=0.39]{"Figure 14d"}
-	\label{fig:May29 } }
+    	\centering
+	\captionsetup[subfigure]{aboveskip = -12pt}
+    	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 14a"}
+		\label{fig:May6 }
+		\caption{6th May}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 14b"}
+		\label{fig:May7}
+		\caption{7th May}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 14c"}
+		\label{fig:May28}
+		\caption{28th May}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\linewidth]{"Figure 14d"}
+		\label{fig:May29}
+		\caption{29th May}
+	\end{subfigure}
 	\caption{Locations of weather anomaly obtained based on the error between the acutual temperature and the prediction of autonomous kernel observer. Landmass is shown in white and the ocean is in green. Locations marked have error greater than two standard deviations above the mean error. }
 	\label{fig:anomaly}
 \end{figure*}
@@ -2131,7 +2156,7 @@ The main challenge with weeding robots is that they only have access to sparse d
 
 We used Radial Basis Function (RBF) kernels with a bandwidth approximately 5 cells (4.5 meters) wide. These were centered throughout the domain using the algorithm in \cite{csato2001sparse}. After training a GP on each snapshot of the data, we obtained a weight vector trajectory. We used linear least squares do determine the best linear transition in the weight space for this trajectory. Below we have included images of system as predicted by feeding forward the initial condition through this linear transition, as a comparison with the original data. The model is able to approximate the weed density growth data very well, with percent error averaging 5\%. These results show the feasibility of modeling weed growth using E-GPs. Ongoing work involves a massive field campaign to collect the weed density data required to learn these models. Such datasets are currently not available, and the TerraSentia robots discussed in Sidebar: Key control problems in agriculture are being used to collect this data.
 
-\begin{figure*}[h] %{r}{0.5\textwidth}
+\begin{figure*}[h]
 	\centering
 	\subfloat[Snapshot 2]{
 		\includegraphics[width=0.23\textwidth]{"Figure 15a"}		}
