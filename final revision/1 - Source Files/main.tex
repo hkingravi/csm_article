@@ -67,7 +67,7 @@
  
 
  \usetikzlibrary{automata}
- \usetikzlibrary{arrows,snakes,backgrounds}
+ \usetikzlibrary{arrows,decorations,backgrounds}
  \tikzstyle{ball} = [circle,shading=ball, ball color=black!80!white,
      minimum size=1cm]
  \tikzstyle{ball2} = [circle,shading=ball, ball color=red!80!white,
@@ -2013,12 +2013,14 @@ The time required for using the kernel observer is significantly less than retra
 \begin{minipage}{0.8\textwidth}
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 10a"} \label{fig:intel_boxplots}
+		\includegraphics[width=\linewidth]{"Figure 10a"}
 		\caption{Error (boxplot)}
+		\label{fig:intel_boxplots}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 10b"} \label{fig:intel_comp}
+		\includegraphics[width=\linewidth]{"Figure 10b"}
 		\caption{Error (time-series)}
+		\label{fig:intel_comp}
 	\end{subfigure}
 	\caption{Comparison of kernel observer to PCLSK and LEIS methods on Intel Berkeley dataset.}     \label{intel}
 \end{minipage}\\
@@ -2026,24 +2028,28 @@ The time required for using the kernel observer is significantly less than retra
 \begin{minipage}{0.8\textwidth}
 	
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 11a"} \label{fig:irish_boxplots}
+		\includegraphics[width=\linewidth]{"Figure 11a"} 
 		\caption{Error (boxplot)}
+		\label{fig:irish_boxplots}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{Figure 11b} \label{fig:irish_comp}
+		\includegraphics[width=\linewidth]{Figure 11b} 
 		\caption{Error (time-series)}
+		\label{fig:irish_comp}
 	\end{subfigure}
 	\caption{Comparison of kernel observer to PCLSK and LEIS methods on Irish Wind dataset.}\label{irish}
 \end{minipage}\\
 
 \begin{minipage}{0.8\textwidth}
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 12a"} \label{fig:ozone_boxplots}
+		\includegraphics[width=\linewidth]{"Figure 12a"}
 		\caption{Error (boxplot)}
+		\label{fig:ozone_boxplots}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 12b"} \label{fig:ozone_comp}
+		\includegraphics[width=\linewidth]{"Figure 12b"}
 		\caption{Error (time-series)}
+		\label{fig:ozone_comp}
 	\end{subfigure}
 	\caption{Comparison of kernel observer to PCLSK and LEIS methods on Ozone dataset.}\label{ozone}
 \end{minipage}
@@ -2052,72 +2058,72 @@ The time required for using the kernel observer is significantly less than retra
 
 \begin{figure}
 	\centering
-	\captionsetup[subfigure]{aboveskip = -12pt}
-	\begin{subfigure}[t]{0.41\textwidth}
+%	\captionsetup[subfigure]{aboveskip = -12pt}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13a"}
-		\label{fig:Rawpathfinder}
 		\caption{Raw Satellite Data}
+		\label{fig:Rawpathfinder}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.41\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13b"}
-		\label{fig:pathfinder}
 		\caption{AKO estimate}
+		\label{fig:pathfinder}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.41\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13c"}
-		\label{fig:time_series_day}
 		\caption{Error-day (time-series)}
+		\label{fig:time_series_day}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.42\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13d"}
-		\label{fig:time_series_night}
 	 	\caption{Error-night (time-series)}
+		\label{fig:time_series_night}
 	\end{subfigure}
-	 \begin{subfigure}[t]{0.41\textwidth}
+	 \begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13e"}
-		\label{fig:pathfinder_errors_boxplots_day}
 		\caption{Error-day (box-plot)}
+		\label{fig:pathfinder_errors_boxplots_day}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.41\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13f"}
-		\label{fig:pathfinder_errors_boxplots}
 		\caption{Error-night (box-plot)}
+		\label{fig:pathfinder_errors_boxplots}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.41\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13g"}
-		\label{fig:pathfinder_tr_times_boxplots_day}
 		\caption{Estimation time (day)}
+		\label{fig:pathfinder_tr_times_boxplots_day}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.41\textwidth}
+	\begin{subfigure}[t]{0.4\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 13h"}
-		\label{fig:pathfinder_tr_times_boxplots_night}
 		\caption{Estimation time (night)}
+		\label{fig:pathfinder_tr_times_boxplots_night}
 	\end{subfigure}	
 	\caption{Performance of the kernel observer over AVVHR satellite 2012 data with different numbers of observation locations.}
 \end{figure}
 
 \begin{figure*}
     	\centering
-	\captionsetup[subfigure]{aboveskip = -12pt}
+	%\captionsetup[subfigure]{aboveskip = -12pt}
     	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 14a"}
-		\label{fig:May6 }
 		\caption{6th May}
+		\label{fig:May6}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 14b"}
-		\label{fig:May7}
 		\caption{7th May}
+		\label{fig:May7}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 14c"}
-		\label{fig:May28}
 		\caption{28th May}
+		\label{fig:May28}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\linewidth]{"Figure 14d"}
-		\label{fig:May29}
 		\caption{29th May}
+		\label{fig:May29}
 	\end{subfigure}
 	\caption{Locations of weather anomaly obtained based on the error between the acutual temperature and the prediction of autonomous kernel observer. Landmass is shown in white and the ocean is in green. Locations marked have error greater than two standard deviations above the mean error. }
 	\label{fig:anomaly}
@@ -2702,14 +2708,14 @@ To approach the challenge of generalizing across similar spatiotemporally evolvi
 \begin{figure*}[h] %{r}{0.5\textwidth}
 	\centering
 	\begin{subfigure}[t]{0.7\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S8a"}
-		\label{fig:errors}	
+		\includegraphics[width=\linewidth]{"Figure S8a"}	
 		\caption{Universal Generalizer vs Individual Models}
+		\label{fig:errors}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.6\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S8b"}
-		\label{fig:errors_boxplot}	
+		\includegraphics[width=\linewidth]{"Figure S8b"}	
 		\caption{Different Models Tested on Re=800}
+		\label{fig:errors_boxplot}
 	\end{subfigure}
 	\caption{Total Percentage Errors}
 \end{figure*}
@@ -2725,21 +2731,21 @@ By marking which kernel centers are associated with different invariant subspace
 
 \begin{figure*}[h]
 	\centering
-	\captionsetup[subfigure]{aboveskip = -12pt}
+	%\captionsetup[subfigure]{aboveskip = -12pt}
 	\begin{subfigure}[t]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{"Figure S9a"}
-		\label{fig:eigen100}
 		\caption{Re = 100, $\varepsilon$ = 0.005}
+		\label{fig:eigen100}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{"Figure S9b"}
-		\label{fig:eigen1000}
 		\caption{Re = 1000, $\varepsilon$ = 0.05}
+		\label{fig:eigen1000}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.5\textwidth}
 		\includegraphics[width=\linewidth]{"Figure S9c"}
-		\label{fig:eigenall}
 		\caption{All Reynolds numbers, $\varepsilon$ =0.069}
+		\label{fig:eigenall}
 	\end{subfigure}
 	\caption{Eigenvector Heat Maps}
 \end{figure*}
@@ -2767,18 +2773,18 @@ By marking which kernel centers are associated with different invariant subspace
 	\centering
 	\begin{subfigure}[t]{0.7\textwidth}
 		\includegraphics[width=\linewidth]{"Figure S11a.pdf"}
-		\label{fig:haystack100}
 		\caption{Re=100}
+		\label{fig:haystack100}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.7\textwidth}
 		\includegraphics[width=\linewidth]{"Figure S11b.pdf"}
-		\label{fig:haystack1000}
 		\caption{Re=1000}
+		\label{fig:haystack1000}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.6\textwidth}
 		\includegraphics[width=\linewidth]{"Figure S11c.pdf"}
-		\label{fig:haystackall}	
 		\caption{Trained on all 5 datasets}
+		\label{fig:haystackall}	
 	\end{subfigure}
 	\caption{Visualization of Co-Relations in Transition Matrix}
 \end{figure*}
