@@ -838,11 +838,11 @@ The advantage of this approach is that it allows us to utilize powerful ideas fr
 \begin{figure}
 	\centering
 	\begin{subfigure}[t]{0.49\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 4a.pdf"}
+		\includegraphics[width=\linewidth]{"Figure 4a"}
 		\caption{1-shaded (Def. \ref{def:shaded})} \label{fig:shadeda}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.49\textwidth}
-		\includegraphics[width=\linewidth]{"Figure 4b.pdf"} 
+		\includegraphics[width=\linewidth]{"Figure 4b"} 
 		\caption{2-shaded (Eq. \eqref{empKShadFull})} \label{fig:shadedb}
 	\end{subfigure}
 	\caption{Shaded observation matrices for dictionary of atoms. Each row represents a sensing location with the color map indicating the evaluation of kernel function w.r.t the others points in the domain.}
@@ -854,15 +854,15 @@ The advantage of this approach is that it allows us to utilize powerful ideas fr
 \begin{figure}[t]
 \centering
 \begin{subfigure}[t]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{"Figure 5a.pdf"}
+	\includegraphics[width=\linewidth]{"Figure 5a"}
 	\caption{Gaussian}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{"Figure 5b.pdf"}
+	\includegraphics[width=\linewidth]{"Figure 5b"}
 	\caption{Laplacian}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
-	\includegraphics[width=\linewidth]{"Figure 5c.pdf"}
+	\includegraphics[width=\linewidth]{"Figure 5c"}
 	\caption{Periodic}
 \end{subfigure}
 \caption{One-dimensional function evolution over a fixed transition matrix $A$, 
@@ -1407,7 +1407,7 @@ Unfortunately, the measurement map $\measmap$, being an abstract construction un
 	k_{12}\\
 	\vdots\\
 	k_{\minmeas 2}
-	\end{bmatrix}
+	\end{bmatrix} 
 	+ \cdots + 
 	c_{\minmeas-1} 
 	\begin{bmatrix}
@@ -1504,24 +1504,24 @@ This heuristic is formalized in Algorithm 2. Note that in practice, the matrix $
   \node[inner sep=0pt,label=below:{\tiny Physical 
                                   sampling locations},draw] (physical) at (-8,-0.3)
     {\includegraphics[width=0.18\textwidth,
-                      height=0.08\textwidth]{"Figure 7a.png"}};
+                      height=0.08\textwidth]{"Figure 7a"}};
   \node[inner sep=0pt,label=below:{\tiny Data locations},draw] (data) at (-4.25,-0.3)
     {\includegraphics[width=0.18\textwidth,
-                      height=0.08\textwidth]{"Figure 7b.pdf"}};
+                      height=0.08\textwidth]{"Figure 7b"}};
   \node[inner sep=0pt,label=below:{\tiny Functional inference 
                                    (for $\estsysop$)},draw] (inference) at (-0.5,-0.3)
     {\includegraphics[trim=2.4cm 2.6cm 3.4cm 1.5cm,clip,
                       width=0.18\textwidth,
-                      height=0.08\textwidth]{"Figure 7c.pdf"}};    
+                      height=0.08\textwidth]{"Figure 7c"}};    
   \node[inner sep=0pt,label={[align=center]
        below:{\tiny Sensor location selection after\\[-1.7\jot]
               \tiny basis decomposition ($\minmeas=3$)}},draw] 
        (sensors) at (3.25,-0.3)
        {\includegraphics[width=0.18\textwidth,
-                         height=0.08\textwidth]{"Figure 7d.pdf"}};                          
+                         height=0.08\textwidth]{"Figure 7d"}};                          
   \node[inner sep=0pt,label=below:{\tiny Physical sensor placement},draw] (placement) at (6.75,-0.3)
     {\includegraphics[width=0.18\textwidth,
-                      height=0.08\textwidth]{"Figure 7e.png"}};                                                
+                      height=0.08\textwidth]{"Figure 7e"}};                                                
   \path[every node/.style={font=\sffamily\small}]
     (physical) edge node [right] {} (data)
     (data) edge node [right] {} (inference)
@@ -1993,13 +1993,13 @@ The time required for using the kernel observer is significantly less than retra
 \begin{figure}
 \centering
 \begin{subfigure}[t]{0.48\textwidth}
-	\includegraphics[width=\linewidth]{"Figure 9a.pdf"}
+	\includegraphics[width=\linewidth]{"Figure 9a"}
 	\caption{Shaded vs. observability}
     	\label{fig:kobs_small}
 \end{subfigure}
 
 \begin{subfigure}[t]{0.48\textwidth}
-	\includegraphics[width=\linewidth]{"Figure 9b.pdf"}
+	\includegraphics[width=\linewidth]{"Figure 9b"}
 	\caption{Heuristic vs. random}
 	\label{fig:sample_observability}
 \end{subfigure}
@@ -2033,7 +2033,7 @@ The time required for using the kernel observer is significantly less than retra
 		\label{fig:irish_boxplots}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\linewidth]{Figure 11b} 
+		\includegraphics[width=\linewidth]{"Figure 11b"} 
 		\caption{Error (time-series)}
 		\label{fig:irish_comp}
 	\end{subfigure}
@@ -2551,12 +2551,12 @@ these models generate, to restrict certain forms of output, and to shape decisio
 \begin{figure}
 \centering
 	\begin{subfigure}[t]{0.35\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S3a.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S3a"}
 		\label{fig:linsep_data}
 		\caption{Data from classes $A$ and $B$.}
 	\end{subfigure}
   	\begin{subfigure}[t]{0.35\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S3b.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S3b"}
 		\label{fig:lin_sep_bound}
 		\caption{Linear boundary separating data.}
 	\end{subfigure}
@@ -2567,12 +2567,12 @@ these models generate, to restrict certain forms of output, and to shape decisio
 \begin{figure}
 \centering
 	\begin{subfigure}[t]{0.35\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S4a.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S4a"}
 		\label{fig:nlinsep_data}
 		\caption{Data from classes $A$ and $B$.}
 	\end{subfigure}
     	\begin{subfigure}[t]{0.35\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S4b.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S4b"}
 		\label{fig:nlin_sep_bound}
 		\caption{Linear boundary fails to separate data.}
 	\end{subfigure}
@@ -2584,12 +2584,12 @@ these models generate, to restrict certain forms of output, and to shape decisio
 \begin{figure}
 \centering
 	\begin{subfigure}[t]{0.45\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S5a.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S5a"}
 		\label{fig:fmapped_data}
 		\caption{Nonlinear mapping of data.}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.45\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S5b.jpg"}
+		\includegraphics[width=\linewidth]{"Figure S5b"}
 		\label{fig:fmapped_bound}
 		\caption{Linear boundary in new space.}
 	\end{subfigure}
@@ -2772,17 +2772,17 @@ By marking which kernel centers are associated with different invariant subspace
 \begin{figure*}[h]
 	\centering
 	\begin{subfigure}[t]{0.7\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S11a.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S11a"}
 		\caption{Re=100}
 		\label{fig:haystack100}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.7\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S11b.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S11b"}
 		\caption{Re=1000}
 		\label{fig:haystack1000}
 	\end{subfigure}
 	\begin{subfigure}[t]{0.6\textwidth}
-		\includegraphics[width=\linewidth]{"Figure S11c.pdf"}
+		\includegraphics[width=\linewidth]{"Figure S11c"}
 		\caption{Trained on all 5 datasets}
 		\label{fig:haystackall}	
 	\end{subfigure}
